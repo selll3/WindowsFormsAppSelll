@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hastalar));
             this._HastalariListele_button = new System.Windows.Forms.Button();
             this._Sil_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
@@ -50,11 +51,11 @@
             // 
             this._HastalariListele_button.BackColor = System.Drawing.Color.Aquamarine;
             this._HastalariListele_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._HastalariListele_button.Location = new System.Drawing.Point(624, 600);
+            this._HastalariListele_button.Location = new System.Drawing.Point(749, 600);
             this._HastalariListele_button.Name = "_HastalariListele_button";
             this._HastalariListele_button.Size = new System.Drawing.Size(149, 47);
             this._HastalariListele_button.TabIndex = 0;
-            this._HastalariListele_button.Text = "Hastaları Listele";
+            this._HastalariListele_button.Text = "LİSTELE";
             this._HastalariListele_button.UseVisualStyleBackColor = false;
             this._HastalariListele_button.Click += new System.EventHandler(this._HastalariListele_button_Click);
             // 
@@ -66,7 +67,7 @@
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(100, 47);
             this._Sil_button.TabIndex = 2;
-            this._Sil_button.Text = "Sil";
+            this._Sil_button.Text = "SİL";
             this._Sil_button.UseVisualStyleBackColor = false;
             this._Sil_button.Click += new System.EventHandler(this._Sil_button_Click);
             // 
@@ -74,7 +75,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(313, 600);
+            this._Vazgec_button.Location = new System.Drawing.Point(469, 600);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(107, 47);
             this._Vazgec_button.TabIndex = 20;
@@ -86,7 +87,7 @@
             // 
             this._Hastalar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Hastalar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._Hastalar_dataGridView.Location = new System.Drawing.Point(39, 187);
+            this._Hastalar_dataGridView.Location = new System.Drawing.Point(39, 169);
             this._Hastalar_dataGridView.Name = "_Hastalar_dataGridView";
             this._Hastalar_dataGridView.RowHeadersWidth = 62;
             this._Hastalar_dataGridView.RowTemplate.Height = 28;
@@ -161,11 +162,11 @@
             // 
             // _Ekle_button
             // 
-            this._Ekle_button.BackColor = System.Drawing.Color.LimeGreen;
+            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Ekle_button.Location = new System.Drawing.Point(812, 600);
+            this._Ekle_button.Location = new System.Drawing.Point(622, 600);
             this._Ekle_button.Name = "_Ekle_button";
-            this._Ekle_button.Size = new System.Drawing.Size(86, 47);
+            this._Ekle_button.Size = new System.Drawing.Size(93, 47);
             this._Ekle_button.TabIndex = 37;
             this._Ekle_button.Text = "EKLE";
             this._Ekle_button.UseVisualStyleBackColor = false;
@@ -173,7 +174,7 @@
             // 
             // _Kayıt_button
             // 
-            this._Kayıt_button.Location = new System.Drawing.Point(467, 600);
+            this._Kayıt_button.Location = new System.Drawing.Point(324, 600);
             this._Kayıt_button.Name = "_Kayıt_button";
             this._Kayıt_button.Size = new System.Drawing.Size(103, 47);
             this._Kayıt_button.TabIndex = 41;
@@ -183,7 +184,7 @@
             // 
             // _Hastalar_numericUpDown
             // 
-            this._Hastalar_numericUpDown.Location = new System.Drawing.Point(812, 45);
+            this._Hastalar_numericUpDown.Location = new System.Drawing.Point(837, 26);
             this._Hastalar_numericUpDown.Name = "_Hastalar_numericUpDown";
             this._Hastalar_numericUpDown.Size = new System.Drawing.Size(61, 26);
             this._Hastalar_numericUpDown.TabIndex = 42;
@@ -193,8 +194,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::WindowsFormsAppSelll.Properties.Resources.Green_Simple_Medical_Health_Logo__2_;
-            this.ClientSize = new System.Drawing.Size(952, 726);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(930, 707);
             this.ControlBox = false;
             this.Controls.Add(this._Hastalar_numericUpDown);
             this.Controls.Add(this._Kayıt_button);

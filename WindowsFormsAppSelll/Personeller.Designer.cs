@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Personeller));
             this._PersonelilListele_button = new System.Windows.Forms.Button();
             this._Sil_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
@@ -51,11 +52,11 @@
             // 
             this._PersonelilListele_button.BackColor = System.Drawing.Color.PaleTurquoise;
             this._PersonelilListele_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._PersonelilListele_button.Location = new System.Drawing.Point(794, 613);
+            this._PersonelilListele_button.Location = new System.Drawing.Point(794, 594);
             this._PersonelilListele_button.Name = "_PersonelilListele_button";
             this._PersonelilListele_button.Size = new System.Drawing.Size(169, 42);
             this._PersonelilListele_button.TabIndex = 0;
-            this._PersonelilListele_button.Text = "Personelleri Listele";
+            this._PersonelilListele_button.Text = "LİSTELE";
             this._PersonelilListele_button.UseVisualStyleBackColor = false;
             this._PersonelilListele_button.Click += new System.EventHandler(this._PersonelilListele_button_Click);
             // 
@@ -63,11 +64,11 @@
             // 
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Sil_button.Location = new System.Drawing.Point(185, 611);
+            this._Sil_button.Location = new System.Drawing.Point(34, 599);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(103, 39);
             this._Sil_button.TabIndex = 1;
-            this._Sil_button.Text = "Sil";
+            this._Sil_button.Text = "SİL";
             this._Sil_button.UseVisualStyleBackColor = false;
             this._Sil_button.Click += new System.EventHandler(this._Sil_button_Click);
             // 
@@ -75,9 +76,9 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(34, 614);
+            this._Vazgec_button.Location = new System.Drawing.Point(495, 595);
             this._Vazgec_button.Name = "_Vazgec_button";
-            this._Vazgec_button.Size = new System.Drawing.Size(103, 36);
+            this._Vazgec_button.Size = new System.Drawing.Size(103, 40);
             this._Vazgec_button.TabIndex = 20;
             this._Vazgec_button.Text = "VAZGEÇ";
             this._Vazgec_button.UseVisualStyleBackColor = false;
@@ -88,7 +89,7 @@
             this._Personeller_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Personeller_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Personeller_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._Personeller_dataGridView.Location = new System.Drawing.Point(34, 167);
+            this._Personeller_dataGridView.Location = new System.Drawing.Point(34, 168);
             this._Personeller_dataGridView.Name = "_Personeller_dataGridView";
             this._Personeller_dataGridView.RowHeadersWidth = 62;
             this._Personeller_dataGridView.RowTemplate.Height = 28;
@@ -100,9 +101,9 @@
             // 
             this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._GUNCELLE_button.Location = new System.Drawing.Point(339, 613);
+            this._GUNCELLE_button.Location = new System.Drawing.Point(175, 599);
             this._GUNCELLE_button.Name = "_GUNCELLE_button";
-            this._GUNCELLE_button.Size = new System.Drawing.Size(103, 39);
+            this._GUNCELLE_button.Size = new System.Drawing.Size(110, 39);
             this._GUNCELLE_button.TabIndex = 29;
             this._GUNCELLE_button.Text = "GÜNCELLE";
             this._GUNCELLE_button.UseVisualStyleBackColor = false;
@@ -111,7 +112,7 @@
             // _Gorevi_textBox
             // 
             this._Gorevi_textBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Gorevi_textBox.Location = new System.Drawing.Point(185, 123);
+            this._Gorevi_textBox.Location = new System.Drawing.Point(185, 117);
             this._Gorevi_textBox.Name = "_Gorevi_textBox";
             this._Gorevi_textBox.Size = new System.Drawing.Size(186, 26);
             this._Gorevi_textBox.TabIndex = 35;
@@ -119,7 +120,7 @@
             // _PersonelSoyadi_textBox
             // 
             this._PersonelSoyadi_textBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._PersonelSoyadi_textBox.Location = new System.Drawing.Point(185, 70);
+            this._PersonelSoyadi_textBox.Location = new System.Drawing.Point(185, 67);
             this._PersonelSoyadi_textBox.Name = "_PersonelSoyadi_textBox";
             this._PersonelSoyadi_textBox.Size = new System.Drawing.Size(170, 26);
             this._PersonelSoyadi_textBox.TabIndex = 34;
@@ -127,7 +128,7 @@
             // _PersonelAdi_textBox
             // 
             this._PersonelAdi_textBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._PersonelAdi_textBox.Location = new System.Drawing.Point(185, 12);
+            this._PersonelAdi_textBox.Location = new System.Drawing.Point(185, 19);
             this._PersonelAdi_textBox.Name = "_PersonelAdi_textBox";
             this._PersonelAdi_textBox.Size = new System.Drawing.Size(170, 26);
             this._PersonelAdi_textBox.TabIndex = 33;
@@ -135,7 +136,7 @@
             // _Gorevi_label
             // 
             this._Gorevi_label.AutoSize = true;
-            this._Gorevi_label.Location = new System.Drawing.Point(39, 129);
+            this._Gorevi_label.Location = new System.Drawing.Point(39, 117);
             this._Gorevi_label.Name = "_Gorevi_label";
             this._Gorevi_label.Size = new System.Drawing.Size(73, 20);
             this._Gorevi_label.TabIndex = 32;
@@ -144,7 +145,7 @@
             // _PersonelSoyadi_label
             // 
             this._PersonelSoyadi_label.AutoSize = true;
-            this._PersonelSoyadi_label.Location = new System.Drawing.Point(39, 76);
+            this._PersonelSoyadi_label.Location = new System.Drawing.Point(39, 70);
             this._PersonelSoyadi_label.Name = "_PersonelSoyadi_label";
             this._PersonelSoyadi_label.Size = new System.Drawing.Size(123, 20);
             this._PersonelSoyadi_label.TabIndex = 31;
@@ -153,7 +154,7 @@
             // _PersonelAdi_label
             // 
             this._PersonelAdi_label.AutoSize = true;
-            this._PersonelAdi_label.Location = new System.Drawing.Point(39, 25);
+            this._PersonelAdi_label.Location = new System.Drawing.Point(39, 19);
             this._PersonelAdi_label.Name = "_PersonelAdi_label";
             this._PersonelAdi_label.Size = new System.Drawing.Size(98, 20);
             this._PersonelAdi_label.TabIndex = 30;
@@ -163,7 +164,7 @@
             // 
             this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Ekle_button.Location = new System.Drawing.Point(652, 614);
+            this._Ekle_button.Location = new System.Drawing.Point(639, 596);
             this._Ekle_button.Name = "_Ekle_button";
             this._Ekle_button.Size = new System.Drawing.Size(103, 40);
             this._Ekle_button.TabIndex = 36;
@@ -173,7 +174,7 @@
             // 
             // _Kayıt_button
             // 
-            this._Kayıt_button.Location = new System.Drawing.Point(501, 614);
+            this._Kayıt_button.Location = new System.Drawing.Point(337, 595);
             this._Kayıt_button.Name = "_Kayıt_button";
             this._Kayıt_button.Size = new System.Drawing.Size(103, 39);
             this._Kayıt_button.TabIndex = 37;
@@ -183,7 +184,7 @@
             // 
             // _PERSONEL_numericUpDown
             // 
-            this._PERSONEL_numericUpDown.Location = new System.Drawing.Point(901, 19);
+            this._PERSONEL_numericUpDown.Location = new System.Drawing.Point(901, 23);
             this._PERSONEL_numericUpDown.Name = "_PERSONEL_numericUpDown";
             this._PERSONEL_numericUpDown.Size = new System.Drawing.Size(62, 26);
             this._PERSONEL_numericUpDown.TabIndex = 38;
@@ -191,7 +192,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(752, 19);
+            this.label1.Location = new System.Drawing.Point(790, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 39;
@@ -202,8 +203,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::WindowsFormsAppSelll.Properties.Resources.Green_Simple_Medical_Health_Logo__2_;
-            this.ClientSize = new System.Drawing.Size(1035, 702);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(995, 706);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this._PERSONEL_numericUpDown);
