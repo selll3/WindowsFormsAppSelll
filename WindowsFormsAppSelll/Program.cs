@@ -16,7 +16,7 @@ namespace WindowsFormsAppSelll
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Personeller());
+            Application.Run(new Randevular());
         }
     }
 }

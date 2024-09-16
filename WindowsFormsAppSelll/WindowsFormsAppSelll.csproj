@@ -64,23 +64,11 @@
     <Compile Include="Doktorlar.Designer.cs">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Doktor_ekle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Doktor_ekle.Designer.cs">
-      <DependentUpon>Doktor_ekle.cs</DependentUpon>
-    </Compile>
     <Compile Include="ENTITY\DOKTORLAR.cs" />
     <Compile Include="ENTITY\HASTALAR.cs" />
     <Compile Include="ENTITY\Hastanedb.cs" />
     <Compile Include="ENTITY\PERSONEL.cs" />
     <Compile Include="ENTITY\RANDEVULAR.cs" />
-    <Compile Include="Hasta_Ekle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hasta_Ekle.Designer.cs">
-      <DependentUpon>Hasta_Ekle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Hastalar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +81,6 @@
     <Compile Include="Personeller.Designer.cs">
       <DependentUpon>Personeller.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personel_ekle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Personel_ekle.Designer.cs">
-      <DependentUpon>Personel_ekle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Randevular.cs">
@@ -106,12 +88,6 @@
     </Compile>
     <Compile Include="Randevular.Designer.cs">
       <DependentUpon>Randevular.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Randevu_ekle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Randevu_ekle.Designer.cs">
-      <DependentUpon>Randevu_ekle.cs</DependentUpon>
     </Compile>
     <Compile Include="_HASTANEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -121,20 +97,11 @@
     <EmbeddedResource Include="Doktorlar.resx">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Doktor_ekle.resx">
-      <DependentUpon>Doktor_ekle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hasta_Ekle.resx">
-      <DependentUpon>Hasta_Ekle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Hastalar.resx">
       <DependentUpon>Hastalar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personeller.resx">
       <DependentUpon>Personeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Personel_ekle.resx">
-      <DependentUpon>Personel_ekle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,9 +115,6 @@
     </Compile>
     <EmbeddedResource Include="Randevular.resx">
       <DependentUpon>Randevular.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Randevu_ekle.resx">
-      <DependentUpon>Randevu_ekle.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

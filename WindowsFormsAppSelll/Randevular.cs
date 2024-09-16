@@ -17,17 +17,64 @@ namespace WindowsFormsAppSelll
         public Randevular()
         {
             InitializeComponent();
+            _Randevular_dataGridView.Visible = false;
 
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            verileriyükle();
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    control.Visible = false;
+                }
+                else if (control is NumericUpDown)
+                {
+                    control.Visible = false;
+                }
+                else if (control is Label)
+                {
+                    control.Visible = false;
+                }
+                else
+                {
+                    control.Visible = true;
+                }
+            }
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            string readQuery = "Select RANDEVUID,Randevu_Tarihi,Randevu_Saati,DOKTORID,Bulgu from RANDEVULAR ";
+            // İNNER JOİN İLE SORGU YAPIP ALABİLİRİZ DOKTOR ADI SOYADINI YA DA DİREKT DOKTORID
+            SqlDataAdapter sda = new SqlDataAdapter(readQuery, con);
+            SqlCommandBuilder cmd = new SqlCommandBuilder();
+            DataTable dta = new DataTable();
+            sda.Fill(dta);
+            _Randevular_dataGridView.DataSource = dta;
+
         }
 
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
         {
 
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            con.Open();
+            string updateQuery = "UPDATE RANDEVULAR SET Randevu_Tarihi=@RandevuTarihi,Randevu_Saati=@RandevuSaati,Bulgu=@Bulgu WHERE RANDEVUID=@RANDEVUID ";
+            SqlCommand cmd = new SqlCommand(updateQuery, con);
+            cmd.Parameters.AddWithValue("@RandevuTarihi", dateTimePicker1.Value.Date);
+            cmd.Parameters.AddWithValue("@RandevuSaati", dateTimePicker2.Value);
+            cmd.Parameters.AddWithValue("@Bulgu", _Bulgu_textBox.Text);
+            cmd.Parameters.AddWithValue("@RANDEVUID", _RANDEVULAR_numericUpDown.Value);
+
+            int count = cmd.ExecuteNonQuery();
+            con.Close();
+            if (count > 0)
+            {
+                MessageBox.Show("GÜNCELLEME BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("GÜNCELLEME BAŞARISIZ", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void _Vazgec_button_Click(object sender, EventArgs e)
@@ -64,6 +111,7 @@ namespace WindowsFormsAppSelll
                 {
                     control.Visible = true;
                 }
+
             }
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
             string readQuery = "Select RANDEVUID,Randevu_Tarihi,Randevu_Saati,DOKTORID,Bulgu from RANDEVULAR ";
@@ -101,6 +149,120 @@ namespace WindowsFormsAppSelll
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
             verileriyükle();
+        }
+
+        private void _DoktorBilgisi_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _Ekle_button_Click(object sender, EventArgs e)
+        {
+            bool isAnyEmpty = false;
+            foreach (Control control in this.Controls)
+            {
+                // Sadece TextBox'ları kontrol et
+                if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
+                {
+                    isAnyEmpty = true;
+                    break;
+                }
+            }
+            if (isAnyEmpty)
+            {
+                MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // // RANDEVULAR rdv = new RANDEVULAR();
+                //  //rdv.Randevu_Tarihi =_RandevuTarihi_textBox.Text ;
+                // // rdv.Randevu_Saati = _RandevuSaati_textBox.Text;
+                //// rdv.Bulgu =_Bulgu_textBox.Text ;
+                //// Convert.ToDateTime
+
+                //  Hastanedb dbr = new Hastanedb();
+
+                //  dbr.RANDEVULAR.Add(rdv);
+                //  dbr.SaveChanges();
+
+
+                SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+                string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid) ";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                SqlCommand bilg = new SqlCommand(insertQuery, con);
+
+                cmd.Parameters.AddWithValue("@RandevuTarihi", dateTimePicker1.Value.Date);
+                cmd.Parameters.AddWithValue("@RandevuSaati", dateTimePicker2.Value);
+                cmd.Parameters.AddWithValue("@bulgu", _Bulgu_textBox.Text);
+                cmd.Parameters.AddWithValue("@Doktorid", comboBox1.SelectedValue);
+                //date time picker
+
+                int count = cmd.ExecuteNonQuery();
+                con.Close();
+                if (count > 0)
+                {
+                    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+        private void FillComboSeachCode()
+        {
+            comboBox1.Items.Clear();
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            con.Open();
+            SqlCommand Komut = new SqlCommand();
+            Komut = con.CreateCommand();
+            Komut.CommandType = CommandType.Text;
+            Komut.CommandText = "Select DOKTORID, DoktorAdi +' ' + DoktorSoyadi as ADSOYAD  from DOKTORLAR";
+            Komut.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(Komut);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
+
+
+                comboBox1.DataSource = dt;
+                comboBox1.ValueMember = "DOKTORID";
+                comboBox1.DisplayMember = "ADSOYAD";
+
+            }
+            con.Close();
+
+
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Randevular_Load(object sender, EventArgs e)
+        {
+            FillComboSeachCode();
+        }
+
+        private void _Kayıt_button_Click(object sender, EventArgs e)
+        {
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is DataGridView)
+                {
+                    control.Visible = false;
+                }
+                else
+                {
+                    control.Visible = true;
+                }
+
+            }
         }
     }
 }
