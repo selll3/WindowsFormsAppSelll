@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="doktorekle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="doktorekle.Designer.cs">
+      <DependentUpon>doktorekle.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoktorGuncelle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_HASTANEDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="doktorekle.resx">
+      <DependentUpon>doktorekle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoktorGuncelle.resx">
       <DependentUpon>DoktorGuncelle.cs</DependentUpon>
     </EmbeddedResource>

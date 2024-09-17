@@ -41,8 +41,8 @@
             this._HastaSoyadi_label = new System.Windows.Forms.Label();
             this._HastaAdi_label = new System.Windows.Forms.Label();
             this._Ekle_button = new System.Windows.Forms.Button();
-            this._Kayıt_button = new System.Windows.Forms.Button();
             this._Hastalar_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this._Kayıt_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._Hastalar_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Hastalar_numericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +172,13 @@
             this._Ekle_button.UseVisualStyleBackColor = false;
             this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
             // 
+            // _Hastalar_numericUpDown
+            // 
+            this._Hastalar_numericUpDown.Location = new System.Drawing.Point(837, 26);
+            this._Hastalar_numericUpDown.Name = "_Hastalar_numericUpDown";
+            this._Hastalar_numericUpDown.Size = new System.Drawing.Size(61, 26);
+            this._Hastalar_numericUpDown.TabIndex = 42;
+            // 
             // _Kayıt_button
             // 
             this._Kayıt_button.Location = new System.Drawing.Point(324, 600);
@@ -182,20 +189,13 @@
             this._Kayıt_button.UseVisualStyleBackColor = true;
             this._Kayıt_button.Click += new System.EventHandler(this._Kayıt_button_Click);
             // 
-            // _Hastalar_numericUpDown
-            // 
-            this._Hastalar_numericUpDown.Location = new System.Drawing.Point(837, 26);
-            this._Hastalar_numericUpDown.Name = "_Hastalar_numericUpDown";
-            this._Hastalar_numericUpDown.Size = new System.Drawing.Size(61, 26);
-            this._Hastalar_numericUpDown.TabIndex = 42;
-            // 
             // Hastalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(930, 707);
+            this.ClientSize = new System.Drawing.Size(990, 734);
             this.ControlBox = false;
             this.Controls.Add(this._Hastalar_numericUpDown);
             this.Controls.Add(this._Kayıt_button);
@@ -235,7 +235,7 @@
         private System.Windows.Forms.Label _HastaSoyadi_label;
         private System.Windows.Forms.Label _HastaAdi_label;
         private System.Windows.Forms.Button _Ekle_button;
-        private System.Windows.Forms.Button _Kayıt_button;
         private System.Windows.Forms.NumericUpDown _Hastalar_numericUpDown;
+        private System.Windows.Forms.Button _Kayıt_button;
     }
 }

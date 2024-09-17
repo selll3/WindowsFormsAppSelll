@@ -218,6 +218,14 @@ namespace WindowsFormsAppSelll
         //}
         private void _Ekle_button_Click(object sender, EventArgs e)
         {
+
+           
+            
+                doktorekle form3 = new doktorekle();
+                form3.Show();
+            
+
+
             //try
             //{
             //    using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
