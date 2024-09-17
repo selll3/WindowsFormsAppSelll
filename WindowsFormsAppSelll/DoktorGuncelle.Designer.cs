@@ -30,6 +30,7 @@
         {
             this._DoktorlarGuncelle_dataGridView = new System.Windows.Forms.DataGridView();
             this._dkayıt_button = new System.Windows.Forms.Button();
+            this._Vazgec_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._DoktorlarGuncelle_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,13 +48,25 @@
             // 
             // _dkayıt_button
             // 
-            this._dkayıt_button.Location = new System.Drawing.Point(33, 454);
+            this._dkayıt_button.Location = new System.Drawing.Point(186, 438);
             this._dkayıt_button.Name = "_dkayıt_button";
             this._dkayıt_button.Size = new System.Drawing.Size(132, 53);
             this._dkayıt_button.TabIndex = 1;
-            this._dkayıt_button.Text = "kaydet";
+            this._dkayıt_button.Text = "KAYDET";
             this._dkayıt_button.UseVisualStyleBackColor = true;
             this._dkayıt_button.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // _Vazgec_button
+            // 
+            this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Vazgec_button.Location = new System.Drawing.Point(360, 438);
+            this._Vazgec_button.Name = "_Vazgec_button";
+            this._Vazgec_button.Size = new System.Drawing.Size(132, 53);
+            this._Vazgec_button.TabIndex = 22;
+            this._Vazgec_button.Text = "VAZGEÇ";
+            this._Vazgec_button.UseVisualStyleBackColor = false;
+            this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
             // 
             // DoktorGuncelle
             // 
@@ -61,6 +74,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 552);
             this.ControlBox = false;
+            this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._dkayıt_button);
             this.Controls.Add(this._DoktorlarGuncelle_dataGridView);
             this.Name = "DoktorGuncelle";
@@ -75,5 +89,6 @@
 
         private System.Windows.Forms.DataGridView _DoktorlarGuncelle_dataGridView;
         private System.Windows.Forms.Button _dkayıt_button;
+        private System.Windows.Forms.Button _Vazgec_button;
     }
 }

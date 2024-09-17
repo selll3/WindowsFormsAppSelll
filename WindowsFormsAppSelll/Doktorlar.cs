@@ -25,7 +25,6 @@ namespace WindowsFormsAppSelll
         }
 
         public void LoadDataIntoGrid()
-
         {
             dt = new DataTable();
             string readQuery = "SELECT DOKTORID, DoktorAdi, DoktorSoyadi, DoktorunBransi, Doktorun_kati FROM DOKTORLAR";

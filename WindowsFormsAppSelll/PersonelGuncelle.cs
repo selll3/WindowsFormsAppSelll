@@ -1,0 +1,102 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsAppSelll
+{
+    public partial class PersonelGuncelle : Form
+    {
+
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        SqlDataAdapter daPG;
+        DataTable dtPG;
+        int selectedDoctorID;
+        public PersonelGuncelle()
+        {
+            InitializeComponent();
+            LoadDataP();
+        }
+        private void LoadDataP()
+        {
+            dtPG = new DataTable();
+            string readQuery = "Select PERSONELID, PersonelAdi,PersonelSoyadi, PersonelGorev from PERSONEL";
+            daPG = new SqlDataAdapter(readQuery, con);
+            daPG.Fill(dtPG);
+            _personelguncelle_dataGridView.DataSource = dtPG;
+
+            // DataGridView verileri yüklendikten sonra sütunları gizle
+            if (_personelguncelle_dataGridView.Columns.Contains("PERSONELID"))
+            {
+                _personelguncelle_dataGridView.Columns["PERSONELID"].Visible = false;
+            }
+        }
+        private void _vazgec_button_Click(object sender, EventArgs e)
+        {
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    control.Text = string.Empty;
+                }
+            }
+
+            // Formu kapat
+            this.Close();
+        }
+
+        private void PersonelGuncelle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _kaydet_button_Click(object sender, EventArgs e)
+        {
+            if (selectedDoctorID == 0) // ID seçilmemişse
+            {
+                MessageBox.Show("Lütfen bir Personel seçin.");
+                return;
+            }
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE PERSONEL SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi, PersonelGorev = @PGorev WHERE PERSONELID = @Pid", con);
+
+            // Sütunlardaki verileri güncelle
+            foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
+                {
+                    cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
+
+                    cmd.ExecuteNonQuery();
+                    break;
+                }
+            }
+
+            con.Close();
+
+            // İlk formu güncelle ve göster
+            Personeller formpers = (Personeller)Application.OpenForms["Personeller"];
+            formpers.LoadDataIntoGridp(); // İlk formun veri yükleme metodunu çağır
+            this.Close();
+        }
+
+        private void _personelguncelle_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && _personelguncelle_dataGridView.Rows.Count > 0)
+            {
+                selectedDoctorID = Convert.ToInt32(_personelguncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value);
+            }
+        }
+    }
+}

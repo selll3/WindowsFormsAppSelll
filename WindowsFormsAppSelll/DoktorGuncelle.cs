@@ -90,5 +90,21 @@ namespace WindowsFormsAppSelll
                 selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["DOKTORID"].Value);
             }
         }
+
+        private void _Vazgec_button_Click(object sender, EventArgs e)
+        {
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    control.Text = string.Empty;
+                }
+            }
+
+            // Formu kapat
+            this.Close();
+
+        }
     }
 }

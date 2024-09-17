@@ -15,14 +15,48 @@ namespace WindowsFormsAppSelll
 {
     public partial class Personeller : Form
     {
+
+
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        SqlDataAdapter dap;
+        DataTable dtp;
+
         public Personeller()
         {
             InitializeComponent();
-            _Personeller_dataGridView.Visible = false;
+            //_Personeller_dataGridView.Visible = false;
+            LoadDataIntoGridp();
 
         }
 
+        public void LoadDataIntoGridp()
+        {
+            dtp = new DataTable();
+            string readQuery = "SELECT PERSONELID, PersonelAdi, PersonelSoyadi,PersonelGorev FROM PERSONEL";
+            dap = new SqlDataAdapter(readQuery, con);
+            dap.Fill(dtp);
+            _Personeller_dataGridView.DataSource = dtp;
 
+            // DOKTORID sütununu gizle
+            if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
+            {
+                _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
+            }
+            //string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"; // Bağlantı dizesini buraya yazın
+            //string query = "SELECT * FROM DOKTORLAR"; // Sorgunuzu buraya yazın
+
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+            //    DataTable dataTable = new DataTable();
+
+            //    // Verileri doldur
+            //    dataAdapter.Fill(dataTable);
+
+            //    // DataGridView'e veriyi bağla
+            //    _Doktorlar_dataGridView.DataSource = dataTable;
+            //}
+        }
 
 
 
@@ -30,32 +64,32 @@ namespace WindowsFormsAppSelll
         private void _PersonelilListele_button_Click(object sender, EventArgs e)
         {
 
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                {
-                    control.Visible = false;
-                }
-                else if (control is NumericUpDown)
-                {
-                    control.Visible = false;
-                }
-                else if (control is Label)
-                {
-                    control.Visible = false;
-                }
-                else
-                {
-                    control.Visible = true;
-                }
-            }
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "Select PERSONELID,PersonelAdi,PersonelSoyadi,PersonelGorev from PERSONEL";
-            SqlDataAdapter sdp = new SqlDataAdapter(readQuery, con);
-            SqlCommandBuilder cmd = new SqlCommandBuilder();
-            DataTable dtp = new DataTable();
-            sdp.Fill(dtp);
-            _Personeller_dataGridView.DataSource = dtp;
+            //foreach (Control control in this.Controls)
+            //{
+            //    if (control is TextBox)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else if (control is NumericUpDown)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else if (control is Label)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        control.Visible = true;
+            //    }
+            //}
+            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            //string readQuery = "Select PERSONELID,PersonelAdi,PersonelSoyadi,PersonelGorev from PERSONEL";
+            //SqlDataAdapter sdp = new SqlDataAdapter(readQuery, con);
+            //SqlCommandBuilder cmd = new SqlCommandBuilder();
+            //DataTable dtp = new DataTable();
+            //sdp.Fill(dtp);
+            //_Personeller_dataGridView.DataSource = dtp;
 
 
         }
@@ -142,26 +176,29 @@ namespace WindowsFormsAppSelll
 
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
         {
+           PersonelGuncelle PersonelGuncelle = new PersonelGuncelle();
+            PersonelGuncelle.Show();
+            //this.Hide();
 
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            con.Open();
-            string updateQuery = "UPDATE PERSONEL SET PersonelAdi=@PersonelAdi,PersonelSoyadi=@PersonelSoyadi,PersonelGorev=@PersonelGorev WHERE PERSONELID=@PERSONELID ";
-            SqlCommand cmd = new SqlCommand(updateQuery, con);
-            cmd.Parameters.AddWithValue("@PersonelAdi", _PersonelAdi_textBox.Text);
-            cmd.Parameters.AddWithValue("@PersonelSoyadi", _PersonelSoyadi_textBox.Text);
-            cmd.Parameters.AddWithValue("@PersonelGorev",_Gorevi_textBox.Text);
-            cmd.Parameters.AddWithValue("@PERSONELID", _PERSONEL_numericUpDown.Value);
+            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            //con.Open();
+            //string updateQuery = "UPDATE PERSONEL SET PersonelAdi=@PersonelAdi,PersonelSoyadi=@PersonelSoyadi,PersonelGorev=@PersonelGorev WHERE PERSONELID=@PERSONELID ";
+            //SqlCommand cmd = new SqlCommand(updateQuery, con);
+            //cmd.Parameters.AddWithValue("@PersonelAdi", _PersonelAdi_textBox.Text);
+            //cmd.Parameters.AddWithValue("@PersonelSoyadi", _PersonelSoyadi_textBox.Text);
+            //cmd.Parameters.AddWithValue("@PersonelGorev",_Gorevi_textBox.Text);
+            //cmd.Parameters.AddWithValue("@PERSONELID", _PERSONEL_numericUpDown.Value);
 
-            int count = cmd.ExecuteNonQuery();
-            con.Close();
-            if (count > 0)
-            {
-                MessageBox.Show("GÜNCELLEME BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("GÜNCELLEME BAŞARISIZ", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //int count = cmd.ExecuteNonQuery();
+            //con.Close();
+            //if (count > 0)
+            //{
+            //    MessageBox.Show("GÜNCELLEME BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("GÜNCELLEME BAŞARISIZ", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
 
 
         }
@@ -170,45 +207,52 @@ namespace WindowsFormsAppSelll
 
         private void _Ekle_button_Click(object sender, EventArgs e)
             {
-                bool isAnyEmpty = false;
-                foreach (Control control in this.Controls)
-                {
-                    // Sadece TextBox'ları kontrol et
-                    if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
-                    {
-                        isAnyEmpty = true;
-                        break;
-                    }
-                }
 
-                if (isAnyEmpty)
-                {
-                    MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                    string insertQuery = "INSERT INTO PERSONEL(PersonelAdi,PersonelSoyadi,PersonelGorev) VALUES(@Personeladi, @Personelsoyadi, @Personelgorev)";
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(insertQuery, con);
-                    cmd.Parameters.AddWithValue("@Personeladi", _PersonelAdi_textBox.Text);
-                    cmd.Parameters.AddWithValue("@Personelsoyadi", _PersonelSoyadi_textBox.Text);
-                    cmd.Parameters.AddWithValue("@Personelgorev", _Gorevi_textBox.Text);
 
-                    int count = cmd.ExecuteNonQuery();
-                    con.Close();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
+            PersonelEkle formP = new PersonelEkle();
+            formP.Show();
 
-        
+
+
+            //bool isAnyEmpty = false;
+            //foreach (Control control in this.Controls)
+            //{
+            //    // Sadece TextBox'ları kontrol et
+            //    if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
+            //    {
+            //        isAnyEmpty = true;
+            //        break;
+            //    }
+            //}
+
+            //if (isAnyEmpty)
+            //{
+            //    MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            //    string insertQuery = "INSERT INTO PERSONEL(PersonelAdi,PersonelSoyadi,PersonelGorev) VALUES(@Personeladi, @Personelsoyadi, @Personelgorev)";
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand(insertQuery, con);
+            //    cmd.Parameters.AddWithValue("@Personeladi", _PersonelAdi_textBox.Text);
+            //    cmd.Parameters.AddWithValue("@Personelsoyadi", _PersonelSoyadi_textBox.Text);
+            //    cmd.Parameters.AddWithValue("@Personelgorev", _Gorevi_textBox.Text);
+
+            //    int count = cmd.ExecuteNonQuery();
+            //    con.Close();
+            //    if (count > 0)
+            //    {
+            //        MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+        }
+
+
 
         private void _Personeller_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -221,21 +265,21 @@ namespace WindowsFormsAppSelll
 
         private void _Kayıt_button_Click(object sender, EventArgs e)
         {
-              foreach(Control control in this.Controls)
-            {
-                if (control is DataGridView)
-                {
-                    control.Visible=false;
-                }
-                else
-                {
-                    control.Visible=true;
-                }
+            //      foreach(Control control in this.Controls)
+            //    {
+            //        if (control is DataGridView)
+            //        {
+            //            control.Visible=false;
+            //        }
+            //        else
+            //        {
+            //            control.Visible=true;
+            //        }
 
-            }
-            
+            //    }
+
         }
-    }
+}
 
 
 

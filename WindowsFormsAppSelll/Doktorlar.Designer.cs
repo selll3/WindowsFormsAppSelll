@@ -41,7 +41,7 @@
             // 
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Sil_button.Location = new System.Drawing.Point(29, 605);
+            this._Sil_button.Location = new System.Drawing.Point(581, 605);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(152, 41);
             this._Sil_button.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Ekle_button.Location = new System.Drawing.Point(581, 605);
+            this._Ekle_button.Location = new System.Drawing.Point(29, 605);
             this._Ekle_button.Name = "_Ekle_button";
             this._Ekle_button.Size = new System.Drawing.Size(152, 41);
             this._Ekle_button.TabIndex = 39;

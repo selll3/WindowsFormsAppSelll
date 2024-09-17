@@ -81,6 +81,18 @@
     <Compile Include="ENTITY\Hastanedb.cs" />
     <Compile Include="ENTITY\PERSONEL.cs" />
     <Compile Include="ENTITY\RANDEVULAR.cs" />
+    <Compile Include="HastaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HastaEkle.Designer.cs">
+      <DependentUpon>HastaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HastaGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HastaGuncelle.Designer.cs">
+      <DependentUpon>HastaGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hastalar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,18 @@
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelEkle.Designer.cs">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelGuncelle.Designer.cs">
+      <DependentUpon>PersonelGuncelle.cs</DependentUpon>
     </Compile>
     <Compile Include="Personeller.cs">
       <SubType>Form</SubType>
@@ -121,11 +145,23 @@
     <EmbeddedResource Include="Doktorlar.resx">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HastaEkle.resx">
+      <DependentUpon>HastaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HastaGuncelle.resx">
+      <DependentUpon>HastaGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hastalar.resx">
       <DependentUpon>Hastalar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelEkle.resx">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelGuncelle.resx">
+      <DependentUpon>PersonelGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personeller.resx">
       <DependentUpon>Personeller.cs</DependentUpon>
