@@ -32,22 +32,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this._kullaniciTürü_comboBox = new System.Windows.Forms.ComboBox();
             this._Parola_textBox = new System.Windows.Forms.TextBox();
             this.kullaniciAdi_textBox = new System.Windows.Forms.TextBox();
             this.Login_button = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Location = new System.Drawing.Point(215, 268);
+            this.button1.Location = new System.Drawing.Point(215, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 37);
             this.button1.TabIndex = 0;
             this.button1.Text = "VAZGEÇ";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -69,28 +69,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Parola :";
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(12, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Kullanıcı Türü :";
-            // 
-            // _kullaniciTürü_comboBox
-            // 
-            this._kullaniciTürü_comboBox.FormattingEnabled = true;
-            this._kullaniciTürü_comboBox.Items.AddRange(new object[] {
-            "admin",
-            "Muhasebe/İK",
-            "Personel",
-            "Doktor"});
-            this._kullaniciTürü_comboBox.Location = new System.Drawing.Point(142, 161);
-            this._kullaniciTürü_comboBox.Name = "_kullaniciTürü_comboBox";
-            this._kullaniciTürü_comboBox.Size = new System.Drawing.Size(206, 28);
-            this._kullaniciTürü_comboBox.TabIndex = 4;
-            // 
             // _Parola_textBox
             // 
             this._Parola_textBox.Location = new System.Drawing.Point(142, 97);
@@ -108,7 +86,7 @@
             // Login_button
             // 
             this.Login_button.BackColor = System.Drawing.Color.PaleGreen;
-            this.Login_button.Location = new System.Drawing.Point(12, 268);
+            this.Login_button.Location = new System.Drawing.Point(16, 226);
             this.Login_button.Name = "Login_button";
             this.Login_button.Size = new System.Drawing.Size(133, 37);
             this.Login_button.TabIndex = 7;
@@ -116,18 +94,31 @@
             this.Login_button.UseVisualStyleBackColor = false;
             this.Login_button.Click += new System.EventHandler(this.Login_button_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkLabel1.Location = new System.Drawing.Point(201, 162);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(147, 27);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Giriş işlemleri";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Kullanıcılar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(408, 348);
+            this.ClientSize = new System.Drawing.Size(382, 299);
             this.ControlBox = false;
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.Login_button);
             this.Controls.Add(this.kullaniciAdi_textBox);
             this.Controls.Add(this._Parola_textBox);
-            this.Controls.Add(this._kullaniciTürü_comboBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -144,10 +135,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox _kullaniciTürü_comboBox;
         private System.Windows.Forms.TextBox _Parola_textBox;
         private System.Windows.Forms.TextBox kullaniciAdi_textBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Login_button;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

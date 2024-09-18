@@ -76,6 +76,12 @@
     <Compile Include="DOKTOR\Doktorlar.Designer.cs">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DOKTOR\KullaniciD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOKTOR\KullaniciD.Designer.cs">
+      <DependentUpon>KullaniciD.cs</DependentUpon>
+    </Compile>
     <Compile Include="ENTITY\DOKTORLAR.cs" />
     <Compile Include="ENTITY\HASTALAR.cs" />
     <Compile Include="ENTITY\Hastanedb.cs" />
@@ -99,16 +105,22 @@
     <Compile Include="HASTA\Hastalar.Designer.cs">
       <DependentUpon>Hastalar.cs</DependentUpon>
     </Compile>
+    <Compile Include="KULLANICI\Girisislemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KULLANICI\Girisislemleri.Designer.cs">
+      <DependentUpon>Girisislemleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="KULLANICI\Kullanıcılar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KULLANICI\Kullanıcılar.Designer.cs">
       <DependentUpon>Kullanıcılar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="admin\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="admin\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MuayeneEkle.cs">
@@ -116,6 +128,18 @@
     </Compile>
     <Compile Include="MuayeneEkle.Designer.cs">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Muhasebe\KullaniciM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Muhasebe\KullaniciM.Designer.cs">
+      <DependentUpon>KullaniciM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONEL\kullaniciP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONEL\kullaniciP.Designer.cs">
+      <DependentUpon>kullaniciP.cs</DependentUpon>
     </Compile>
     <Compile Include="PERSONEL\PersonelEkle.cs">
       <SubType>Form</SubType>
@@ -169,6 +193,9 @@
     <EmbeddedResource Include="DOKTOR\Doktorlar.resx">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DOKTOR\KullaniciD.resx">
+      <DependentUpon>KullaniciD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HASTA\HastaEkle.resx">
       <DependentUpon>HastaEkle.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,14 +205,23 @@
     <EmbeddedResource Include="HASTA\Hastalar.resx">
       <DependentUpon>Hastalar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KULLANICI\Girisislemleri.resx">
+      <DependentUpon>Girisislemleri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KULLANICI\Kullanıcılar.resx">
       <DependentUpon>Kullanıcılar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="admin\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MuayeneEkle.resx">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Muhasebe\KullaniciM.resx">
+      <DependentUpon>KullaniciM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONEL\kullaniciP.resx">
+      <DependentUpon>kullaniciP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONEL\PersonelEkle.resx">
       <DependentUpon>PersonelEkle.cs</DependentUpon>

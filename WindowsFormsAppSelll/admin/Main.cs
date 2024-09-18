@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsAppSelll.KULLANICI;
 
 namespace WindowsFormsAppSelll
 {
@@ -23,7 +24,11 @@ namespace WindowsFormsAppSelll
         }
 
         private void _DOK_button1_Click(object sender, EventArgs e)
-        {
+        {   
+            Kullanıcılar klnc = new Kullanıcılar();
+         
+             
+            
             Doktorlar DKF = new Doktorlar();
             DKF.ShowDialog();
         }
