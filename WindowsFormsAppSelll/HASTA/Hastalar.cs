@@ -29,12 +29,14 @@ namespace WindowsFormsAppSelll
         public void LoadDataIntoGridh()
 
         {
-            dth = new DataTable();
-            string readQuery = "SELECT HASTAID, HastaAdi, HastaSoyadi, HastaYasi FROM HASTALAR";
-            dah = new SqlDataAdapter(readQuery, con);
-            dah.Fill(dth);
-            _Hastalar_dataGridView.DataSource = dth;
+            //dth = new DataTable();
+            //string readQuery = "SELECT HASTAID, HastaAdi, HastaSoyadi, HastaYasi FROM HASTALAR";
+            //dah = new SqlDataAdapter(readQuery, con);
+            //dah.Fill(dth);
+            //_Hastalar_dataGridView.DataSource = dth;
 
+            Hastanedb db = new Hastanedb();
+            _Hastalar_dataGridView.DataSource = db.HASTALAR.ToList();
             // DOKTORID sütununu gizle
             if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
             {

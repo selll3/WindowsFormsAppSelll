@@ -58,22 +58,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="doktorekle.cs">
+    <Compile Include="DOKTOR\doktorekle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="doktorekle.Designer.cs">
+    <Compile Include="DOKTOR\doktorekle.Designer.cs">
       <DependentUpon>doktorekle.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoktorGuncelle.cs">
+    <Compile Include="DOKTOR\DoktorGuncelle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoktorGuncelle.Designer.cs">
+    <Compile Include="DOKTOR\DoktorGuncelle.Designer.cs">
       <DependentUpon>DoktorGuncelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Doktorlar.cs">
+    <Compile Include="DOKTOR\Doktorlar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Doktorlar.Designer.cs">
+    <Compile Include="DOKTOR\Doktorlar.Designer.cs">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </Compile>
     <Compile Include="ENTITY\DOKTORLAR.cs" />
@@ -81,23 +81,29 @@
     <Compile Include="ENTITY\Hastanedb.cs" />
     <Compile Include="ENTITY\PERSONEL.cs" />
     <Compile Include="ENTITY\RANDEVULAR.cs" />
-    <Compile Include="HastaEkle.cs">
+    <Compile Include="HASTA\HastaEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HastaEkle.Designer.cs">
+    <Compile Include="HASTA\HastaEkle.Designer.cs">
       <DependentUpon>HastaEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="HastaGuncelle.cs">
+    <Compile Include="HASTA\HastaGuncelle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HastaGuncelle.Designer.cs">
+    <Compile Include="HASTA\HastaGuncelle.Designer.cs">
       <DependentUpon>HastaGuncelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hastalar.cs">
+    <Compile Include="HASTA\Hastalar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hastalar.Designer.cs">
+    <Compile Include="HASTA\Hastalar.Designer.cs">
       <DependentUpon>Hastalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KULLANICI\Kullanıcılar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KULLANICI\Kullanıcılar.Designer.cs">
+      <DependentUpon>Kullanıcılar.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -105,30 +111,48 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonelEkle.cs">
+    <Compile Include="MuayeneEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonelEkle.Designer.cs">
+    <Compile Include="MuayeneEkle.Designer.cs">
+      <DependentUpon>MuayeneEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONEL\PersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONEL\PersonelEkle.Designer.cs">
       <DependentUpon>PersonelEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonelGuncelle.cs">
+    <Compile Include="PERSONEL\PersonelGuncelle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonelGuncelle.Designer.cs">
+    <Compile Include="PERSONEL\PersonelGuncelle.Designer.cs">
       <DependentUpon>PersonelGuncelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personeller.cs">
+    <Compile Include="PERSONEL\Personeller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personeller.Designer.cs">
+    <Compile Include="PERSONEL\Personeller.Designer.cs">
       <DependentUpon>Personeller.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Randevular.cs">
+    <Compile Include="RANDEVU\RandevuEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Randevular.Designer.cs">
+    <Compile Include="RANDEVU\RandevuEkle.Designer.cs">
+      <DependentUpon>RandevuEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RANDEVU\RandevuGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RANDEVU\RandevuGuncelle.Designer.cs">
+      <DependentUpon>RandevuGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RANDEVU\Randevular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RANDEVU\Randevular.Designer.cs">
       <DependentUpon>Randevular.cs</DependentUpon>
     </Compile>
     <Compile Include="_HASTANEDataSet.Designer.cs">
@@ -136,34 +160,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_HASTANEDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="doktorekle.resx">
+    <EmbeddedResource Include="DOKTOR\doktorekle.resx">
       <DependentUpon>doktorekle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoktorGuncelle.resx">
+    <EmbeddedResource Include="DOKTOR\DoktorGuncelle.resx">
       <DependentUpon>DoktorGuncelle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Doktorlar.resx">
+    <EmbeddedResource Include="DOKTOR\Doktorlar.resx">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HastaEkle.resx">
+    <EmbeddedResource Include="HASTA\HastaEkle.resx">
       <DependentUpon>HastaEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HastaGuncelle.resx">
+    <EmbeddedResource Include="HASTA\HastaGuncelle.resx">
       <DependentUpon>HastaGuncelle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hastalar.resx">
+    <EmbeddedResource Include="HASTA\Hastalar.resx">
       <DependentUpon>Hastalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KULLANICI\Kullanıcılar.resx">
+      <DependentUpon>Kullanıcılar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonelEkle.resx">
+    <EmbeddedResource Include="MuayeneEkle.resx">
+      <DependentUpon>MuayeneEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONEL\PersonelEkle.resx">
       <DependentUpon>PersonelEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonelGuncelle.resx">
+    <EmbeddedResource Include="PERSONEL\PersonelGuncelle.resx">
       <DependentUpon>PersonelGuncelle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personeller.resx">
+    <EmbeddedResource Include="PERSONEL\Personeller.resx">
       <DependentUpon>Personeller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -176,7 +206,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Randevular.resx">
+    <EmbeddedResource Include="RANDEVU\RandevuEkle.resx">
+      <DependentUpon>RandevuEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RANDEVU\RandevuGuncelle.resx">
+      <DependentUpon>RandevuGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RANDEVU\Randevular.resx">
       <DependentUpon>Randevular.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -210,5 +246,6 @@
   <ItemGroup>
     <None Include="Resources\Green Simple Medical Health Logo %282%29.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

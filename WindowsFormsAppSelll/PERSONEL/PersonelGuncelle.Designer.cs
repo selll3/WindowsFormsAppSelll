@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppSelll
 {
-    partial class PersonelEkle
+    partial class PersonelGuncelle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,55 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelGuncelle));
             this._vazgec_button = new System.Windows.Forms.Button();
             this._kaydet_button = new System.Windows.Forms.Button();
-            this._personelekle_dataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this._personelekle_dataGridView)).BeginInit();
+            this._personelguncelle_dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this._personelguncelle_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // _vazgec_button
             // 
-            this._vazgec_button.Location = new System.Drawing.Point(415, 452);
+            this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
+            this._vazgec_button.Location = new System.Drawing.Point(406, 440);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(136, 49);
             this._vazgec_button.TabIndex = 8;
             this._vazgec_button.Text = "VAZGEÇ";
-            this._vazgec_button.UseVisualStyleBackColor = true;
+            this._vazgec_button.UseVisualStyleBackColor = false;
             this._vazgec_button.Click += new System.EventHandler(this._vazgec_button_Click);
             // 
             // _kaydet_button
             // 
-            this._kaydet_button.Location = new System.Drawing.Point(218, 452);
+            this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._kaydet_button.Location = new System.Drawing.Point(215, 440);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(135, 49);
             this._kaydet_button.TabIndex = 7;
             this._kaydet_button.Text = "KAYDET";
-            this._kaydet_button.UseVisualStyleBackColor = true;
+            this._kaydet_button.UseVisualStyleBackColor = false;
             this._kaydet_button.Click += new System.EventHandler(this._kaydet_button_Click);
             // 
-            // _personelekle_dataGridView
+            // _personelguncelle_dataGridView
             // 
-            this._personelekle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._personelekle_dataGridView.Location = new System.Drawing.Point(12, 3);
-            this._personelekle_dataGridView.Name = "_personelekle_dataGridView";
-            this._personelekle_dataGridView.RowHeadersWidth = 62;
-            this._personelekle_dataGridView.RowTemplate.Height = 28;
-            this._personelekle_dataGridView.Size = new System.Drawing.Size(776, 388);
-            this._personelekle_dataGridView.TabIndex = 6;
+            this._personelguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._personelguncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._personelguncelle_dataGridView.Name = "_personelguncelle_dataGridView";
+            this._personelguncelle_dataGridView.RowHeadersWidth = 62;
+            this._personelguncelle_dataGridView.RowTemplate.Height = 28;
+            this._personelguncelle_dataGridView.Size = new System.Drawing.Size(776, 388);
+            this._personelguncelle_dataGridView.TabIndex = 6;
+            this._personelguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._personelguncelle_dataGridView_CellClick);
             // 
-            // PersonelEkle
+            // PersonelGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 750);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(800, 672);
             this.ControlBox = false;
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(this._kaydet_button);
-            this.Controls.Add(this._personelekle_dataGridView);
-            this.Name = "PersonelEkle";
-            this.Text = "PersonelEkle";
-            this.Load += new System.EventHandler(this.PersonelEkle_Load);
-            ((System.ComponentModel.ISupportInitialize)(this._personelekle_dataGridView)).EndInit();
+            this.Controls.Add(this._personelguncelle_dataGridView);
+            this.Name = "PersonelGuncelle";
+            this.Text = "PersonelGuncelle";
+            this.Load += new System.EventHandler(this.PersonelGuncelle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._personelguncelle_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -85,6 +90,6 @@
 
         private System.Windows.Forms.Button _vazgec_button;
         private System.Windows.Forms.Button _kaydet_button;
-        private System.Windows.Forms.DataGridView _personelekle_dataGridView;
+        private System.Windows.Forms.DataGridView _personelguncelle_dataGridView;
     }
 }

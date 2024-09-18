@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this._DOK_button1 = new System.Windows.Forms.Button();
             this._RANDE_button2 = new System.Windows.Forms.Button();
@@ -38,10 +39,10 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.Font = new System.Drawing.Font("Monospac821 BT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(208, 107);
+            this.label1.Location = new System.Drawing.Point(248, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(389, 55);
             this.label1.TabIndex = 0;
@@ -51,7 +52,7 @@
             // _DOK_button1
             // 
             this._DOK_button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this._DOK_button1.Location = new System.Drawing.Point(12, 226);
+            this._DOK_button1.Location = new System.Drawing.Point(12, 188);
             this._DOK_button1.Name = "_DOK_button1";
             this._DOK_button1.Size = new System.Drawing.Size(134, 38);
             this._DOK_button1.TabIndex = 1;
@@ -62,7 +63,7 @@
             // _RANDE_button2
             // 
             this._RANDE_button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this._RANDE_button2.Location = new System.Drawing.Point(195, 226);
+            this._RANDE_button2.Location = new System.Drawing.Point(193, 188);
             this._RANDE_button2.Name = "_RANDE_button2";
             this._RANDE_button2.Size = new System.Drawing.Size(134, 38);
             this._RANDE_button2.TabIndex = 2;
@@ -73,7 +74,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button3.Location = new System.Drawing.Point(389, 226);
+            this.button3.Location = new System.Drawing.Point(388, 188);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 38);
             this.button3.TabIndex = 3;
@@ -84,7 +85,7 @@
             // _PERS_button4
             // 
             this._PERS_button4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this._PERS_button4.Location = new System.Drawing.Point(586, 226);
+            this._PERS_button4.Location = new System.Drawing.Point(586, 188);
             this._PERS_button4.Name = "_PERS_button4";
             this._PERS_button4.Size = new System.Drawing.Size(134, 38);
             this._PERS_button4.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(592, 339);
+            this._Vazgec_button.Location = new System.Drawing.Point(12, 279);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(128, 45);
             this._Vazgec_button.TabIndex = 21;
@@ -108,7 +109,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 437);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(743, 400);
             this.ControlBox = false;
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._PERS_button4);

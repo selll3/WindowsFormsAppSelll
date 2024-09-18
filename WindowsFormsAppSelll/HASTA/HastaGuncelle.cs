@@ -99,5 +99,10 @@ namespace WindowsFormsAppSelll
                 selectedDoctorID = Convert.ToInt32(_hastaguncelle_dataGridView.Rows[e.RowIndex].Cells["HASTAID"].Value);
             }
         }
+
+        private void _hastaguncelle_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

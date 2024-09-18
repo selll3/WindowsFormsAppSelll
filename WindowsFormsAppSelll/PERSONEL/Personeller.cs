@@ -31,11 +31,14 @@ namespace WindowsFormsAppSelll
 
         public void LoadDataIntoGridp()
         {
-            dtp = new DataTable();
-            string readQuery = "SELECT PERSONELID, PersonelAdi, PersonelSoyadi,PersonelGorev FROM PERSONEL";
-            dap = new SqlDataAdapter(readQuery, con);
-            dap.Fill(dtp);
-            _Personeller_dataGridView.DataSource = dtp;
+            //dtp = new DataTable();
+            //string readQuery = "SELECT PERSONELID, PersonelAdi, PersonelSoyadi,PersonelGorev FROM PERSONEL";
+            //dap = new SqlDataAdapter(readQuery, con);
+            //dap.Fill(dtp);
+            //_Personeller_dataGridView.DataSource = dtp;
+
+            Hastanedb dp = new Hastanedb();
+            _Personeller_dataGridView.DataSource = dp.PERSONEL.ToList();
 
             // DOKTORID sütununu gizle
             if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
@@ -97,34 +100,35 @@ namespace WindowsFormsAppSelll
 
         private void verileriyükle()
         {
+            Hastanedb dp = new Hastanedb();
+            _Personeller_dataGridView.DataSource = dp.PERSONEL.ToList();
 
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                {
-                    control.Visible = false;
-                }
-                else if (control is NumericUpDown)
-                {
-                    control.Visible = false;
-                }
-                else if (control is Label)
-                {
-                    control.Visible = false;
-                }
-                else
-                {
-                    control.Visible = true;
-                }
-            }
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "Select PERSONELID,PersonelAdi,PersonelSoyadi,PersonelGorev from PERSONEL";
-            SqlDataAdapter sdp = new SqlDataAdapter(readQuery, con);
-            SqlCommandBuilder cmd = new SqlCommandBuilder();
-            DataTable dtp = new DataTable();
-            sdp.Fill(dtp);
-            _Personeller_dataGridView.DataSource = dtp;
+            //foreach (Control control in this.Controls)
+            //{
+            //    if (control is TextBox)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else if (control is NumericUpDown)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else if (control is Label)
+            //    {
+            //        control.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        control.Visible = true;
+            //    }
+            //}
+            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+            //string readQuery = "Select PERSONELID,PersonelAdi,PersonelSoyadi,PersonelGorev from PERSONEL";
+            //SqlDataAdapter sdp = new SqlDataAdapter(readQuery, con);
+            //SqlCommandBuilder cmd = new SqlCommandBuilder();
+            //DataTable dtp = new DataTable();
+            //sdp.Fill(dtp);
+            //_Personeller_dataGridView.DataSource = dtp;
 
 
 

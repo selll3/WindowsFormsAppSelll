@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HastaGuncelle));
             this._hastaguncelle_dataGridView = new System.Windows.Forms.DataGridView();
             this._kaydet_button = new System.Windows.Forms.Button();
             this._vazgec_button = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this._hastaguncelle_dataGridView.Size = new System.Drawing.Size(776, 393);
             this._hastaguncelle_dataGridView.TabIndex = 0;
             this._hastaguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._hastaguncelle_dataGridView_CellClick);
+            this._hastaguncelle_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._hastaguncelle_dataGridView_CellContentClick);
             // 
             // _kaydet_button
             // 
@@ -69,6 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(809, 555);
             this.ControlBox = false;
             this.Controls.Add(this._vazgec_button);

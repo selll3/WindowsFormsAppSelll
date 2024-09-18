@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppSelll
 {
-    partial class HastaEkle
+    partial class RandevuGuncelle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,63 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RandevuGuncelle));
+            this._randevuguncelle_dataGridView = new System.Windows.Forms.DataGridView();
             this._vazgec_button = new System.Windows.Forms.Button();
             this._kaydet_button = new System.Windows.Forms.Button();
-            this._hastaekle_dataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this._hastaekle_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._randevuguncelle_dataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // _randevuguncelle_dataGridView
+            // 
+            this._randevuguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._randevuguncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._randevuguncelle_dataGridView.Name = "_randevuguncelle_dataGridView";
+            this._randevuguncelle_dataGridView.RowHeadersWidth = 62;
+            this._randevuguncelle_dataGridView.RowTemplate.Height = 28;
+            this._randevuguncelle_dataGridView.Size = new System.Drawing.Size(655, 380);
+            this._randevuguncelle_dataGridView.TabIndex = 0;
+            this._randevuguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._randevuguncelle_dataGridView_CellClick);
             // 
             // _vazgec_button
             // 
-            this._vazgec_button.Location = new System.Drawing.Point(416, 420);
+            this._vazgec_button.Location = new System.Drawing.Point(361, 413);
             this._vazgec_button.Name = "_vazgec_button";
-            this._vazgec_button.Size = new System.Drawing.Size(136, 49);
-            this._vazgec_button.TabIndex = 5;
+            this._vazgec_button.Size = new System.Drawing.Size(135, 49);
+            this._vazgec_button.TabIndex = 4;
             this._vazgec_button.Text = "VAZGEÇ";
             this._vazgec_button.UseVisualStyleBackColor = true;
             this._vazgec_button.Click += new System.EventHandler(this._vazgec_button_Click);
             // 
             // _kaydet_button
             // 
-            this._kaydet_button.Location = new System.Drawing.Point(244, 420);
+            this._kaydet_button.Location = new System.Drawing.Point(179, 413);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(135, 49);
-            this._kaydet_button.TabIndex = 4;
+            this._kaydet_button.TabIndex = 3;
             this._kaydet_button.Text = "KAYDET";
             this._kaydet_button.UseVisualStyleBackColor = true;
             this._kaydet_button.Click += new System.EventHandler(this._kaydet_button_Click);
             // 
-            // _hastaekle_dataGridView
-            // 
-            this._hastaekle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._hastaekle_dataGridView.Location = new System.Drawing.Point(12, 12);
-            this._hastaekle_dataGridView.Name = "_hastaekle_dataGridView";
-            this._hastaekle_dataGridView.RowHeadersWidth = 62;
-            this._hastaekle_dataGridView.RowTemplate.Height = 28;
-            this._hastaekle_dataGridView.Size = new System.Drawing.Size(776, 388);
-            this._hastaekle_dataGridView.TabIndex = 3;
-            // 
-            // HastaEkle
+            // RandevuGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 583);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(694, 558);
             this.ControlBox = false;
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(this._kaydet_button);
-            this.Controls.Add(this._hastaekle_dataGridView);
-            this.Name = "HastaEkle";
-            this.Text = "HastaEkle";
-            this.Load += new System.EventHandler(this.HastaEkle_Load);
-            ((System.ComponentModel.ISupportInitialize)(this._hastaekle_dataGridView)).EndInit();
+            this.Controls.Add(this._randevuguncelle_dataGridView);
+            this.Name = "RandevuGuncelle";
+            this.Text = "RandevuGuncelle";
+            this.Load += new System.EventHandler(this.RandevuGuncelle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._randevuguncelle_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.DataGridView _randevuguncelle_dataGridView;
         private System.Windows.Forms.Button _vazgec_button;
         private System.Windows.Forms.Button _kaydet_button;
-        private System.Windows.Forms.DataGridView _hastaekle_dataGridView;
     }
 }

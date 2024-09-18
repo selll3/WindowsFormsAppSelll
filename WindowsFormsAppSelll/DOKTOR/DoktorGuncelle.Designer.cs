@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoktorGuncelle));
             this._DoktorlarGuncelle_dataGridView = new System.Windows.Forms.DataGridView();
             this._dkayıt_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
@@ -48,12 +49,13 @@
             // 
             // _dkayıt_button
             // 
+            this._dkayıt_button.BackColor = System.Drawing.Color.PaleGreen;
             this._dkayıt_button.Location = new System.Drawing.Point(186, 438);
             this._dkayıt_button.Name = "_dkayıt_button";
             this._dkayıt_button.Size = new System.Drawing.Size(132, 53);
             this._dkayıt_button.TabIndex = 1;
             this._dkayıt_button.Text = "KAYDET";
-            this._dkayıt_button.UseVisualStyleBackColor = true;
+            this._dkayıt_button.UseVisualStyleBackColor = false;
             this._dkayıt_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // _Vazgec_button
@@ -72,6 +74,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(733, 552);
             this.ControlBox = false;
             this.Controls.Add(this._Vazgec_button);
