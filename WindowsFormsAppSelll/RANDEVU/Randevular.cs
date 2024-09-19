@@ -34,14 +34,22 @@ namespace WindowsFormsAppSelll
             //da = new SqlDataAdapter(readQuery, con);
             //da.Fill(dt);
             //_Randevular_dataGridView.DataSource = dt;
+             //RANDEVULAR r = new RANDEVULAR();
 
+             //Hastanedb dbr = new Hastanedb();
+            //_Randevular_dataGridView.DataSource = dbr.RANDEVULAR.ToList();
             Hastanedb dbr = new Hastanedb();
-            RANDEVULAR r = new RANDEVULAR();
-
-            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR.ToList();
-         
-       
-
+            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR
+                .Select(r => new
+                {
+                    r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
+                    r.Randevu_Tarihi,
+                    r.Randevu_Saati,
+                    r.DOKTORID,
+                    r.HASTAID,
+                    r.Bulgu
+                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                }).ToList();
 
 
             // RANDEVUID sütununu gizle
@@ -108,10 +116,28 @@ namespace WindowsFormsAppSelll
         }
         private void verileriyükle()
         {
-
-
             Hastanedb dbr = new Hastanedb();
-            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR.ToList();
+            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR
+                .Select(r => new
+                {
+                    r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
+                    r.Randevu_Tarihi,
+                    r.Randevu_Saati,
+                    r.DOKTORID,
+                    r.HASTAID,
+                    r.Bulgu
+                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                }).ToList();
+
+
+            // RANDEVUID sütununu gizle
+            if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
+            {
+                _Randevular_dataGridView.Columns["RANDEVUID"].Visible = false;
+            }
+
+            //Hastanedb dbr = new Hastanedb();
+            //_Randevular_dataGridView.DataSource = dbr.RANDEVULAR.ToList();
 
             //foreach (Control control in this.Controls)
             //{
@@ -149,7 +175,7 @@ namespace WindowsFormsAppSelll
 
             if (_Randevular_dataGridView.SelectedRows.Count > 0)
             {
-                int selectedRowId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["DOKTORID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+                int selectedRowId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
                 string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

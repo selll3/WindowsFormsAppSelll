@@ -25,7 +25,7 @@ namespace WindowsFormsAppSelll
 
         private void _DOK_button1_Click(object sender, EventArgs e)
         {   
-            Kullanıcılar klnc = new Kullanıcılar();
+            KullaniciGiris klnc = new KullaniciGiris();
          
              
             
@@ -69,6 +69,7 @@ namespace WindowsFormsAppSelll
 
             // Formu kapat
             this.Close();
+
         }
     }
 }

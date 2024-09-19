@@ -86,6 +86,7 @@
             // 
             // label
             // 
+            this.label.BackColor = System.Drawing.Color.Transparent;
             this.label.Location = new System.Drawing.Point(2, 22);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(132, 26);
@@ -94,6 +95,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(2, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 26);
@@ -115,9 +117,11 @@
             this._doktorBilgisi_comboBox.Name = "_doktorBilgisi_comboBox";
             this._doktorBilgisi_comboBox.Size = new System.Drawing.Size(239, 28);
             this._doktorBilgisi_comboBox.TabIndex = 10;
+            this._doktorBilgisi_comboBox.SelectedIndexChanged += new System.EventHandler(this._doktorBilgisi_comboBox_SelectedIndexChanged);
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(2, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 26);
@@ -126,6 +130,7 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(2, 258);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 22);
@@ -134,6 +139,7 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(4, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 26);

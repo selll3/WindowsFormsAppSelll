@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppSelll.KULLANICI
 {
-    partial class Girisislemleri
+    partial class KullaniciEkle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Girisislemleri));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KullaniciEkle));
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.kullaniciAdi_textBox = new System.Windows.Forms.TextBox();
             this._Parola_textBox = new System.Windows.Forms.TextBox();
-            this._kullaniciTürü_comboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -44,12 +44,13 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(331, 229);
+            this.linkLabel1.Location = new System.Drawing.Point(287, 122);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(186, 41);
+            this.linkLabel1.Size = new System.Drawing.Size(124, 27);
             this.linkLabel1.TabIndex = 15;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Giriş Ekranı";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // kullaniciAdi_textBox
             // 
@@ -64,28 +65,6 @@
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.Size = new System.Drawing.Size(206, 26);
             this._Parola_textBox.TabIndex = 13;
-            // 
-            // _kullaniciTürü_comboBox
-            // 
-            this._kullaniciTürü_comboBox.FormattingEnabled = true;
-            this._kullaniciTürü_comboBox.Items.AddRange(new object[] {
-            "admin",
-            "Muhasebe/İK",
-            "Personel",
-            "Doktor"});
-            this._kullaniciTürü_comboBox.Location = new System.Drawing.Point(138, 142);
-            this._kullaniciTürü_comboBox.Name = "_kullaniciTürü_comboBox";
-            this._kullaniciTürü_comboBox.Size = new System.Drawing.Size(206, 28);
-            this._kullaniciTürü_comboBox.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(12, 145);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 25);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Kullanıcı Türü :";
             // 
             // label2
             // 
@@ -107,24 +86,47 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Kullanıcı Adı :";
             // 
-            // Girisislemleri
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PaleGreen;
+            this.button1.Location = new System.Drawing.Point(16, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 37);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "KAYDET";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Khaki;
+            this.button2.Location = new System.Drawing.Point(263, 175);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 34);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "VAZGEÇ";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // KullaniciEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(506, 321);
+            this.ClientSize = new System.Drawing.Size(438, 266);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.kullaniciAdi_textBox);
             this.Controls.Add(this._Parola_textBox);
-            this.Controls.Add(this._kullaniciTürü_comboBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.Name = "Girisislemleri";
-            this.Text = "Girisislemleri";
+            this.Name = "KullaniciEkle";
+            this.Text = "Kullanici Ekle";
+            this.Load += new System.EventHandler(this.KullaniciEkle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,9 +137,9 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TextBox kullaniciAdi_textBox;
         private System.Windows.Forms.TextBox _Parola_textBox;
-        private System.Windows.Forms.ComboBox _kullaniciTürü_comboBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

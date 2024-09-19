@@ -118,7 +118,7 @@ namespace WindowsFormsAppSelll
 
 
                 SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid) ";
+                string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID,HASTAID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid,@Hastaid) ";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 SqlCommand bilg = new SqlCommand(insertQuery, con);
@@ -127,6 +127,7 @@ namespace WindowsFormsAppSelll
                 cmd.Parameters.AddWithValue("@RandevuSaati", _RandevuSaati_dateTimePicker.Value);
                 cmd.Parameters.AddWithValue("@bulgu", _Bulgu_textBox.Text);
                 cmd.Parameters.AddWithValue("@Doktorid", _doktorBilgisi_comboBox.SelectedValue);
+                cmd.Parameters.AddWithValue("@Hastaid", _HastaBilgisi_comboBox.SelectedValue);
                 //date time picker
 
                 int count = cmd.ExecuteNonQuery();
@@ -220,6 +221,11 @@ namespace WindowsFormsAppSelll
         }
 
         private void _HastaBilgisi_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _doktorBilgisi_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
