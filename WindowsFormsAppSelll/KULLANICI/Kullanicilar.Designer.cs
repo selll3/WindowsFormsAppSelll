@@ -47,6 +47,7 @@
             this._kullanicilar_dataGridView.Size = new System.Drawing.Size(709, 320);
             this._kullanicilar_dataGridView.TabIndex = 0;
             this._kullanicilar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullanicilar_dataGridView_CellContentClick);
+            this._kullanicilar_dataGridView.SelectionChanged += new System.EventHandler(this._kullanicilar_dataGridView_SelectionChanged);
             // 
             // _EKLE_button
             // 
@@ -127,8 +128,8 @@
         private System.Windows.Forms.Button _EKLE_button;
         private System.Windows.Forms.Button _Vazgec;
         private System.Windows.Forms.Button _Guncelle_button;
-        private System.Windows.Forms.Button _Yetkilerigor_button;
         private System.Windows.Forms.Button _SIL_button;
         public System.Windows.Forms.DataGridView _kullanicilar_dataGridView;
+        public System.Windows.Forms.Button _Yetkilerigor_button;
     }
 }

@@ -17,6 +17,11 @@ namespace WindowsFormsAppSelll.ENTITY
         public virtual DbSet<PERSONEL> PERSONEL { get; set; }
         public virtual DbSet<RANDEVULAR> RANDEVULAR { get; set; }
 
+        public virtual DbSet<PERSONELFORMYETKILERI> PERSONELFORMYETKILERI{ get; set; }
+        public virtual DbSet<FORMLAR> FORMLAR { get; set; }
+        public virtual DbSet<GIRIS> GIRIS{ get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DOKTORLAR>()

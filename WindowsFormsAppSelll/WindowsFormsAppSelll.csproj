@@ -77,9 +77,12 @@
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </Compile>
     <Compile Include="ENTITY\DOKTORLAR.cs" />
+    <Compile Include="ENTITY\FORMLAR.cs" />
+    <Compile Include="ENTITY\GIRIS.cs" />
     <Compile Include="ENTITY\HASTALAR.cs" />
     <Compile Include="ENTITY\Hastanedb.cs" />
     <Compile Include="ENTITY\PERSONEL.cs" />
+    <Compile Include="ENTITY\PERSONELFORMYETKILERI.cs" />
     <Compile Include="ENTITY\RANDEVULAR.cs" />
     <Compile Include="HASTA\HastaEkle.cs">
       <SubType>Form</SubType>
