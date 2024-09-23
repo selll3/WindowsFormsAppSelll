@@ -104,9 +104,8 @@ namespace WindowsFormsAppSelll.KULLANICI
 
                     // Yetkileri güncelle veya ekle
                     string query = @"
-                   EXISTS (SELECT 1 FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KullaniciID AND FormID = @FormID)
            
-                UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                   UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
             
             
             
