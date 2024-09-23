@@ -14,6 +14,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 {
     public partial class YetkileriGor : Form
     {
+        DataTable dt;
         private int kullaniciID;
         public YetkileriGor(int userID)
         {
@@ -35,14 +36,14 @@ namespace WindowsFormsAppSelll.KULLANICI
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.SelectCommand.Parameters.AddWithValue("@KullaniciID", kullaniciID);
-                DataTable dt = new DataTable();
+                dt = new DataTable();
                 da.Fill(dt);
                 _yetkilerigor_dataGridView.DataSource = dt;
 
-                if (_yetkilerigor_dataGridView.Columns.Contains("FormID"))
-                {
-                    _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
-                }
+                //if (_yetkilerigor_dataGridView.Columns.Contains("FormID"))
+                //{
+                //    _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
+                //}
 
                 // FormID değerlerini kontrol et
                 foreach (DataRow row in dt.Rows)
@@ -90,10 +91,10 @@ namespace WindowsFormsAppSelll.KULLANICI
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
             {
                 con.Open();
-                foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
+                foreach ( DataRow row in dt.Rows)
                 {
-                    int formID = Convert.ToInt32(row.Cells["FormID"].Value);
-                    bool yetki = Convert.ToBoolean(row.Cells["Yetki"].Value);
+                    int formID = Convert.ToInt32(row["FormID"]);
+                    bool yetki = Convert.ToBoolean(row["Yetki"]);
 
                     if (formID <= 0)
                     {
@@ -103,14 +104,14 @@ namespace WindowsFormsAppSelll.KULLANICI
 
                     // Yetkileri güncelle veya ekle
                     string query = @"
-            IF EXISTS (SELECT 1 FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KullaniciID AND FormID = @FormID)
-            BEGIN
-                UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID
-            END
-            ELSE
-            BEGIN
-                INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@KullaniciID, @FormID, @Yetki)
-            END";
+                   EXISTS (SELECT 1 FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KullaniciID AND FormID = @FormID)
+           
+                UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+            
+            
+            
+               
+           
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
