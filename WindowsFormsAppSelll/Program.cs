@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppSelll.KULLANICI;
-using WindowsFormsAppSelll.YETKI;
+//using WindowsFormsAppSelll.YETKI;
 
 namespace WindowsFormsAppSelll
 {
@@ -18,7 +18,7 @@ namespace WindowsFormsAppSelll
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Randevular());
+            Application.Run(new KullaniciGiris());
         }
     }
 }

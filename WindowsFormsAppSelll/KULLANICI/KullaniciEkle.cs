@@ -60,7 +60,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                 string insertYetkiQuery = "INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@KullaniciID, @FormID, 0)"; // 0: false
 
                 // Yetkiler için gerekli FormID'leri belirle
-                List<int> formIDs = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+                List<int> formIDs = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
 
                 foreach (var formID in formIDs)
                 {

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,14 @@ namespace WindowsFormsAppSelll.KULLANICI
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
         SqlDataAdapter da;
         DataTable dt;
+        public int selectedUserID; // Kullanıcı ID'sini tutacak alan
+
         public Kullanicilar()
         {
             InitializeComponent();
             LoadDatakullanici();
+
+           
         }
 
        
@@ -107,7 +112,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                 }
             }
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "Select KullaniciAdi,Parola from GIRIS";
+            string readQuery = "Select KULLANICIID,KullaniciAdi,Parola from GIRIS";
             SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
             SqlCommandBuilder cmd = new SqlCommandBuilder();
             DataTable dth = new DataTable();
@@ -120,7 +125,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 
             if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
             {
-                int selectedRowId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+               int selectedRowId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
                 string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -147,9 +152,9 @@ namespace WindowsFormsAppSelll.KULLANICI
 
             if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
             {
-                int selectedUserID = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
-                YetkileriGor form2 = new YetkileriGor(selectedUserID);
-                form2.ShowDialog();
+                 selectedUserID = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
+                YetkileriGor yetkileriGor = new YetkileriGor(selectedUserID);
+                yetkileriGor.ShowDialog();
             }
             else
             {

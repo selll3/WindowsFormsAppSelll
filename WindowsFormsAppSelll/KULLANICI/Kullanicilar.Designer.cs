@@ -127,11 +127,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button _EKLE_button;
         private System.Windows.Forms.Button _Vazgec;
-        private System.Windows.Forms.Button _Guncelle_button;
-        private System.Windows.Forms.Button _SIL_button;
         public System.Windows.Forms.DataGridView _kullanicilar_dataGridView;
         public System.Windows.Forms.Button _Yetkilerigor_button;
+        public System.Windows.Forms.Button _EKLE_button;
+        public System.Windows.Forms.Button _Guncelle_button;
+        public System.Windows.Forms.Button _SIL_button;
     }
 }

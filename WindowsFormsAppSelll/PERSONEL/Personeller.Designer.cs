@@ -122,10 +122,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button _Sil_button;
         private System.Windows.Forms.Button _Vazgec_button;
         private System.Windows.Forms.DataGridView _Personeller_dataGridView;
-        private System.Windows.Forms.Button _GUNCELLE_button;
-        private System.Windows.Forms.Button _Ekle_button;
+        public System.Windows.Forms.Button _Sil_button;
+        public System.Windows.Forms.Button _GUNCELLE_button;
+        public System.Windows.Forms.Button _Ekle_button;
     }
 }

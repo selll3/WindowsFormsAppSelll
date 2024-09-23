@@ -38,6 +38,7 @@
             // 
             this._yetkilerigor_dataGridView.AllowUserToAddRows = false;
             this._yetkilerigor_dataGridView.AllowUserToDeleteRows = false;
+            this._yetkilerigor_dataGridView.AllowUserToOrderColumns = true;
             this._yetkilerigor_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._yetkilerigor_dataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._yetkilerigor_dataGridView.ImeMode = System.Windows.Forms.ImeMode.Off;

@@ -35,6 +35,7 @@
             this._hastalar_button = new System.Windows.Forms.Button();
             this._PERS_button4 = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
+            this._kullanicilarb = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +98,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(17, 384);
+            this._Vazgec_button.Location = new System.Drawing.Point(17, 436);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(134, 38);
             this._Vazgec_button.TabIndex = 21;
@@ -105,13 +106,24 @@
             this._Vazgec_button.UseVisualStyleBackColor = false;
             this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
             // 
+            // _kullanicilarb
+            // 
+            this._kullanicilarb.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._kullanicilarb.Location = new System.Drawing.Point(12, 356);
+            this._kullanicilarb.Name = "_kullanicilarb";
+            this._kullanicilarb.Size = new System.Drawing.Size(134, 38);
+            this._kullanicilarb.TabIndex = 22;
+            this._kullanicilarb.Text = "KULLANICILAR";
+            this._kullanicilarb.UseVisualStyleBackColor = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(327, 467);
+            this.ClientSize = new System.Drawing.Size(316, 509);
             this.ControlBox = false;
+            this.Controls.Add(this._kullanicilarb);
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._PERS_button4);
             this.Controls.Add(this._hastalar_button);
@@ -133,5 +145,6 @@
         public System.Windows.Forms.Button _hastalar_button;
         public System.Windows.Forms.Button _PERS_button4;
         public System.Windows.Forms.Button _Vazgec_button;
+        public System.Windows.Forms.Button _kullanicilarb;
     }
 }

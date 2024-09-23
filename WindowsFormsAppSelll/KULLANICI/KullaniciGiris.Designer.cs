@@ -42,7 +42,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Location = new System.Drawing.Point(342, 231);
+            this.button1.Location = new System.Drawing.Point(342, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 40);
             this.button1.TabIndex = 0;
@@ -90,7 +90,7 @@
             // Login_button
             // 
             this.Login_button.BackColor = System.Drawing.Color.PaleGreen;
-            this.Login_button.Location = new System.Drawing.Point(12, 231);
+            this.Login_button.Location = new System.Drawing.Point(12, 212);
             this.Login_button.Name = "Login_button";
             this.Login_button.Size = new System.Drawing.Size(121, 40);
             this.Login_button.TabIndex = 7;
@@ -129,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(507, 295);
+            this.ClientSize = new System.Drawing.Size(492, 278);
             this.ControlBox = false;
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.linkLabel1);

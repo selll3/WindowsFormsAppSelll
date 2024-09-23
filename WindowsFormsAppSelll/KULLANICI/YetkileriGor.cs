@@ -15,6 +15,7 @@ namespace WindowsFormsAppSelll.KULLANICI
     public partial class YetkileriGor : Form
     {
         DataTable dt;
+        
         private int kullaniciID;
         public YetkileriGor(int userID)
         {
@@ -37,6 +38,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.SelectCommand.Parameters.AddWithValue("@KullaniciID", kullaniciID);
                 dt = new DataTable();
+               
                 da.Fill(dt);
                 _yetkilerigor_dataGridView.DataSource = dt;
 
@@ -44,8 +46,8 @@ namespace WindowsFormsAppSelll.KULLANICI
                 {
                     _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
                 }
-               _yetkilerigor_dataGridView.Columns[1].ReadOnly = true;
-                // FormID değerlerini kontrol et
+                _yetkilerigor_dataGridView.Columns[1].ReadOnly = true;
+                //FormID değerlerini kontrol et
                 foreach (DataRow row in dt.Rows)
                 {
                     int formID = row["FormID"] != DBNull.Value ? Convert.ToInt32(row["FormID"]) : -1; // Geçersiz formID
@@ -75,15 +77,15 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         }
        
-
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == _yetkilerigor_dataGridView.Columns["Yetki"].Index && e.RowIndex >= 0)
-            //{
-            //    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)_yetkilerigor_dataGridView.Rows[e.RowIndex].Cells["Yetki"];
-            //    checkBoxCell.Value = !(Convert.ToBoolean(checkBoxCell.Value)); // Mevcut değeri tersine çevir
-            //    _yetkilerigor_dataGridView.RefreshEdit(); // Güncellemeleri yansıt
-            //}
+            if (e.ColumnIndex == _yetkilerigor_dataGridView.Columns["Yetki"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)_yetkilerigor_dataGridView.Rows[e.RowIndex].Cells["Yetki"];
+                checkBoxCell.Value = !(Convert.ToBoolean(checkBoxCell.Value)); // Mevcut değeri tersine çevir
+                _yetkilerigor_dataGridView.RefreshEdit(); // Güncellemeleri yansıt
+            }
         }
         //private YetkileriGor yetkileriGorForm;
         private void _Kaydet_button_Click(object sender, EventArgs e)
@@ -103,9 +105,9 @@ namespace WindowsFormsAppSelll.KULLANICI
                     }
 
                     // Yetkileri güncelle veya ekle
-                    string query = @"
+                    string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
            
-                   UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                   
             
             
             
@@ -118,6 +120,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                     cmd.Parameters.AddWithValue("@Yetki", yetki);
                     cmd.ExecuteNonQuery();
                 }
+                 MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             this.Close();
 
