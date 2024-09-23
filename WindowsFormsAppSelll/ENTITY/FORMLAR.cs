@@ -14,32 +14,19 @@ namespace WindowsFormsAppSelll.ENTITY
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FORMLAR()
         {
-
+            PERSONELFORMYETKILERI = new HashSet<PERSONELFORMYETKILERI>();
         }
 
-        [Key] // FormID'yi anahtar olarak belirtiyoruz
+        [Key]
         public int FormID { get; set; }
 
-        [StringLength(25)]
+        [Required]
+        [StringLength(100)]
         public string FormAdi { get; set; }
 
-        public virtual ICollection<PERSONELFORMYETKILERI> PERSONELFORMYETKILERIs { get; set; }
-
-        //[StringLength(25)]
-        //public string FormAdi { get; set; }
-
-
-        //[Key]
-        //public int FormID { get; set; }
-
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        //public virtual ICollection<PERSONELFORMYETKILERI> PERSONELFORMYETKILERIs { get; set; }
-
-
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PERSONELFORMYETKILERI> PERSONELFORMYETKILERI { get; set; }
     }
 
 
-
-    }
+}

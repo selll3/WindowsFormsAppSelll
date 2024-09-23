@@ -23,28 +23,10 @@ namespace WindowsFormsAppSelll.KULLANICI
             LoadDatakullanici();
         }
 
-        private void LoadKullanicilar()
-        {
-            //using (var context = new Hastanedb())
-            //{
-            //    var kullaniciList = context.GIRIS.ToList();
-            //   _kullanicilar_dataGridView.DataSource = kullaniciList;
-            //}
-        }
+       
 
         public void LoadDatakullanici()
         {
-            //    dt = new DataTable();
-            //    string readQuery = "SELECT KULLANICIID, KullaniciAdi,Parola FROM GIRIS";
-            //    da = new SqlDataAdapter(readQuery, con);
-            //    da.Fill(dt);
-            //    _kullanicilar_dataGridView.DataSource = dt;
-
-            //    // DOKTORID sütununu gizle
-            //    if (_kullanicilar_dataGridView.Columns.Contains("KULLANICIID"))
-            //    {
-            //        _kullanicilar_dataGridView.Columns["KULLANICIID"].Visible = false;
-            //    }
             Hastanedb dk = new Hastanedb();
        
            _kullanicilar_dataGridView.DataSource = dk.GIRIS
@@ -158,101 +140,30 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         public void _Yetkilerigor_button_Click(object sender, EventArgs e)
         {
+
             if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
             {
-                int kullaniciId = (int)_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value;
-                YetkileriGor yetkileriGorForm = new YetkileriGor(kullaniciId);
-                yetkileriGorForm.ShowDialog(); // Modals form açmak için ShowDialog kullanıyoruz
+                int selectedUserID = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
+                YetkileriGor form2 = new YetkileriGor(selectedUserID);
+                form2.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir kullanıcı seçin.");
             }
 
 
         }
-        private YetkileriGor yetkileriGorForm;
+    private YetkileriGor yetkileriGorForm;
         private void _kullanicilar_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
-            {
-                int kullaniciId = (int)_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value;
-
-                // Eğer yetkileriGorForm açık ise sadece yetkileri yükle
-                if (yetkileriGorForm != null && !yetkileriGorForm.IsDisposed)
-                {
-                    yetkileriGorForm.ReloadYetkiler(kullaniciId); // Kullanıcıyı güncelle
-                }
-                else
-                {
-                    yetkileriGorForm = new YetkileriGor(kullaniciId);
-                    yetkileriGorForm.Show(); // Yeni form açılır
-                }
-            }
         }
 
-
-        //// DataGridView'den seçili satırdaki KullaniciID'yi alıyoruz
-        //if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
-        //{
-        //    int kullaniciId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
-
-        //    // YetkileriGor formunu açıyoruz ve seçilen kullanıcının ID'sini geçiyoruz
-        //    YetkileriGor yetkileriGorForm = new YetkileriGor(kullaniciId);
-        //    yetkileriGorForm.ShowDialog();  // Formu modal olarak açıyoruz
-        //}
-        //else
-        //{
-        //    MessageBox.Show("Lütfen bir kullanıcı seçin.");
-        //}
-
-
-        //if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
-        //{
-        //    // Seçilen kullanıcıyı al
-        //    int kullaniciId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
-
-        //    // Yeni formu aç ve KULLANICIID'yi gönder
-        //    YetkileriGor yetkileriGorForm = new YetkileriGor(kullaniciId);
-        //    yetkileriGorForm.Show();
-        //}
-        //else
-        //{
-        //    MessageBox.Show("Lütfen bir kullanıcı seçiniz.");
-        //}
-
-
-
-
-        // int selectedKullaniciID = (int)_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value;
-
-
-        //YetkileriGor yg = new YetkileriGor();
-
-        //// DataGridView  dgv = new DataGridView();
-        //yg.ShowDialog();
-
-        // SqlConnection conn = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        // //string insertQuery = "SELECT PERSONELFORMYETKILERI.*, FORM.* FROM PERSONELFORMYETKILERI INNER JOIN FORM ON PERSONELFORMYETKILERI.PERSONELID = FORM.PERSONELID";
-        // SqlCommand cmd = new SqlCommand("SELECT F.FormAdi, COALESCE(PFY.Yetki, 0) AS Yetki FROM FORMLAR F "+"LEFT JOIN PERSONELFORMYETKILERI PFY ON F.FormID = PFY.FormID AND PFY.KULLANICIID = @SelectedKullaniciID;", conn);
-        // conn.Open();
-
-        // SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        // DataTable table = new DataTable();
-        // adapter.Fill(table);
-
-        // // DataGridView'e veri bağlama
-        // YetkileriGor yt = new YetkileriGor();
-        //yt._yetkilerigor_dataGridView.DataSource = table;
-
-
-        // yg.Controls.Add(dgv);
-
-
-        //// Seçilen personelin ID'sini al
-        //int selectedPersonelID = // Bu fonksiyon seçilen personelin ID'sini alır
-
-        //// Yeni formu aç ve PersonelID'yi gönder
-        //YetkileriGor formYetkileri = new YetkileriGor(selectedPersonelID);
-        //formYetkileri.Show();
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ForeignKeyCheckForm fkcForm = new ForeignKeyCheckForm();
+            fkcForm.ShowDialog();
+        }
     }
 
 }

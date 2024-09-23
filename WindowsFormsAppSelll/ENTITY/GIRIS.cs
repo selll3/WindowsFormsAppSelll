@@ -6,29 +6,30 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("GIRIS")]
-     public partial class GIRIS
+    public partial class GIRIS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GIRIS()
         {
-           PERSONELFORMYETKILERI = new HashSet<PERSONELFORMYETKILERI>();
+            PERSONELFORMYETKILERI = new HashSet<PERSONELFORMYETKILERI>();
         }
 
-        [StringLength(25)]
-        public string KullaniciAdi { get; set; }
-
-        [StringLength(25)]
-        public string Parola { get; set; }
-
-    
         [Key]
         public int KULLANICIID { get; set; }
 
+        [StringLength(45)]
+        public string KullaniciAdi { get; set; }
+
+        [StringLength(40)]
+        public string Parola { get; set; }
+
+        public int? PERSONELID { get; set; }
+
+        public virtual PERSONEL PERSONEL { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PERSONELFORMYETKILERI> PERSONELFORMYETKILERI { get; set; }
+    }
 
 
-
-     }
 }

@@ -14,327 +14,115 @@ namespace WindowsFormsAppSelll.KULLANICI
 {
     public partial class YetkileriGor : Form
     {
-        private int _kullaniciId;
-        public YetkileriGor(int kullaniciId)
+        private int kullaniciID;
+        public YetkileriGor(int userID)
         {
             InitializeComponent();
-            _kullaniciId = kullaniciId;
-             LoadYetkiler();
+            kullaniciID = userID;
+            //LoadYetkiler();
         }
-        private void LoadYetkiler()
-        {
-            using (var context = new Hastanedb())
-            {
-                var yetkiler = (from f in context.FORMLAR
-                                join y in context.PERSONELFORMYETKILERI on f.FormID equals y.FormID into joined
-                                from j in joined.DefaultIfEmpty()
-                                select new
-                                {
-                                    FormAdi = f.FormAdi,
-                                    Yetki = j != null && j.KULLANICIID == _kullaniciId ? j.Yetki : false // Kullanıcıya özel yetki kontrolü
-                                }).ToList();
+       
 
-                _yetkilerigor_dataGridView.DataSource = yetkiler;
-            }
-        }
-
-        //public void ReloadYetkiler(int kullaniciId)
-        //{
-        //    _kullaniciId = kullaniciId;
-        //    LoadYetkiler();
-        //}
-        public void ReloadYetkiler(int kullaniciId)
-        {
-            _kullaniciId = kullaniciId; // Kullanıcı ID'sini güncelle
-            LoadYetkiler(); // Yetkileri yeniden yükle
-        }
         private void YetkileriGor_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            {
+                string query = @"
+        SELECT F.FormID, F.FormAdi, 
+        ISNULL(PFY.Yetki, 0) AS Yetki 
+        FROM FORMLAR F
+        LEFT JOIN PERSONELFORMYETKILERI PFY ON F.FormID = PFY.FormID AND PFY.KULLANICIID = @KullaniciID";
 
-        {  /* Kullanicilar kl = new Kullanicilar();*/
-            // Checkbox sütunu için
-            //_yetkilerigor_dataGridView.Columns[2].ReadOnly = false;
-            //int personelID = Convert.ToInt32(_yetkilerigor_dataGridView.SelectedRows[0].Cells["YetkiID"].Value);
-            // Önceki formdan veya kullanıcı seçiminizden al
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                _yetkilerigor_dataGridView.DataSource = dt;
 
-            // Veritabanı bağlantısı ve sorgu
+                if (_yetkilerigor_dataGridView.Columns.Contains("FormID"))
+                {
+                    _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
+                }
 
+                // FormID değerlerini kontrol et
+                foreach (DataRow row in dt.Rows)
+                {
+                    int formID = row["FormID"] != DBNull.Value ? Convert.ToInt32(row["FormID"]) : -1; // Geçersiz formID
+                    bool yetki = row["Yetki"] != DBNull.Value && Convert.ToBoolean(row["Yetki"]); // Varsayılan olarak false kullan
 
-            //int selectedKullaniciID = (int)kl._kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value;
-            //DATA();
+                    // Geçersiz değer kontrolü
+                    if (formID <= 0)
+                    {
+                        MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            //using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            //{
+            //    string query = @"
+            //SELECT F.FormID, F.FormAdi, 
+            //ISNULL(PFY.Yetki, 0) AS Yetki 
+            //FROM FORMLAR F
+            //LEFT JOIN PERSONELFORMYETKILERI PFY ON F.FormID = PFY.FormID AND PFY.KULLANICIID = @KullaniciID";
 
-            // SqlConnection conn = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            ////string insertQuery = "SELECT PERSONELFORMYETKILERI.*, FORM.* FROM PERSONELFORMYETKILERI INNER JOIN FORM ON PERSONELFORMYETKILERI.PERSONELID = FORM.PERSONELID";
-            // SqlCommand cmd = new SqlCommand("SELECT * FROM ViewDENEME",conn);
+            //    SqlDataAdapter da = new SqlDataAdapter(query, con);
+            //    da.SelectCommand.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    _yetkilerigor_dataGridView.DataSource = dt;
+            //}
 
-
-            // SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            // DataTable table = new DataTable();
-            // adapter.Fill(table);
-
-            // // DataGridView'e veri bağlama
-            // _yetkilerigor_dataGridView.DataSource = table;
-            // conn.Close();
         }
-        //public void DATA()
-        // {
-
-        //     SqlConnection conn = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //     //string insertQuery = "SELECT PERSONELFORMYETKILERI.*, FORM.* FROM PERSONELFORMYETKILERI INNER JOIN FORM ON PERSONELFORMYETKILERI.PERSONELID = FORM.PERSONELID";
-        //     SqlCommand cmd = new SqlCommand("SELECT * FROM Viewdeneme1", conn);
-
-
-        //     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //     DataTable table = new DataTable();
-        //     adapter.Fill(table);
-
-        //     // DataGridView'e veri bağlama
-        //     _yetkilerigor_dataGridView.DataSource = table;
-        //     conn.Close();
-        // }
+       
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //if (e.ColumnIndex == _yetkilerigor_dataGridView.Columns["Yetki"].Index && e.RowIndex >= 0)
+            //{
+            //    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)_yetkilerigor_dataGridView.Rows[e.RowIndex].Cells["Yetki"];
+            //    checkBoxCell.Value = !(Convert.ToBoolean(checkBoxCell.Value)); // Mevcut değeri tersine çevir
+            //    _yetkilerigor_dataGridView.RefreshEdit(); // Güncellemeleri yansıt
+            //}
         }
         //private YetkileriGor yetkileriGorForm;
         private void _Kaydet_button_Click(object sender, EventArgs e)
         {
-            using (var context = new Hastanedb())
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
             {
+                con.Open();
                 foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
                 {
-                    if (row.DataBoundItem != null) // Klasik null kontrol
+                    int formID = Convert.ToInt32(row.Cells["FormID"].Value);
+                    bool yetki = Convert.ToBoolean(row.Cells["Yetki"].Value);
+
+                    if (formID <= 0)
                     {
-                        string formAdi = row.Cells["FormAdi"].Value.ToString();
-                        bool yetkiDurumu = Convert.ToBoolean(row.Cells["Yetki"].Value);
-
-                        var form = context.FORMLAR.FirstOrDefault(f => f.FormAdi == formAdi);
-                        if (form != null)
-                        {
-                            var yetki = context.PERSONELFORMYETKILERI
-                                .FirstOrDefault(y => y.KULLANICIID == _kullaniciId && y.FormID == form.FormID);
-
-                            if (yetki != null)
-                            {
-                                // Yetki varsa güncelle
-                                yetki.Yetki = yetkiDurumu;
-                            }
-                            else
-                            {
-                                // Yetki yoksa yeni bir kayıt oluştur
-                                context.PERSONELFORMYETKILERI.Add(new PERSONELFORMYETKILERI
-                                {
-                                    KULLANICIID = _kullaniciId,
-                                    FormID = form.FormID,
-                                    Yetki = yetkiDurumu
-                                });
-                            }
-                        }
+                        MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
+                    // Yetkileri güncelle veya ekle
+                    string query = @"
+            IF EXISTS (SELECT 1 FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KullaniciID AND FormID = @FormID)
+            BEGIN
+                UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID
+            END
+            ELSE
+            BEGIN
+                INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@KullaniciID, @FormID, @Yetki)
+            END";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+                    cmd.Parameters.AddWithValue("@FormID", formID);
+                    cmd.Parameters.AddWithValue("@Yetki", yetki);
+                    cmd.ExecuteNonQuery();
                 }
-                context.SaveChanges();
-                MessageBox.Show("Yetkiler başarıyla kaydedildi.");
             }
-            //using (var context = new Hastanedb())
-            //{
-            //    foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
-            //    {
-            //        string formAdi = row.Cells["FormAdi"].Value.ToString();
-            //        bool yetki = (bool)row.Cells["Yetki"].Value;
-
-            //        // FormID'yi veritabanından bulmak için form adını kullanıyoruz
-            //        var form = context.FORMLAR.FirstOrDefault(f => f.FormAdi == formAdi);
-            //        if (form != null)
-            //        {
-            //            var mevcutYetki = context.PERSONELFORMYETKILERI
-            //                .FirstOrDefault(y => y.KULLANICIID == _kullaniciId && y.FormID == form.FormID);
-
-            //            if (mevcutYetki != null)
-            //            {
-            //                // Mevcut yetkiyi güncelle
-            //                mevcutYetki.Yetki = yetki;
-            //            }
-            //            else
-            //            {
-            //                // Yeni yetki ekle
-            //                var yeniYetki = new PERSONELFORMYETKILERI
-            //                {
-            //                    KULLANICIID = _kullaniciId,
-            //                    FormID = form.FormID,
-            //                    Yetki = yetki
-            //                };
-            //                context.PERSONELFORMYETKILERI.Add(yeniYetki);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Geçersiz FormID. Lütfen form listesini kontrol edin.");
-            //        }
-            //    }
-
-            //    context.SaveChanges();
-            //    MessageBox.Show("Yetkiler başarıyla kaydedildi.");
-            //    this.Close(); // Formu kapat ve bir önceki forma dön
-            //}
-            //if (_yetkilerigor_dataGridView.SelectedRows.Count > 0)
-            //{
-            //    int kullaniciId = Convert.ToInt32(_yetkilerigor_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
-
-            //    if (yetkileriGorForm == null || yetkileriGorForm.IsDisposed)
-            //    {
-            //        // Eğer form kapatıldıysa yeni form oluştur
-            //        yetkileriGorForm = new YetkileriGor(kullaniciId);
-            //        yetkileriGorForm.Show();
-            //    }
-            //    else
-            //    {
-            //        // Eğer form zaten açıksa, yeniden yükle
-            //        yetkileriGorForm.ReloadYetkiler(kullaniciId);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Lütfen bir kullanıcı seçin.");
-            //}
-
-            //using (var context = new Hastanedb())
-            //{
-            //    foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
-            //    {
-            //        int formId = Convert.ToInt32(row.Cells["FormID"].Value);  // FormID'yi alıyoruz
-            //        bool yetkiDurumu = Convert.ToBoolean(row.Cells["Yetki"].Value);  // Yetki checkbox durumunu alıyoruz
-
-            //        // Yetkileri güncelle
-            //        var yetki = context.PERSONELFORMYETKILERI.FirstOrDefault(y => y.KULLANICIID == _kullaniciId && y.FormID == formId);
-
-            //        if (yetki != null)
-            //        {
-            //            // Eğer yetki zaten varsa, güncelle
-            //            yetki.Yetki = yetkiDurumu;
-            //        }
-            //        else
-            //        {
-            //            // Eğer yetki daha önce yoksa, yeni bir yetki ekle
-            //            context.PERSONELFORMYETKILERI.Add(new PERSONELFORMYETKILERI
-            //            {
-            //                KULLANICIID = _kullaniciId,
-            //                FormID = formId,
-            //                Yetki = yetkiDurumu
-            //            });
-            //        }
-            //    }
-
-            //    context.SaveChanges();  // Veritabanına kaydet
-            //}
-
-            //MessageBox.Show("Yetkiler güncellendi.");
-
-
-
-
-
-
-            //foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
-            //{
-            //    int formId = Convert.ToInt32(row.Cells["FormID"].Value);
-            //    bool yetki = Convert.ToBoolean(row.Cells["Yetki"].Value);
-
-            //    // FormID'nin geçerli olup olmadığını kontrol et
-            //    if (formId <= 0) // 0 veya negatif değer kontrolü
-            //    {
-            //        MessageBox.Show("Geçersiz FormID. Lütfen form listesini kontrol edin.");
-            //        return; // İşlemi durdur
-            //    }
-
-            //    SaveUserPermission(_kullaniciId, formId, yetki);
-            //}
-
-            //MessageBox.Show("Yetkiler başarıyla kaydedildi!");
-
-
-            //    foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
-            //    {
-            //        int formId = Convert.ToInt32(row.Cells["FormID"].Value);
-            //        bool yetki = Convert.ToBoolean(row.Cells["Yetki"].Value);
-
-            //        // Form ID'sinin geçerli olup olmadığını kontrol et
-            //        if (!IsValidFormId(formId))
-            //        {
-            //            MessageBox.Show($"FormID {formId} mevcut değil. Lütfen kontrol edin.");
-            //            return; // İşlemi durdur
-            //        }
-
-            //        SaveUserPermission(_kullaniciId, formId, yetki);
-            //    }
-
-            //    MessageBox.Show("Yetkiler başarıyla kaydedildi!");
-            //foreach (DataGridViewRow row in _yetkilerigor_dataGridView.Rows)
-            //{
-            //    // FormID ve checkbox değerini al
-            //    int formId = Convert.ToInt32(row.Cells["FormID"].Value);
-            //    bool yetki = Convert.ToBoolean(row.Cells["Yetki"].Value);
-
-            //    // Kullanıcı ID'si ile yetkiyi kaydet
-            //    SaveUserPermission(_kullaniciId, formId, yetki);
-            //}
-
-            //MessageBox.Show("Yetkiler başarıyla kaydedildi!");
-
-            //    DataGridView dgv = new DataGridView();
-            //    foreach (DataGridViewRow row in dgv.Rows)
-            //    {
-            //        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //        SqlCommand cmd = new SqlCommand("UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE FormID = @FormID AND KULLANICIID = @KULLANICIID");
-            //        conn.Open();
-
-            //        bool yetki = (bool)row.Cells["Yetki"].Value; // Checkbox değerini al
-            //        string formAdi = row.Cells["FormAdi"].Value.ToString();
-            //         conn.Close();
-            //        // Form adından FormID'yi al ve yetkiyi güncelle
-
-            //        // SQL komutunu çalıştır ve veritabanını güncelle
-            //    }
+            this.Close();
 
         }
-        //private bool IsValidFormId(int formId)
-        //{
-        //    string query = "SELECT COUNT(*) FROM FORMLAR WHERE FormID = @formId";
-        //    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
-        //    {
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@formId", formId);
-        //            connection.Open();
-        //            int count = (int)command.ExecuteScalar();
-        //            return count > 0; // Eğer form mevcutsa true döner
-        //        }
-        //    }
-        //}
-
-        //private void SaveUserPermission(int kullaniciId, int formId, bool yetki)
-        //{
-        //    string query = "IF EXISTS (SELECT * FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @kullaniciId AND FormID = @formId) " +
-        //                   "BEGIN " +
-        //                   "UPDATE PERSONELFORMYETKILERI SET Yetki = @yetki WHERE KULLANICIID = @kullaniciId AND FormID = @formId " +
-        //                   "END " +
-        //                   "ELSE " +
-        //                   "BEGIN " +
-        //                   "INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@kullaniciId, @formId, @yetki) " +
-        //                   "END";
-
-        //    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
-        //    {
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@kullaniciId", kullaniciId);
-        //            command.Parameters.AddWithValue("@formId", formId);
-        //            command.Parameters.AddWithValue("@yetki", yetki ? 1 : 0); // Boolean'u BIT'e çevir
-
-        //            connection.Open();
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
+       
 
 
 
