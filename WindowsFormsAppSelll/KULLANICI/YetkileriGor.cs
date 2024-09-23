@@ -40,11 +40,11 @@ namespace WindowsFormsAppSelll.KULLANICI
                 da.Fill(dt);
                 _yetkilerigor_dataGridView.DataSource = dt;
 
-                //if (_yetkilerigor_dataGridView.Columns.Contains("FormID"))
-                //{
-                //    _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
-                //}
-
+                if (_yetkilerigor_dataGridView.Columns.Contains("FormID"))
+                {
+                    _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
+                }
+               _yetkilerigor_dataGridView.Columns[1].ReadOnly = true;
                 // FormID değerlerini kontrol et
                 foreach (DataRow row in dt.Rows)
                 {
@@ -123,8 +123,6 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         }
        
-
-
 
         private void _Vazgec_button_Click(object sender, EventArgs e)
         {

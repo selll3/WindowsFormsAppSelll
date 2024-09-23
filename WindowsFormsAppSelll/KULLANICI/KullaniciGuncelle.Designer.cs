@@ -36,32 +36,36 @@
             // 
             // _KAYDET_button
             // 
-            this._KAYDET_button.Location = new System.Drawing.Point(115, 348);
+            this._KAYDET_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._KAYDET_button.Location = new System.Drawing.Point(76, 304);
             this._KAYDET_button.Name = "_KAYDET_button";
-            this._KAYDET_button.Size = new System.Drawing.Size(146, 40);
+            this._KAYDET_button.Size = new System.Drawing.Size(92, 41);
             this._KAYDET_button.TabIndex = 6;
             this._KAYDET_button.Text = "KAYDET";
-            this._KAYDET_button.UseVisualStyleBackColor = true;
+            this._KAYDET_button.UseVisualStyleBackColor = false;
             this._KAYDET_button.Click += new System.EventHandler(this._KAYDET_button_Click);
             // 
             // _Vazgec
             // 
-            this._Vazgec.Location = new System.Drawing.Point(286, 348);
+            this._Vazgec.BackColor = System.Drawing.Color.Khaki;
+            this._Vazgec.Location = new System.Drawing.Point(198, 304);
             this._Vazgec.Name = "_Vazgec";
-            this._Vazgec.Size = new System.Drawing.Size(149, 40);
+            this._Vazgec.Size = new System.Drawing.Size(92, 41);
             this._Vazgec.TabIndex = 5;
             this._Vazgec.Text = "VAZGEÇ";
-            this._Vazgec.UseVisualStyleBackColor = true;
+            this._Vazgec.UseVisualStyleBackColor = false;
             this._Vazgec.Click += new System.EventHandler(this._Vazgec_Click);
             // 
             // _kullaniciGüncelle_dataGridView
             // 
+            this._kullaniciGüncelle_dataGridView.AllowUserToAddRows = false;
+            this._kullaniciGüncelle_dataGridView.AllowUserToDeleteRows = false;
             this._kullaniciGüncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._kullaniciGüncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._kullaniciGüncelle_dataGridView.Location = new System.Drawing.Point(2, 3);
             this._kullaniciGüncelle_dataGridView.Name = "_kullaniciGüncelle_dataGridView";
             this._kullaniciGüncelle_dataGridView.RowHeadersWidth = 62;
             this._kullaniciGüncelle_dataGridView.RowTemplate.Height = 28;
-            this._kullaniciGüncelle_dataGridView.Size = new System.Drawing.Size(595, 312);
+            this._kullaniciGüncelle_dataGridView.Size = new System.Drawing.Size(366, 286);
             this._kullaniciGüncelle_dataGridView.TabIndex = 4;
             this._kullaniciGüncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullaniciGüncelle_dataGridView_CellClick);
             // 
@@ -69,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 418);
+            this.ClientSize = new System.Drawing.Size(380, 376);
             this.ControlBox = false;
             this.Controls.Add(this._KAYDET_button);
             this.Controls.Add(this._Vazgec);

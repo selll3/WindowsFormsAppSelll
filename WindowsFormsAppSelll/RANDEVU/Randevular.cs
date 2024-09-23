@@ -295,6 +295,11 @@ namespace WindowsFormsAppSelll
         private void Randevular_Load(object sender, EventArgs e)
         {
             //FillComboSeachCode();
+            _Randevular_dataGridView.Columns[0].ReadOnly = true;
+            _Randevular_dataGridView.Columns[1].ReadOnly = true;
+            _Randevular_dataGridView.Columns[2].ReadOnly = true;
+            _Randevular_dataGridView.Columns[3].ReadOnly = true;
+            _Randevular_dataGridView.Columns[4].ReadOnly = true;
         }
 
         private void _Kayıt_button_Click(object sender, EventArgs e)

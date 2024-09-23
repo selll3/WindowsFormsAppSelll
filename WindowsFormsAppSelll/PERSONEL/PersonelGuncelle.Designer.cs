@@ -38,9 +38,9 @@
             // _vazgec_button
             // 
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._vazgec_button.Location = new System.Drawing.Point(406, 440);
+            this._vazgec_button.Location = new System.Drawing.Point(271, 361);
             this._vazgec_button.Name = "_vazgec_button";
-            this._vazgec_button.Size = new System.Drawing.Size(136, 49);
+            this._vazgec_button.Size = new System.Drawing.Size(125, 37);
             this._vazgec_button.TabIndex = 8;
             this._vazgec_button.Text = "VAZGEÇ";
             this._vazgec_button.UseVisualStyleBackColor = false;
@@ -49,9 +49,9 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Location = new System.Drawing.Point(215, 440);
+            this._kaydet_button.Location = new System.Drawing.Point(91, 361);
             this._kaydet_button.Name = "_kaydet_button";
-            this._kaydet_button.Size = new System.Drawing.Size(135, 49);
+            this._kaydet_button.Size = new System.Drawing.Size(125, 37);
             this._kaydet_button.TabIndex = 7;
             this._kaydet_button.Text = "KAYDET";
             this._kaydet_button.UseVisualStyleBackColor = false;
@@ -59,12 +59,14 @@
             // 
             // _personelguncelle_dataGridView
             // 
+            this._personelguncelle_dataGridView.AllowUserToAddRows = false;
+            this._personelguncelle_dataGridView.AllowUserToDeleteRows = false;
             this._personelguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._personelguncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._personelguncelle_dataGridView.Location = new System.Drawing.Point(2, 1);
             this._personelguncelle_dataGridView.Name = "_personelguncelle_dataGridView";
             this._personelguncelle_dataGridView.RowHeadersWidth = 62;
             this._personelguncelle_dataGridView.RowTemplate.Height = 28;
-            this._personelguncelle_dataGridView.Size = new System.Drawing.Size(776, 388);
+            this._personelguncelle_dataGridView.Size = new System.Drawing.Size(530, 338);
             this._personelguncelle_dataGridView.TabIndex = 6;
             this._personelguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._personelguncelle_dataGridView_CellClick);
             // 
@@ -73,7 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 672);
+            this.ClientSize = new System.Drawing.Size(545, 454);
             this.ControlBox = false;
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(this._kaydet_button);

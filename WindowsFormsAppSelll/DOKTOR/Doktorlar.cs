@@ -56,7 +56,11 @@ namespace WindowsFormsAppSelll
 
         private void Doktorlar_Load(object sender, EventArgs e)
         {
-          
+            _Doktorlar_dataGridView.Columns[0].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[1].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[2].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[3].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[4].ReadOnly = true;
         }
 
         private void _DoktorListele_button_Click(object sender, EventArgs e)
@@ -378,6 +382,11 @@ namespace WindowsFormsAppSelll
             DoktorGuncelle doktorGuncelle= new DoktorGuncelle();
             doktorGuncelle.Show();
             //this.Hide();
+        }
+
+        private void _Doktorlar_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

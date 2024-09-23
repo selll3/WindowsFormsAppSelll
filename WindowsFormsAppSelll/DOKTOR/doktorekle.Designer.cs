@@ -88,6 +88,7 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(8, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 23);
@@ -97,6 +98,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(8, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 23);
@@ -105,6 +107,7 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(8, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 23);
@@ -120,6 +123,7 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(8, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 26);

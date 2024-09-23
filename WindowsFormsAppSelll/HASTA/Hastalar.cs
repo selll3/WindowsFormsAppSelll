@@ -221,7 +221,11 @@ namespace WindowsFormsAppSelll
 
         private void Hastalar_Load(object sender, EventArgs e)
         {
-
+           
+            _Hastalar_dataGridView.Columns[1].ReadOnly = true;
+            _Hastalar_dataGridView.Columns[2].ReadOnly = true;
+            _Hastalar_dataGridView.Columns[3].ReadOnly = true;
+            _Hastalar_dataGridView.Columns[4].ReadOnly = true;
         }
 
         private void _Kayıt_button_Click(object sender, EventArgs e)

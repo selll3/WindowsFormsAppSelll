@@ -188,12 +188,6 @@
     <Compile Include="RANDEVU\Randevular.Designer.cs">
       <DependentUpon>Randevular.cs</DependentUpon>
     </Compile>
-    <Compile Include="YETKI\YetkiliEkle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="YETKI\YetkiliEkle.Designer.cs">
-      <DependentUpon>YetkiliEkle.cs</DependentUpon>
-    </Compile>
     <Compile Include="_HASTANEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -268,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RANDEVU\Randevular.resx">
       <DependentUpon>Randevular.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="YETKI\YetkiliEkle.resx">
-      <DependentUpon>YetkiliEkle.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

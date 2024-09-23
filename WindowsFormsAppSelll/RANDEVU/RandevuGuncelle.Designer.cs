@@ -37,33 +37,37 @@
             // 
             // _randevuguncelle_dataGridView
             // 
+            this._randevuguncelle_dataGridView.AllowUserToAddRows = false;
+            this._randevuguncelle_dataGridView.AllowUserToDeleteRows = false;
             this._randevuguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._randevuguncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._randevuguncelle_dataGridView.Location = new System.Drawing.Point(2, 2);
             this._randevuguncelle_dataGridView.Name = "_randevuguncelle_dataGridView";
             this._randevuguncelle_dataGridView.RowHeadersWidth = 62;
             this._randevuguncelle_dataGridView.RowTemplate.Height = 28;
-            this._randevuguncelle_dataGridView.Size = new System.Drawing.Size(655, 380);
+            this._randevuguncelle_dataGridView.Size = new System.Drawing.Size(595, 339);
             this._randevuguncelle_dataGridView.TabIndex = 0;
             this._randevuguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._randevuguncelle_dataGridView_CellClick);
             // 
             // _vazgec_button
             // 
-            this._vazgec_button.Location = new System.Drawing.Point(361, 413);
+            this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
+            this._vazgec_button.Location = new System.Drawing.Point(308, 368);
             this._vazgec_button.Name = "_vazgec_button";
-            this._vazgec_button.Size = new System.Drawing.Size(135, 49);
+            this._vazgec_button.Size = new System.Drawing.Size(125, 40);
             this._vazgec_button.TabIndex = 4;
             this._vazgec_button.Text = "VAZGEÇ";
-            this._vazgec_button.UseVisualStyleBackColor = true;
+            this._vazgec_button.UseVisualStyleBackColor = false;
             this._vazgec_button.Click += new System.EventHandler(this._vazgec_button_Click);
             // 
             // _kaydet_button
             // 
-            this._kaydet_button.Location = new System.Drawing.Point(179, 413);
+            this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._kaydet_button.Location = new System.Drawing.Point(130, 368);
             this._kaydet_button.Name = "_kaydet_button";
-            this._kaydet_button.Size = new System.Drawing.Size(135, 49);
+            this._kaydet_button.Size = new System.Drawing.Size(125, 40);
             this._kaydet_button.TabIndex = 3;
             this._kaydet_button.Text = "KAYDET";
-            this._kaydet_button.UseVisualStyleBackColor = true;
+            this._kaydet_button.UseVisualStyleBackColor = false;
             this._kaydet_button.Click += new System.EventHandler(this._kaydet_button_Click);
             // 
             // RandevuGuncelle
@@ -71,7 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(694, 558);
+            this.ClientSize = new System.Drawing.Size(604, 453);
             this.ControlBox = false;
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(this._kaydet_button);

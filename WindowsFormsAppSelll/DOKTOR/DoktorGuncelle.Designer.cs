@@ -37,12 +37,14 @@
             // 
             // _DoktorlarGuncelle_dataGridView
             // 
+            this._DoktorlarGuncelle_dataGridView.AllowUserToAddRows = false;
+            this._DoktorlarGuncelle_dataGridView.AllowUserToDeleteRows = false;
             this._DoktorlarGuncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._DoktorlarGuncelle_dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._DoktorlarGuncelle_dataGridView.Location = new System.Drawing.Point(-2, 1);
             this._DoktorlarGuncelle_dataGridView.Name = "_DoktorlarGuncelle_dataGridView";
             this._DoktorlarGuncelle_dataGridView.RowHeadersWidth = 62;
             this._DoktorlarGuncelle_dataGridView.RowTemplate.Height = 28;
-            this._DoktorlarGuncelle_dataGridView.Size = new System.Drawing.Size(707, 401);
+            this._DoktorlarGuncelle_dataGridView.Size = new System.Drawing.Size(594, 305);
             this._DoktorlarGuncelle_dataGridView.TabIndex = 0;
             this._DoktorlarGuncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._DoktorlarGuncelle_dataGridView_CellClick);
             this._DoktorlarGuncelle_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._DoktorlarGuncelle_dataGridView_CellContentClick);
@@ -50,9 +52,9 @@
             // _dkayıt_button
             // 
             this._dkayıt_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._dkayıt_button.Location = new System.Drawing.Point(186, 438);
+            this._dkayıt_button.Location = new System.Drawing.Point(137, 337);
             this._dkayıt_button.Name = "_dkayıt_button";
-            this._dkayıt_button.Size = new System.Drawing.Size(132, 53);
+            this._dkayıt_button.Size = new System.Drawing.Size(113, 36);
             this._dkayıt_button.TabIndex = 1;
             this._dkayıt_button.Text = "KAYDET";
             this._dkayıt_button.UseVisualStyleBackColor = false;
@@ -62,9 +64,9 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(360, 438);
+            this._Vazgec_button.Location = new System.Drawing.Point(306, 337);
             this._Vazgec_button.Name = "_Vazgec_button";
-            this._Vazgec_button.Size = new System.Drawing.Size(132, 53);
+            this._Vazgec_button.Size = new System.Drawing.Size(112, 36);
             this._Vazgec_button.TabIndex = 22;
             this._Vazgec_button.Text = "VAZGEÇ";
             this._Vazgec_button.UseVisualStyleBackColor = false;
@@ -76,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(733, 552);
+            this.ClientSize = new System.Drawing.Size(604, 422);
             this.ControlBox = false;
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._dkayıt_button);

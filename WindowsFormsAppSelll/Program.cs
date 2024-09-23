@@ -18,7 +18,7 @@ namespace WindowsFormsAppSelll
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Kullanicilar());
+            Application.Run(new Randevular());
         }
     }
 }
