@@ -19,16 +19,44 @@ namespace WindowsFormsAppSelll.KULLANICI
         SqlDataAdapter da;
         DataTable dt;
         public int selectedUserID; // Kullanıcı ID'sini tutacak alan
-
-        public Kullanicilar()
+        private int currentUserId;
+        private Hastanedb dbContext = new Hastanedb();
+        public Kullanicilar(int userId)
         {
             InitializeComponent();
             LoadDatakullanici();
+            currentUserId = userId;
+            LoadUserPermissions();
 
-           
         }
 
-       
+        private void LoadUserPermissions()
+        {
+            // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
+            var userPermissions = dbContext.PERSONELFORMYETKILERI
+                                           .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
+                                           .ToList();
+
+            // Yetkilere göre ana formdaki butonları kontrol ediyoruz
+            foreach (var permission in userPermissions)
+            {
+                switch (permission.FormID)
+                {
+                    case 13:  // Doktorlar Formu yetkisi
+                        _EKLE_button.Enabled = true;
+                        break;
+                    case 16:  // Hastalar Formu yetkisi
+                        _Guncelle_button.Enabled = true;
+                        _SIL_button.Enabled = true;
+                        break;
+                    case 17: _Yetkilerigor_button.Enabled = true; 
+                        break;
+
+
+                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                }
+            }
+        }
 
         public void LoadDatakullanici()
         {
@@ -130,7 +158,8 @@ namespace WindowsFormsAppSelll.KULLANICI
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "DELETE FROM GIRIS WHERE KULLANICIID = @KULLANICIID";
+                    string query = "BEGIN TRANSACTION;\r\n\r\nBEGIN TRY\r\n    -- İlk olarak PERSONELFORMYETKILERI tablosundan ilgili kullanıcıyı sil\r\n    DELETE FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KULLANICIID;\r\n\r\n    -- Ardından GIRIS tablosundan kullanıcıyı sil\r\n    DELETE FROM GIRIS WHERE KULLANICIID = @KULLANICIID;\r\n\r\n    -- İşlem başarılı olursa commit et\r\n    COMMIT TRANSACTION;\r\nEND TRY\r\n\r\nBEGIN CATCH\r\n    -- Hata olursa işlemi geri al\r\n    ROLLBACK TRANSACTION;\r\n    THROW;\r\nEND CATCH;\r\n";
+                    
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@KULLANICIID", selectedRowId);

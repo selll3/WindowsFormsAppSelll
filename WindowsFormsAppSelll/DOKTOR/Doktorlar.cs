@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsAppSelll.ENTITY;
+using WindowsFormsAppSelll.KULLANICI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsAppSelll
 {
@@ -16,12 +20,47 @@ namespace WindowsFormsAppSelll
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
         SqlDataAdapter da;
         DataTable dt;
+        // Kullanıcı ID'yi alır (LINQ veya SQL sorgusu ile)
+        private int currentUserId;
+        private Hastanedb dbContext = new Hastanedb();
 
-        public Doktorlar()
+
+        public Doktorlar(int userId)
         {
             InitializeComponent();
             LoadDataIntoGrid();
-           
+            currentUserId = userId;
+            LoadUserPermissions();
+            // _Ekle_button.Enabled = false;
+            // _GUNCELLE_button.Enabled = false;
+            //_Sil_button.Enabled = false;
+
+
+        }
+        private void LoadUserPermissions()
+        {
+            // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
+            var userPermissions = dbContext.PERSONELFORMYETKILERI
+                                           .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
+                                           .ToList();
+
+            // Yetkilere göre ana formdaki butonları kontrol ediyoruz
+            foreach (var permission in userPermissions)
+            {
+                switch (permission.FormID)
+                {
+                    case 2:  // Doktorlar Formu yetkisi
+                        _Ekle_button.Enabled = true;
+                        break;
+                    case 3:  // Hastalar Formu yetkisi
+                        _GUNCELLE_button.Enabled = true;
+                        _Sil_button.Enabled = true;
+                        break;
+                   
+
+                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                }
+            }
         }
 
         public void LoadDataIntoGrid()
@@ -56,6 +95,9 @@ namespace WindowsFormsAppSelll
 
         private void Doktorlar_Load(object sender, EventArgs e)
         {
+           
+
+
             _Doktorlar_dataGridView.Columns[0].ReadOnly = true;
             _Doktorlar_dataGridView.Columns[1].ReadOnly = true;
             _Doktorlar_dataGridView.Columns[2].ReadOnly = true;

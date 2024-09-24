@@ -34,8 +34,8 @@
             this._RANDE_button2 = new System.Windows.Forms.Button();
             this._hastalar_button = new System.Windows.Forms.Button();
             this._PERS_button4 = new System.Windows.Forms.Button();
-            this._Vazgec_button = new System.Windows.Forms.Button();
             this._kullanicilarb = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,6 +53,7 @@
             // _DOK_button1
             // 
             this._DOK_button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._DOK_button1.Enabled = false;
             this._DOK_button1.Location = new System.Drawing.Point(12, 92);
             this._DOK_button1.Name = "_DOK_button1";
             this._DOK_button1.Size = new System.Drawing.Size(134, 38);
@@ -64,6 +65,7 @@
             // _RANDE_button2
             // 
             this._RANDE_button2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._RANDE_button2.Enabled = false;
             this._RANDE_button2.Location = new System.Drawing.Point(12, 154);
             this._RANDE_button2.Name = "_RANDE_button2";
             this._RANDE_button2.Size = new System.Drawing.Size(134, 38);
@@ -75,6 +77,7 @@
             // _hastalar_button
             // 
             this._hastalar_button.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._hastalar_button.Enabled = false;
             this._hastalar_button.Location = new System.Drawing.Point(12, 223);
             this._hastalar_button.Name = "_hastalar_button";
             this._hastalar_button.Size = new System.Drawing.Size(134, 38);
@@ -86,6 +89,7 @@
             // _PERS_button4
             // 
             this._PERS_button4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._PERS_button4.Enabled = false;
             this._PERS_button4.Location = new System.Drawing.Point(12, 289);
             this._PERS_button4.Name = "_PERS_button4";
             this._PERS_button4.Size = new System.Drawing.Size(134, 38);
@@ -94,27 +98,28 @@
             this._PERS_button4.UseVisualStyleBackColor = false;
             this._PERS_button4.Click += new System.EventHandler(this._PERS_button4_Click);
             // 
-            // _Vazgec_button
-            // 
-            this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(17, 436);
-            this._Vazgec_button.Name = "_Vazgec_button";
-            this._Vazgec_button.Size = new System.Drawing.Size(134, 38);
-            this._Vazgec_button.TabIndex = 21;
-            this._Vazgec_button.Text = "VAZGEÇ";
-            this._Vazgec_button.UseVisualStyleBackColor = false;
-            this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
-            // 
             // _kullanicilarb
             // 
             this._kullanicilarb.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._kullanicilarb.Enabled = false;
             this._kullanicilarb.Location = new System.Drawing.Point(12, 356);
             this._kullanicilarb.Name = "_kullanicilarb";
             this._kullanicilarb.Size = new System.Drawing.Size(134, 38);
             this._kullanicilarb.TabIndex = 22;
             this._kullanicilarb.Text = "KULLANICILAR";
             this._kullanicilarb.UseVisualStyleBackColor = false;
+            this._kullanicilarb.Click += new System.EventHandler(this._kullanicilarb_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Khaki;
+            this.button1.Location = new System.Drawing.Point(12, 432);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 34);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "VAZGEÇ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
@@ -123,8 +128,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(316, 509);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._kullanicilarb);
-            this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._PERS_button4);
             this.Controls.Add(this._hastalar_button);
             this.Controls.Add(this._RANDE_button2);
@@ -144,7 +149,7 @@
         public System.Windows.Forms.Button _RANDE_button2;
         public System.Windows.Forms.Button _hastalar_button;
         public System.Windows.Forms.Button _PERS_button4;
-        public System.Windows.Forms.Button _Vazgec_button;
         public System.Windows.Forms.Button _kullanicilarb;
+        public System.Windows.Forms.Button button1;
     }
 }

@@ -41,6 +41,7 @@
             // 
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Sil_button.Enabled = false;
             this._Sil_button.Location = new System.Drawing.Point(462, 401);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(120, 39);
@@ -80,6 +81,7 @@
             // 
             this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._GUNCELLE_button.Enabled = false;
             this._GUNCELLE_button.Location = new System.Drawing.Point(310, 401);
             this._GUNCELLE_button.Name = "_GUNCELLE_button";
             this._GUNCELLE_button.Size = new System.Drawing.Size(120, 39);
@@ -92,6 +94,7 @@
             // 
             this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Ekle_button.Enabled = false;
             this._Ekle_button.Location = new System.Drawing.Point(2, 401);
             this._Ekle_button.Name = "_Ekle_button";
             this._Ekle_button.Size = new System.Drawing.Size(120, 40);

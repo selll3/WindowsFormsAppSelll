@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -18,15 +19,44 @@ namespace WindowsFormsAppSelll
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
         //SqlDataAdapter da;
         //DataTable dt;
-        public Randevular()
+
+        private int currentUserId;
+        private Hastanedb dbContext = new Hastanedb();
+        public Randevular(int userId)
         {
             InitializeComponent();
             //_Randevular_dataGridView.Visible = false;
             LoadDataIntoGridr();
+            currentUserId = userId;
+            LoadUserPermissions();
 
         }
-        
-        
+
+        private void LoadUserPermissions()
+        {
+            // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
+            var userPermissions = dbContext.PERSONELFORMYETKILERI
+                                           .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
+                                           .ToList();
+
+            // Yetkilere göre ana formdaki butonları kontrol ediyoruz
+            foreach (var permission in userPermissions)
+            {
+                switch (permission.FormID)
+                {
+                    case 11:  // Doktorlar Formu yetkisi
+                        _Ekle_button.Enabled = true;
+                        break;
+                    case 12:  // Hastalar Formu yetkisi
+                        _GUNCELLE_button.Enabled = true;
+                        _Sil_button.Enabled = true;
+                        break;
+
+
+                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                }
+            }
+        }
         public void LoadDataIntoGridr()
         {
             //dt = new DataTable();

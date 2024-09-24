@@ -54,6 +54,7 @@
             // _EKLE_button
             // 
             this._EKLE_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._EKLE_button.Enabled = false;
             this._EKLE_button.Location = new System.Drawing.Point(2, 327);
             this._EKLE_button.Name = "_EKLE_button";
             this._EKLE_button.Size = new System.Drawing.Size(83, 40);
@@ -76,6 +77,7 @@
             // _Guncelle_button
             // 
             this._Guncelle_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this._Guncelle_button.Enabled = false;
             this._Guncelle_button.Location = new System.Drawing.Point(342, 327);
             this._Guncelle_button.Name = "_Guncelle_button";
             this._Guncelle_button.Size = new System.Drawing.Size(105, 40);
@@ -87,6 +89,7 @@
             // _Yetkilerigor_button
             // 
             this._Yetkilerigor_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._Yetkilerigor_button.Enabled = false;
             this._Yetkilerigor_button.Location = new System.Drawing.Point(465, 327);
             this._Yetkilerigor_button.Name = "_Yetkilerigor_button";
             this._Yetkilerigor_button.Size = new System.Drawing.Size(151, 40);
@@ -98,7 +101,8 @@
             // _SIL_button
             // 
             this._SIL_button.BackColor = System.Drawing.Color.Red;
-            this._SIL_button.Location = new System.Drawing.Point(230, 327);
+            this._SIL_button.Enabled = false;
+            this._SIL_button.Location = new System.Drawing.Point(223, 327);
             this._SIL_button.Name = "_SIL_button";
             this._SIL_button.Size = new System.Drawing.Size(91, 40);
             this._SIL_button.TabIndex = 5;
