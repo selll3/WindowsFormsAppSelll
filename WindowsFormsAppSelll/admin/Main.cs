@@ -123,7 +123,7 @@ namespace WindowsFormsAppSelll
 
         private void _RANDE_button2_Click(object sender, EventArgs e)
         {
-            Randevular randevular1 = new Randevular();
+            Randevular randevular1 = new Randevular(currentUserId);
            
             //randevular1._Ekle_button.Enabled = false;
             //randevular1._GUNCELLE_button.Enabled = false;
@@ -145,7 +145,7 @@ namespace WindowsFormsAppSelll
 
         private void _PERS_button4_Click(object sender, EventArgs e)
         {
-            Personeller personeller1 = new Personeller();
+            Personeller personeller1 = new Personeller(currentUserId);
           
             //personeller1._Ekle_button.Enabled = false;
             //personeller1._GUNCELLE_button.Enabled = false;
@@ -177,7 +177,7 @@ namespace WindowsFormsAppSelll
 
         private void _kullanicilarb_Click(object sender, EventArgs e)
         {
-            Kullanicilar kullanicilar1 = new Kullanicilar();
+            Kullanicilar kullanicilar1 = new Kullanicilar(currentUserId);
 
             
             //kullanicilar1._Guncelle_button.Enabled = false;
