@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(347, 346);
+            this.ClientSize = new System.Drawing.Size(383, 331);
             this.ControlBox = false;
             this.Controls.Add(this._PersonelSoyadi_textBox);
             this.Controls.Add(this._PersonelGorev_textBox);
@@ -125,7 +125,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._kaydet_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PersonelEkle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "PersonelEkle";
             this.Load += new System.EventHandler(this.PersonelEkle_Load);
             this.ResumeLayout(false);

@@ -38,7 +38,7 @@ namespace WindowsFormsAppSelll.KULLANICI
         }
         private void KullaniciGuncelle_Load(object sender, EventArgs e)
         {
-
+            _kullaniciGüncelle_dataGridView.RowHeadersVisible = false;
         }
 
         private void _KAYDET_button_Click(object sender, EventArgs e)
@@ -97,6 +97,11 @@ namespace WindowsFormsAppSelll.KULLANICI
             {
                 selectedDoctorID = Convert.ToInt32(_kullaniciGüncelle_dataGridView.Rows[e.RowIndex].Cells["KULLANICIID"].Value);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

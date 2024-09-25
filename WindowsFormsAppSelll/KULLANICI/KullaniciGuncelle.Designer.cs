@@ -31,13 +31,15 @@
             this._KAYDET_button = new System.Windows.Forms.Button();
             this._Vazgec = new System.Windows.Forms.Button();
             this._kullaniciGüncelle_dataGridView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this._kullaniciGüncelle_dataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _KAYDET_button
             // 
             this._KAYDET_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._KAYDET_button.Location = new System.Drawing.Point(76, 304);
+            this._KAYDET_button.Location = new System.Drawing.Point(112, 29);
             this._KAYDET_button.Name = "_KAYDET_button";
             this._KAYDET_button.Size = new System.Drawing.Size(92, 41);
             this._KAYDET_button.TabIndex = 6;
@@ -48,7 +50,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Location = new System.Drawing.Point(198, 304);
+            this._Vazgec.Location = new System.Drawing.Point(268, 29);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(92, 41);
             this._Vazgec.TabIndex = 5;
@@ -61,27 +63,42 @@
             this._kullaniciGüncelle_dataGridView.AllowUserToAddRows = false;
             this._kullaniciGüncelle_dataGridView.AllowUserToDeleteRows = false;
             this._kullaniciGüncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._kullaniciGüncelle_dataGridView.Location = new System.Drawing.Point(2, 3);
+            this._kullaniciGüncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this._kullaniciGüncelle_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._kullaniciGüncelle_dataGridView.Name = "_kullaniciGüncelle_dataGridView";
             this._kullaniciGüncelle_dataGridView.RowHeadersWidth = 62;
             this._kullaniciGüncelle_dataGridView.RowTemplate.Height = 28;
-            this._kullaniciGüncelle_dataGridView.Size = new System.Drawing.Size(366, 286);
+            this._kullaniciGüncelle_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._kullaniciGüncelle_dataGridView.Size = new System.Drawing.Size(514, 560);
             this._kullaniciGüncelle_dataGridView.TabIndex = 4;
             this._kullaniciGüncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullaniciGüncelle_dataGridView_CellClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this._KAYDET_button);
+            this.panel1.Controls.Add(this._Vazgec);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 561);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(514, 112);
+            this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // KullaniciGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 376);
+            this.ClientSize = new System.Drawing.Size(514, 673);
             this.ControlBox = false;
-            this.Controls.Add(this._KAYDET_button);
-            this.Controls.Add(this._Vazgec);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this._kullaniciGüncelle_dataGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "KullaniciGuncelle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Kullanici Guncelle";
             this.Load += new System.EventHandler(this.KullaniciGuncelle_Load);
             ((System.ComponentModel.ISupportInitialize)(this._kullaniciGüncelle_dataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -91,5 +108,6 @@
         private System.Windows.Forms.Button _KAYDET_button;
         private System.Windows.Forms.Button _Vazgec;
         private System.Windows.Forms.DataGridView _kullaniciGüncelle_dataGridView;
+        private System.Windows.Forms.Panel panel1;
     }
 }

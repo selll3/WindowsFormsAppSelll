@@ -36,6 +36,7 @@
             this._PERS_button4 = new System.Windows.Forms.Button();
             this._kullanicilarb = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this._Muayene_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +114,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Location = new System.Drawing.Point(12, 432);
+            this.button1.Location = new System.Drawing.Point(12, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 34);
             this.button1.TabIndex = 23;
@@ -121,13 +122,25 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // _Muayene_button
+            // 
+            this._Muayene_button.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._Muayene_button.Location = new System.Drawing.Point(12, 426);
+            this._Muayene_button.Name = "_Muayene_button";
+            this._Muayene_button.Size = new System.Drawing.Size(134, 38);
+            this._Muayene_button.TabIndex = 24;
+            this._Muayene_button.Text = "MUAYENE";
+            this._Muayene_button.UseVisualStyleBackColor = false;
+            this._Muayene_button.Click += new System.EventHandler(this._Muayene_button_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(316, 509);
+            this.ClientSize = new System.Drawing.Size(316, 587);
             this.ControlBox = false;
+            this.Controls.Add(this._Muayene_button);
             this.Controls.Add(this.button1);
             this.Controls.Add(this._kullanicilarb);
             this.Controls.Add(this._PERS_button4);
@@ -135,8 +148,12 @@
             this.Controls.Add(this._RANDE_button2);
             this.Controls.Add(this._DOK_button1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Main";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
 
@@ -151,5 +168,6 @@
         public System.Windows.Forms.Button _PERS_button4;
         public System.Windows.Forms.Button _kullanicilarb;
         public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button _Muayene_button;
     }
 }

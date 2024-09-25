@@ -40,7 +40,7 @@ namespace WindowsFormsAppSelll
         }
         private void HastaGuncelle_Load(object sender, EventArgs e)
         {
-
+            _hastaguncelle_dataGridView.RowHeadersVisible = false;
         }
 
         private void _kaydet_button_Click(object sender, EventArgs e)

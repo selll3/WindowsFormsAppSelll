@@ -30,35 +30,37 @@ namespace WindowsFormsAppSelll
             InitializeComponent();
             LoadDataIntoGrid();
             currentUserId = userId;
-            LoadUserPermissions();
+            yetkileriolustur();
             // _Ekle_button.Enabled = false;
             // _GUNCELLE_button.Enabled = false;
             //_Sil_button.Enabled = false;
 
 
         }
-        private void LoadUserPermissions()
+        private void yetkileriolustur()
         {
-            // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
+           
             var userPermissions = dbContext.PERSONELFORMYETKILERI
                                            .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
                                            .ToList();
 
-            // Yetkilere göre ana formdaki butonları kontrol ediyoruz
+            
             foreach (var permission in userPermissions)
             {
                 switch (permission.FormID)
                 {
-                    case 2:  // Doktorlar Formu yetkisi
+                    case 2:  
                         _Ekle_button.Enabled = true;
+                        
                         break;
-                    case 3:  // Hastalar Formu yetkisi
+                    case 3:  
                         _GUNCELLE_button.Enabled = true;
                         _Sil_button.Enabled = true;
+                        
                         break;
                    
 
-                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                        
                 }
             }
         }
@@ -95,8 +97,8 @@ namespace WindowsFormsAppSelll
 
         private void Doktorlar_Load(object sender, EventArgs e)
         {
-           
 
+            _Doktorlar_dataGridView.RowHeadersVisible = false;
 
             _Doktorlar_dataGridView.Columns[0].ReadOnly = true;
             _Doktorlar_dataGridView.Columns[1].ReadOnly = true;

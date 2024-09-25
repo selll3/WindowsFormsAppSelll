@@ -47,6 +47,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                     _yetkilerigor_dataGridView.Columns["FormID"].Visible = false;
                 }
                 _yetkilerigor_dataGridView.Columns[1].ReadOnly = true;
+                _yetkilerigor_dataGridView.RowHeadersVisible = false;
                 //FormID değerlerini kontrol et
                 foreach (DataRow row in dt.Rows)
                 {

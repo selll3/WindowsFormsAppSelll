@@ -120,7 +120,7 @@ namespace WindowsFormsAppSelll
 
         private void RandevuGuncelle_Load(object sender, EventArgs e)
         {
-
+            _randevuguncelle_dataGridView.RowHeadersVisible = false;
         }
     }
 }

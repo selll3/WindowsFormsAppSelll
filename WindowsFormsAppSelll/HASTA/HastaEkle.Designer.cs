@@ -126,7 +126,9 @@
             this.Controls.Add(this._HastaAdi_textBox);
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(this._kaydet_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "HastaEkle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "HastaEkle";
             this.Load += new System.EventHandler(this.HastaEkle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

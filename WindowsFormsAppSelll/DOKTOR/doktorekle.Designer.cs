@@ -135,7 +135,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(387, 355);
+            this.ClientSize = new System.Drawing.Size(371, 358);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDown1);
@@ -147,7 +147,9 @@
             this.Controls.Add(this._DoktorAdi_textBox);
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._kaydet_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "doktorekle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "doktorekle";
             this.Load += new System.EventHandler(this.doktorekle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

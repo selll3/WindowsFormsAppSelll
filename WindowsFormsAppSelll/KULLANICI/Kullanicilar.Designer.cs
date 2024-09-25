@@ -34,7 +34,9 @@
             this._Guncelle_button = new System.Windows.Forms.Button();
             this._Yetkilerigor_button = new System.Windows.Forms.Button();
             this._SIL_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this._kullanicilar_dataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _kullanicilar_dataGridView
@@ -42,11 +44,13 @@
             this._kullanicilar_dataGridView.AllowUserToAddRows = false;
             this._kullanicilar_dataGridView.AllowUserToDeleteRows = false;
             this._kullanicilar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._kullanicilar_dataGridView.Location = new System.Drawing.Point(2, 1);
+            this._kullanicilar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this._kullanicilar_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._kullanicilar_dataGridView.Name = "_kullanicilar_dataGridView";
             this._kullanicilar_dataGridView.RowHeadersWidth = 62;
             this._kullanicilar_dataGridView.RowTemplate.Height = 28;
-            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(614, 320);
+            this._kullanicilar_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(670, 594);
             this._kullanicilar_dataGridView.TabIndex = 0;
             this._kullanicilar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullanicilar_dataGridView_CellContentClick);
             this._kullanicilar_dataGridView.SelectionChanged += new System.EventHandler(this._kullanicilar_dataGridView_SelectionChanged);
@@ -55,7 +59,7 @@
             // 
             this._EKLE_button.BackColor = System.Drawing.Color.PaleGreen;
             this._EKLE_button.Enabled = false;
-            this._EKLE_button.Location = new System.Drawing.Point(2, 327);
+            this._EKLE_button.Location = new System.Drawing.Point(12, 27);
             this._EKLE_button.Name = "_EKLE_button";
             this._EKLE_button.Size = new System.Drawing.Size(83, 40);
             this._EKLE_button.TabIndex = 1;
@@ -66,7 +70,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Location = new System.Drawing.Point(106, 327);
+            this._Vazgec.Location = new System.Drawing.Point(127, 27);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(94, 40);
             this._Vazgec.TabIndex = 2;
@@ -78,7 +82,7 @@
             // 
             this._Guncelle_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._Guncelle_button.Enabled = false;
-            this._Guncelle_button.Location = new System.Drawing.Point(342, 327);
+            this._Guncelle_button.Location = new System.Drawing.Point(378, 27);
             this._Guncelle_button.Name = "_Guncelle_button";
             this._Guncelle_button.Size = new System.Drawing.Size(105, 40);
             this._Guncelle_button.TabIndex = 3;
@@ -90,7 +94,7 @@
             // 
             this._Yetkilerigor_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._Yetkilerigor_button.Enabled = false;
-            this._Yetkilerigor_button.Location = new System.Drawing.Point(465, 327);
+            this._Yetkilerigor_button.Location = new System.Drawing.Point(507, 27);
             this._Yetkilerigor_button.Name = "_Yetkilerigor_button";
             this._Yetkilerigor_button.Size = new System.Drawing.Size(151, 40);
             this._Yetkilerigor_button.TabIndex = 4;
@@ -102,7 +106,7 @@
             // 
             this._SIL_button.BackColor = System.Drawing.Color.Red;
             this._SIL_button.Enabled = false;
-            this._SIL_button.Location = new System.Drawing.Point(223, 327);
+            this._SIL_button.Location = new System.Drawing.Point(258, 27);
             this._SIL_button.Name = "_SIL_button";
             this._SIL_button.Size = new System.Drawing.Size(91, 40);
             this._SIL_button.TabIndex = 5;
@@ -110,22 +114,34 @@
             this._SIL_button.UseVisualStyleBackColor = false;
             this._SIL_button.Click += new System.EventHandler(this._SIL_button_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this._EKLE_button);
+            this.panel1.Controls.Add(this._Yetkilerigor_button);
+            this.panel1.Controls.Add(this._SIL_button);
+            this.panel1.Controls.Add(this._Guncelle_button);
+            this.panel1.Controls.Add(this._Vazgec);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 591);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(670, 110);
+            this.panel1.TabIndex = 6;
+            // 
             // Kullanicilar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 410);
+            this.ClientSize = new System.Drawing.Size(670, 701);
             this.ControlBox = false;
-            this.Controls.Add(this._SIL_button);
-            this.Controls.Add(this._Yetkilerigor_button);
-            this.Controls.Add(this._Guncelle_button);
-            this.Controls.Add(this._Vazgec);
-            this.Controls.Add(this._EKLE_button);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this._kullanicilar_dataGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Kullanicilar";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Kullanicilar";
             this.Load += new System.EventHandler(this.Kullanicilar_Load);
             ((System.ComponentModel.ISupportInitialize)(this._kullanicilar_dataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -137,5 +153,6 @@
         public System.Windows.Forms.Button _EKLE_button;
         public System.Windows.Forms.Button _Guncelle_button;
         public System.Windows.Forms.Button _SIL_button;
+        private System.Windows.Forms.Panel panel1;
     }
 }

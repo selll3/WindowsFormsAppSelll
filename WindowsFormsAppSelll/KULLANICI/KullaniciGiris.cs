@@ -23,7 +23,7 @@ namespace WindowsFormsAppSelll.KULLANICI
         // Kullanıcı ID'sini tutacak alan
         // Kullanıcı ID'yi alır (LINQ veya SQL sorgusu ile)
         private Hastanedb dbContext = new Hastanedb();
-
+        private DateTime randevuTarihi;
         DataTable dt;
         DataTable dt2;
         public KullaniciGiris()
@@ -59,7 +59,7 @@ namespace WindowsFormsAppSelll.KULLANICI
             //}
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
             {
-                string query = "SELECT * FROM GIRIS WHERE KullaniciAdi = @KullaniciAdi AND Parola = @Parola";
+                string query = "SELECT * FROM GIRIS WHERE KullaniciAdi COLLATE Latin1_General_CS_AS = @KullaniciAdi AND Parola COLLATE Latin1_General_CS_AS = @Parola";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@KullaniciAdi", kullaniciAdi_textBox.Text);
                 cmd.Parameters.AddWithValue("@Parola", _Parola_textBox.Text);
@@ -71,9 +71,9 @@ namespace WindowsFormsAppSelll.KULLANICI
                 if (dt.Rows.Count > 0)
                 {
                     int kullaniciID = Convert.ToInt32(dt.Rows[0]["KULLANICIID"]);
-                    Main mainForm = new Main(kullaniciID);  // Kullanıcı ID'sini ana forma geçir
-                    this.Hide();  // Login formunu gizliyoruz
-                    mainForm.Show();  // Ana formu gösteriyoruz
+                    Main mainForm = new Main(kullaniciID,randevuTarihi); 
+                    this.Hide();  
+                    mainForm.Show(); 
                 }
                 else
                 {

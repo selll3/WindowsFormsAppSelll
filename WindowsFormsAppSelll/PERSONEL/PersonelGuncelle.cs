@@ -54,7 +54,7 @@ namespace WindowsFormsAppSelll
 
         private void PersonelGuncelle_Load(object sender, EventArgs e)
         {
-
+            _personelguncelle_dataGridView.RowHeadersVisible = false;
         }
 
         private void _kaydet_button_Click(object sender, EventArgs e)

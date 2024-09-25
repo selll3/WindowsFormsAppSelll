@@ -45,7 +45,7 @@
             this.button1.Location = new System.Drawing.Point(342, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 40);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 4;
             this.button1.Text = "VAZGEÇ";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -76,7 +76,7 @@
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.PasswordChar = '*';
             this._Parola_textBox.Size = new System.Drawing.Size(162, 26);
-            this._Parola_textBox.TabIndex = 5;
+            this._Parola_textBox.TabIndex = 1;
             this._Parola_textBox.TextChanged += new System.EventHandler(this._Parola_textBox_TextChanged);
             // 
             // kullaniciAdi_textBox
@@ -84,7 +84,7 @@
             this.kullaniciAdi_textBox.Location = new System.Drawing.Point(116, 27);
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(162, 26);
-            this.kullaniciAdi_textBox.TabIndex = 6;
+            this.kullaniciAdi_textBox.TabIndex = 0;
             this.kullaniciAdi_textBox.TextChanged += new System.EventHandler(this.kullaniciAdi_textBox_TextChanged);
             // 
             // Login_button
@@ -93,7 +93,7 @@
             this.Login_button.Location = new System.Drawing.Point(12, 212);
             this.Login_button.Name = "Login_button";
             this.Login_button.Size = new System.Drawing.Size(121, 40);
-            this.Login_button.TabIndex = 7;
+            this.Login_button.TabIndex = 3;
             this.Login_button.Text = "GİRİŞ";
             this.Login_button.UseVisualStyleBackColor = false;
             this.Login_button.Click += new System.EventHandler(this.Login_button_Click);
@@ -119,7 +119,7 @@
             this.checkBox1.Location = new System.Drawing.Point(308, 88);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(139, 24);
-            this.checkBox1.TabIndex = 9;
+            this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Parolayı göster";
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -129,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(492, 278);
+            this.ClientSize = new System.Drawing.Size(492, 307);
             this.ControlBox = false;
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.linkLabel1);
@@ -139,7 +139,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "KullaniciGiris";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "KullaniciGiris";
             this.Load += new System.EventHandler(this.Kullanıcılar_Load);
             this.ResumeLayout(false);

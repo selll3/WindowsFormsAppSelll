@@ -40,7 +40,8 @@ namespace WindowsFormsAppSelll
         }
         private void DoktorGuncelle_Load(object sender, EventArgs e)
         {
-           // _DoktorlarGuncelle_dataGridView.Columns["DOKTORID"].Visible = false;
+            _DoktorlarGuncelle_dataGridView.RowHeadersVisible = false;
+            // _DoktorlarGuncelle_dataGridView.Columns["DOKTORID"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

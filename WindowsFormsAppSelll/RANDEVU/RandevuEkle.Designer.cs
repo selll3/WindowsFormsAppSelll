@@ -174,7 +174,9 @@
             this.Controls.Add(this._RandevuSaati_dateTimePicker);
             this.Controls.Add(this._vazgec_button);
             this.Controls.Add(_kaydet_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "RandevuEkle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "RandevuEkle";
             this.Load += new System.EventHandler(this.RandevuEkle_Load);
             this.ResumeLayout(false);

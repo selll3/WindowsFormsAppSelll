@@ -63,6 +63,7 @@
             // 
             this._Parola_textBox.Location = new System.Drawing.Point(138, 83);
             this._Parola_textBox.Name = "_Parola_textBox";
+            this._Parola_textBox.PasswordChar = '*';
             this._Parola_textBox.Size = new System.Drawing.Size(206, 26);
             this._Parola_textBox.TabIndex = 13;
             // 
@@ -124,7 +125,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "KullaniciEkle";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Kullanici Ekle";
             this.Load += new System.EventHandler(this.KullaniciEkle_Load);
             this.ResumeLayout(false);

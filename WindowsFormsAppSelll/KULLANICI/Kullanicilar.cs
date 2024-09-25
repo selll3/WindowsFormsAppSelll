@@ -26,11 +26,11 @@ namespace WindowsFormsAppSelll.KULLANICI
             InitializeComponent();
             LoadDatakullanici();
             currentUserId = userId;
-            LoadUserPermissions();
+            yetkileriolustur();
 
         }
 
-        private void LoadUserPermissions()
+        private void yetkileriolustur()
         {
             // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
             var userPermissions = dbContext.PERSONELFORMYETKILERI
@@ -42,10 +42,10 @@ namespace WindowsFormsAppSelll.KULLANICI
             {
                 switch (permission.FormID)
                 {
-                    case 13:  // Doktorlar Formu yetkisi
+                    case 13:  
                         _EKLE_button.Enabled = true;
                         break;
-                    case 16:  // Hastalar Formu yetkisi
+                    case 16: 
                         _Guncelle_button.Enabled = true;
                         _SIL_button.Enabled = true;
                         break;
@@ -53,7 +53,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                         break;
 
 
-                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                       
                 }
             }
         }
@@ -83,8 +83,8 @@ namespace WindowsFormsAppSelll.KULLANICI
         {
             _kullanicilar_dataGridView.Columns[1].ReadOnly = true;
             _kullanicilar_dataGridView.Columns[2].ReadOnly = true;
-          
 
+            _kullanicilar_dataGridView.RowHeadersVisible = false;
 
         }
 

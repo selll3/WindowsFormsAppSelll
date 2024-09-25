@@ -144,10 +144,10 @@
     <Compile Include="KULLANICI\YetkileriGor.Designer.cs">
       <DependentUpon>YetkileriGor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MuayeneEkle.cs">
+    <Compile Include="MUAYENE\MuayeneEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MuayeneEkle.Designer.cs">
+    <Compile Include="MUAYENE\MuayeneEkle.Designer.cs">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="PERSONEL\PersonelEkle.cs">
@@ -232,7 +232,7 @@
     <EmbeddedResource Include="KULLANICI\YetkileriGor.resx">
       <DependentUpon>YetkileriGor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MuayeneEkle.resx">
+    <EmbeddedResource Include="MUAYENE\MuayeneEkle.resx">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONEL\PersonelEkle.resx">
@@ -294,8 +294,6 @@
   <ItemGroup>
     <None Include="Resources\Green Simple Medical Health Logo %282%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Muhasebe\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

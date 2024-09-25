@@ -24,33 +24,33 @@ namespace WindowsFormsAppSelll
             InitializeComponent();
             LoadDataIntoGridh();
             currentUserId = userId;
-            LoadUserPermissions();
-            //_Hastalar_dataGridView.Visible = false;
+            yetkileriolustur();
+            
 
         }
 
-        private void LoadUserPermissions()
+        private void yetkileriolustur()
         {
-            // Kullanıcının yetkilerini PERSONELFORMYETKILERI tablosundan alıyoruz
+            
             var userPermissions = dbContext.PERSONELFORMYETKILERI
                                            .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
                                            .ToList();
 
-            // Yetkilere göre ana formdaki butonları kontrol ediyoruz
+            
             foreach (var permission in userPermissions)
             {
                 switch (permission.FormID)
                 {
-                    case 5:  // Doktorlar Formu yetkisi
+                    case 5:  
                         _Ekle_button.Enabled = true;
                         break;
-                    case 6:  // Hastalar Formu yetkisi
+                    case 6: 
                         _GUNCELLE_button.Enabled = true;
                         _Sil_button.Enabled = true;
                         break;
 
 
-                        // Diğer butonlar için yetkileri ekleyebilirsiniz
+                        
                 }
             }
         }
@@ -58,12 +58,6 @@ namespace WindowsFormsAppSelll
         public void LoadDataIntoGridh()
 
         {
-            //dth = new DataTable();
-            //string readQuery = "SELECT HASTAID, HastaAdi, HastaSoyadi, HastaYasi FROM HASTALAR";
-            //dah = new SqlDataAdapter(readQuery, con);
-            //dah.Fill(dth);
-            //_Hastalar_dataGridView.DataSource = dth;
-
             Hastanedb db = new Hastanedb();
             _Hastalar_dataGridView.DataSource = db.HASTALAR.ToList();
             // DOKTORID sütununu gizle
@@ -250,7 +244,7 @@ namespace WindowsFormsAppSelll
 
         private void Hastalar_Load(object sender, EventArgs e)
         {
-           
+            _Hastalar_dataGridView.RowHeadersVisible = false;
             _Hastalar_dataGridView.Columns[1].ReadOnly = true;
             _Hastalar_dataGridView.Columns[2].ReadOnly = true;
             _Hastalar_dataGridView.Columns[3].ReadOnly = true;
