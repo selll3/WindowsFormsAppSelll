@@ -41,6 +41,7 @@
             // 
             this._DoktorlarGuncelle_dataGridView.AllowUserToAddRows = false;
             this._DoktorlarGuncelle_dataGridView.AllowUserToDeleteRows = false;
+            this._DoktorlarGuncelle_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._DoktorlarGuncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._DoktorlarGuncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._DoktorlarGuncelle_dataGridView.Location = new System.Drawing.Point(0, 0);

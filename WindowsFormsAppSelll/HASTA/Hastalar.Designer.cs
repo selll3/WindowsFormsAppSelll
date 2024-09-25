@@ -68,6 +68,7 @@
             // 
             this._Hastalar_dataGridView.AllowUserToAddRows = false;
             this._Hastalar_dataGridView.AllowUserToDeleteRows = false;
+            this._Hastalar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Hastalar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Hastalar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Hastalar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,9 +115,9 @@
             this.panel1.Controls.Add(this._Sil_button);
             this.panel1.Controls.Add(this._Vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 576);
+            this.panel1.Location = new System.Drawing.Point(0, 596);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(678, 120);
+            this.panel1.Size = new System.Drawing.Size(678, 100);
             this.panel1.TabIndex = 38;
             // 
             // Hastalar

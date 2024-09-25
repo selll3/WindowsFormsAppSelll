@@ -43,6 +43,7 @@
             // 
             this._kullanicilar_dataGridView.AllowUserToAddRows = false;
             this._kullanicilar_dataGridView.AllowUserToDeleteRows = false;
+            this._kullanicilar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._kullanicilar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._kullanicilar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._kullanicilar_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -50,7 +51,7 @@
             this._kullanicilar_dataGridView.RowHeadersWidth = 62;
             this._kullanicilar_dataGridView.RowTemplate.Height = 28;
             this._kullanicilar_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(670, 594);
+            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(670, 583);
             this._kullanicilar_dataGridView.TabIndex = 0;
             this._kullanicilar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullanicilar_dataGridView_CellContentClick);
             this._kullanicilar_dataGridView.SelectionChanged += new System.EventHandler(this._kullanicilar_dataGridView_SelectionChanged);

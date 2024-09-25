@@ -71,7 +71,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                 if (dt.Rows.Count > 0)
                 {
                     int kullaniciID = Convert.ToInt32(dt.Rows[0]["KULLANICIID"]);
-                    Main mainForm = new Main(kullaniciID,randevuTarihi); 
+                    Main mainForm = new Main(kullaniciID); 
                     this.Hide();  
                     mainForm.Show(); 
                 }
@@ -282,7 +282,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         private void kullaniciAdi_textBox_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

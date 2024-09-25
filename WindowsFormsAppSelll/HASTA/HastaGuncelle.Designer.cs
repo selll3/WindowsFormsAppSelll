@@ -41,6 +41,7 @@
             // 
             this._hastaguncelle_dataGridView.AllowUserToAddRows = false;
             this._hastaguncelle_dataGridView.AllowUserToDeleteRows = false;
+            this._hastaguncelle_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._hastaguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._hastaguncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._hastaguncelle_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -80,9 +81,9 @@
             this.panel1.Controls.Add(this._kaydet_button);
             this.panel1.Controls.Add(this._vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 545);
+            this.panel1.Location = new System.Drawing.Point(0, 551);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 88);
+            this.panel1.Size = new System.Drawing.Size(540, 82);
             this.panel1.TabIndex = 3;
             // 
             // HastaGuncelle

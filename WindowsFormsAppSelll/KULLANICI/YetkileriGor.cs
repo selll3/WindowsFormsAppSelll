@@ -106,14 +106,13 @@ namespace WindowsFormsAppSelll.KULLANICI
                     }
 
                     // Yetkileri güncelle veya ekle
-                    string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
-           
-                   
-            
-            
-            
-               
-           
+                    //string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+
+                    string query = "UPDATE PERSONELFORMYETKILERI SET Yetki = CASE  WHEN Yetki IS NULL THEN 0  ELSE @Yetki END WHERE KULLANICIID = @KullaniciID AND FormID = @FormID;";
+
+
+
+
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
@@ -121,8 +120,13 @@ namespace WindowsFormsAppSelll.KULLANICI
                     cmd.Parameters.AddWithValue("@Yetki", yetki);
                     cmd.ExecuteNonQuery();
                 }
-                 MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                 
+                MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Main mmm = new Main(kullaniciID);
+                //mmm.Activate();
+
+            }    
+
             this.Close();
 
         }
@@ -140,6 +144,11 @@ namespace WindowsFormsAppSelll.KULLANICI
 
             // Formu kapat
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

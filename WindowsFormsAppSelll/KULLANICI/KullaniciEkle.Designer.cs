@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -54,14 +55,14 @@
             // 
             // kullaniciAdi_textBox
             // 
-            this.kullaniciAdi_textBox.Location = new System.Drawing.Point(138, 24);
+            this.kullaniciAdi_textBox.Location = new System.Drawing.Point(118, 24);
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(206, 26);
             this.kullaniciAdi_textBox.TabIndex = 14;
             // 
             // _Parola_textBox
             // 
-            this._Parola_textBox.Location = new System.Drawing.Point(138, 83);
+            this._Parola_textBox.Location = new System.Drawing.Point(118, 83);
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.PasswordChar = '*';
             this._Parola_textBox.Size = new System.Drawing.Size(206, 26);
@@ -109,14 +110,27 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Location = new System.Drawing.Point(345, 85);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(139, 24);
+            this.checkBox1.TabIndex = 18;
+            this.checkBox1.Text = "Parolayı göster";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // KullaniciEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(438, 266);
+            this.ClientSize = new System.Drawing.Size(488, 252);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.linkLabel1);
@@ -144,5 +158,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

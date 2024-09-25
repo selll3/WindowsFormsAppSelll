@@ -79,7 +79,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Location = new System.Drawing.Point(0, 553);
+            this._kaydet_button.Location = new System.Drawing.Point(119, 553);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(127, 39);
             this._kaydet_button.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.Khaki;
             this._Vazgec_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this._Vazgec_button.Location = new System.Drawing.Point(408, 553);
+            this._Vazgec_button.Location = new System.Drawing.Point(319, 553);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(127, 39);
             this._Vazgec_button.TabIndex = 7;
@@ -119,6 +119,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 255);
             this.dataGridView1.Name = "dataGridView1";

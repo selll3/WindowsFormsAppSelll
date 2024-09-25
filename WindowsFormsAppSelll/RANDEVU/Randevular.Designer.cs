@@ -68,6 +68,7 @@
             // 
             this._Randevular_dataGridView.AllowUserToAddRows = false;
             this._Randevular_dataGridView.AllowUserToDeleteRows = false;
+            this._Randevular_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Randevular_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Randevular_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Randevular_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
@@ -112,9 +113,9 @@
             this.panel1.Controls.Add(this._Sil_button);
             this.panel1.Controls.Add(this._Vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 570);
+            this.panel1.Location = new System.Drawing.Point(0, 579);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(702, 93);
+            this.panel1.Size = new System.Drawing.Size(702, 84);
             this.panel1.TabIndex = 40;
             // 
             // Randevular

@@ -41,6 +41,7 @@
             // 
             this._randevuguncelle_dataGridView.AllowUserToAddRows = false;
             this._randevuguncelle_dataGridView.AllowUserToDeleteRows = false;
+            this._randevuguncelle_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._randevuguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._randevuguncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._randevuguncelle_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -48,14 +49,14 @@
             this._randevuguncelle_dataGridView.RowHeadersWidth = 62;
             this._randevuguncelle_dataGridView.RowTemplate.Height = 28;
             this._randevuguncelle_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._randevuguncelle_dataGridView.Size = new System.Drawing.Size(580, 576);
+            this._randevuguncelle_dataGridView.Size = new System.Drawing.Size(580, 598);
             this._randevuguncelle_dataGridView.TabIndex = 0;
             this._randevuguncelle_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._randevuguncelle_dataGridView_CellClick);
             // 
             // _vazgec_button
             // 
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._vazgec_button.Location = new System.Drawing.Point(314, 35);
+            this._vazgec_button.Location = new System.Drawing.Point(319, 35);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(125, 40);
             this._vazgec_button.TabIndex = 4;
@@ -79,9 +80,9 @@
             this.panel1.Controls.Add(this._kaydet_button);
             this.panel1.Controls.Add(this._vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 582);
+            this.panel1.Location = new System.Drawing.Point(0, 604);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 119);
+            this.panel1.Size = new System.Drawing.Size(580, 97);
             this.panel1.TabIndex = 5;
             // 
             // RandevuGuncelle

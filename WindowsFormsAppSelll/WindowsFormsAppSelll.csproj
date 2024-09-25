@@ -150,6 +150,12 @@
     <Compile Include="MUAYENE\MuayeneEkle.Designer.cs">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
     </Compile>
+    <Compile Include="MUAYENE\Muayeneler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MUAYENE\Muayeneler.Designer.cs">
+      <DependentUpon>Muayeneler.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONEL\PersonelEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MUAYENE\MuayeneEkle.resx">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MUAYENE\Muayeneler.resx">
+      <DependentUpon>Muayeneler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONEL\PersonelEkle.resx">
       <DependentUpon>PersonelEkle.cs</DependentUpon>

@@ -41,23 +41,24 @@
             this._yetkilerigor_dataGridView.AllowUserToAddRows = false;
             this._yetkilerigor_dataGridView.AllowUserToDeleteRows = false;
             this._yetkilerigor_dataGridView.AllowUserToOrderColumns = true;
+            this._yetkilerigor_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._yetkilerigor_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._yetkilerigor_dataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this._yetkilerigor_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._yetkilerigor_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._yetkilerigor_dataGridView.ImeMode = System.Windows.Forms.ImeMode.Off;
             this._yetkilerigor_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._yetkilerigor_dataGridView.Name = "_yetkilerigor_dataGridView";
             this._yetkilerigor_dataGridView.RowHeadersWidth = 62;
             this._yetkilerigor_dataGridView.RowTemplate.Height = 28;
             this._yetkilerigor_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._yetkilerigor_dataGridView.Size = new System.Drawing.Size(412, 620);
+            this._yetkilerigor_dataGridView.Size = new System.Drawing.Size(529, 630);
             this._yetkilerigor_dataGridView.TabIndex = 0;
             this._yetkilerigor_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // _Kaydet_button
             // 
             this._Kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._Kaydet_button.Location = new System.Drawing.Point(29, 16);
+            this._Kaydet_button.Location = new System.Drawing.Point(90, 16);
             this._Kaydet_button.Name = "_Kaydet_button";
             this._Kaydet_button.Size = new System.Drawing.Size(122, 44);
             this._Kaydet_button.TabIndex = 1;
@@ -68,7 +69,7 @@
             // _Vazgec_button
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec_button.Location = new System.Drawing.Point(178, 16);
+            this._Vazgec_button.Location = new System.Drawing.Point(296, 16);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(122, 44);
             this._Vazgec_button.TabIndex = 2;
@@ -81,17 +82,18 @@
             this.panel1.Controls.Add(this._Vazgec_button);
             this.panel1.Controls.Add(this._Kaydet_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 535);
+            this.panel1.Location = new System.Drawing.Point(0, 640);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 85);
+            this.panel1.Size = new System.Drawing.Size(529, 90);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // YetkileriGor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(412, 620);
+            this.ClientSize = new System.Drawing.Size(529, 730);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this._yetkilerigor_dataGridView);

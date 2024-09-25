@@ -50,7 +50,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Location = new System.Drawing.Point(268, 29);
+            this._Vazgec.Location = new System.Drawing.Point(299, 29);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(92, 41);
             this._Vazgec.TabIndex = 5;
@@ -62,6 +62,7 @@
             // 
             this._kullaniciGüncelle_dataGridView.AllowUserToAddRows = false;
             this._kullaniciGüncelle_dataGridView.AllowUserToDeleteRows = false;
+            this._kullaniciGüncelle_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._kullaniciGüncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._kullaniciGüncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._kullaniciGüncelle_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -78,9 +79,9 @@
             this.panel1.Controls.Add(this._KAYDET_button);
             this.panel1.Controls.Add(this._Vazgec);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 561);
+            this.panel1.Location = new System.Drawing.Point(0, 577);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 112);
+            this.panel1.Size = new System.Drawing.Size(514, 96);
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 

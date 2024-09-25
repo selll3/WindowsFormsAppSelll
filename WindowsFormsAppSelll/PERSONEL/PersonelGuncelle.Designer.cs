@@ -63,6 +63,7 @@
             // 
             this._personelguncelle_dataGridView.AllowUserToAddRows = false;
             this._personelguncelle_dataGridView.AllowUserToDeleteRows = false;
+            this._personelguncelle_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._personelguncelle_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._personelguncelle_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._personelguncelle_dataGridView.Location = new System.Drawing.Point(0, 0);

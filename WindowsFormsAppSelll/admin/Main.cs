@@ -20,7 +20,7 @@ namespace WindowsFormsAppSelll
 
         //private int currentUserId;
         //private Hastanedb dbContext = new Hastanedb();
-        public Main(int userId,DateTime randevuTarihi)
+        public Main(int userId)
         {
             InitializeComponent();
            
@@ -49,24 +49,22 @@ namespace WindowsFormsAppSelll
                 switch (permission.FormID)
                 {
                     case 1:  
-                        _DOK_button1.Enabled = true;
-                      
+                        _DOK_button1.Enabled = true;       
                         break;
                     case 4: 
-                        _hastalar_button.Enabled = true;
-                      
+                        _hastalar_button.Enabled = true;  
                         break;
                     case 7:  
                               _PERS_button4.Enabled = true;
-                      
                         break;
-                        
 
                     case 10: _RANDE_button2.Enabled = true;
                         
                         break;
                     case 15: _kullanicilarb.Enabled = true;
                        
+                        break;
+                    case 18: _Muayene_button.Enabled= true;
                         break;
                     
                         

@@ -164,6 +164,18 @@ namespace WindowsFormsAppSelll.KULLANICI
             // Formu kapat
             this.Close();
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                _Parola_textBox.PasswordChar = '\0'; // Şifreyi görünür yap
+            }
+            else
+            {
+                _Parola_textBox.PasswordChar = '*'; // Şifreyi tekrar gizle
+            }
+        }
     }
 }
                 //string insertquery = "INSERT INTO PERSONELFORMYETKILERI(YetkiID,Yetki,KULLANICIID,FormID) VALUES(@Yid,@Yetki,@Kid,@Fid);

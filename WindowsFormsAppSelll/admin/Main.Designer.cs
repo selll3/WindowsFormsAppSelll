@@ -125,6 +125,7 @@
             // _Muayene_button
             // 
             this._Muayene_button.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._Muayene_button.Enabled = false;
             this._Muayene_button.Location = new System.Drawing.Point(12, 426);
             this._Muayene_button.Name = "_Muayene_button";
             this._Muayene_button.Size = new System.Drawing.Size(134, 38);
