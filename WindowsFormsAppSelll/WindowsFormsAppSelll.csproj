@@ -81,6 +81,7 @@
     <Compile Include="ENTITY\GIRIS.cs" />
     <Compile Include="ENTITY\HASTALAR.cs" />
     <Compile Include="ENTITY\Hastanedb.cs" />
+    <Compile Include="ENTITY\MUAYENE.cs" />
     <Compile Include="ENTITY\PERSONEL.cs" />
     <Compile Include="ENTITY\PERSONELFORMYETKILERI.cs" />
     <Compile Include="ENTITY\RANDEVULAR.cs" />

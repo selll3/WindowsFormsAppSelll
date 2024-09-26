@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppSelll.ENTITY;
 using WindowsFormsAppSelll.KULLANICI;
+using WindowsFormsAppSelll.MUAYENE;
 
 namespace WindowsFormsAppSelll
 {
@@ -231,8 +232,9 @@ namespace WindowsFormsAppSelll
 
         private void _Muayene_button_Click(object sender, EventArgs e)
         {
-            MuayeneEkle me = new MuayeneEkle(currentUserId);
-            me.Show();
+            Muayeneler mm = new Muayeneler();
+            mm.Show();
+
         }
     }
 }
