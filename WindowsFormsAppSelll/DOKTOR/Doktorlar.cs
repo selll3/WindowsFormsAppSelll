@@ -68,7 +68,7 @@ namespace WindowsFormsAppSelll
         public void LoadDataIntoGrid()
         {
             dt = new DataTable();
-            string readQuery = "SELECT DOKTORID DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
+            string readQuery = "SELECT  DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
             da = new SqlDataAdapter(readQuery, con);
             da.Fill(dt);
             _Doktorlar_dataGridView.DataSource = dt;
@@ -102,8 +102,8 @@ namespace WindowsFormsAppSelll
 
             _Doktorlar_dataGridView.Columns[0].ReadOnly = true;
             _Doktorlar_dataGridView.Columns[1].ReadOnly = true;
-            //_Doktorlar_dataGridView.Columns[2].ReadOnly = true;
-            //_Doktorlar_dataGridView.Columns[3].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[2].ReadOnly = true;
+            _Doktorlar_dataGridView.Columns[3].ReadOnly = true;
             //_Doktorlar_dataGridView.Columns[4].ReadOnly = true;
         }
 
@@ -211,7 +211,7 @@ namespace WindowsFormsAppSelll
                 }
             }
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "SELECT DOKTORID,DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
+            string readQuery = "SELECT DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
             SqlDataAdapter sda = new SqlDataAdapter(readQuery, con);
             SqlCommandBuilder cmd = new SqlCommandBuilder();
             DataTable dta = new DataTable();
@@ -231,7 +231,7 @@ namespace WindowsFormsAppSelll
             
                 if (_Doktorlar_dataGridView.SelectedRows.Count > 0)
                 {
-                    int selectedRowId = Convert.ToInt32(_Doktorlar_dataGridView.SelectedRows[0].Cells["PERSONELID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+                    int selectedRowId = Convert.ToInt32(_Doktorlar_dataGridView.SelectedRows[0].Cells["DOKTORID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
                     string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {

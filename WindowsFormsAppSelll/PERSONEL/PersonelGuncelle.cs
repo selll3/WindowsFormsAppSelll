@@ -37,40 +37,76 @@ namespace WindowsFormsAppSelll
                 _personelguncelle_dataGridView.Columns["PERSONELID"].Visible = false;
             }
         }
-
         private void UpdateDoctorInfo(int personelID)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            // İlgili doktor güncelleme işlemleri
+            if (IsDoctor(personelID))
             {
-                con.Open();
-
-                // İlk olarak personelin doktor olup olmadığını kontrol edelim
-                SqlCommand checkCmd = new SqlCommand("SELECT PersonelGorev FROM PERSONEL WHERE PERSONELID = @Pid", con);
-                checkCmd.Parameters.AddWithValue("@Pid", personelID);
-                string personelGorev = (string)checkCmd.ExecuteScalar();
-                SqlCommand updateDoctorCmd = new SqlCommand(
-                "UPDATE DOKTORLAR SET DoktorAdi = @Padi, DoktorSoyadi = @Psoyadi WHERE PersonelID = @Pid", con);
-
-                // Eğer personelin görevi doktorsa, doktorlar tablosunu güncelleyelim
-                if (personelGorev == "Doktor")
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
                 {
-                    foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+                    con.Open();
+
+                    // Doktor güncelleme sorgusu
+                    SqlCommand updateDoctorCmd = new SqlCommand("UPDATE DOKTORLAR SET DoktorAdi = @Padi, DoktorSoyadi = @Psoyadi WHERE PersonelID = @Pid", con);
+                    var selectedRow = _personelguncelle_dataGridView.Rows.Cast<DataGridViewRow>()
+                        .FirstOrDefault(row => Convert.ToInt32(row.Cells["PERSONELID"].Value) == personelID);
+
+                    if (selectedRow != null)
                     {
-                        if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
-                        {
-                            updateDoctorCmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
-                            updateDoctorCmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
-                            //updateDoctorCmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
-                            updateDoctorCmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
+                        updateDoctorCmd.Parameters.AddWithValue("@Padi", selectedRow.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+                        updateDoctorCmd.Parameters.AddWithValue("@Psoyadi", selectedRow.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+                        updateDoctorCmd.Parameters.AddWithValue("@Pid", personelID);
 
-                            updateDoctorCmd.ExecuteNonQuery();
-                            break;
-                        }
+                        updateDoctorCmd.ExecuteNonQuery();
                     }
-
                 }
             }
         }
+
+        private bool IsDoctor(int personelID)
+        {
+            // Personelin doktor olup olmadığını kontrol et
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            {
+                con.Open();
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM PERSONEL WHERE PERSONELID = @Pid AND PersonelGorev = 'Doktor'", con);
+                checkCmd.Parameters.AddWithValue("@Pid", personelID);
+                return (int)checkCmd.ExecuteScalar() > 0;
+            }
+        }
+        //private void UpdateDoctorInfo(int personelID)
+        //{
+        //    using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+        //    {
+        //        con.Open();
+
+        //        // İlk olarak personelin doktor olup olmadığını kontrol edelim
+        //        SqlCommand checkCmd = new SqlCommand("SELECT PersonelGorev FROM PERSONEL WHERE PERSONELID = @Pid", con);
+        //        checkCmd.Parameters.AddWithValue("@Pid", personelID);
+        //        string personelGorev = (string)checkCmd.ExecuteScalar();
+        //        SqlCommand updateDoctorCmd = new SqlCommand(
+        //        "UPDATE DOKTORLAR SET DoktorAdi = @Padi, DoktorSoyadi = @Psoyadi WHERE PersonelID = @Pid", con);
+
+        //        // Eğer personelin görevi doktorsa, doktorlar tablosunu güncelleyelim
+        //        if (personelGorev == "Doktor")
+        //        {
+        //            foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+        //            {
+        //                if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
+        //                {
+        //                    updateDoctorCmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+        //                    updateDoctorCmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+        //                    //updateDoctorCmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
+        //                    updateDoctorCmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
+
+        //                    updateDoctorCmd.ExecuteNonQuery();
+        //                    break;
+        //                }
+        //            }
+
+        //        }
+        //    }
+        //}
         private void _vazgec_button_Click(object sender, EventArgs e)
         {
 
@@ -93,36 +129,68 @@ namespace WindowsFormsAppSelll
 
         private void _kaydet_button_Click(object sender, EventArgs e)
         {
+
             if (selectedDoctorID == 0) // ID seçilmemişse
             {
                 MessageBox.Show("Lütfen bir Personel seçin.");
                 return;
             }
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE PERSONEL SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi, PersonelGorev = @PGorev WHERE PERSONELID = @Pid", con);
-
-            // Sütunlardaki verileri güncelle
-            foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
             {
-                if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
+                con.Open();
+                // Personel bilgilerini güncelle
+                SqlCommand cmd = new SqlCommand("UPDATE PERSONEL SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi, PersonelGorev = @PGorev WHERE PERSONELID = @Pid", con);
+
+                var selectedRow = _personelguncelle_dataGridView.Rows.Cast<DataGridViewRow>()
+                    .FirstOrDefault(row => Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID);
+
+                if (selectedRow != null)
                 {
-                    cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Padi", selectedRow.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Psoyadi", selectedRow.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@PGorev", selectedRow.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
 
                     cmd.ExecuteNonQuery();
-                    break;
+                    UpdateDoctorInfo(selectedDoctorID);
                 }
             }
-             UpdateDoctorInfo(selectedDoctorID);
-            con.Close();
 
             // İlk formu güncelle ve göster
             Personeller formpers = (Personeller)Application.OpenForms["Personeller"];
             formpers.LoadDataIntoGridp(); // İlk formun veri yükleme metodunu çağır
             this.Close();
+            //if (selectedDoctorID == 0) // ID seçilmemişse
+            //{
+            //    MessageBox.Show("Lütfen bir Personel seçin.");
+            //    return;
+            //}
+
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("UPDATE PERSONEL SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi, PersonelGorev = @PGorev WHERE PERSONELID = @Pid", con);
+
+            //// Sütunlardaki verileri güncelle
+            //foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+            //{
+            //    if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
+            //    {
+            //        cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+            //        cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+            //        cmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
+            //        cmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
+
+            //        cmd.ExecuteNonQuery();
+            //        break;
+            //    }
+            //}
+            // UpdateDoctorInfo(selectedDoctorID);
+            //con.Close();
+
+            //// İlk formu güncelle ve göster
+            //Personeller formpers = (Personeller)Application.OpenForms["Personeller"];
+            //formpers.LoadDataIntoGridp(); // İlk formun veri yükleme metodunu çağır
+            //this.Close();
         }
 
         private void _personelguncelle_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -94,6 +94,7 @@
             this._Ekle_button.TabIndex = 39;
             this._Ekle_button.Text = "EKLE";
             this._Ekle_button.UseVisualStyleBackColor = false;
+            this._Ekle_button.Visible = false;
             this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
             // 
             // _GUNCELLE_button
