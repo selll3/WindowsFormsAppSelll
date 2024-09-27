@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using WindowsFormsAppSelll.ENTITY;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.Entity;
+using WindowsFormsAppSelll.MUAYENE;
 
 namespace WindowsFormsAppSelll.KULLANICI
 {
@@ -72,6 +73,9 @@ namespace WindowsFormsAppSelll.KULLANICI
                 if (dt.Rows.Count > 0)
                 {
                     int kullaniciID = Convert.ToInt32(dt.Rows[0]["KULLANICIID"]);
+
+                    DoktorMuayeneleri dm = new DoktorMuayeneleri(kullaniciID);
+
 
                     
                     Main mainForm = new Main(kullaniciID); 

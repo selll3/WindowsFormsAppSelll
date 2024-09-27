@@ -239,7 +239,7 @@ namespace WindowsFormsAppSelll
 
         private void _DoktorMuayeneleri_button_Click(object sender, EventArgs e)
         {
-            DoktorMuayeneleri dm = new DoktorMuayeneleri();
+            DoktorMuayeneleri dm = new DoktorMuayeneleri(currentUserId);
             dm.Show();
         }
     }

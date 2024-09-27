@@ -68,10 +68,10 @@ namespace WindowsFormsAppSelll
             _Personeller_dataGridView.DataSource = dp.PERSONEL.ToList();
 
             // DOKTORID sütununu gizle
-            if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
-            {
-                _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
-            }
+            //if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
+            //{
+            //    _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
+            //}
             //string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"; // Bağlantı dizesini buraya yazın
             //string query = "SELECT * FROM DOKTORLAR"; // Sorgunuzu buraya yazın
 

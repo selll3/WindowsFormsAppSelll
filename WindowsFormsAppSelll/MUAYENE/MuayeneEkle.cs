@@ -181,7 +181,7 @@ namespace WindowsFormsAppSelll
                 }
             }
 
-            if (isAnyEmpty)
+            if (isAnyEmpty && dateTimePicker1.Value.Date == null)
             {
                 MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

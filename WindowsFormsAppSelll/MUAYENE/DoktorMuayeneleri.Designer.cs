@@ -39,6 +39,7 @@
             this._DoktorMuayeneleri_dataGridView.Name = "_DoktorMuayeneleri_dataGridView";
             this._DoktorMuayeneleri_dataGridView.RowHeadersWidth = 62;
             this._DoktorMuayeneleri_dataGridView.RowTemplate.Height = 28;
+            this._DoktorMuayeneleri_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._DoktorMuayeneleri_dataGridView.Size = new System.Drawing.Size(786, 402);
             this._DoktorMuayeneleri_dataGridView.TabIndex = 0;
             this._DoktorMuayeneleri_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

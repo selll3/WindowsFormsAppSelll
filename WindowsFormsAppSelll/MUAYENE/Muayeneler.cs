@@ -57,7 +57,7 @@ namespace WindowsFormsAppSelll.MUAYENE
         }
         private void Muayeneler_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.RowHeadersVisible = false;
         }
 
         private void _Ekle_button_Click(object sender, EventArgs e)
