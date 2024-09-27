@@ -22,6 +22,7 @@ namespace WindowsFormsAppSelll.MUAYENE
             InitializeComponent();
             DoktorMuayeneleriniListele();
             kullaniciId = Kid;
+           _DoktorMuayeneleri_dataGridView.CellDoubleClick += _DoktorMuayeneleri_dataGridView_CellDoubleClick;
         }
         private int GetPersonelIDByKullaniciID(int kullaniciID)
         {
@@ -80,7 +81,7 @@ namespace WindowsFormsAppSelll.MUAYENE
             {
                 con.Open();
                 // Gelecek muayeneleri almak için sorgu
-                SqlCommand cmd = new SqlCommand("SELECT MUAYENEID,HASTAID,DOKTORID,MuayeneTarihi,Aciklama,islendiBilgisi MUAYENE WHERE DOKTORID = @doktorID AND MuayeneTarihi >= GETDATE()", con);
+                SqlCommand cmd = new SqlCommand("SELECT MUAYENEID,HASTAID,DOKTORID,MuayeneTarihi,Aciklama,islendiBilgisi FROM MUAYENE WHERE DOKTORID = @doktorID AND MuayeneTarihi >= GETDATE()", con);
                 cmd.Parameters.AddWithValue("@doktorID", doktorID);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -221,6 +222,24 @@ namespace WindowsFormsAppSelll.MUAYENE
             LoadUpcomingAppointments(doktorID);
 
 
+        }
+
+        private void _DoktorMuayeneleri_dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Geçerli bir satıra tıklandığında
+            {
+                // Muayene DataGridView'den HASTAID'yi alıyoruz
+                int hastaID = Convert.ToInt32(_DoktorMuayeneleri_dataGridView.Rows[e.RowIndex].Cells["HASTAID"].Value);
+
+                // Hasta bilgileri formunu açıyoruz ve hasta ID'sini gönderiyoruz
+                DMuayeneleriAyrinti hastaForm = new DMuayeneleriAyrinti(hastaID);
+                hastaForm.ShowDialog(); // Modal olarak açıyoruz
+            }
+        }
+
+        private void _Vazgec_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

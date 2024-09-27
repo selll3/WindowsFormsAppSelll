@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this._DoktorMuayeneleri_dataGridView = new System.Windows.Forms.DataGridView();
+            this._Vazgec_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._DoktorMuayeneleri_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // _DoktorMuayeneleri_dataGridView
             // 
+            this._DoktorMuayeneleri_dataGridView.AllowUserToAddRows = false;
+            this._DoktorMuayeneleri_dataGridView.AllowUserToDeleteRows = false;
             this._DoktorMuayeneleri_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._DoktorMuayeneleri_dataGridView.Location = new System.Drawing.Point(2, 3);
             this._DoktorMuayeneleri_dataGridView.Name = "_DoktorMuayeneleri_dataGridView";
@@ -43,6 +46,19 @@
             this._DoktorMuayeneleri_dataGridView.Size = new System.Drawing.Size(786, 402);
             this._DoktorMuayeneleri_dataGridView.TabIndex = 0;
             this._DoktorMuayeneleri_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this._DoktorMuayeneleri_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._DoktorMuayeneleri_dataGridView_CellDoubleClick);
+            // 
+            // _Vazgec_button
+            // 
+            this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Vazgec_button.Location = new System.Drawing.Point(635, 539);
+            this._Vazgec_button.Name = "_Vazgec_button";
+            this._Vazgec_button.Size = new System.Drawing.Size(120, 40);
+            this._Vazgec_button.TabIndex = 21;
+            this._Vazgec_button.Text = "VAZGEÇ";
+            this._Vazgec_button.UseVisualStyleBackColor = false;
+            this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
             // 
             // DoktorMuayeneleri
             // 
@@ -50,6 +66,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 610);
             this.ControlBox = false;
+            this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._DoktorMuayeneleri_dataGridView);
             this.Name = "DoktorMuayeneleri";
             this.Text = "DoktorMuayeneleri";
@@ -62,5 +79,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView _DoktorMuayeneleri_dataGridView;
+        private System.Windows.Forms.Button _Vazgec_button;
     }
 }
