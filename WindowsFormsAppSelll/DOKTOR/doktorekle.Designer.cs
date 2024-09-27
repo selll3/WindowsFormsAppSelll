@@ -33,12 +33,12 @@
             this._Vazgec_button = new System.Windows.Forms.Button();
             this._DoktorAdi_textBox = new System.Windows.Forms.TextBox();
             this._DoktorSoyadi_textBox = new System.Windows.Forms.TextBox();
-            this._DoktorBransi_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(246, 284);
+            this._Vazgec_button.Location = new System.Drawing.Point(394, 284);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(102, 44);
             this._Vazgec_button.TabIndex = 21;
@@ -78,13 +78,6 @@
             this._DoktorSoyadi_textBox.Name = "_DoktorSoyadi_textBox";
             this._DoktorSoyadi_textBox.Size = new System.Drawing.Size(155, 26);
             this._DoktorSoyadi_textBox.TabIndex = 23;
-            // 
-            // _DoktorBransi_textBox
-            // 
-            this._DoktorBransi_textBox.Location = new System.Drawing.Point(141, 142);
-            this._DoktorBransi_textBox.Name = "_DoktorBransi_textBox";
-            this._DoktorBransi_textBox.Size = new System.Drawing.Size(155, 26);
-            this._DoktorBransi_textBox.TabIndex = 24;
             // 
             // label1
             // 
@@ -130,19 +123,26 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "Doktorun Katı :";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(141, 145);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(155, 26);
+            this.textBox1.TabIndex = 30;
+            // 
             // doktorekle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(371, 358);
+            this.ClientSize = new System.Drawing.Size(519, 395);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this._DoktorBransi_textBox);
             this.Controls.Add(this._DoktorSoyadi_textBox);
             this.Controls.Add(this._DoktorAdi_textBox);
             this.Controls.Add(this._Vazgec_button);
@@ -163,11 +163,11 @@
         private System.Windows.Forms.Button _Vazgec_button;
         private System.Windows.Forms.TextBox _DoktorAdi_textBox;
         private System.Windows.Forms.TextBox _DoktorSoyadi_textBox;
-        private System.Windows.Forms.TextBox _DoktorBransi_textBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

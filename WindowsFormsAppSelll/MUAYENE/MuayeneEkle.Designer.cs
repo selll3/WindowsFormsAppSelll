@@ -38,6 +38,7 @@
             this._aciklama_textBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this._islendi = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             this._HastaBilgisi_comboBox.FormattingEnabled = true;
             this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(148, 15);
             this._HastaBilgisi_comboBox.Name = "_HastaBilgisi_comboBox";
-            this._HastaBilgisi_comboBox.Size = new System.Drawing.Size(249, 28);
+            this._HastaBilgisi_comboBox.Size = new System.Drawing.Size(212, 28);
             this._HastaBilgisi_comboBox.TabIndex = 3;
             this._HastaBilgisi_comboBox.SelectedIndexChanged += new System.EventHandler(this._HastaBilgisi_comboBox_SelectedIndexChanged);
             this._HastaBilgisi_comboBox.SelectedValueChanged += new System.EventHandler(this._HastaBilgisi_comboBox_SelectedValueChanged);
@@ -73,13 +74,13 @@
             this._DoktorBilgisi_comboBox.FormattingEnabled = true;
             this._DoktorBilgisi_comboBox.Location = new System.Drawing.Point(148, 77);
             this._DoktorBilgisi_comboBox.Name = "_DoktorBilgisi_comboBox";
-            this._DoktorBilgisi_comboBox.Size = new System.Drawing.Size(249, 28);
+            this._DoktorBilgisi_comboBox.Size = new System.Drawing.Size(212, 28);
             this._DoktorBilgisi_comboBox.TabIndex = 5;
             // 
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Location = new System.Drawing.Point(119, 553);
+            this._kaydet_button.Location = new System.Drawing.Point(114, 536);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(127, 39);
             this._kaydet_button.TabIndex = 6;
@@ -91,7 +92,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.Khaki;
             this._Vazgec_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this._Vazgec_button.Location = new System.Drawing.Point(319, 553);
+            this._Vazgec_button.Location = new System.Drawing.Point(297, 536);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(127, 39);
             this._Vazgec_button.TabIndex = 7;
@@ -135,19 +136,27 @@
             // 
             this._islendi.AutoSize = true;
             this._islendi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(243)))), ((int)(((byte)(147)))));
-            this._islendi.Location = new System.Drawing.Point(431, 17);
+            this._islendi.Location = new System.Drawing.Point(436, 17);
             this._islendi.Name = "_islendi";
             this._islendi.Size = new System.Drawing.Size(99, 24);
             this._islendi.TabIndex = 11;
             this._islendi.Text = "İŞLENDİ";
             this._islendi.UseVisualStyleBackColor = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(389, 77);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(146, 26);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
             // MuayeneEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 632);
+            this.ClientSize = new System.Drawing.Size(547, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this._islendi);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this._aciklama_textBox);
@@ -179,5 +188,6 @@
         private System.Windows.Forms.TextBox _aciklama_textBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox _islendi;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

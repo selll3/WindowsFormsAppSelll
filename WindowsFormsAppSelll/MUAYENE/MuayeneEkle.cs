@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsAppSelll.MUAYENE;
 
 namespace WindowsFormsAppSelll
 {
@@ -169,9 +170,24 @@ namespace WindowsFormsAppSelll
 
         private void _kaydet_button_Click(object sender, EventArgs e)
         {
+            bool isAnyEmpty = false;
+            foreach (Control control in this.Controls)
+            {
+                // Sadece TextBox'ları kontrol et
+                if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
+                {
+                    isAnyEmpty = true;
+                    break;
+                }
+            }
 
+            if (isAnyEmpty)
+            {
+                MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else {     
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string insertQuery = "INSERT INTO MUAYENE(HASTAID,DOKTORID,Aciklama,islendiBilgisi) VALUES(@Hid,@Did,@Aciklama,@islendiBilgisi)";
+            string insertQuery = "INSERT INTO MUAYENE(HASTAID,DOKTORID,Aciklama,islendiBilgisi,MuayeneTarihi) VALUES(@Hid,@Did,@Aciklama,@islendiBilgisi,@mTarihi)";
             con.Open();
             SqlCommand cmd = new SqlCommand(insertQuery, con);
 
@@ -181,8 +197,9 @@ namespace WindowsFormsAppSelll
             cmd.Parameters.AddWithValue("@Did", _DoktorBilgisi_comboBox.SelectedValue);
             cmd.Parameters.AddWithValue("@Aciklama", _aciklama_textBox.Text);
             cmd.Parameters.AddWithValue("@islendiBilgisi", _islendi.Checked);
-
+            cmd.Parameters.AddWithValue("@mTarihi",dateTimePicker1.Value.Date);
             int count = cmd.ExecuteNonQuery();
+            
             con.Close();
             if (count > 0)
             {
@@ -192,6 +209,14 @@ namespace WindowsFormsAppSelll
             {
                 MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            }
+            Muayeneler form1 = Application.OpenForms.OfType<Muayeneler>().FirstOrDefault();
+            if (form1 != null)
+            {
+                form1.LoadDataMuayene(); // İlk formun veri yükleme metodunu çağır
+            }
+
+            this.Close();
         }
 
         private void _HastaBilgisi_comboBox_SelectedIndexChanged(object sender, EventArgs e)

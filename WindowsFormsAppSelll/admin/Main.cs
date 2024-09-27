@@ -232,9 +232,15 @@ namespace WindowsFormsAppSelll
 
         private void _Muayene_button_Click(object sender, EventArgs e)
         {
-            Muayeneler mm = new Muayeneler();
+            Muayeneler mm = new Muayeneler(currentUserId);
             mm.Show();
 
+        }
+
+        private void _DoktorMuayeneleri_button_Click(object sender, EventArgs e)
+        {
+            DoktorMuayeneleri dm = new DoktorMuayeneleri();
+            dm.Show();
         }
     }
 }

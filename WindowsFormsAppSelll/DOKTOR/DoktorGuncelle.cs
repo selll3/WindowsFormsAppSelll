@@ -27,7 +27,7 @@ namespace WindowsFormsAppSelll
         private void LoadData()
         {
             dt = new DataTable();
-            string readQuery = "Select DOKTORID, DoktorAdi, DoktorSoyadi, DoktorunBransi, Doktorun_kati from DOKTORLAR";
+            string readQuery = "Select DOKTORID, DoktorAdi, DoktorSoyadi from DOKTORLAR";
             da = new SqlDataAdapter(readQuery, con);
             da.Fill(dt);
             _DoktorlarGuncelle_dataGridView.DataSource = dt;
@@ -43,7 +43,8 @@ namespace WindowsFormsAppSelll
             _DoktorlarGuncelle_dataGridView.RowHeadersVisible = false;
             // _DoktorlarGuncelle_dataGridView.Columns["DOKTORID"].Visible = false;
         }
-
+        //PERSONEL GÜNCELLENDİĞİNDE DOKTOR GÜNCELLENİYOR MU
+        // ARTI OLARAK DOKTOR GÜNCELLENDİĞİNDE PERSONEL GÖREVİ DOKTOR OLANLAR GÜNCELLENİYOR MU
         private void button1_Click(object sender, EventArgs e)
         {
             if (selectedDoctorID == 0) // ID seçilmemişse
@@ -53,17 +54,15 @@ namespace WindowsFormsAppSelll
             }
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE DOKTORLAR SET DoktorAdi = @adi, DoktorSoyadi = @soyadi, DoktorunBransi = @brans, Doktorun_kati = @kat WHERE DOKTORID = @id", con);
+            SqlCommand cmd = new SqlCommand("UPDATE DOKTORLAR SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi WHERE PersonelGorev='Doktor' and PERSONELID = @id ", con);
 
             // Sütunlardaki verileri güncelle
             foreach (DataGridViewRow row in _DoktorlarGuncelle_dataGridView.Rows)
             {
-                if (Convert.ToInt32(row.Cells["DOKTORID"].Value) == selectedDoctorID)
+                if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
                 {
-                    cmd.Parameters.AddWithValue("@adi", row.Cells["DoktorAdi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@soyadi", row.Cells["DoktorSoyadi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@brans", row.Cells["DoktorunBransi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@kat", row.Cells["Doktorun_kati"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@id", selectedDoctorID);
 
                     cmd.ExecuteNonQuery();
@@ -88,7 +87,7 @@ namespace WindowsFormsAppSelll
         {
             if (e.RowIndex >= 0 && _DoktorlarGuncelle_dataGridView.Rows.Count > 0)
             {
-                selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["DOKTORID"].Value);
+                selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value);
             }
         }
 

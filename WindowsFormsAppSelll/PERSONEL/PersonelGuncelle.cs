@@ -26,7 +26,7 @@ namespace WindowsFormsAppSelll
         private void LoadDataP()
         {
             dtPG = new DataTable();
-            string readQuery = "Select PERSONELID, PersonelAdi,PersonelSoyadi, PersonelGorev from PERSONEL";
+            string readQuery = "Select PERSONELID, PersonelAdi,PersonelSoyadi, PersonelGorev,KULLANICIID from PERSONEL";
             daPG = new SqlDataAdapter(readQuery, con);
             daPG.Fill(dtPG);
             _personelguncelle_dataGridView.DataSource = dtPG;
@@ -35,6 +35,40 @@ namespace WindowsFormsAppSelll
             if (_personelguncelle_dataGridView.Columns.Contains("PERSONELID"))
             {
                 _personelguncelle_dataGridView.Columns["PERSONELID"].Visible = false;
+            }
+        }
+
+        private void UpdateDoctorInfo(int personelID)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            {
+                con.Open();
+
+                // İlk olarak personelin doktor olup olmadığını kontrol edelim
+                SqlCommand checkCmd = new SqlCommand("SELECT PersonelGorev FROM PERSONEL WHERE PERSONELID = @Pid", con);
+                checkCmd.Parameters.AddWithValue("@Pid", personelID);
+                string personelGorev = (string)checkCmd.ExecuteScalar();
+                SqlCommand updateDoctorCmd = new SqlCommand(
+                "UPDATE DOKTORLAR SET DoktorAdi = @Padi, DoktorSoyadi = @Psoyadi WHERE PersonelID = @Pid", con);
+
+                // Eğer personelin görevi doktorsa, doktorlar tablosunu güncelleyelim
+                if (personelGorev == "Doktor")
+                {
+                    foreach (DataGridViewRow row in _personelguncelle_dataGridView.Rows)
+                    {
+                        if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
+                        {
+                            updateDoctorCmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
+                            updateDoctorCmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
+                            //updateDoctorCmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
+                            updateDoctorCmd.Parameters.AddWithValue("@Pid", selectedDoctorID);
+
+                            updateDoctorCmd.ExecuteNonQuery();
+                            break;
+                        }
+                    }
+
+                }
             }
         }
         private void _vazgec_button_Click(object sender, EventArgs e)
@@ -82,7 +116,7 @@ namespace WindowsFormsAppSelll
                     break;
                 }
             }
-
+             UpdateDoctorInfo(selectedDoctorID);
             con.Close();
 
             // İlk formu güncelle ve göster

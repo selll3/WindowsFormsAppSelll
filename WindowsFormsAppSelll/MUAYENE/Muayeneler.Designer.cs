@@ -54,6 +54,7 @@
             this._Ekle_button.TabIndex = 1;
             this._Ekle_button.Text = "EKLE";
             this._Ekle_button.UseVisualStyleBackColor = true;
+            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
             // 
             // vazgec_button
             // 
@@ -63,6 +64,7 @@
             this.vazgec_button.TabIndex = 2;
             this.vazgec_button.Text = "VAZGEÇ";
             this.vazgec_button.UseVisualStyleBackColor = true;
+            this.vazgec_button.Click += new System.EventHandler(this.vazgec_button_Click);
             // 
             // Muayeneler
             // 

@@ -21,6 +21,9 @@ namespace WindowsFormsAppSelll.ENTITY
         public virtual DbSet<FORMLAR> FORMLAR { get; set; }
         public virtual DbSet<GIRIS> GIRIS{ get; set; }
 
+        public virtual DbSet<MUAYENE> MUAYENE {  get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,6 +31,12 @@ namespace WindowsFormsAppSelll.ENTITY
                 .HasMany(e => e.RANDEVULAR)
                 .WithOptional(e => e.DOKTORLAR)
                 .WillCascadeOnDelete();
+
+
+           // modelBuilder.Entity<GIRIS>()
+           //.HasOne(k => k.Doktor)
+           //.WithOne(d => d.Kullanici)
+           //.HasForeignKey<DOKTORLAR>(d => d.KullaniciID);
         }
     }
 }

@@ -108,7 +108,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                     // Yetkileri güncelle veya ekle
                     //string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
 
-                    string query = "UPDATE PERSONELFORMYETKILERI SET Yetki = CASE  WHEN Yetki IS NULL THEN 0  ELSE @Yetki END WHERE KULLANICIID = @KullaniciID AND FormID = @FormID;";
+                    string query =  "UPDATE PERSONELFORMYETKILERI SET Yetki = CASE  WHEN Yetki IS NULL THEN 0  ELSE @Yetki END WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
 
 
 

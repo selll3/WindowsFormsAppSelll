@@ -35,15 +35,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._PersonelAdi_textBox = new System.Windows.Forms.TextBox();
-            this._PersonelGorev_textBox = new System.Windows.Forms.TextBox();
             this._PersonelSoyadi_textBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._kullanici_comboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this._doktorunkati_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this._doktorunbransi_comboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this._doktorunkati_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // _Vazgec_button
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(194, 247);
+            this._Vazgec_button.Location = new System.Drawing.Point(527, 308);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(128, 42);
             this._Vazgec_button.TabIndex = 23;
@@ -54,7 +61,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Location = new System.Drawing.Point(14, 247);
+            this._kaydet_button.Location = new System.Drawing.Point(14, 308);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(131, 42);
             this._kaydet_button.TabIndex = 22;
@@ -96,13 +103,6 @@
             this._PersonelAdi_textBox.Size = new System.Drawing.Size(174, 26);
             this._PersonelAdi_textBox.TabIndex = 27;
             // 
-            // _PersonelGorev_textBox
-            // 
-            this._PersonelGorev_textBox.Location = new System.Drawing.Point(161, 161);
-            this._PersonelGorev_textBox.Name = "_PersonelGorev_textBox";
-            this._PersonelGorev_textBox.Size = new System.Drawing.Size(174, 26);
-            this._PersonelGorev_textBox.TabIndex = 28;
-            // 
             // _PersonelSoyadi_textBox
             // 
             this._PersonelSoyadi_textBox.Location = new System.Drawing.Point(161, 88);
@@ -110,15 +110,91 @@
             this._PersonelSoyadi_textBox.Size = new System.Drawing.Size(174, 26);
             this._PersonelSoyadi_textBox.TabIndex = 29;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Doktor",
+            "Hemşire",
+            "Sekreter",
+            "Adli Hemşire"});
+            this.comboBox1.Location = new System.Drawing.Point(161, 158);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(174, 28);
+            this.comboBox1.TabIndex = 30;
+            // 
+            // _kullanici_comboBox
+            // 
+            this._kullanici_comboBox.FormattingEnabled = true;
+            this._kullanici_comboBox.Location = new System.Drawing.Point(161, 236);
+            this._kullanici_comboBox.Name = "_kullanici_comboBox";
+            this._kullanici_comboBox.Size = new System.Drawing.Size(174, 28);
+            this._kullanici_comboBox.TabIndex = 31;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(10, 239);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 20);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Kullanıcı :";
+            // 
+            // _doktorunkati_numericUpDown
+            // 
+            this._doktorunkati_numericUpDown.Location = new System.Drawing.Point(493, 10);
+            this._doktorunkati_numericUpDown.Name = "_doktorunkati_numericUpDown";
+            this._doktorunkati_numericUpDown.Size = new System.Drawing.Size(57, 26);
+            this._doktorunkati_numericUpDown.TabIndex = 33;
+            // 
+            // _doktorunbransi_comboBox
+            // 
+            this._doktorunbransi_comboBox.FormattingEnabled = true;
+            this._doktorunbransi_comboBox.Items.AddRange(new object[] {
+            "KALP",
+            "BEYİN",
+            "KBB"});
+            this._doktorunbransi_comboBox.Location = new System.Drawing.Point(493, 91);
+            this._doktorunbransi_comboBox.Name = "_doktorunbransi_comboBox";
+            this._doktorunbransi_comboBox.Size = new System.Drawing.Size(162, 28);
+            this._doktorunbransi_comboBox.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(354, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 20);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Doktor için kat :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(354, 94);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 20);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Doktorun Branşı :";
+            // 
             // PersonelEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(383, 331);
+            this.ClientSize = new System.Drawing.Size(671, 403);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this._doktorunbransi_comboBox);
+            this.Controls.Add(this._doktorunkati_numericUpDown);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this._kullanici_comboBox);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this._PersonelSoyadi_textBox);
-            this.Controls.Add(this._PersonelGorev_textBox);
             this.Controls.Add(this._PersonelAdi_textBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -130,6 +206,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "PersonelEkle";
             this.Load += new System.EventHandler(this.PersonelEkle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._doktorunkati_numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +220,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox _PersonelAdi_textBox;
-        private System.Windows.Forms.TextBox _PersonelGorev_textBox;
         private System.Windows.Forms.TextBox _PersonelSoyadi_textBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox _kullanici_comboBox;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown _doktorunkati_numericUpDown;
+        private System.Windows.Forms.ComboBox _doktorunbransi_comboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

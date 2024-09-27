@@ -58,7 +58,7 @@
             // _Kaydet_button
             // 
             this._Kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._Kaydet_button.Location = new System.Drawing.Point(90, 16);
+            this._Kaydet_button.Location = new System.Drawing.Point(84, 16);
             this._Kaydet_button.Name = "_Kaydet_button";
             this._Kaydet_button.Size = new System.Drawing.Size(122, 44);
             this._Kaydet_button.TabIndex = 1;

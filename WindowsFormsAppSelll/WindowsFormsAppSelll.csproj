@@ -145,6 +145,18 @@
     <Compile Include="KULLANICI\YetkileriGor.Designer.cs">
       <DependentUpon>YetkileriGor.cs</DependentUpon>
     </Compile>
+    <Compile Include="MUAYENE\DMuayeneleriAyrinti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MUAYENE\DMuayeneleriAyrinti.Designer.cs">
+      <DependentUpon>DMuayeneleriAyrinti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MUAYENE\DoktorMuayeneleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MUAYENE\DoktorMuayeneleri.Designer.cs">
+      <DependentUpon>DoktorMuayeneleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="MUAYENE\MuayeneEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KULLANICI\YetkileriGor.resx">
       <DependentUpon>YetkileriGor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MUAYENE\DMuayeneleriAyrinti.resx">
+      <DependentUpon>DMuayeneleriAyrinti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MUAYENE\DoktorMuayeneleri.resx">
+      <DependentUpon>DoktorMuayeneleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MUAYENE\MuayeneEkle.resx">
       <DependentUpon>MuayeneEkle.cs</DependentUpon>

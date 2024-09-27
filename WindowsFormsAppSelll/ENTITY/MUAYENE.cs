@@ -18,16 +18,26 @@ namespace WindowsFormsAppSelll.ENTITY
 
         public int? HASTAID { get; set; }
 
+
         [StringLength(500)]
         public string Aciklama { get; set; }
 
+
+        [Column(TypeName = "date")]
+        public DateTime? MuayeneTarihi { get; set; }
+
         public bool? islendiBilgisi { get; set; }
+
+
 
         public virtual DOKTORLAR DOKTORLAR { get; set; }
 
         public virtual HASTALAR HASTALAR { get; set; }
 
         public virtual RANDEVULAR RANDEVULAR { get; set; }
+
+
+
     }
 
 

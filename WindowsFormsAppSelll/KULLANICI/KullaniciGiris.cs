@@ -26,6 +26,7 @@ namespace WindowsFormsAppSelll.KULLANICI
         private DateTime randevuTarihi;
         DataTable dt;
         DataTable dt2;
+        public int KULLANICIID { get; set; }
         public KullaniciGiris()
         {
             InitializeComponent();
@@ -71,6 +72,8 @@ namespace WindowsFormsAppSelll.KULLANICI
                 if (dt.Rows.Count > 0)
                 {
                     int kullaniciID = Convert.ToInt32(dt.Rows[0]["KULLANICIID"]);
+
+                    
                     Main mainForm = new Main(kullaniciID); 
                     this.Hide();  
                     mainForm.Show(); 

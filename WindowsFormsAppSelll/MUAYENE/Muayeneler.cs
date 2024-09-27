@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,20 +14,55 @@ namespace WindowsFormsAppSelll.MUAYENE
 {
     public partial class Muayeneler : Form
     {
-        public Muayeneler()
+        //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        //    SqlDataAdapter dM;
+        //    DataTable dtM;
+        private int Hid;
+        public Muayeneler(int hastaid )
         {
             InitializeComponent();
+            LoadDataMuayene();
+            Hid = hastaid;
         }
         public void LoadDataMuayene()
         {
-         Hastanedb dm = new Hastanedb();
-          dataGridView1.DataSource = dm.MUAYENE;
+            Hastanedb dp = new Hastanedb();
+            dataGridView1.DataSource = dp.MUAYENE.ToList();
+            //dtM = new DataTable();
+            //string readQuery = "SELECT MUAYENEID,DOKTORID,HASTAID,Aciklama,islendiBilgisi FROM MUAYENE";
+            //dM = new SqlDataAdapter(readQuery, con);
+            //dM.Fill(dtM);
+            //dataGridView1.DataSource = dM;
 
-            // FOREİGN KEY İLE ANAHTARLARI BAĞLAMAMIŞIM SQL BAĞLIYORUM
+            //if (dataGridView1.Columns.Contains("MUAYENEID"))
+            //{
+            //    dataGridView1.Columns["MUAYENEID"].Visible = false;
+            //}
+
         }
         private void Muayeneler_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void _Ekle_button_Click(object sender, EventArgs e)
+        {
+            MuayeneEkle mekle = new MuayeneEkle(Hid);
+            mekle.Show();
+        }
+
+        private void vazgec_button_Click(object sender, EventArgs e)
+        {
+            //foreach (Control control in this.Controls)
+            //{
+            //    if (control is TextBox)
+            //    {
+            //        control.Text = string.Empty;
+            //    }
+            //}
+
+            // Formu kapat
+            this.Close();
         }
     }
 }

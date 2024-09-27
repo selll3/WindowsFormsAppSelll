@@ -24,6 +24,8 @@ namespace WindowsFormsAppSelll.ENTITY
         [StringLength(25)]
         public string DoktorunBransi { get; set; }
 
+        public int? KULLANICIID { get; set; }
+
         public int? Doktorun_kati { get; set; }
 
         [Key]
@@ -31,5 +33,8 @@ namespace WindowsFormsAppSelll.ENTITY
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RANDEVULAR> RANDEVULAR { get; set; }
+
+        public virtual ICollection<GIRIS> GIRIS { get; set; }
+
     }
 }
