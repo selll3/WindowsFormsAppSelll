@@ -26,8 +26,23 @@ namespace WindowsFormsAppSelll.MUAYENE
         }
         public void LoadDataMuayene()
         {
-            Hastanedb dp = new Hastanedb();
-            dataGridView1.DataSource = dp.MUAYENE.ToList();
+            //Hastanedb dp = new Hastanedb();
+            //dataGridView1.DataSource = dp.MUAYENE.ToList();
+
+            Hastanedb dbm = new Hastanedb();
+            dataGridView1.DataSource = dbm.MUAYENE
+                .Select(r => new
+                {
+                    r.MUAYENEID,  // İstediğin sütunları buraya ekleyebilirsin
+                    r.MuayeneTarihi,
+                    r.Aciklama,
+                    r.DOKTORID,
+                    r.HASTAID,
+                    r.islendiBilgisi
+                    
+                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                }).ToList();
+
             //dtM = new DataTable();
             //string readQuery = "SELECT MUAYENEID,DOKTORID,HASTAID,Aciklama,islendiBilgisi FROM MUAYENE";
             //dM = new SqlDataAdapter(readQuery, con);
