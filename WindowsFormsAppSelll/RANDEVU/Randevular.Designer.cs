@@ -79,6 +79,7 @@
             this._Randevular_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._Randevular_dataGridView.Size = new System.Drawing.Size(702, 573);
             this._Randevular_dataGridView.TabIndex = 22;
+            this._Randevular_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._Randevular_dataGridView_CellContentClick);
             // 
             // _GUNCELLE_button
             // 

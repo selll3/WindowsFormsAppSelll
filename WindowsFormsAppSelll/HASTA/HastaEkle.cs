@@ -8,14 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Database.Entity;
 
 namespace WindowsFormsAppSelll
 {
     public partial class HastaEkle : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        SqlDataAdapter daHE;
-        DataTable dtHE;
+        //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        //    SqlDataAdapter daHE;
+        //    DataTable dtHE;
         public HastaEkle()
         {
             InitializeComponent();
@@ -59,6 +60,19 @@ namespace WindowsFormsAppSelll
             }
             else
             {
+                HASTALAR hst = new HASTALAR();
+                hst.HastaAdi = _HastaAdi_textBox.Text;
+                hst.HastaSoyadi = _HastaSoyadi_textBox.Text;
+                hst.HastaYasi = (int?)numericUpDown1.Value;
+                var eklendi = Database.Model.Hastalar.HastaEkle(hst);
+                if (eklendi)
+                {
+                    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 //HASTALAR hst = new HASTALAR();
                 //hst.HastaAdi = _HastaAdi_textBox.Text;
                 //hst.HastaSoyadi = _HastaSoyadi_textBox.Text;
@@ -71,24 +85,24 @@ namespace WindowsFormsAppSelll
                 //dbh.SaveChanges();
 
 
-                SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                string insertQuery = "INSERT INTO HASTALAR(HastaAdi,HastaSoyadi,HastaYasi) VALUES(@Hastaadi, @Hastasoyadi, @Hastayasi) ";
-                con.Open();
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-                cmd.Parameters.AddWithValue("@Hastaadi", _HastaAdi_textBox.Text);
-                cmd.Parameters.AddWithValue("@Hastasoyadi", _HastaSoyadi_textBox.Text);
-                cmd.Parameters.AddWithValue("@Hastayasi", numericUpDown1.Value);
-                int count = cmd.ExecuteNonQuery();
+                //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+                //string insertQuery = "INSERT INTO HASTALAR(HastaAdi,HastaSoyadi,HastaYasi) VALUES(@Hastaadi, @Hastasoyadi, @Hastayasi) ";
+                //con.Open();
+                //SqlCommand cmd = new SqlCommand(insertQuery, con);
+                //cmd.Parameters.AddWithValue("@Hastaadi", _HastaAdi_textBox.Text);
+                //cmd.Parameters.AddWithValue("@Hastasoyadi", _HastaSoyadi_textBox.Text);
+                //cmd.Parameters.AddWithValue("@Hastayasi", numericUpDown1.Value);
+                //int count = cmd.ExecuteNonQuery();
 
-                con.Close();
-                if (count > 0)
-                {
-                    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //con.Close();
+                //if (count > 0)
+                //{
+                //    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
 
             }
 

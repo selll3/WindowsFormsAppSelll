@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+/*using WindowsFormsAppSelll.ENTITY*//*;*/
+using Database.Entity;
 
 namespace WindowsFormsAppSelll
 {
@@ -51,26 +52,39 @@ namespace WindowsFormsAppSelll
                 return;
             }
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE HASTALAR SET HastaAdi = @Hadi, HastaSoyadi = @Hsoyadi, HastaYasi = @HYasi WHERE HASTAID = @Hid", con);
-
-            // Sütunlardaki verileri güncelle
-            foreach (DataGridViewRow row in _hastaguncelle_dataGridView.Rows)
+            using (var context = new Hastanedb())
             {
-                if (Convert.ToInt32(row.Cells["HASTAID"].Value) == selectedDoctorID)
+                // Seçilen doktorun ID'sine göre ilgili hastayı bul
+                var  hasta = context.HASTALAR.FirstOrDefault(h => h.HASTAID == selectedDoctorID);
+                
+                if (hasta != null)
                 {
-                    cmd.Parameters.AddWithValue("@Hadi", row.Cells["HastaAdi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Hsoyadi", row.Cells["HastaSoyadi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@HYasi", row.Cells["HastaYasi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Hid", selectedDoctorID);
+                    // DataGridView'den güncel verileri al ve güncelle
+                    foreach (DataGridViewRow row in _hastaguncelle_dataGridView.Rows)
+                    {
+                        if (Convert.ToInt32(row.Cells["HASTAID"].Value) == selectedDoctorID)
+                        {
+                            hasta.HastaAdi = row.Cells["HastaAdi"].Value?.ToString() ?? null;
+                            hasta.HastaSoyadi = row.Cells["HastaSoyadi"].Value?.ToString() ?? null;
+                            hasta.HastaYasi = row.Cells["HastaYasi"].Value != null ? Convert.ToInt32(row.Cells["HastaYasi"].Value) : (int?)null;
 
-                    cmd.ExecuteNonQuery();
-                    break;
+                            // Veritabanına güncellemeleri kaydet
+                            context.SaveChanges();
+                            _hastaguncelle_dataGridView.DataSource = Database.Model.Hastalar.HastaGuncelle(hasta);
+                            MessageBox.Show("Güncelleme işlemi başarıyla tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                           
+                        }
+                    }
+                    
                 }
+                else
+                {
+                    MessageBox.Show("Güncellenecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
-
-            con.Close();
-
+        
             // İlk formu güncelle ve göster
             Hastalar form1 = (Hastalar)Application.OpenForms["Hastalar"];
             form1.LoadDataIntoGridh(); // İlk formun veri yükleme metodunu çağır

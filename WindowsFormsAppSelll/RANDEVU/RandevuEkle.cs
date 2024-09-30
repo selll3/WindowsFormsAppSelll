@@ -8,7 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
+//using System;
+//using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+
 
 namespace WindowsFormsAppSelll
 {
@@ -116,23 +123,15 @@ namespace WindowsFormsAppSelll
                 //  dbr.RANDEVULAR.Add(rdv);
                 //  dbr.SaveChanges();
 
+                RANDEVULAR rdv = new RANDEVULAR();
+                 rdv.Randevu_Tarihi = _RandevuTarihi_dateTimePicker.Value.Date;
+                rdv.Randevu_Saati = _RandevuSaati_dateTimePicker.Value.TimeOfDay;
+                rdv.Bulgu = _Bulgu_textBox.Text;
+                rdv.DOKTORID =(int?)_doktorBilgisi_comboBox.SelectedValue;
+                rdv.HASTAID =(int?)_HastaBilgisi_comboBox.SelectedValue;
 
-                SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID,HASTAID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid,@Hastaid) ";
-                con.Open();
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-                SqlCommand bilg = new SqlCommand(insertQuery, con);
-
-                cmd.Parameters.AddWithValue("@RandevuTarihi", _RandevuTarihi_dateTimePicker.Value.Date);
-                cmd.Parameters.AddWithValue("@RandevuSaati", _RandevuSaati_dateTimePicker.Value);
-                cmd.Parameters.AddWithValue("@bulgu", _Bulgu_textBox.Text);
-                cmd.Parameters.AddWithValue("@Doktorid", _doktorBilgisi_comboBox.SelectedValue);
-                cmd.Parameters.AddWithValue("@Hastaid", _HastaBilgisi_comboBox.SelectedValue);
-                //date time picker
-
-                int count = cmd.ExecuteNonQuery();
-                con.Close();
-                if (count > 0)
+                var eklendi = Database.Model.Randevular.RandevuEkle(rdv);
+                if (eklendi)
                 {
                     MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -140,6 +139,29 @@ namespace WindowsFormsAppSelll
                 {
                     MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+                //string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID,HASTAID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid,@Hastaid) ";
+                //con.Open();
+                //SqlCommand cmd = new SqlCommand(insertQuery, con);
+                //SqlCommand bilg = new SqlCommand(insertQuery, con);
+
+                //cmd.Parameters.AddWithValue("@RandevuTarihi", _RandevuTarihi_dateTimePicker.Value.Date);
+                //cmd.Parameters.AddWithValue("@RandevuSaati", _RandevuSaati_dateTimePicker.Value);
+                //cmd.Parameters.AddWithValue("@bulgu", _Bulgu_textBox.Text);
+                //cmd.Parameters.AddWithValue("@Doktorid", _doktorBilgisi_comboBox.SelectedValue);
+                //cmd.Parameters.AddWithValue("@Hastaid", _HastaBilgisi_comboBox.SelectedValue);
+                ////date time picker
+
+                //int count = cmd.ExecuteNonQuery();
+                //con.Close();
+                //if (count > 0)
+                //{
+                //    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
 
                 // İlk formu güncelle ve göster
                 Randevular formr = Application.OpenForms.OfType<Randevular>().FirstOrDefault();

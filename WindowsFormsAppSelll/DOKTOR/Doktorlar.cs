@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 using WindowsFormsAppSelll.KULLANICI;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -67,11 +67,9 @@ namespace WindowsFormsAppSelll
 
         public void LoadDataIntoGrid()
         {
-            dt = new DataTable();
-            string readQuery = "SELECT  DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
-            da = new SqlDataAdapter(readQuery, con);
-            da.Fill(dt);
-            _Doktorlar_dataGridView.DataSource = dt;
+            _Doktorlar_dataGridView.AutoGenerateColumns = false;
+            _Doktorlar_dataGridView.DataSource = Database.Model.Doktorlar.DoktorlariGetir();
+            
 
             // DOKTORID sütununu gizle
             if (_Doktorlar_dataGridView.Columns.Contains("DOKTORID"))
@@ -100,10 +98,10 @@ namespace WindowsFormsAppSelll
 
             _Doktorlar_dataGridView.RowHeadersVisible = false;
 
-            _Doktorlar_dataGridView.Columns[0].ReadOnly = true;
-            _Doktorlar_dataGridView.Columns[1].ReadOnly = true;
-            _Doktorlar_dataGridView.Columns[2].ReadOnly = true;
-            _Doktorlar_dataGridView.Columns[3].ReadOnly = true;
+            //_Doktorlar_dataGridView.Columns["DoktorAdi"].ReadOnly = true;
+            //_Doktorlar_dataGridView.Columns[1].ReadOnly = true;
+            //_Doktorlar_dataGridView.Columns[2].ReadOnly = true;
+            //_Doktorlar_dataGridView.Columns[3].ReadOnly = true;
             //_Doktorlar_dataGridView.Columns[4].ReadOnly = true;
         }
 

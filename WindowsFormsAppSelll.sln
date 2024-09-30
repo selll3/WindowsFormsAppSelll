@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsAppSelll", "WindowsFormsAppSelll\WindowsFormsAppSelll.csproj", "{BF7A932D-9ED4-419F-936D-C993B7FDC8FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{594CFEF3-FD3C-4BD3-BA48-F2B7F3FEB07F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BF7A932D-9ED4-419F-936D-C993B7FDC8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF7A932D-9ED4-419F-936D-C993B7FDC8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF7A932D-9ED4-419F-936D-C993B7FDC8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594CFEF3-FD3C-4BD3-BA48-F2B7F3FEB07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594CFEF3-FD3C-4BD3-BA48-F2B7F3FEB07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594CFEF3-FD3C-4BD3-BA48-F2B7F3FEB07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594CFEF3-FD3C-4BD3-BA48-F2B7F3FEB07F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

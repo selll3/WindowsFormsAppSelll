@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Database.Entity;
 
 namespace WindowsFormsAppSelll
 {
@@ -43,17 +44,7 @@ namespace WindowsFormsAppSelll
             {
                 _DoktorlarGuncelle_dataGridView.Columns["PersonelID"].Visible = false;
             }
-            //dt = new DataTable();
-            //string readQuery = "Select  DoktorAdi, DoktorSoyadi from DOKTORLAR";
-            //da = new SqlDataAdapter(readQuery, con);
-            //da.Fill(dt);
-            //_DoktorlarGuncelle_dataGridView.DataSource = dt;
-
-            //// DataGridView verileri yüklendikten sonra sütunları gizle
-            //if (_DoktorlarGuncelle_dataGridView.Columns.Contains("DOKTORID"))
-            //{
-            //    _DoktorlarGuncelle_dataGridView.Columns["DOKTORID"].Visible = false;
-            //}
+          
         }
 
         private void UpdateDoctorAndPersonel(int doctorID, int personelID)
@@ -73,6 +64,8 @@ namespace WindowsFormsAppSelll
                 // Seçilen doktoru ve personeli güncelle
                 var selectedRow = _DoktorlarGuncelle_dataGridView.Rows.Cast<DataGridViewRow>()
                     .FirstOrDefault(row => Convert.ToInt32(row.Cells["DoktorID"].Value) == doctorID);
+
+
 
                 if (selectedRow != null)
                 {
@@ -95,9 +88,12 @@ namespace WindowsFormsAppSelll
 
                     MessageBox.Show("Doktor ve Personel bilgileri başarıyla güncellendi.");
                 }
+
+               
+
             }
         }
-
+      
         private void DoktorGuncelle_Load(object sender, EventArgs e)
         {
             _DoktorlarGuncelle_dataGridView.RowHeadersVisible = false;
@@ -120,35 +116,8 @@ namespace WindowsFormsAppSelll
             Doktorlar form1 = (Doktorlar)Application.OpenForms["Doktorlar"];
             form1.LoadDataIntoGrid(); // İlk formun veri yükleme metodunu çağır
             this.Close();
-            //if (selectedDoctorID == 0) // ID seçilmemişse
-            //{
-            //    MessageBox.Show("Lütfen bir doktor seçin.");
-            //    return;
-            //}
 
-            //con.Open();
-            //SqlCommand cmd = new SqlCommand("UPDATE DOKTORLAR SET PersonelAdi = @Padi, PersonelSoyadi = @Psoyadi WHERE PersonelGorev='Doktor' and PERSONELID = @id ", con);
-
-            //// Sütunlardaki verileri güncelle
-            //foreach (DataGridViewRow row in _DoktorlarGuncelle_dataGridView.Rows)
-            //{
-            //    if (Convert.ToInt32(row.Cells["PERSONELID"].Value) == selectedDoctorID)
-            //    {
-            //        cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
-            //        cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
-            //        cmd.Parameters.AddWithValue("@id", selectedDoctorID);
-
-            //        cmd.ExecuteNonQuery();
-            //        break;
-            //    }
-            //}
-
-            //con.Close();
-
-            //// İlk formu güncelle ve göster
-            //Doktorlar form1 = (Doktorlar)Application.OpenForms["Doktorlar"];
-            //form1.LoadDataIntoGrid(); // İlk formun veri yükleme metodunu çağır
-            //this.Close();
+           
         }
 
         private void _DoktorlarGuncelle_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -163,10 +132,7 @@ namespace WindowsFormsAppSelll
                 selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["DOKTORID"].Value);
                 selectedPersonelID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value); // PersonelID'yi de al
             }
-            //if (e.RowIndex >= 0 && _DoktorlarGuncelle_dataGridView.Rows.Count > 0)
-            //{
-            //    selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value);
-            //}
+         
         }
 
         private void _Vazgec_button_Click(object sender, EventArgs e)

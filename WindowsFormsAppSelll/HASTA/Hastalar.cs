@@ -5,10 +5,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 
 namespace WindowsFormsAppSelll
 {
@@ -58,8 +60,22 @@ namespace WindowsFormsAppSelll
         public void LoadDataIntoGridh()
 
         {
-            Hastanedb db = new Hastanedb();
-            _Hastalar_dataGridView.DataSource = db.HASTALAR.ToList();
+            //Hastanedb db = new Hastanedb();
+            //_Hastalar_dataGridView.DataSource = db.HASTALAR.ToList();
+
+
+             Hastanedb dbH = new Hastanedb();
+            _Hastalar_dataGridView.DataSource = dbH.HASTALAR
+                .Select(r => new
+                {
+                    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
+                    r.HastaAdi,
+                    r.HastaSoyadi,
+                    r.HastaYasi
+                    
+                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                }).ToList();
+            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
             // DOKTORID sütununu gizle
             if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
             {
@@ -82,34 +98,7 @@ namespace WindowsFormsAppSelll
         }
         private void _HastalariListele_button_Click(object sender, EventArgs e)
         {
-            //    foreach (Control control in this.Controls)
-            //    {
-            //        if (control is TextBox)
-            //        {
-            //            control.Visible = false;
-            //        }
-            //        else if (control is NumericUpDown)
-            //        {
-            //            control.Visible = false;
-            //        }
-            //        else if (control is Label)
-            //        {
-            //            control.Visible = false;
-            //        }
-            //        else
-            //        {
-            //            control.Visible = true;
-            //        }
-            //    }
-            //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //    string readQuery = "Select HastaAdi,HastaSoyadi,HastaYasi from HASTALAR";
-            //    SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
-            //    SqlCommandBuilder cmd = new SqlCommandBuilder();
-            //    DataTable dth = new DataTable();
-            //    sdh.Fill(dth);
-            //    _Hastalar_dataGridView.DataSource = dth;
-
-
+         
         }
         private void verileriyükle()
         {
@@ -132,16 +121,32 @@ namespace WindowsFormsAppSelll
                     control.Visible = true;
                 }
             }
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "Select HastaAdi,HastaSoyadi,HastaYasi from HASTALAR";
-            SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
-            SqlCommandBuilder cmd = new SqlCommandBuilder();
-            DataTable dth = new DataTable();
-            sdh.Fill(dth);
-            _Hastalar_dataGridView.DataSource = dth;
+            Hastanedb dbH = new Hastanedb();
+            _Hastalar_dataGridView.DataSource = dbH.HASTALAR
+                .Select(r => new
+                {
+                    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
+                    r.HastaAdi,
+                    r.HastaSoyadi,
+                    r.HastaYasi
 
+                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                }).ToList();
+            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
+            // DOKTORID sütununu gizle
+            if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
+            {
+                _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
+                //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+                //string readQuery = "Select HastaAdi,HastaSoyadi,HastaYasi from HASTALAR";
+                //SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
+                //SqlCommandBuilder cmd = new SqlCommandBuilder();
+                //DataTable dth = new DataTable();
+                //sdh.Fill(dth);
+                //_Hastalar_dataGridView.DataSource = dth;
+
+            }
         }
-
         private void _Vazgec_button_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
@@ -159,29 +164,63 @@ namespace WindowsFormsAppSelll
         private void _Sil_button_Click(object sender, EventArgs e)
         {
 
-
             if (_Hastalar_dataGridView.SelectedRows.Count > 0)
             {
-                int selectedRowId = Convert.ToInt32(_Hastalar_dataGridView.SelectedRows[0].Cells["DOKTORID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
-                string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // DataGridView'den seçilen satırın HASTAID'sini alıyoruz.
+                int selectedHastaId = Convert.ToInt32(_Hastalar_dataGridView.SelectedRows[0].Cells["HASTAID"].Value);
+
+                using (var context = new Hastanedb())
                 {
-                    connection.Open();
-                    string query = "DELETE FROM HASTALAR WHERE HASTAID = @HASTAID";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Linq kullanarak silinecek hastayı buluyoruz.
+                    var hasta = context.HASTALAR.FirstOrDefault(h => h.HASTAID == selectedHastaId);
+
+                    if (hasta != null)
                     {
-                        command.Parameters.AddWithValue("@HASTAID", selectedRowId);
-                        command.ExecuteNonQuery();
+                        // Hastayı silmek için Remove metodunu kullanıyoruz.
+                        context.HASTALAR.Remove(hasta);
+                        context.SaveChanges();
+
                         MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    else
+                    {
+                        MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+          
                 }
 
             }
+
             else
             {
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
-            verileriyükle();
+
+          
+            verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
+
+            //if (_Hastalar_dataGridView.SelectedRows.Count > 0)
+            //{
+            //    int selectedRowId = Convert.ToInt32(_Hastalar_dataGridView.SelectedRows[0].Cells["DOKTORID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+            //    string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
+            //    using (SqlConnection connection = new SqlConnection(connectionString))
+            //    {
+            //        connection.Open();
+            //        string query = "DELETE FROM HASTALAR WHERE HASTAID = @HASTAID";
+            //        using (SqlCommand command = new SqlCommand(query, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@HASTAID", selectedRowId);
+            //            command.ExecuteNonQuery();
+            //            MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        }
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lütfen silinecek satırı seçin.");
+            //}
+            //verileriyükle();
         }
 
         private void _Ekle_button_Click(object sender, EventArgs e)
@@ -247,8 +286,8 @@ namespace WindowsFormsAppSelll
             _Hastalar_dataGridView.RowHeadersVisible = false;
             _Hastalar_dataGridView.Columns[1].ReadOnly = true;
             _Hastalar_dataGridView.Columns[2].ReadOnly = true;
-            _Hastalar_dataGridView.Columns[3].ReadOnly = true;
-            _Hastalar_dataGridView.Columns[4].ReadOnly = true;
+            //_/*Hastalar_dataGridView.Columns[3].ReadOnly = true;*/
+            //_Hastalar_dataGridView.Columns[4].ReadOnly = true;
         }
 
         private void _Kayıt_button_Click(object sender, EventArgs e)

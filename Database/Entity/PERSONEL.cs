@@ -1,4 +1,4 @@
-namespace WindowsFormsAppSelll.ENTITY
+namespace Database.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +9,12 @@ namespace WindowsFormsAppSelll.ENTITY
     [Table("PERSONEL")]
     public partial class PERSONEL
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PERSONEL()
+        {
+            DOKTORLAR = new HashSet<DOKTORLAR>();
+        }
+
         [StringLength(25)]
         public string PersonelAdi { get; set; }
 
@@ -18,8 +24,13 @@ namespace WindowsFormsAppSelll.ENTITY
         [StringLength(25)]
         public string PersonelGorev { get; set; }
 
+        public int PERSONELID { get; set; }
+
         public int? KULLANICIID { get; set; }
 
-        public int PERSONELID { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DOKTORLAR> DOKTORLAR { get; set; }
+
+        public virtual GIRIS GIRIS { get; set; }
     }
 }

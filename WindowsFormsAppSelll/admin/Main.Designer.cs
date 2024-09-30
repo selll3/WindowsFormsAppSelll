@@ -138,6 +138,7 @@
             // _DoktorMuayeneleri_button
             // 
             this._DoktorMuayeneleri_button.BackColor = System.Drawing.Color.LightSkyBlue;
+            this._DoktorMuayeneleri_button.Enabled = false;
             this._DoktorMuayeneleri_button.Location = new System.Drawing.Point(125, 175);
             this._DoktorMuayeneleri_button.Name = "_DoktorMuayeneleri_button";
             this._DoktorMuayeneleri_button.Size = new System.Drawing.Size(134, 52);

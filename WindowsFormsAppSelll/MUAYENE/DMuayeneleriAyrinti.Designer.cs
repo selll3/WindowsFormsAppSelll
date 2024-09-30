@@ -32,25 +32,27 @@
             this._hastaSoyadi_textBox = new System.Windows.Forms.TextBox();
             this._hastaYasi_textBox = new System.Windows.Forms.TextBox();
             this._Vazgec_button = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // _hastaAdi_textBox
             // 
-            this._hastaAdi_textBox.Location = new System.Drawing.Point(64, 40);
+            this._hastaAdi_textBox.Location = new System.Drawing.Point(3, 3);
             this._hastaAdi_textBox.Name = "_hastaAdi_textBox";
             this._hastaAdi_textBox.Size = new System.Drawing.Size(197, 26);
             this._hastaAdi_textBox.TabIndex = 0;
             // 
             // _hastaSoyadi_textBox
             // 
-            this._hastaSoyadi_textBox.Location = new System.Drawing.Point(64, 110);
+            this._hastaSoyadi_textBox.Location = new System.Drawing.Point(3, 50);
             this._hastaSoyadi_textBox.Name = "_hastaSoyadi_textBox";
             this._hastaSoyadi_textBox.Size = new System.Drawing.Size(197, 26);
             this._hastaSoyadi_textBox.TabIndex = 1;
             // 
             // _hastaYasi_textBox
             // 
-            this._hastaYasi_textBox.Location = new System.Drawing.Point(64, 182);
+            this._hastaYasi_textBox.Location = new System.Drawing.Point(3, 105);
             this._hastaYasi_textBox.Name = "_hastaYasi_textBox";
             this._hastaYasi_textBox.Size = new System.Drawing.Size(197, 26);
             this._hastaYasi_textBox.TabIndex = 2;
@@ -59,7 +61,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(640, 379);
+            this._Vazgec_button.Location = new System.Drawing.Point(327, 380);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(120, 40);
             this._Vazgec_button.TabIndex = 21;
@@ -67,12 +69,26 @@
             this._Vazgec_button.UseVisualStyleBackColor = false;
             this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 155);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(444, 192);
+            this.dataGridView1.TabIndex = 22;
+            // 
             // DMuayeneleriAyrinti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(457, 432);
             this.ControlBox = false;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._hastaYasi_textBox);
             this.Controls.Add(this._hastaSoyadi_textBox);
@@ -80,6 +96,7 @@
             this.Name = "DMuayeneleriAyrinti";
             this.Text = "DMuayeneleriAyrinti";
             this.Load += new System.EventHandler(this.DMuayeneleriAyrinti_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +108,6 @@
         private System.Windows.Forms.TextBox _hastaSoyadi_textBox;
         private System.Windows.Forms.TextBox _hastaYasi_textBox;
         private System.Windows.Forms.Button _Vazgec_button;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

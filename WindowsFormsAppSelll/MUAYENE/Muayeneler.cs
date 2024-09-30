@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 
 namespace WindowsFormsAppSelll.MUAYENE
 {
@@ -23,7 +26,32 @@ namespace WindowsFormsAppSelll.MUAYENE
             InitializeComponent();
             LoadDataMuayene();
             Hid = hastaid;
+            yetkileriolustur();
         }
+        private int currentUserId;
+        private Hastanedb dbContext = new Hastanedb();
+        private void yetkileriolustur()
+        {
+
+            var userPermissions = dbContext.PERSONELFORMYETKILERI
+                                           .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
+                                           .ToList();
+
+
+            foreach (var permission in userPermissions)
+            {
+                switch (permission.FormID)
+                {
+                    case 19:
+                        _Ekle_button.Enabled = true;
+                        break;
+                    
+
+
+                }
+            }
+        }
+
         public void LoadDataMuayene()
         {
             //Hastanedb dp = new Hastanedb();

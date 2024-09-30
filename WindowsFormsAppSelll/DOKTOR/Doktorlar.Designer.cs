@@ -35,6 +35,9 @@
             this._Ekle_button = new System.Windows.Forms.Button();
             this._GUNCELLE_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DoktorAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoktorSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoktorunBransi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._Doktorlar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +74,10 @@
             this._Doktorlar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Doktorlar_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this._Doktorlar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._Doktorlar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DoktorAdi,
+            this.DoktorSoyadi,
+            this.DoktorunBransi});
             this._Doktorlar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Doktorlar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Doktorlar_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -123,6 +130,30 @@
             this.panel1.Size = new System.Drawing.Size(665, 65);
             this.panel1.TabIndex = 41;
             // 
+            // DoktorAdi
+            // 
+            this.DoktorAdi.DataPropertyName = "DoktorAdi";
+            this.DoktorAdi.HeaderText = "Doktor Adı";
+            this.DoktorAdi.MinimumWidth = 8;
+            this.DoktorAdi.Name = "DoktorAdi";
+            this.DoktorAdi.ReadOnly = true;
+            // 
+            // DoktorSoyadi
+            // 
+            this.DoktorSoyadi.DataPropertyName = "DoktorSoyadi";
+            this.DoktorSoyadi.HeaderText = "Doktor Soyadı";
+            this.DoktorSoyadi.MinimumWidth = 8;
+            this.DoktorSoyadi.Name = "DoktorSoyadi";
+            this.DoktorSoyadi.ReadOnly = true;
+            // 
+            // DoktorSoyadi
+            // 
+            this.DoktorunBransi.DataPropertyName = "DoktorunBransi";
+            this.DoktorunBransi.HeaderText = "Doktor Bransi";
+            this.DoktorunBransi.MinimumWidth = 8;
+            this.DoktorunBransi.Name = "DoktorunBransi";
+            this.DoktorunBransi.ReadOnly = true;
+            // 
             // Doktorlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -147,10 +178,13 @@
 
         #endregion
         private System.Windows.Forms.Button _Vazgec_button;
-        private System.Windows.Forms.DataGridView _Doktorlar_dataGridView;
         public System.Windows.Forms.Button _Sil_button;
         public System.Windows.Forms.Button _Ekle_button;
         public System.Windows.Forms.Button _GUNCELLE_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView _Doktorlar_dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoktorAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoktorSoyadi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoktorunBransi;
     }
 }

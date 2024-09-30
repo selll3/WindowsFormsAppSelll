@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 
 namespace WindowsFormsAppSelll.KULLANICI
 {
@@ -68,6 +69,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                     r.KULLANICIID,  // İstediğin sütunları buraya ekleyebilirsin
                     r.KullaniciAdi,
                     r.Parola
+                    
                     
                     // r.Bulgu gibi başka sütunlar da ekleyebilirsin
                 }).ToList();

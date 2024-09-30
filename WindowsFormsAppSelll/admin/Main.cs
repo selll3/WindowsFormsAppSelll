@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 using WindowsFormsAppSelll.KULLANICI;
 using WindowsFormsAppSelll.MUAYENE;
 
@@ -67,7 +68,8 @@ namespace WindowsFormsAppSelll
                         break;
                     case 18: _Muayene_button.Enabled= true;
                         break;
-                    
+                    case 20: _DoktorMuayeneleri_button.Enabled = true;
+                        break;
                         
                 }
             }
@@ -232,8 +234,11 @@ namespace WindowsFormsAppSelll
 
         private void _Muayene_button_Click(object sender, EventArgs e)
         {
+            //Muayeneler mm = new Muayeneler(currentUserId);
             Muayeneler mm = new Muayeneler(currentUserId);
             mm.Show();
+            //mm.Show();
+
 
         }
 

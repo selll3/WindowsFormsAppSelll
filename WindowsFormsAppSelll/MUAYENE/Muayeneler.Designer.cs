@@ -49,7 +49,7 @@
             // 
             // _Ekle_button
             // 
-            this._Ekle_button.Location = new System.Drawing.Point(0, 625);
+            this._Ekle_button.Location = new System.Drawing.Point(100, 625);
             this._Ekle_button.Name = "_Ekle_button";
             this._Ekle_button.Size = new System.Drawing.Size(136, 45);
             this._Ekle_button.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // vazgec_button
             // 
-            this.vazgec_button.Location = new System.Drawing.Point(188, 625);
+            this.vazgec_button.Location = new System.Drawing.Point(345, 625);
             this.vazgec_button.Name = "vazgec_button";
             this.vazgec_button.Size = new System.Drawing.Size(133, 45);
             this.vazgec_button.TabIndex = 2;

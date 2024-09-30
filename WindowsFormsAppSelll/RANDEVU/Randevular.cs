@@ -9,16 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 
 
 namespace WindowsFormsAppSelll
 {
     public partial class Randevular : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //SqlDataAdapter da;
-        //DataTable dt;
+        //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        ////SqlDataAdapter da;
+        ////DataTable dt;
 
         private int currentUserId;
         private Hastanedb dbContext = new Hastanedb();
@@ -202,29 +203,62 @@ namespace WindowsFormsAppSelll
 
         private void _Sil_button_Click(object sender, EventArgs e)
         {
-
             if (_Randevular_dataGridView.SelectedRows.Count > 0)
             {
-                int selectedRowId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
-                string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // DataGridView'den seçilen satırın HASTAID'sini alıyoruz.
+                int selectedHastaId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value);
+
+                using (var context = new Hastanedb())
                 {
-                    connection.Open();
-                    string query = "DELETE FROM RANDEVULAR WHERE RANDEVUID = @RANDEVUID";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Linq kullanarak silinecek hastayı buluyoruz.
+                    var randevu = context.RANDEVULAR.FirstOrDefault(h => h.RANDEVUID == selectedHastaId);
+
+                    if (randevu != null)
                     {
-                        command.Parameters.AddWithValue("@RANDEVUID", selectedRowId);
-                        command.ExecuteNonQuery();
+                        // Hastayı silmek için Remove metodunu kullanıyoruz.
+                        context.RANDEVULAR.Remove(randevu);
+                        context.SaveChanges();
+
                         MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    else
+                    {
+                        MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
 
             }
+
             else
             {
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
-            verileriyükle();
+
+
+            verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
+            //if (_Randevular_dataGridView.SelectedRows.Count > 0)
+            //{
+            //    int selectedRowId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+            //    string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
+            //    using (SqlConnection connection = new SqlConnection(connectionString))
+            //    {
+            //        connection.Open();
+            //        string query = "DELETE FROM RANDEVULAR WHERE RANDEVUID = @RANDEVUID";
+            //        using (SqlCommand command = new SqlCommand(query, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@RANDEVUID", selectedRowId);
+            //            command.ExecuteNonQuery();
+            //            MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        }
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lütfen silinecek satırı seçin.");
+            //}
+            //verileriyükle();
         }
 
         private void _DoktorBilgisi_label_Click(object sender, EventArgs e)
@@ -348,6 +382,11 @@ namespace WindowsFormsAppSelll
             //    }
 
             //}
+        }
+
+        private void _Randevular_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

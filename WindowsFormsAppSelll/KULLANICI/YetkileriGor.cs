@@ -8,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsAppSelll.ENTITY;
-
+//using WindowsFormsAppSelll.ENTITY;
+using Database.Entity;
 namespace WindowsFormsAppSelll.KULLANICI
 {
     public partial class YetkileriGor : Form
@@ -91,10 +91,11 @@ namespace WindowsFormsAppSelll.KULLANICI
         //private YetkileriGor yetkileriGorForm;
         private void _Kaydet_button_Click(object sender, EventArgs e)
         {
+            
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
             {
                 con.Open();
-                foreach ( DataRow row in dt.Rows)
+                foreach (DataRow row in dt.Rows)
                 {
                     int formID = Convert.ToInt32(row["FormID"]);
                     bool yetki = Convert.ToBoolean(row["Yetki"]);
@@ -105,29 +106,78 @@ namespace WindowsFormsAppSelll.KULLANICI
                         return;
                     }
 
-                    // Yetkileri güncelle veya ekle
-                    //string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                    // Önce kayıt var mı kontrol et
+                    string selectQuery = "SELECT COUNT(*) FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                    SqlCommand selectCmd = new SqlCommand(selectQuery, con);
+                    selectCmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+                    selectCmd.Parameters.AddWithValue("@FormID", formID);
 
-                    string query =  "UPDATE PERSONELFORMYETKILERI SET Yetki = CASE  WHEN Yetki IS NULL THEN 0  ELSE @Yetki END WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                    int recordCount = (int)selectCmd.ExecuteScalar();
 
-
-
-
-
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
-                    cmd.Parameters.AddWithValue("@FormID", formID);
-                    cmd.Parameters.AddWithValue("@Yetki", yetki);
-                    cmd.ExecuteNonQuery();
+                    if (recordCount > 0)
+                    {
+                        // Kayıt varsa güncelle
+                        string updateQuery = "UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+                        SqlCommand updateCmd = new SqlCommand(updateQuery, con);
+                        updateCmd.Parameters.AddWithValue("@Yetki", yetki);
+                        updateCmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+                        updateCmd.Parameters.AddWithValue("@FormID", formID);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // Kayıt yoksa yeni kayıt ekle
+                        string insertQuery = "INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@KullaniciID, @FormID, @Yetki)";
+                        SqlCommand insertCmd = new SqlCommand(insertQuery, con);
+                        insertCmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+                        insertCmd.Parameters.AddWithValue("@FormID", formID);
+                        insertCmd.Parameters.AddWithValue("@Yetki", yetki);
+                        insertCmd.ExecuteNonQuery();
+                    }
                 }
-                 
-                MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Main mmm = new Main(kullaniciID);
-                //mmm.Activate();
 
-            }    
-
+                MessageBox.Show("Kayıt başarıyla tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+           
             this.Close();
+            //using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            //{
+            //    con.Open();
+            //    foreach ( DataRow row in dt.Rows)
+            //    {
+            //        int formID = Convert.ToInt32(row["FormID"]);
+            //        bool yetki = Convert.ToBoolean(row["Yetki"]);
+
+            //        if (formID <= 0)
+            //        {
+            //            MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            return;
+            //        }
+
+            //        // Yetkileri güncelle veya ekle
+            //        //string query = /*@*/"UPDATE PERSONELFORMYETKILERI SET Yetki = @Yetki WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+
+            //        string query =  "UPDATE PERSONELFORMYETKILERI SET Yetki = CASE  WHEN Yetki IS NULL THEN 0  ELSE @Yetki  END WHERE KULLANICIID = @KullaniciID AND FormID = @FormID";
+
+
+
+
+
+            //        SqlCommand cmd = new SqlCommand(query, con);
+            //        cmd.Parameters.AddWithValue("@KullaniciID", kullaniciID);
+            //        cmd.Parameters.AddWithValue("@FormID", formID);
+            //        cmd.Parameters.AddWithValue("@Yetki", yetki);
+            //        cmd.ExecuteNonQuery();
+            //    }
+
+            //    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    //Main mmm = new Main(kullaniciID);
+            //    //mmm.Activate();
+
+            //}    
+
+            //this.Close();
 
         }
        

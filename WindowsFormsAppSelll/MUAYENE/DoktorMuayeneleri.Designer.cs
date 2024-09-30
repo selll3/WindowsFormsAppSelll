@@ -43,7 +43,7 @@
             this._DoktorMuayeneleri_dataGridView.RowHeadersWidth = 62;
             this._DoktorMuayeneleri_dataGridView.RowTemplate.Height = 28;
             this._DoktorMuayeneleri_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._DoktorMuayeneleri_dataGridView.Size = new System.Drawing.Size(786, 402);
+            this._DoktorMuayeneleri_dataGridView.Size = new System.Drawing.Size(682, 402);
             this._DoktorMuayeneleri_dataGridView.TabIndex = 0;
             this._DoktorMuayeneleri_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this._DoktorMuayeneleri_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._DoktorMuayeneleri_dataGridView_CellDoubleClick);
@@ -52,7 +52,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(635, 539);
+            this._Vazgec_button.Location = new System.Drawing.Point(560, 439);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(120, 40);
             this._Vazgec_button.TabIndex = 21;
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 610);
+            this.ClientSize = new System.Drawing.Size(684, 529);
             this.ControlBox = false;
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._DoktorMuayeneleri_dataGridView);

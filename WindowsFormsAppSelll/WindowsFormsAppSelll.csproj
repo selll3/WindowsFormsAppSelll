@@ -322,6 +322,11 @@
   <ItemGroup>
     <None Include="Resources\Green Simple Medical Health Logo %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{594cfef3-fd3c-4bd3-ba48-f2b7f3feb07f}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
