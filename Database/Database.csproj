@@ -62,6 +62,8 @@
     <Compile Include="Entity\RANDEVULAR.cs" />
     <Compile Include="Model\Doktorlar.cs" />
     <Compile Include="Model\Hastalar.cs" />
+    <Compile Include="Model\Kullanicilar.cs" />
+    <Compile Include="Model\Muayeneler.cs" />
     <Compile Include="Model\Personeller.cs" />
     <Compile Include="Model\Randevular.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -117,8 +117,17 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         private void _Guncelle_button_Click(object sender, EventArgs e)
         {
-            KullaniciGuncelle kullaniciGuncelle = new KullaniciGuncelle();
-            kullaniciGuncelle.Show();
+            if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
+            {
+                int selectedUserId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
+                KullaniciGuncelle kullaniciGuncelleForm = new KullaniciGuncelle(selectedUserId);
+                kullaniciGuncelleForm.ShowDialog();
+                LoadDatakullanici(); // Güncellemeyi yaptıktan sonra listeyi yenileyin
+            }
+            else
+            {
+                MessageBox.Show("Lütfen güncellenecek kullanıcıyı seçin.");
+            }
         }
         private void verileriyükle()
         {
@@ -155,27 +164,45 @@ namespace WindowsFormsAppSelll.KULLANICI
 
             if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
             {
-               int selectedRowId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
-                string connectionString = "Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                int selectedRowId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
+
+                // Kullanıcıyı silme işlemi
+                using (var transaction = dbContext.Database.BeginTransaction())
                 {
-                    connection.Open();
-                    string query = "BEGIN TRANSACTION;\r\n\r\nBEGIN TRY\r\n    -- İlk olarak PERSONELFORMYETKILERI tablosundan ilgili kullanıcıyı sil\r\n    DELETE FROM PERSONELFORMYETKILERI WHERE KULLANICIID = @KULLANICIID;\r\n\r\n    -- Ardından GIRIS tablosundan kullanıcıyı sil\r\n    DELETE FROM GIRIS WHERE KULLANICIID = @KULLANICIID;\r\n\r\n    -- İşlem başarılı olursa commit et\r\n    COMMIT TRANSACTION;\r\nEND TRY\r\n\r\nBEGIN CATCH\r\n    -- Hata olursa işlemi geri al\r\n    ROLLBACK TRANSACTION;\r\n    THROW;\r\nEND CATCH;\r\n";
-                    
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    try
                     {
-                        command.Parameters.AddWithValue("@KULLANICIID", selectedRowId);
-                        command.ExecuteNonQuery();
+                        // İlk olarak PERSONELFORMYETKILERI tablosundan ilgili kullanıcıyı sil
+                        var userPermissions = dbContext.PERSONELFORMYETKILERI
+                            .Where(p => p.KULLANICIID == selectedRowId);
+                        dbContext.PERSONELFORMYETKILERI.RemoveRange(userPermissions);
+                        dbContext.SaveChanges();
+
+                        // Ardından GIRIS tablosundan kullanıcıyı sil
+                        var user = dbContext.GIRIS.Find(selectedRowId);
+                        if (user != null)
+                        {
+                            dbContext.GIRIS.Remove(user);
+                            dbContext.SaveChanges();
+                        }
+
+                        // İşlem başarılı olursa commit et
+                        transaction.Commit();
                         MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    catch (Exception ex)
+                    {
+                        // Hata olursa işlemi geri al
+                        transaction.Rollback();
+                        MessageBox.Show("Silme işlemi sırasında bir hata oluştu: " + ex.Message);
+                    }
                 }
-
             }
             else
             {
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
-            verileriyükle();
+
+            LoadDatakullanici(); // Veri yükleme işlemi
         }
 
         public void _Yetkilerigor_button_Click(object sender, EventArgs e)
@@ -183,7 +210,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 
             if (_kullanicilar_dataGridView.SelectedRows.Count > 0)
             {
-                 selectedUserID = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
+                selectedUserID = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value);
                 YetkileriGor yetkileriGor = new YetkileriGor(selectedUserID);
                 yetkileriGor.ShowDialog();
             }
@@ -201,8 +228,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ForeignKeyCheckForm fkcForm = new ForeignKeyCheckForm();
-            fkcForm.ShowDialog();
+       
         }
     }
 

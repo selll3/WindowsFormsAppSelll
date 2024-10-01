@@ -22,25 +22,32 @@ namespace Database.Model
         {
             
 
-            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //string readQuery = "SELECT  DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
-            //SqlDataAdapter da = new SqlDataAdapter(readQuery, con);
-
-            //DataTable dt = new DataTable();
-
-
-            //da = new SqlDataAdapter(readQuery, con);
-            //da.Fill(dt);
 
             return db.DOKTORLAR.ToList();
         }
 
-        public static bool DoktorEkle(DOKTORLAR doktor)
+        //public static bool DoktorEkle(DOKTORLAR doktor)
+        //{
+        //    try
+        //    {
+               
+        //        db.DOKTORLAR.Add(doktor);
+        //        db.SaveChanges();
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+
+        //    }
+
+        //}
+        public static bool DoktorGuncelle(DOKTORLAR doktor)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.DOKTORLAR.Add(doktor);
+              
+                db.DOKTORLAR.AddOrUpdate(doktor);
                 db.SaveChanges();
                 return true;
             }
@@ -51,20 +58,21 @@ namespace Database.Model
             }
 
         }
-        ////public static 
-        ////{
-        ////    try
-        ////    {
-        ////        Hastanedb db = new Hastanedb();
-        ////        db.DOKTORLAR.AddOrUpdate(doktor);
-        ////        db.SaveChanges();
-        ////        return true;
-        ////    }
-        ////    catch
-        ////    {
-        ////        return false;
+        public static bool DoktorSil(DOKTORLAR doktor)
+        {
+            try
+            {
+               
+                db.DOKTORLAR.Remove(doktor);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
 
-        ////    }
-        //}
+            }
+
+        }
     }
 }

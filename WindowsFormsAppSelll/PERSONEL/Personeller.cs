@@ -73,17 +73,17 @@ namespace WindowsFormsAppSelll
                     r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
                     r.PersonelAdi,
                     r.PersonelSoyadi,
-                    r.PersonelGorev,
-                    r.KULLANICIID
+                    r.PersonelGorev
+                    //r.KULLANICIID
                    
                     // r.Bulgu gibi başka sütunlar da ekleyebilirsin
                 }).ToList();
             // DOKTORID sütununu gizle
-            //if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
-            //{
-            //    _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
-            //}
-        
+            if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
+            {
+                _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
+            }
+
         }
 
 
@@ -127,8 +127,8 @@ namespace WindowsFormsAppSelll
                    r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
                    r.PersonelAdi,
                    r.PersonelSoyadi,
-                   r.PersonelGorev,
-                   r.KULLANICIID
+                   r.PersonelGorev
+                   //r.KULLANICIID
 
                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
                }).ToList();
@@ -199,8 +199,27 @@ namespace WindowsFormsAppSelll
 
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
         {
-           PersonelGuncelle PersonelGuncelle = new PersonelGuncelle();
-            PersonelGuncelle.Show();
+            if (_Personeller_dataGridView.SelectedRows.Count > 0)
+            {
+                // Seçilen satırdan personel bilgilerini al
+                int selectedPersonelId = Convert.ToInt32(_Personeller_dataGridView.SelectedRows[0].Cells["PERSONELID"].Value);
+                string selectedPersonelAdi = _Personeller_dataGridView.SelectedRows[0].Cells["PersonelAdi"].Value.ToString();
+                string selectedPersonelSoyadi = _Personeller_dataGridView.SelectedRows[0].Cells["PersonelSoyadi"].Value.ToString();
+                string selectedPersonelGorev = _Personeller_dataGridView.SelectedRows[0].Cells["PersonelGorev"].Value.ToString();
+
+                // PersonelGuncelle formunu aç ve bilgileri gönder
+                PersonelGuncelle personelGuncelleForm = new PersonelGuncelle(selectedPersonelId, selectedPersonelAdi, selectedPersonelSoyadi, selectedPersonelGorev);
+                personelGuncelleForm.FormClosed += PersonelGuncelle_FormClosed;
+                personelGuncelleForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen güncellenecek bir personel seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } // burayı nasıl çağırmalıyım
+            //PersonelGuncelle PersonelGuncelle = new PersonelGuncelle();
+            //PersonelGuncelle.FormClosed += PersonelGuncelle_FormClosed;
+            //PersonelGuncelle.Show();
+
             //this.Hide();
 
             
@@ -208,7 +227,10 @@ namespace WindowsFormsAppSelll
 
         }
 
-
+        private void PersonelGuncelle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            verileriyükle();
+        }
 
         private void _Ekle_button_Click(object sender, EventArgs e)
             {

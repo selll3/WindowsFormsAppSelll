@@ -28,7 +28,8 @@ namespace Database.Entity
 
         public int? KULLANICIID { get; set; }
 
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<DOKTORLAR> DOKTORLAR { get; set; }
 
         public virtual GIRIS GIRIS { get; set; }

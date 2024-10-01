@@ -55,24 +55,7 @@ namespace WindowsFormsAppSelll
             }
             else
             {
-                DOKTORLAR dr = new DOKTORLAR();
-                dr.DoktorAdi = _DoktorAdi_textBox.Text;
-                dr.DoktorSoyadi = _DoktorSoyadi_textBox.Text;
-                var eklendi= Database.Model.Doktorlar.DoktorEkle(dr);
-                if (eklendi)
-                {
-                    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                //  Hastanedb db = new Hastanedb();
-
-                // db.DOKTORLAR.Add(dr);
-                // db.SaveChanges();
-
-
+                
                 
 
             }

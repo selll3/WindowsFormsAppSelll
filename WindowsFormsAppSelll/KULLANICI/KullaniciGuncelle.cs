@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,66 +16,64 @@ namespace WindowsFormsAppSelll.KULLANICI
 {
     public partial class KullaniciGuncelle : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        SqlDataAdapter daHG;
-        DataTable dtHG;
+        public int KullaniciID { get; set; }
         int selectedDoctorID;
-        public KullaniciGuncelle()
+        public KullaniciGuncelle(int kullaniciID)
         {
             InitializeComponent();
-            LoadDataK();
+            KullaniciID = kullaniciID;
+            //LoadDataK();
+            LoadUserData();
         }
-        private void LoadDataK()
-        {
-            dtHG = new DataTable();
-            string readQuery = "Select KULLANICIID,KullaniciAdi,Parola from GIRIS";
-            daHG = new SqlDataAdapter(readQuery, con);
-            daHG.Fill(dtHG);
-            _kullaniciGüncelle_dataGridView.DataSource = dtHG;
 
-            // DataGridView verileri yüklendikten sonra sütunları gizle
-            if (_kullaniciGüncelle_dataGridView.Columns.Contains("KULLANICIID"))
+        private void LoadUserData()
+        {
+            using (Hastanedb dbContext = new Hastanedb()) // using bloğu ile context yönetimi
             {
-                _kullaniciGüncelle_dataGridView.Columns["KULLANICIID"].Visible = false;
+                var kullanici = dbContext.GIRIS.SingleOrDefault(g => g.KULLANICIID == KullaniciID);
+                if (kullanici != null)
+                {
+                    kullaniciAdi_textBox.Text = kullanici.KullaniciAdi;
+                    _Parola_textBox.Text = kullanici.Parola; // Şifreyi gösterirken dikkatli olun
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
+       
         private void KullaniciGuncelle_Load(object sender, EventArgs e)
         {
-            _kullaniciGüncelle_dataGridView.RowHeadersVisible = false;
+            //_kullaniciGüncelle_dataGridView.RowHeadersVisible = false;
         }
 
         private void _KAYDET_button_Click(object sender, EventArgs e)
         {
-
-            if (selectedDoctorID == 0) // ID seçilmemişse
+            using (Hastanedb dbContext = new Hastanedb())
+            {    var kullanici = dbContext.GIRIS.SingleOrDefault(g => g.KULLANICIID == KullaniciID);
+            if (kullanici != null)
             {
-                MessageBox.Show("Lütfen bir doktor seçin.");
-                return;
+                kullanici.KullaniciAdi = kullaniciAdi_textBox.Text;
+                kullanici.Parola = _Parola_textBox.Text;
+
+                dbContext.SaveChanges(); // Değişiklikleri kaydet
+
+                MessageBox.Show("Kullanıcı bilgileri başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close(); // Formu kapat
             }
-
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE GIRIS SET KullaniciAdi = @Kadi, Parola=@Parola WHERE KULLANICIID = @Gid", con);
-
-            // Sütunlardaki verileri güncelle
-            foreach (DataGridViewRow row in _kullaniciGüncelle_dataGridView.Rows)
+            else
             {
-                if (Convert.ToInt32(row.Cells["KULLANICIID"].Value) == selectedDoctorID)
-                {
-                    cmd.Parameters.AddWithValue("@Kadi", row.Cells["KullaniciAdi"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Parola", row.Cells["Parola"].Value ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Gid", selectedDoctorID);
-
-                    cmd.ExecuteNonQuery();
-                    break;
-                }
+                MessageBox.Show("Kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            con.Close();
 
             // İlk formu güncelle ve göster
             Kullanicilar formK = (Kullanicilar)Application.OpenForms["Kullanicilar"];
             formK.LoadDatakullanici(); // İlk formun veri yükleme metodunu çağır
             this.Close();
+            }
+
         }
 
         private void _Vazgec_Click(object sender, EventArgs e)
@@ -94,15 +94,27 @@ namespace WindowsFormsAppSelll.KULLANICI
         private void _kullaniciGüncelle_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex >= 0 && _kullaniciGüncelle_dataGridView.Rows.Count > 0)
-            {
-                selectedDoctorID = Convert.ToInt32(_kullaniciGüncelle_dataGridView.Rows[e.RowIndex].Cells["KULLANICIID"].Value);
-            }
+            //if (e.RowIndex >= 0 && _kullaniciGüncelle_dataGridView.Rows.Count > 0)
+            //{
+            //    selectedDoctorID = Convert.ToInt32(_kullaniciGüncelle_dataGridView.Rows[e.RowIndex].Cells["KULLANICIID"].Value);
+            //}
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                _Parola_textBox.PasswordChar = '\0'; // Şifreyi görünür yap
+            }
+            else
+            {
+                _Parola_textBox.PasswordChar = '*'; // Şifreyi tekrar gizle
+            }
         }
     }
 }

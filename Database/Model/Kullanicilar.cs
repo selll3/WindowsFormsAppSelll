@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    public static class Personeller
-    { private static Hastanedb dp = new Hastanedb();
-        public static bool PersonelEkle(PERSONEL Personel)
+    public static class Kullanicilar
+    {
+
+        public static bool KullaniciEkle(GIRIS kullanici)
         {
             try
             {
-                
-                dp.PERSONEL.Add(Personel);
-                dp.SaveChanges();
+                Hastanedb db = new Hastanedb();
+                db.GIRIS.Add(kullanici);
+                db.SaveChanges();
                 return true;
             }
             catch
@@ -26,13 +27,13 @@ namespace Database.Model
             }
 
         }
-        public static bool PersonelGuncelle(PERSONEL Personel)
+        public static bool KullaniciGuncelle(GIRIS kullanici)
         {
             try
             {
-                
-                dp.PERSONEL.AddOrUpdate(Personel);
-                dp.SaveChanges();
+                Hastanedb db = new Hastanedb();
+                db.GIRIS.AddOrUpdate(kullanici);
+                db.SaveChanges();
                 return true;
             }
             catch
@@ -42,13 +43,13 @@ namespace Database.Model
             }
 
         }
-        public static bool PersonelSil(PERSONEL Personel)
+        public static bool KullaniciSil(GIRIS kullanici)
         {
             try
             {
-             
-                dp.PERSONEL.Remove(Personel);
-                dp.SaveChanges();
+                Hastanedb db = new Hastanedb();
+                db.GIRIS.Remove(kullanici);
+                db.SaveChanges();
                 return true;
             }
             catch
@@ -59,4 +60,5 @@ namespace Database.Model
 
         }
     }
+
 }

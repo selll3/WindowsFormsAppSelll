@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,103 +23,91 @@ namespace WindowsFormsAppSelll
         DataTable dt;
         int selectedDoctorID;
         int selectedPersonelID; 
-        public DoktorGuncelle()
+
+        public DoktorGuncelle(int doktorID, int personelID)
         {
             InitializeComponent();
-            LoadData();
+            //LoadData();
+            selectedDoctorID = doktorID;
+            selectedPersonelID = personelID;
+            LoadDoctorData();
+
         }
-        private void LoadData()
+        private void LoadDoctorData()
         {
 
-            dt = new DataTable();
-            string readQuery = "Select DoktorID, DoktorAdi, DoktorSoyadi, PersonelID from DOKTORLAR";
-            da = new SqlDataAdapter(readQuery, con);
-            da.Fill(dt);
-            _DoktorlarGuncelle_dataGridView.DataSource = dt;
+            using (Hastanedb dbContext = new Hastanedb())
+            {   var doktor = dbContext.DOKTORLAR
+           .Where(d => d.DOKTORID == selectedDoctorID)
+           .Select(d => new
+           {
+               d.DoktorAdi,
+               d.DoktorSoyadi,
+               d.DoktorunBransi,
+               d.Doktorun_kati
+           })
+           .FirstOrDefault();
 
-            // DataGridView verileri yüklendikten sonra sütunları gizle
-            if (_DoktorlarGuncelle_dataGridView.Columns.Contains("DoktorID"))
+            if (doktor != null)
             {
-                _DoktorlarGuncelle_dataGridView.Columns["DoktorID"].Visible = false;
+                _DoktorAdi_textBox.Text = doktor.DoktorAdi;
+                _DoktorSoyadi_textBox.Text = doktor.DoktorSoyadi;
+               comboBox1.SelectedItem = doktor.DoktorunBransi;
+                numericUpDown1.Value = (int)doktor.Doktorun_kati; // NumericUpDown kullanıyorsanız
             }
-            if (_DoktorlarGuncelle_dataGridView.Columns.Contains("PersonelID"))
-            {
-                _DoktorlarGuncelle_dataGridView.Columns["PersonelID"].Visible = false;
-            }
-          
+        }
         }
 
-        private void UpdateDoctorAndPersonel(int doctorID, int personelID)
+        private void UpdateDoctorAndPersonel()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            using (Hastanedb dbContext = new Hastanedb())
+            {     // Doktor ve personel güncelleme işlemleri
+                var doktor = dbContext.DOKTORLAR.Find(selectedDoctorID);
+            var personel = dbContext.PERSONEL.Find(selectedPersonelID);
+
+            if (doktor != null && personel != null)
             {
-                con.Open();
+                // Doktorun eski adı ve soyadı
+                string oldDoktorAdi = doktor.DoktorAdi;
+                string oldDoktorSoyadi = doktor.DoktorSoyadi;
 
-                // Doktor güncellemesi
-                SqlCommand updateDoctorCmd = new SqlCommand(
-                    "UPDATE DOKTORLAR SET DoktorAdi = @Dadi, DoktorSoyadi = @Dsoyadi WHERE DoktorID = @Did", con);
+                // Güncellenen değerleri ata
+                doktor.DoktorAdi = _DoktorAdi_textBox.Text;
+                doktor.DoktorSoyadi = _DoktorSoyadi_textBox.Text;
+                doktor.DoktorunBransi = comboBox1.SelectedItem.ToString();
+                doktor.Doktorun_kati = (int)numericUpDown1.Value;
 
-                // Personel güncellemesi
-                SqlCommand updatePersonelCmd = new SqlCommand(
-                    "UPDATE PERSONEL SET PersonelAdi = @Dadi, PersonelSoyadi = @Dsoyadi WHERE PERSONELID = @Pid AND PersonelGorev = 'Doktor'", con);
-
-                // Seçilen doktoru ve personeli güncelle
-                var selectedRow = _DoktorlarGuncelle_dataGridView.Rows.Cast<DataGridViewRow>()
-                    .FirstOrDefault(row => Convert.ToInt32(row.Cells["DoktorID"].Value) == doctorID);
-
-
-
-                if (selectedRow != null)
+                // Eğer doktor adı veya soyadı değiştiyse, personeli de güncelle
+                if (oldDoktorAdi != doktor.DoktorAdi || oldDoktorSoyadi != doktor.DoktorSoyadi)
                 {
-                    string doktorAdi = selectedRow.Cells["DoktorAdi"].Value?.ToString();
-                    string doktorSoyadi = selectedRow.Cells["DoktorSoyadi"].Value?.ToString();
-
-                    // Doktor güncelleme parametreleri
-                    updateDoctorCmd.Parameters.AddWithValue("@Dadi", doktorAdi ?? (object)DBNull.Value);
-                    updateDoctorCmd.Parameters.AddWithValue("@Dsoyadi", doktorSoyadi ?? (object)DBNull.Value);
-                    updateDoctorCmd.Parameters.AddWithValue("@Did", doctorID);
-
-                    // Personel güncelleme parametreleri
-                    updatePersonelCmd.Parameters.AddWithValue("@Dadi", doktorAdi ?? (object)DBNull.Value);
-                    updatePersonelCmd.Parameters.AddWithValue("@Dsoyadi", doktorSoyadi ?? (object)DBNull.Value);
-                    updatePersonelCmd.Parameters.AddWithValue("@Pid", personelID);
-
-                    // Veritabanında güncelleme işlemleri
-                    updateDoctorCmd.ExecuteNonQuery();
-                    updatePersonelCmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Doktor ve Personel bilgileri başarıyla güncellendi.");
+                    personel.PersonelAdi = doktor.DoktorAdi;
+                    personel.PersonelSoyadi = doktor.DoktorSoyadi;
                 }
 
-               
-
+                dbContext.SaveChanges();
+                MessageBox.Show("Doktor ve Personel bilgileri başarıyla güncellendi.");
             }
         }
-      
+
+        }
+
+
         private void DoktorGuncelle_Load(object sender, EventArgs e)
         {
-            _DoktorlarGuncelle_dataGridView.RowHeadersVisible = false;
+            //_DoktorlarGuncelle_dataGridView.RowHeadersVisible = false;
             // _DoktorlarGuncelle_dataGridView.Columns["DOKTORID"].Visible = false;
         }
         //PERSONEL GÜNCELLENDİĞİNDE DOKTOR GÜNCELLENİYOR MU
         // ARTI OLARAK DOKTOR GÜNCELLENDİĞİNDE PERSONEL GÖREVİ DOKTOR OLANLAR GÜNCELLENİYOR MU
         private void button1_Click(object sender, EventArgs e)
         {
-            if (selectedDoctorID == 0 || selectedPersonelID == 0) // Doktor veya personel seçilmemişse
-            {
-                MessageBox.Show("Lütfen bir doktor seçin.");
-                return;
-            }
-
-            // Doktor ve personel bilgilerini güncelle
-            UpdateDoctorAndPersonel(selectedDoctorID, selectedPersonelID);
+            UpdateDoctorAndPersonel();
 
             // İlk formu güncelle ve göster
             Doktorlar form1 = (Doktorlar)Application.OpenForms["Doktorlar"];
             form1.LoadDataIntoGrid(); // İlk formun veri yükleme metodunu çağır
             this.Close();
 
-           
         }
 
         private void _DoktorlarGuncelle_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -127,11 +117,11 @@ namespace WindowsFormsAppSelll
 
         private void _DoktorlarGuncelle_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && _DoktorlarGuncelle_dataGridView.Rows.Count > 0)
-            {
-                selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["DOKTORID"].Value);
-                selectedPersonelID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value); // PersonelID'yi de al
-            }
+            //if (e.RowIndex >= 0 && _DoktorlarGuncelle_dataGridView.Rows.Count > 0)
+            //{
+            //    selectedDoctorID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["DOKTORID"].Value);
+            //    selectedPersonelID = Convert.ToInt32(_DoktorlarGuncelle_dataGridView.Rows[e.RowIndex].Cells["PERSONELID"].Value); // PersonelID'yi de al
+            //}
          
         }
 

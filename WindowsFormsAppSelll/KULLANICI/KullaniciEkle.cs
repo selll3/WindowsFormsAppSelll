@@ -45,103 +45,48 @@ namespace WindowsFormsAppSelll.KULLANICI
             }
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                string insertQuery = "INSERT INTO GIRIS(KullaniciAdi, Parola) OUTPUT INSERTED.KULLANICIID VALUES(@Kadi, @Parola)";
-
-                con.Open();
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-                cmd.Parameters.AddWithValue("@Kadi", kullaniciAdi_textBox.Text);
-                cmd.Parameters.AddWithValue("@Parola", _Parola_textBox.Text);
-
-                // KULLANICIID'yi al
-                int newUserId = (int)cmd.ExecuteScalar();
-
-
-                // Yetkileri ekleme sorgusu
-                string insertYetkiQuery = "INSERT INTO PERSONELFORMYETKILERI (KULLANICIID, FormID, Yetki) VALUES (@KullaniciID, @FormID, 0)"; // 0: false
-
-                // Yetkiler için gerekli FormID'leri belirle
-                List<int> formIDs = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
-
-                foreach (var formID in formIDs)
+                using (Hastanedb db = new Hastanedb())
                 {
-                    SqlCommand yetkiCmd = new SqlCommand(insertYetkiQuery, con);
-                    yetkiCmd.Parameters.AddWithValue("@KullaniciID", newUserId);
-                    yetkiCmd.Parameters.AddWithValue("@FormID", formID);
-                    yetkiCmd.ExecuteNonQuery();
+                    // Yeni kullanıcıyı ekle
+                    var newUser = new GIRIS
+                    {
+                        KullaniciAdi = kullaniciAdi_textBox.Text,
+                        Parola = _Parola_textBox.Text
+                    };
+
+                    db.GIRIS.Add(newUser);
+                    db.SaveChanges(); // KULLANICIID otomatik olarak oluşturulacak
+
+                    // Yetkileri ekleme
+                    List<int> formIDs = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19,20 };
+
+                    foreach (var formID in formIDs)
+                    {
+                        var yetki = new PERSONELFORMYETKILERI
+                        {
+                            KULLANICIID = newUser.KULLANICIID, // KULLANICIID yeni kullanıcının ID'si
+                            FormID = formID,
+                            Yetki = false // 0 yerine false
+                        };
+
+                        db.PERSONELFORMYETKILERI.Add(yetki);
+                    }
+
+                    db.SaveChanges(); // Yetkileri kaydet
+
+                    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Kullanicilar formh = Application.OpenForms.OfType<Kullanicilar>().FirstOrDefault();
+                    if (formh != null)
+                    {
+                        formh.LoadDatakullanici(); // İlk formun veri yükleme metodunu çağır
+                    }
+
+                    this.Close();
                 }
-
-                con.Close();
-
-                MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Kullanicilar formh = Application.OpenForms.OfType<Kullanicilar>().FirstOrDefault();
-                if (formh != null)
-                {
-                    formh.LoadDatakullanici(); // İlk formun veri yükleme metodunu çağır
-                }
-
-                this.Close();
             }
-            //bool isAnyEmpty = false;
-            //foreach (Control control in this.Controls)
-            //{
-            //    // Sadece TextBox'ları kontrol et
-            //    if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
-            //    {
-            //        isAnyEmpty = true;
-            //        break;
-            //    }
-            //}
-            //if (isAnyEmpty)
-            //{
-            //    MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    //HASTALAR hst = new HASTALAR();
-            //    //hst.HastaAdi = _HastaAdi_textBox.Text;
-            //    //hst.HastaSoyadi = _HastaSoyadi_textBox.Text;
-            //    //hst.HastaYasi = Convert.ToInt32(_HastaYasi_textBox.Text);
-            //    //// int.TryParse
+           
 
-            //    //Hastanedb dbh = new Hastanedb();
-
-            //    //dbh.HASTALAR.Add(hst);
-            //    //dbh.SaveChanges();
-
-
-            //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //    string insertQuery = "INSERT INTO GIRIS(KULLANICIID,KullaniciAdi,Parola) VALUES(@Kid,@Kadi, @Parola) ";
-
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand(insertQuery, con);
-            //    cmd.Parameters.AddWithValue("@Kadi", kullaniciAdi_textBox.Text);
-            //    cmd.Parameters.AddWithValue("@Parola", _Parola_textBox.Text);
-
-            //    int count = cmd.ExecuteNonQuery();
-
-            //    con.Close();
-            //    if (count > 0)
-            //    {
-            //        MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //    Kullanicilar formh = Application.OpenForms.OfType<Kullanicilar>().FirstOrDefault();
-            //    if (formh != null)
-            //    {
-            //        formh.LoadDatakullanici(); // İlk formun veri yükleme metodunu çağır
-            //    }
-
-            //    this.Close();
-
-
-
-
-            //}
 
 
 

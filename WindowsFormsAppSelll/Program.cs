@@ -20,7 +20,7 @@ namespace WindowsFormsAppSelll
         {  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KullaniciGiris());
+            Application.Run(new Main(11));
         }
     }
 }

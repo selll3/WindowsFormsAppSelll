@@ -14,15 +14,7 @@ namespace Database.Model
         {
             Hastanedb db = new Hastanedb();
 
-            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //string readQuery = "SELECT  DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
-            //SqlDataAdapter da = new SqlDataAdapter(readQuery, con);
-
-            //DataTable dt = new DataTable();
-
-
-            //da = new SqlDataAdapter(readQuery, con);
-            //da.Fill(dt);
+         
 
             return db.HASTALAR.ToList();
         }

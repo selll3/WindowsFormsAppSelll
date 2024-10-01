@@ -126,29 +126,7 @@ namespace WindowsFormsAppSelll
             }
 
             //_kullanici_comboBox.Items.Clear();
-            //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            //con.Open();
-            //SqlCommand Komut = new SqlCommand();
-            //Komut = con.CreateCommand();
-            //Komut.CommandType = CommandType.Text;
-            //Komut.CommandText = " SELECT g.KULLANICIID, g.KullaniciAdi \r\n            FROM GIRIS g\r\n            LEFT JOIN PERSONEL p ON g.KULLANICIID = p.KULLANICIID\r\n            WHERE p.KULLANICIID IS NULL";
-            //Komut.ExecuteNonQuery();
-            //DataTable dt = new DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(Komut);
-            //da.Fill(dt);
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
-
-
-            //    _kullanici_comboBox.DataSource = dt;
-            //    _kullanici_comboBox.ValueMember = "KULLANICIID";
-            //    _kullanici_comboBox.DisplayMember = "KullaniciAdi";
-
-            //}
-            //con.Close();
-
-
+            
         }
         private void _Vazgec_button_Click(object sender, EventArgs e)
         {
