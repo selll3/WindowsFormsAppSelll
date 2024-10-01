@@ -24,42 +24,48 @@ namespace WindowsFormsAppSelll.MUAYENE
         }
         private void LoadHastaMuayeneGecmisi()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            using (var context = new Hastanedb())
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT MuayeneID, MuayeneTarihi, Aciklama FROM MUAYENE WHERE HASTAID = @hastaID ", con);
-                cmd.Parameters.AddWithValue("@hastaID", hastaID);
+                var muayeneGeçmişi = context.MUAYENE
+                    .Where(m => m.HASTAID == hastaID)
+                    .Select(m => new
+                    {
+                        m.MUAYENEID,
+                        m.MuayeneTarihi,
+                        m.Aciklama
+                    })
+                    .ToList();
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                dataGridView1.DataSource = dt; // Geçmiş muayeneleri DataGridView'e bağla
+                dataGridView1.DataSource = muayeneGeçmişi; // Geçmiş muayeneleri DataGridView'e bağla
             }
         }
 
         private void LoadHastaBilgileri()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            using (var context = new Hastanedb())
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM HASTALAR WHERE HASTAID = @hastaID", con);
-                cmd.Parameters.AddWithValue("@hastaID", hastaID);
+                var hasta = context.HASTALAR
+                    .Where(h => h.HASTAID == hastaID)
+                    .Select(h => new
+                    {
+                        h.HastaAdi,
+                        h.HastaSoyadi,
+                        h.HastaYasi
+                    })
+                    .FirstOrDefault();
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                if (hasta != null)
                 {
-                    _hastaAdi_textBox.Text = reader["HastaAdi"].ToString();
-                    _hastaSoyadi_textBox.Text = reader["HastaSoyadi"].ToString();
-                   
-                    _hastaYasi_textBox.Text = reader["HastaYasi"].ToString();
-
+                    _hastaAdi_textBox.Text = hasta.HastaAdi;
+                    _hastaSoyadi_textBox.Text = hasta.HastaSoyadi;
+                    _hastaYasi_textBox.Text = hasta.HastaYasi.ToString();
                 }
             }
         }
+
         private void DMuayeneleriAyrinti_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns["MuayeneID"].Visible = false;
+            dataGridView1.Columns["MUAYENEID"].Visible = false;
             dataGridView1.Columns["MuayeneTarihi"].HeaderText = "Muayene Tarihi";
            dataGridView1.Columns["Aciklama"].HeaderText = "Açıklama";
 

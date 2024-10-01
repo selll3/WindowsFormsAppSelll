@@ -17,9 +17,6 @@ namespace WindowsFormsAppSelll.MUAYENE
 {
     public partial class Muayeneler : Form
     {
-        //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //    SqlDataAdapter dM;
-        //    DataTable dtM;
         private int Hid;
         public Muayeneler(int hastaid )
         {
@@ -71,17 +68,7 @@ namespace WindowsFormsAppSelll.MUAYENE
                     // r.Bulgu gibi başka sütunlar da ekleyebilirsin
                 }).ToList();
 
-            //dtM = new DataTable();
-            //string readQuery = "SELECT MUAYENEID,DOKTORID,HASTAID,Aciklama,islendiBilgisi FROM MUAYENE";
-            //dM = new SqlDataAdapter(readQuery, con);
-            //dM.Fill(dtM);
-            //dataGridView1.DataSource = dM;
-
-            //if (dataGridView1.Columns.Contains("MUAYENEID"))
-            //{
-            //    dataGridView1.Columns["MUAYENEID"].Visible = false;
-            //}
-
+          
         }
         private void Muayeneler_Load(object sender, EventArgs e)
         {
