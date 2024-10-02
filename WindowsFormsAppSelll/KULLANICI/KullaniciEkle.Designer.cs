@@ -59,6 +59,7 @@
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(206, 26);
             this.kullaniciAdi_textBox.TabIndex = 14;
+            this.kullaniciAdi_textBox.TextChanged += new System.EventHandler(this.kullaniciAdi_textBox_TextChanged);
             // 
             // _Parola_textBox
             // 

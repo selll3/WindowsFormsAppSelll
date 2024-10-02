@@ -10,25 +10,33 @@ namespace Database.Model
 {
     public static class Hastalar
     {
+        public static Hastanedb dbh = new Hastanedb();
         public static List<HASTALAR>HastalariGetir()
         {
-            Hastanedb db = new Hastanedb();
+           return dbh.HASTALAR.ToList();
+                //.Select(r => new
+                //{
+                //    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
+                //    r.HastaAdi,
+                //    r.HastaSoyadi,
+                //    r.HastaYasi
+                   
+                //    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+                //}).ToList();
 
-         
-
-            return db.HASTALAR.ToList();
+            
         }
 
         public static bool HastaEkle(HASTALAR Hasta)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.HASTALAR.Add(Hasta);
-                db.SaveChanges();
+                
+                dbh.HASTALAR.Add(Hasta);
+                dbh.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
@@ -39,28 +47,29 @@ namespace Database.Model
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.HASTALAR.AddOrUpdate(Hasta);
-                db.SaveChanges();
+                
+                dbh.HASTALAR.AddOrUpdate(Hasta);
+                dbh.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
         }
 
-        public static bool HastalariSil(HASTALAR Hasta)
+        public static bool HastalariSil(int selectedHastaId)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.HASTALAR.Remove(Hasta);
-                db.SaveChanges();
+                
+                var Hasta = dbh.HASTALAR.Where(x => x.HASTAID == selectedHastaId).FirstOrDefault();
+                dbh.HASTALAR.Remove(Hasta);
+                dbh.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 

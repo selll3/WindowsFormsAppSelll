@@ -53,24 +53,27 @@ namespace WindowsFormsAppSelll
                 }
 
                 // Yeni personel ekleme
-                var yeniPersonel = new PERSONEL
-                {
-                    PersonelAdi = _PersonelAdi_textBox.Text,
-                    PersonelSoyadi = _PersonelSoyadi_textBox.Text,
-                    PersonelGorev = comboBox1.SelectedItem.ToString(),
-                    KULLANICIID = kullaniciId
-                };
+                PERSONEL yP = new PERSONEL();
 
-                context.PERSONEL.Add(yeniPersonel);
-                context.SaveChanges(); // Veritabanına ekleme işlemi yapılır
+                yP.PersonelAdi = _PersonelAdi_textBox.Text;
+                yP.PersonelSoyadi = _PersonelSoyadi_textBox.Text;
+                yP.PersonelGorev = comboBox1.SelectedItem.ToString();
+                yP.KULLANICIID = kullaniciId;
+                
+              
+                //context.PERSONEL.Add(yP);
+               /* context.SaveChanges();*/ // Veritabanına ekleme işlemi yapılır
 
                 // Eğer personel doktor ise doktorlar tablosuna da ekle
                 if (comboBox1.SelectedItem.ToString() == "Doktor")
                 {
-                    AddDoctor(yeniPersonel.PERSONELID, _PersonelAdi_textBox.Text, _PersonelSoyadi_textBox.Text);
+                    AddDoctor(yP.PERSONELID, _PersonelAdi_textBox.Text, _PersonelSoyadi_textBox.Text);
                 }
-
-                MessageBox.Show("Personel başarıyla eklendi.");
+               var yeniPersonel = Database.Model.Personeller.PersonelEkle(yP);
+                if (yeniPersonel)
+                {
+                 MessageBox.Show("Personel başarıyla eklendi.");
+                }
 
                 // İlk formu güncelle ve göster
                 var form1 = Application.OpenForms.OfType<Personeller>().FirstOrDefault();

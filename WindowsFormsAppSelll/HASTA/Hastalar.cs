@@ -9,8 +9,8 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using WindowsFormsAppSelll.ENTITY;
 using Database.Entity;
+using Database.Model;
 
 namespace WindowsFormsAppSelll
 {
@@ -27,32 +27,30 @@ namespace WindowsFormsAppSelll
             LoadDataIntoGridh();
             currentUserId = userId;
             yetkileriolustur();
-            
-
         }
 
         private void yetkileriolustur()
         {
-            
+
             var userPermissions = dbContext.PERSONELFORMYETKILERI
                                            .Where(p => p.KULLANICIID == currentUserId && p.Yetki == true)
                                            .ToList();
 
-            
+
             foreach (var permission in userPermissions)
             {
                 switch (permission.FormID)
                 {
-                    case 5:  
+                    case 5:
                         _Ekle_button.Enabled = true;
                         break;
-                    case 6: 
+                    case 6:
                         _GUNCELLE_button.Enabled = true;
                         _Sil_button.Enabled = true;
                         break;
 
 
-                        
+
                 }
             }
         }
@@ -61,31 +59,31 @@ namespace WindowsFormsAppSelll
 
         {
             //Hastanedb db = new Hastanedb();
-            //_Hastalar_dataGridView.DataSource = db.HASTALAR.ToList();
+            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.db.HASTALAR.ToList();
 
 
-             Hastanedb dbH = new Hastanedb();
-            _Hastalar_dataGridView.DataSource = dbH.HASTALAR
-                .Select(r => new
-                {
-                    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.HastaAdi,
-                    r.HastaSoyadi,
-                    r.HastaYasi
-                    
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
-            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
+            _Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
+            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.db.HASTALAR
+            //    .Select(r => new
+            //    {
+            //        r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
+            //        r.HastaAdi,
+            //        r.HastaSoyadi,
+            //        r.HastaYasi
+
+            //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+            //    }).ToList();
+
             // DOKTORID sütununu gizle
             if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
             {
                 _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
             }
-        
+
         }
         private void _HastalariListele_button_Click(object sender, EventArgs e)
         {
-         
+
         }
         private void verileriyükle()
         {
@@ -108,23 +106,13 @@ namespace WindowsFormsAppSelll
                     control.Visible = true;
                 }
             }
-            Hastanedb dbH = new Hastanedb();
-            _Hastalar_dataGridView.DataSource = dbH.HASTALAR
-                .Select(r => new
-                {
-                    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.HastaAdi,
-                    r.HastaSoyadi,
-                    r.HastaYasi
+            LoadDataIntoGridh();
 
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
-            //_Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
             // DOKTORID sütununu gizle
             if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
             {
                 _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
-          
+
             }
         }
         private void _Vazgec_button_Click(object sender, EventArgs e)
@@ -149,44 +137,51 @@ namespace WindowsFormsAppSelll
                 // DataGridView'den seçilen satırın HASTAID'sini alıyoruz.
                 int selectedHastaId = Convert.ToInt32(_Hastalar_dataGridView.SelectedRows[0].Cells["HASTAID"].Value);
 
-                using (var context = new Hastanedb())
-                {
-                    // Linq kullanarak silinecek hastayı buluyoruz.
-                    var hasta = context.HASTALAR.FirstOrDefault(h => h.HASTAID == selectedHastaId);
+                //using (var context = new Hastanedb())
+                //{
+                // Linq kullanarak silinecek hastayı buluyoruz.
+                //var hasta = context.HASTALAR.FirstOrDefault(h => h.HASTAID == selectedHastaId);
 
-                    if (hasta != null)
+                if (selectedHastaId != 0)
+              {
+                    // Hastayı silmek için Remove metodunu kullanıyoruz.
+                    //context.HASTALAR.Remove(hasta);
+                    var silindi = Database.Model.Hastalar.HastalariSil(selectedHastaId);
+                    if (silindi)
                     {
-                        // Hastayı silmek için Remove metodunu kullanıyoruz.
-                        context.HASTALAR.Remove(hasta);
-                        context.SaveChanges();
 
                         MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        verileriyükle();
                     }
+                    //context.SaveChanges();
                     else
                     {
-                        MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Silinemedi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-          
+                }
+                else
+                {
+                    MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
+
+            //}
 
             else
             {
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
 
-          
-            verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
 
-         
+            // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
+
+
         }
 
         private void _Ekle_button_Click(object sender, EventArgs e)
         {
 
-            HastaEkle hastaEkle = new HastaEkle();
-            hastaEkle.Show();
 
 
 
@@ -194,6 +189,7 @@ namespace WindowsFormsAppSelll
 
         private void Hastalar_Load(object sender, EventArgs e)
         {
+            
             _Hastalar_dataGridView.RowHeadersVisible = false;
             _Hastalar_dataGridView.Columns[1].ReadOnly = true;
             _Hastalar_dataGridView.Columns[2].ReadOnly = true;
@@ -204,7 +200,7 @@ namespace WindowsFormsAppSelll
         private void _Kayıt_button_Click(object sender, EventArgs e)
         {
 
-     
+
         }
 
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
@@ -220,6 +216,9 @@ namespace WindowsFormsAppSelll
 
                 // Güncellemeden sonra verileri yeniden yükle
                 LoadDataIntoGridh();
+                //HastaGuncelle hastaGuncelle = new HastaGuncelle(selectedHastaId);
+                //hastaGuncelle.HastaGuncellendi += HastaGuncelle_HastaGuncellendi; // Event'e abone ol
+                //hastaGuncelle.ShowDialog();
             }
             else
             {
@@ -228,6 +227,11 @@ namespace WindowsFormsAppSelll
 
         }
 
+        private void HastaGuncelle_HastaGuncellendi(object sender, EventArgs e)
+        {
+            // Hasta verilerini tekrar yükleyerek güncelle
+            _Hastalar_dataGridView.DataSource = Database.Model.Hastalar.HastalariGetir();
+        }
         private void _Hastalar_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

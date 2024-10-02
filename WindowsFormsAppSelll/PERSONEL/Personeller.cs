@@ -159,43 +159,44 @@ namespace WindowsFormsAppSelll
             {
                 int selectedRowId = Convert.ToInt32(_Personeller_dataGridView.SelectedRows[0].Cells["PERSONELID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
 
-                using (var context = new Hastanedb()) // Entity Framework DbContext sınıfınızın adı
+                if (selectedRowId != 0)
                 {
-                    // Silinecek personeli bul
-                    var personelToDelete = context.PERSONEL.FirstOrDefault(p => p.PERSONELID == selectedRowId);
+                    // Model katmanındaki personel silme işlemini çağırıyoruz
+                    var silindi = Database.Model.Personeller.PersonelSil(selectedRowId);
 
-                    if (personelToDelete != null)
+                    if (silindi)
                     {
-                        // Eğer personelin görevi "Doktor" ise, DOKTOR tablosundan da sil
-                        if (personelToDelete.PersonelGorev.Equals("Doktor", StringComparison.OrdinalIgnoreCase))
+                        // Eğer personelin görevi "Doktor" ise, doktordan da silinsin
+                        var personelGorev = Database.Model.Personeller.PersoneliGetir(selectedRowId);
+                        if (personelGorev != null && personelGorev.Equals("Doktor", StringComparison.OrdinalIgnoreCase))
                         {
-                            var doktorToDelete = context.DOKTORLAR.FirstOrDefault(d => d.PERSONELID == selectedRowId);
-                            if (doktorToDelete != null)
+                            var doktorSilindi = Database.Model.Doktorlar.DoktorlariSil(selectedRowId);
+
+                            if (!doktorSilindi)
                             {
-                                context.DOKTORLAR.Remove(doktorToDelete); // Doktoru sil
+                                MessageBox.Show("Doktor silinemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
 
-                        context.PERSONEL.Remove(personelToDelete); // Personeli sil
-                        context.SaveChanges(); // Değişiklikleri kaydet
                         MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
                     }
                     else
                     {
-                        MessageBox.Show("Seçilen personel bulunamadı.", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Personel silinemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Silinecek personel bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
-
-            verileriyükle(); // Veri yükleme metodunu çağır
-
-
-
         }
+
 
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
         {

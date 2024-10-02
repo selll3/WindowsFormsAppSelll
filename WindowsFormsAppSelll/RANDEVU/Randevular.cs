@@ -171,27 +171,33 @@ namespace WindowsFormsAppSelll
             if (_Randevular_dataGridView.SelectedRows.Count > 0)
             {
                 // DataGridView'den seçilen satırın HASTAID'sini alıyoruz.
-                int selectedHastaId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value);
+                int selectedRandevuId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value);
 
-                using (var context = new Hastanedb())
-                {
+                
+                
                     // Linq kullanarak silinecek hastayı buluyoruz.
-                    var randevu = context.RANDEVULAR.FirstOrDefault(h => h.RANDEVUID == selectedHastaId);
-
-                    if (randevu != null)
+                    
+                    if (selectedRandevuId != 0)
                     {
-                        // Hastayı silmek için Remove metodunu kullanıyoruz.
-                        context.RANDEVULAR.Remove(randevu);
-                        context.SaveChanges();
 
-                        MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                          var silindirandevu = Database.Model.Randevular.RandevuSil(selectedRandevuId);
+                          if(silindirandevu)
+                          {// Hastayı silmek için Remove metodunu kullanıyoruz.
+                           //context.RANDEVULAR.Remove(randevu);
+                            //context.SaveChanges();
 
-                }
+                            MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
+                            }
+                           else
+                            {
+                         MessageBox.Show("Silinecek hasta bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                             }
+
+                    }
+                    
+
+                
 
             }
 
@@ -201,7 +207,7 @@ namespace WindowsFormsAppSelll
             }
 
 
-            verileriyükle(); // DataGridView'i güncellemek için verileri tekrar yüklüyoruz
+           
            
         }
 

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppSelll.MUAYENE;
 using Database.Entity;
+using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
+//using WindowsFormsAppSelll.ENTITY;
 
 //using WindowsFormsAppSelll.ENTITY;
 //using WindowsFormsAppSelll.ENTITY;
@@ -40,9 +43,9 @@ namespace WindowsFormsAppSelll
 
         public void LoadDataIntoRandevu(int hastaId)
         {
-            using (var context = new Hastanedb())
-            {
-                var randevular = context.RANDEVULAR
+           
+            
+                var randevular = Database.Model.Randevular.dbr.RANDEVULAR
                     .Where(r => r.HASTAID == hastaId && r.Randevu_Tarihi < DateTime.Today)
                     .Select(r => new
                     {
@@ -77,15 +80,15 @@ namespace WindowsFormsAppSelll
                 {
                     dataGridView1.Columns["RANDEVUID"].Visible = false;
                 }
-            }
+            
         }
 
 
         private void FillComboSeachCode( int hastaId)
         {
-            using (var context = new Hastanedb())
-            {
-                var doktorlar = context.DOKTORLAR
+          
+            
+                var doktorlar = Database.Model.Doktorlar.dbd.DOKTORLAR
                     .Select(d => new
                     {
                         d.DOKTORID,
@@ -96,16 +99,16 @@ namespace WindowsFormsAppSelll
                 _DoktorBilgisi_comboBox.DataSource = doktorlar;
                 _DoktorBilgisi_comboBox.ValueMember = "DOKTORID";
                 _DoktorBilgisi_comboBox.DisplayMember = "ADSOYAD";
-            }
+            
 
 
         }
        
         private void FillComboSearchHasta()
         {
-            using (var context = new Hastanedb())
-            {
-                var hastalar = context.HASTALAR
+            
+            
+                var hastalar = Database.Model.Hastalar.dbh.HASTALAR
                     .Select(h => new
                     {
                         h.HASTAID,
@@ -116,7 +119,7 @@ namespace WindowsFormsAppSelll
                 _HastaBilgisi_comboBox.DataSource = hastalar;
                 _HastaBilgisi_comboBox.ValueMember = "HASTAID";
                 _HastaBilgisi_comboBox.DisplayMember = "ADSOYAD";
-            }
+            
 
 
         }
@@ -168,21 +171,21 @@ namespace WindowsFormsAppSelll
             }
             else
             {
-                using (var context = new Hastanedb())
-                {
-                    var muayene = new Database.Entity.MUAYENE
-                    {
-                        HASTAID = (int)_HastaBilgisi_comboBox.SelectedValue,
-                        DOKTORID = (int)_DoktorBilgisi_comboBox.SelectedValue,
-                        Aciklama = _aciklama_textBox.Text,
-                        islendiBilgisi = _islendi.Checked,
-                        MuayeneTarihi = dateTimePicker1.Value.Date
-                    };
 
-                    context.MUAYENE.Add(muayene); // Yeni muayene kaydını ekle
-                    int count = context.SaveChanges(); // Değişiklikleri kaydet
 
-                    if (count > 0)
+               Database.Entity.MUAYENE muayene = new Database.Entity.MUAYENE();
+
+                muayene.HASTAID = (int)_HastaBilgisi_comboBox.SelectedValue;
+                muayene.DOKTORID = (int)_DoktorBilgisi_comboBox.SelectedValue;
+                muayene.Aciklama = _aciklama_textBox.Text;
+                muayene.islendiBilgisi = _islendi.Checked;
+                muayene.MuayeneTarihi = dateTimePicker1.Value.Date;
+
+                var eklendimi =Database.Model.Muayeneler.MuayeneEkle(muayene);
+                   /* context.MUAYENE.Add(muayene);*/ // Yeni muayene kaydını ekle
+            /*       /* int count = context.SaveChanges()*/
+
+                    if (eklendimi )
                     {
                         MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -190,7 +193,7 @@ namespace WindowsFormsAppSelll
                     {
                         MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
+                
 
                 Muayeneler form1 = Application.OpenForms.OfType<Muayeneler>().FirstOrDefault();
                 if (form1 != null)

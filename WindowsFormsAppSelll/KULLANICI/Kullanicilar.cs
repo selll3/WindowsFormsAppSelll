@@ -167,34 +167,15 @@ namespace WindowsFormsAppSelll.KULLANICI
                 int selectedRowId = Convert.ToInt32(_kullanicilar_dataGridView.SelectedRows[0].Cells["KULLANICIID"].Value); // ID sütununu kullanarak silme işlemi yapacağız
 
                 // Kullanıcıyı silme işlemi
-                using (var transaction = dbContext.Database.BeginTransaction())
+                bool silindi = Database.Model.Kullanicilar.KullaniciSil(selectedRowId);
+
+                if (silindi)
                 {
-                    try
-                    {
-                        // İlk olarak PERSONELFORMYETKILERI tablosundan ilgili kullanıcıyı sil
-                        var userPermissions = dbContext.PERSONELFORMYETKILERI
-                            .Where(p => p.KULLANICIID == selectedRowId);
-                        dbContext.PERSONELFORMYETKILERI.RemoveRange(userPermissions);
-                        dbContext.SaveChanges();
-
-                        // Ardından GIRIS tablosundan kullanıcıyı sil
-                        var user = dbContext.GIRIS.Find(selectedRowId);
-                        if (user != null)
-                        {
-                            dbContext.GIRIS.Remove(user);
-                            dbContext.SaveChanges();
-                        }
-
-                        // İşlem başarılı olursa commit et
-                        transaction.Commit();
-                        MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Hata olursa işlemi geri al
-                        transaction.Rollback();
-                        MessageBox.Show("Silme işlemi sırasında bir hata oluştu: " + ex.Message);
-                    }
+                    MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Silme işlemi sırasında bir hata oluştu.", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -202,7 +183,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
 
-            LoadDatakullanici(); // Veri yükleme işlemi
+            LoadDatakullanici(); // V
         }
 
         public void _Yetkilerigor_button_Click(object sender, EventArgs e)

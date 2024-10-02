@@ -61,45 +61,52 @@ namespace WindowsFormsAppSelll
         private void _kaydet_button_Click(object sender, EventArgs e)
         {
 
-            using (var context = new Hastanedb())
-            {
+           
+            
                 // PERSONEL tablosundaki bilgileri güncelle
-                var personel = context.PERSONEL.FirstOrDefault(p => p.PERSONELID == personelId);
+                var personel = Database.Model.Personeller.dp.PERSONEL.FirstOrDefault(p => p.PERSONELID == personelId);
                 if (personel != null)
                 {
+                    // Personel bilgilerini güncelle
                     personel.PersonelAdi = _PersonelAdi_textBox.Text;
                     personel.PersonelSoyadi = _PersonelSoyadi_textBox.Text;
-                    //personel.PersonelGorev = _PersonelGorev_textBox.Text;
+
+                    // Model katmanındaki güncelleme yöntemini çağır
+                    bool personelGuncellendi = Database.Model.Personeller.PersonelGuncelle(personel);
 
                     // Eğer personelin görevi "Doktor" ise DOKTORLAR tablosunu güncelle
                     if (personelGorev.Equals("Doktor", StringComparison.OrdinalIgnoreCase))
                     {
-                        var doktor = context.DOKTORLAR.FirstOrDefault(d => d.PERSONELID == personelId);
+                        var doktor = Database.Model.Doktorlar.dbd.DOKTORLAR.FirstOrDefault(d => d.PERSONELID == personelId);
                         if (doktor != null)
                         {
                             doktor.DoktorAdi = _PersonelAdi_textBox.Text;
                             doktor.DoktorSoyadi = _PersonelSoyadi_textBox.Text;
-                            // Gerekirse diğer alanları da güncelleyebilirsiniz
+
+                            // Model katmanındaki doktor güncelleme yöntemini çağır
+                            bool doktorGuncellendi = Database.Model.Doktorlar.DoktorGuncelle(doktor);
                         }
                     }
 
-                    context.SaveChanges();
+                    Database.Model.Personeller.dp.SaveChanges(); // Değişiklikleri kaydet
                     MessageBox.Show("Personel başarıyla güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Personel bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-
-
-
-
+            
 
             // İlk formu güncelle ve göster
             Personeller formpers = (Personeller)Application.OpenForms["Personeller"];
             formpers.LoadDataIntoGridp();
             this.Close();
+
+
+
+
+
+           
 
         }
 

@@ -66,6 +66,7 @@
     <Compile Include="Model\Muayeneler.cs" />
     <Compile Include="Model\Personeller.cs" />
     <Compile Include="Model\Randevular.cs" />
+    <Compile Include="Model\Yetkiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

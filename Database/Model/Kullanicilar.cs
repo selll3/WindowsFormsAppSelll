@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 namespace Database.Model
 {
     public static class Kullanicilar
-    {
+    {  public static Hastanedb dbk = new Hastanedb();
+        public static List<GIRIS> KullanicilariGetir()
+        {
 
+
+
+            return dbk.GIRIS.ToList();
+        }
         public static bool KullaniciEkle(GIRIS kullanici)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.GIRIS.Add(kullanici);
-                db.SaveChanges();
+               
+                dbk.GIRIS.Add(kullanici);
+                dbk.SaveChanges();
                 return true;
             }
             catch
@@ -31,9 +37,9 @@ namespace Database.Model
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.GIRIS.AddOrUpdate(kullanici);
-                db.SaveChanges();
+               
+                dbk.GIRIS.AddOrUpdate(kullanici);
+                dbk.SaveChanges();
                 return true;
             }
             catch
@@ -43,16 +49,36 @@ namespace Database.Model
             }
 
         }
-        public static bool KullaniciSil(GIRIS kullanici)
+        public static bool KullaniciSil(int selectedKullaniciId)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.GIRIS.Remove(kullanici);
-                db.SaveChanges();
-                return true;
+                // DbContext sınıfınızı burada belirtin
+               
+                    // İşlem için bir transaction başlatıyoruz
+                    using (var transaction = dbk.Database.BeginTransaction())
+                    {
+                        // İlk olarak PERSONELFORMYETKILERI tablosundan ilgili kullanıcıyı sil
+                        var userPermissions = dbk.PERSONELFORMYETKILERI
+                            .Where(p => p.KULLANICIID == selectedKullaniciId);
+                    dbk.PERSONELFORMYETKILERI.RemoveRange(userPermissions);
+                    dbk.SaveChanges(); // Değişiklikleri kaydediyoruz
+
+                        // Ardından GIRIS tablosundan kullanıcıyı sil
+                        var user = dbk.GIRIS.Find(selectedKullaniciId);
+                        if (user != null)
+                        {
+                        dbk.GIRIS.Remove(user);
+                        dbk.SaveChanges(); // Değişiklikleri kaydediyoruz
+                        }
+
+                        // İşlemi başarılı bir şekilde tamamladıysak commit ediyoruz
+                        transaction.Commit();
+                        return true; // Silme başarılı
+                   }
+                
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 

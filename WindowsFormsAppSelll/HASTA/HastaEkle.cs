@@ -57,8 +57,12 @@ namespace WindowsFormsAppSelll
                 var eklendi = Database.Model.Hastalar.HastaEkle(hst);
                 if (eklendi)
                 {
+                   
+                  
                     MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+
                 else
                 {
                     MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);

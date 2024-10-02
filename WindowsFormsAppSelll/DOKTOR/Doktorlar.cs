@@ -136,36 +136,36 @@ namespace WindowsFormsAppSelll
 
 
         }
-        private void verileriyükle()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                {
-                    control.Visible = false;
-                }
-                else if (control is NumericUpDown)
-                {
-                    control.Visible = false;
-                }
-                else if (control is Label)
-                {
-                    control.Visible = false;
-                }
-                else
-                {
-                    control.Visible = true;
-                }
-            }
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "SELECT DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
-            SqlDataAdapter sda = new SqlDataAdapter(readQuery, con);
-            SqlCommandBuilder cmd = new SqlCommandBuilder();
-            DataTable dta = new DataTable();
-            sda.Fill(dta);
-            _Doktorlar_dataGridView.DataSource = dta;
+        //private void verileriyükle()
+        //{
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        if (control is TextBox)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else if (control is NumericUpDown)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else if (control is Label)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else
+        //        {
+        //            control.Visible = true;
+        //        }
+        //    }
+        //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        //    string readQuery = "SELECT DoktorAdi,DoktorSoyadi,DoktorunBransi,Doktorun_kati FROM DOKTORLAR";
+        //    SqlDataAdapter sda = new SqlDataAdapter(readQuery, con);
+        //    SqlCommandBuilder cmd = new SqlCommandBuilder();
+        //    DataTable dta = new DataTable();
+        //    sda.Fill(dta);
+        //    _Doktorlar_dataGridView.DataSource = dta;
 
-        }
+        //}
 
 
 
@@ -179,13 +179,27 @@ namespace WindowsFormsAppSelll
             {
                 int selectedRowId = Convert.ToInt32(_Doktorlar_dataGridView.SelectedRows[0].Cells["DOKTORID"].Value);
 
-                var doktorToDelete = dbContext.DOKTORLAR.Find(selectedRowId);
-                if (doktorToDelete != null)
+                //var doktorToDelete = dbContext.DOKTORLAR.Find(selectedRowId);
+                if (selectedRowId != 0)
                 {
-                    dbContext.DOKTORLAR.Remove(doktorToDelete);
-                    dbContext.SaveChanges();
+                    //dbContext.DOKTORLAR.Remove(selectedRowId);
+                    var doktorlarsilindi =Database.Model.Doktorlar.DoktorlariSil(selectedRowId);
+                    if(doktorlarsilindi)
+                    {
+                        MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show("SİLME İŞLEMİ BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dbContext.SaveChanges();
+
+                        LoadDataIntoGrid();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("BAŞARISIZ SİLME İŞLEMİ", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+
                 }
             }
             else
@@ -193,8 +207,7 @@ namespace WindowsFormsAppSelll
                 MessageBox.Show("Lütfen silinecek satırı seçin.");
             }
 
-            LoadDataIntoGrid();
-
+         
 
         }
         

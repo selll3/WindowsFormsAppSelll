@@ -18,9 +18,9 @@ namespace WindowsFormsAppSelll
     {
 
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        SqlDataAdapter da;
-        DataTable dt;
+        //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        //SqlDataAdapter da;
+        //DataTable dt;
         int selectedDoctorID;
         int selectedPersonelID; 
 

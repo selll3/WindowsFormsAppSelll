@@ -45,34 +45,33 @@ namespace WindowsFormsAppSelll.KULLANICI
             }
             else
             {
-                using (Hastanedb db = new Hastanedb())
+                // Yeni kullanıcıyı ekle
+                GIRIS newUser = new GIRIS
                 {
-                    // Yeni kullanıcıyı ekle
-                    var newUser = new GIRIS
-                    {
-                        KullaniciAdi = kullaniciAdi_textBox.Text,
-                        Parola = _Parola_textBox.Text
-                    };
+                    KullaniciAdi = kullaniciAdi_textBox.Text,
+                    Parola = _Parola_textBox.Text
+                };
 
-                    db.GIRIS.Add(newUser);
-                    db.SaveChanges(); // KULLANICIID otomatik olarak oluşturulacak
+                // Model katmanındaki KullaniciEkle yöntemini çağır
+                bool userAdded = Database.Model.Kullanicilar.KullaniciEkle(newUser);
 
+                if (userAdded)
+                {
                     // Yetkileri ekleme
-                    List<int> formIDs = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19,20 };
+                    List<int> formIDs = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
                     foreach (var formID in formIDs)
                     {
-                        var yetki = new PERSONELFORMYETKILERI
+                        PERSONELFORMYETKILERI yetki = new PERSONELFORMYETKILERI
                         {
                             KULLANICIID = newUser.KULLANICIID, // KULLANICIID yeni kullanıcının ID'si
                             FormID = formID,
                             Yetki = false // 0 yerine false
                         };
 
-                        db.PERSONELFORMYETKILERI.Add(yetki);
+                        // Model katmanındaki YetkiEkle yöntemini çağır
+                        Database.Model.Yetkiler.YetkiEkle(yetki);
                     }
-
-                    db.SaveChanges(); // Yetkileri kaydet
 
                     MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -84,10 +83,11 @@ namespace WindowsFormsAppSelll.KULLANICI
 
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Kullanıcı eklenirken bir hata oluştu.", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-           
-
-
 
 
         }
@@ -121,6 +121,11 @@ namespace WindowsFormsAppSelll.KULLANICI
             {
                 _Parola_textBox.PasswordChar = '*'; // Şifreyi tekrar gizle
             }
+        }
+
+        private void kullaniciAdi_textBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

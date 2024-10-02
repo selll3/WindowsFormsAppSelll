@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-
-    public static class Muayeneler
+    public static class Yetkiler
     {
-        private static Hastanedb db = new Hastanedb();
-        public static bool MuayeneEkle(MUAYENE muayene)
+        public static Hastanedb dby = new Hastanedb();
+        public static bool YetkiEkle(PERSONELFORMYETKILERI PFY)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.MUAYENE.Add(muayene);
-                db.SaveChanges();
+               
+                dby.PERSONELFORMYETKILERI.Add(PFY);
+                dby.SaveChanges();
                 return true;
             }
             catch
@@ -28,14 +27,5 @@ namespace Database.Model
 
         }
 
-
-
-
-
-
     }
-
-
-
-
 }

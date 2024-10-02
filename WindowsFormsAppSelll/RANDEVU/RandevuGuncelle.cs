@@ -137,23 +137,27 @@ namespace WindowsFormsAppSelll
                     randevu.DOKTORID = selectedDoctorID;
                     randevu.HASTAID = selectedHastaID;
                     randevu.Bulgu = bulgu;
-
-                    // Değişiklikleri kaydet
-                    db.SaveChanges();
+                    var randevuguncelle = Database.Model.Randevular.RandevuGuncelle(randevu);
+                    if (randevuguncelle)
+                    {
 
                     MessageBox.Show("Randevu başarıyla güncellendi.");
                     this.Close(); // Formu kapat
-                }
-                else
+                    }
+                     else
                 {
                     MessageBox.Show("Randevu bulunamadı.");
+                }// Değişiklikleri kaydet
+                    //db.SaveChanges();
+
                 }
+               
             }
            
-            // İlk formu güncelle ve göster
-            Randevular form1 = (Randevular)Application.OpenForms["Randevular"];
-            form1.LoadDataIntoGridr(); // İlk formun veri yükleme metodunu çağır
-            this.Close();
+            //// İlk formu güncelle ve göster
+            //Randevular form1 = (Randevular)Application.OpenForms["Randevular"];
+            //form1.LoadDataIntoGridr(); // İlk formun veri yükleme metodunu çağır
+            //this.Close();
             
 
             //// İlk formu güncelle ve göster

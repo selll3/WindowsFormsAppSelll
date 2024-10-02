@@ -10,16 +10,17 @@ namespace Database.Model
 {
     public static class Randevular
     {
+        public static Hastanedb dbr = new Hastanedb();
         public static bool RandevuEkle(RANDEVULAR randevular)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.RANDEVULAR.Add(randevular);
-                db.SaveChanges();
+               
+                dbr.RANDEVULAR.Add(randevular);
+                dbr.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
@@ -31,35 +32,34 @@ namespace Database.Model
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.RANDEVULAR.AddOrUpdate(randevular);
-                db.SaveChanges();
+                
+                dbr.RANDEVULAR.AddOrUpdate(randevular);
+                dbr.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
 
         }
-        public static bool RandevuSil(RANDEVULAR randevular)
+        public static bool RandevuSil(int selectedRandevuId)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.RANDEVULAR.Remove(randevular);
-                db.SaveChanges();
+
+                var randevu = dbr.RANDEVULAR.Where(x => x.RANDEVUID == selectedRandevuId).FirstOrDefault();
+                dbr.RANDEVULAR.Remove(randevu);
+                dbr.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
-
         }
-
     }
 
 }

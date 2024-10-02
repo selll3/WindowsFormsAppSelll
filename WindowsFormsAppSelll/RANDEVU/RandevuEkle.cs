@@ -112,16 +112,7 @@ namespace WindowsFormsAppSelll
             }
             else
             {
-                // // RANDEVULAR rdv = new RANDEVULAR();
-                //  //rdv.Randevu_Tarihi =_RandevuTarihi_textBox.Text ;
-                // // rdv.Randevu_Saati = _RandevuSaati_textBox.Text;
-                //// rdv.Bulgu =_Bulgu_textBox.Text ;
-                //// Convert.ToDateTime
-
-                //  Hastanedb dbr = new Hastanedb();
-
-                //  dbr.RANDEVULAR.Add(rdv);
-                //  dbr.SaveChanges();
+             
 
                 RANDEVULAR rdv = new RANDEVULAR();
                  rdv.Randevu_Tarihi = _RandevuTarihi_dateTimePicker.Value.Date;
@@ -139,31 +130,7 @@ namespace WindowsFormsAppSelll
                 {
                     MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-                //string insertQuery = "INSERT INTO RANDEVULAR(Randevu_Tarihi,Randevu_Saati,Bulgu,DOKTORID,HASTAID) VALUES(@RandevuTarihi, @RandevuSaati, @bulgu,@Doktorid,@Hastaid) ";
-                //con.Open();
-                //SqlCommand cmd = new SqlCommand(insertQuery, con);
-                //SqlCommand bilg = new SqlCommand(insertQuery, con);
-
-                //cmd.Parameters.AddWithValue("@RandevuTarihi", _RandevuTarihi_dateTimePicker.Value.Date);
-                //cmd.Parameters.AddWithValue("@RandevuSaati", _RandevuSaati_dateTimePicker.Value);
-                //cmd.Parameters.AddWithValue("@bulgu", _Bulgu_textBox.Text);
-                //cmd.Parameters.AddWithValue("@Doktorid", _doktorBilgisi_comboBox.SelectedValue);
-                //cmd.Parameters.AddWithValue("@Hastaid", _HastaBilgisi_comboBox.SelectedValue);
-                ////date time picker
-
-                //int count = cmd.ExecuteNonQuery();
-                //con.Close();
-                //if (count > 0)
-                //{
-                //    MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("KAYIT OLUŞTURULAMADI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-
-                // İlk formu güncelle ve göster
+       
                 Randevular formr = Application.OpenForms.OfType<Randevular>().FirstOrDefault();
                 if (formr != null)
                 {
@@ -178,31 +145,7 @@ namespace WindowsFormsAppSelll
 
 
 
-            //    con.Open();
-            //    foreach (DataGridViewRow row in _randevuekle_dataGridView.Rows)
-            //    {
-            //        //dataGridView1.Columns["DOKTORID"].Visible = false;
-            //        if (!row.IsNewRow) // Yeni satır değilse
-            //        {
-            //            SqlCommand cmd = new SqlCommand("INSERT INTO PERSONEL ( PersonelAdi,PersonelSoyadi, PersonelGorev) VALUES (@Padi, @Psoyadi, @PGorev)", con);
-            //            cmd.Parameters.AddWithValue("@Padi", row.Cells["PersonelAdi"].Value ?? (object)DBNull.Value);
-            //            cmd.Parameters.AddWithValue("@Psoyadi", row.Cells["PersonelSoyadi"].Value ?? (object)DBNull.Value);
-            //            cmd.Parameters.AddWithValue("@PGorev", row.Cells["PersonelGorev"].Value ?? (object)DBNull.Value);
-
-
-            //            cmd.ExecuteNonQuery();
-            //        }
-            //    }
-            //    con.Close();
-
-            //    // İlk formu güncelle ve göster
-            //    Randevular formr = Application.OpenForms.OfType<Randevular>().FirstOrDefault();
-            //    if (formr != null)
-            //    {
-            //        formr.LoadDataIntoGridr(); // İlk formun veri yükleme metodunu çağır
-            //    }
-
-            //    this.Close();
+           
         }
         private void FillComboSearchHasta()
         {

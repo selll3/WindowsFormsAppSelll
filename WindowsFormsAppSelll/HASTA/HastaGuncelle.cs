@@ -16,7 +16,8 @@ namespace WindowsFormsAppSelll
     public partial class HastaGuncelle : Form
     {
 
-       
+        //public delegate void HastaGuncellendiEventHandler(object sender, EventArgs e);
+        //public event HastaGuncellendiEventHandler HastaGuncellendi;
         int selectedDoctorID;
         private int hastaID;
         public HastaGuncelle(int selectedHastaId)
@@ -51,24 +52,29 @@ namespace WindowsFormsAppSelll
 
         private void _kaydet_button_Click(object sender, EventArgs e)
         {
-            using (Hastanedb dbContext = new Hastanedb())
-            {
-                var hasta = dbContext.HASTALAR.FirstOrDefault(h => h.HASTAID == hastaID);
+          
+            
+                var hasta = Database.Model.Hastalar.dbh.HASTALAR.FirstOrDefault(h => h.HASTAID == hastaID);
                 if (hasta != null)
                 {
                     hasta.HastaAdi = _HastaAdi_textBox.Text;
                     hasta.HastaSoyadi = _HastaSoyadi_textBox.Text;
                     hasta.HastaYasi = (int)numericUpDown1.Value;
-
-                    dbContext.SaveChanges();
+                    var hastagunc = Database.Model.Hastalar.HastaGuncelle(hasta);
+                   if(hastagunc)
+                   {
                     MessageBox.Show("Hasta bilgileri başarıyla güncellendi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
-                }
-                else
-                {
+                   }
+                   else
+                   {
                     MessageBox.Show("Hasta güncellenemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   }                              //dbContext.SaveChanges();
+                                            //HastaGuncellendi?.Invoke(this, EventArgs.Empty);
+                   
                 }
-            }
+                
+            
          
         }
         

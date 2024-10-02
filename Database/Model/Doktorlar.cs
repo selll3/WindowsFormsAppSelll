@@ -12,7 +12,7 @@ namespace Database.Model
 {
     public static class Doktorlar
     {
-       private static Hastanedb db = new Hastanedb();
+       public static Hastanedb dbd = new Hastanedb();
         /// <summary>
         /// Database'den tüm doktorları çağırır
         /// </summary>
@@ -23,56 +23,56 @@ namespace Database.Model
             
 
 
-            return db.DOKTORLAR.ToList();
+            return dbd.DOKTORLAR.ToList();
         }
 
-        //public static bool DoktorEkle(DOKTORLAR doktor)
-        //{
-        //    try
-        //    {
-               
-        //        db.DOKTORLAR.Add(doktor);
-        //        db.SaveChanges();
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
+        public static bool DoktorEkle(DOKTORLAR doktor)
+        {
+            try
+            {
 
-        //    }
+                dbd.DOKTORLAR.Add(doktor);
+                dbd.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
 
-        //}
+            }
+
+        }
         public static bool DoktorGuncelle(DOKTORLAR doktor)
         {
             try
             {
               
-                db.DOKTORLAR.AddOrUpdate(doktor);
-                db.SaveChanges();
+                dbd.DOKTORLAR.AddOrUpdate(doktor);
+                dbd.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
 
         }
-        public static bool DoktorSil(DOKTORLAR doktor)
+        public static bool DoktorlariSil(int selectedrowId)
         {
             try
             {
-               
-                db.DOKTORLAR.Remove(doktor);
-                db.SaveChanges();
+
+                var doktor = dbd.DOKTORLAR.Where(x => x.DOKTORID == selectedrowId).FirstOrDefault();
+                dbd.DOKTORLAR.Remove(doktor);
+                dbd.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
-
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Database.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,23 @@ using System.Threading.Tasks;
 namespace Database.Model
 {
     public static class Personeller
-    { private static Hastanedb dp = new Hastanedb();
+    { public static Hastanedb dp = new Hastanedb();
+        public static string PersoneliGetir(int selectedPersonelId)
+        {
+            
+              // DbContext sınıfınızı kullanıyoruz
+                
+                    // Sadece personelin görevini almak için LINQ sorgusuyla doğrudan sorguluyoruz
+                    var gorev = dp.PERSONEL
+                                      .Where(p => p.PERSONELID == selectedPersonelId)
+                                      .Select(p => p.PersonelGorev)
+                                      .FirstOrDefault();
+
+                    return gorev; // Görevi döndürüyoruz, personel bulunmazsa null döner
+                
+            
+
+        }
         public static bool PersonelEkle(PERSONEL Personel)
         {
             try
@@ -29,12 +46,20 @@ namespace Database.Model
         public static bool PersonelGuncelle(PERSONEL Personel)
         {
             try
-            {
+            { 
+               
+                    dp.Entry(Personel).State = EntityState.Modified; // Güncelleme durumunu belirt
+                    dp.SaveChanges(); // Değişiklikleri kaydet
+                    return true; // Güncelleme başarılı
                 
-                dp.PERSONEL.AddOrUpdate(Personel);
-                dp.SaveChanges();
-                return true;
             }
+            //try
+            //{
+
+            //    dp.PERSONEL.AddOrUpdate(Personel);
+            //    dp.SaveChanges();
+            //    return true;
+            //}
             catch
             {
                 return false;
@@ -42,21 +67,22 @@ namespace Database.Model
             }
 
         }
-        public static bool PersonelSil(PERSONEL Personel)
+        public static bool PersonelSil(int selectedPersonelId)
         {
             try
             {
-             
-                dp.PERSONEL.Remove(Personel);
+
+                var personel = dp.PERSONEL.Where(x => x.PERSONELID == selectedPersonelId).FirstOrDefault();
+                dp.PERSONEL.Remove(personel);
                 dp.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+             
+                return false; // Hata durum
 
             }
-
         }
     }
 }

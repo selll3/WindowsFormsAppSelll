@@ -51,28 +51,33 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         private void _KAYDET_button_Click(object sender, EventArgs e)
         {
-            using (Hastanedb dbContext = new Hastanedb())
-            {    var kullanici = dbContext.GIRIS.SingleOrDefault(g => g.KULLANICIID == KullaniciID);
+           
+                var kullanici = Database.Model.Kullanicilar.dbk.GIRIS.SingleOrDefault(g => g.KULLANICIID == KullaniciID);
             if (kullanici != null)
             {
                 kullanici.KullaniciAdi = kullaniciAdi_textBox.Text;
                 kullanici.Parola = _Parola_textBox.Text;
+                var kullanicigunc = Database.Model.Kullanicilar.KullaniciGuncelle(kullanici);
+                    if (kullanicigunc)
+                    {
+                      MessageBox.Show("Kullanıcı bilgileri başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      this.Close(); // Formu kapat
+                    }
+                     else
+                      {
+                       MessageBox.Show("Kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     }
+                /*dbContext.SaveChanges(); */// Değişiklikleri kaydet
 
-                dbContext.SaveChanges(); // Değişiklikleri kaydet
-
-                MessageBox.Show("Kullanıcı bilgileri başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Formu kapat
+               
             }
-            else
-            {
-                MessageBox.Show("Kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
 
             // İlk formu güncelle ve göster
             Kullanicilar formK = (Kullanicilar)Application.OpenForms["Kullanicilar"];
             formK.LoadDatakullanici(); // İlk formun veri yükleme metodunu çağır
             this.Close();
-            }
+            
 
         }
 
