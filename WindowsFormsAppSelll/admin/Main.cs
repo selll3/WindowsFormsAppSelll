@@ -39,7 +39,7 @@ namespace WindowsFormsAppSelll
 
 
         }
-        private void yetkileriolustur()
+        public void yetkileriolustur()
         {
             
             var userPermissions = dbContext.PERSONELFORMYETKILERI
@@ -192,6 +192,7 @@ namespace WindowsFormsAppSelll
             //kullanicilar1._Yetkilerigor_button.Enabled = false;
 
             kullanicilar1.Show();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)

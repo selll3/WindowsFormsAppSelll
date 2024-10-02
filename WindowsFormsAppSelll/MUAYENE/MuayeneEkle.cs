@@ -205,15 +205,21 @@ namespace WindowsFormsAppSelll
 
         private void _HastaBilgisi_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_HastaBilgisi_comboBox.SelectedItem != null)
+            if (_HastaBilgisi_comboBox.SelectedValue != null)
             {
-                DataRowView selectedRow = (DataRowView)_HastaBilgisi_comboBox.SelectedItem;
-                int hastaId = Convert.ToInt32(selectedRow["HASTAID"]); // HASTAID'yi al
+                //// Seçilen değerin türünü kontrol edin
+                //var selectedValueType = _HastaBilgisi_comboBox.SelectedValue.GetType();
+                //MessageBox.Show($"Selected value type: {selectedValueType}");
 
-                LoadDataIntoRandevu(hid); // Fonksiyonu çağır
+                // Eğer tür doğru ise dönüştürme yapın
+                if (_HastaBilgisi_comboBox.SelectedValue is int)
+                {
+                    int hastaId = (int)_HastaBilgisi_comboBox.SelectedValue; // HASTAID'yi al
+                    LoadDataIntoRandevu(hastaId); // Fonksiyonu çağır
+                }
             }
-
         }
+
 
         private void _HastaBilgisi_comboBox_SelectedValueChanged(object sender, EventArgs e)
         {

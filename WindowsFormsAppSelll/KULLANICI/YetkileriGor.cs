@@ -119,9 +119,13 @@ namespace WindowsFormsAppSelll.KULLANICI
             }
 
             this.Close();
+            Main mainguncel = new Main(kullaniciID);
+            mainguncel.yetkileriolustur();
+            
 
 
         }
+       
         private void YetkileriGor_Load(object sender, EventArgs e)
         {
             LoadYetkiler();
