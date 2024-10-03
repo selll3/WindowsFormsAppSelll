@@ -35,6 +35,12 @@
             this._GUNCELLE_button = new System.Windows.Forms.Button();
             this._Ekle_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RANDEVUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Randevu_Saati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HASTAID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Randevu_Tarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOKTORID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bulgu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._Randevular_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +76,13 @@
             this._Randevular_dataGridView.AllowUserToDeleteRows = false;
             this._Randevular_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Randevular_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._Randevular_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RANDEVUID,
+            this.Randevu_Saati,
+            this.HASTAID,
+            this.Randevu_Tarihi,
+            this.DOKTORID,
+            this.Bulgu});
             this._Randevular_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Randevular_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Randevular_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +132,48 @@
             this.panel1.Size = new System.Drawing.Size(702, 84);
             this.panel1.TabIndex = 40;
             // 
+            // RANDEVUID
+            // 
+            this.RANDEVUID.DataPropertyName = "RANDEVUID";
+            this.RANDEVUID.HeaderText = "Randevu id";
+            this.RANDEVUID.MinimumWidth = 8;
+            this.RANDEVUID.Name = "RANDEVUID";
+            // 
+            // Randevu_Saati
+            // 
+            this.Randevu_Saati.DataPropertyName = "Randevu_Saati";
+            this.Randevu_Saati.HeaderText = "Randevu Saati";
+            this.Randevu_Saati.MinimumWidth = 8;
+            this.Randevu_Saati.Name = "Randevu_Saati";
+            // 
+            // HASTAID
+            // 
+            this.HASTAID.DataPropertyName = "HASTAID";
+            this.HASTAID.HeaderText = "Hasta id";
+            this.HASTAID.MinimumWidth = 8;
+            this.HASTAID.Name = "HASTAID";
+            // 
+            // Randevu_Tarihi
+            // 
+            this.Randevu_Tarihi.DataPropertyName = "Randevu_Tarihi";
+            this.Randevu_Tarihi.HeaderText = "Randevu Tarihi";
+            this.Randevu_Tarihi.MinimumWidth = 8;
+            this.Randevu_Tarihi.Name = "Randevu_Tarihi";
+            // 
+            // DOKTORID
+            // 
+            this.DOKTORID.DataPropertyName = "DOKTORID";
+            this.DOKTORID.HeaderText = "Doktor id";
+            this.DOKTORID.MinimumWidth = 8;
+            this.DOKTORID.Name = "DOKTORID";
+            // 
+            // Bulgu
+            // 
+            this.Bulgu.DataPropertyName = "Bulgu";
+            this.Bulgu.HeaderText = "Bulgu";
+            this.Bulgu.MinimumWidth = 8;
+            this.Bulgu.Name = "Bulgu";
+            // 
             // Randevular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -147,5 +202,11 @@
         public System.Windows.Forms.Button _GUNCELLE_button;
         public System.Windows.Forms.Button _Ekle_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RANDEVUID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Randevu_Saati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HASTAID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Randevu_Tarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOKTORID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bulgu;
     }
 }

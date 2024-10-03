@@ -75,10 +75,10 @@ namespace WindowsFormsAppSelll
             //    }).ToList();
 
             // DOKTORID sütununu gizle
-            if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
-            {
-                _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
-            }
+            //if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
+            //{
+            //    _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
+            //}
 
         }
         private void _HastalariListele_button_Click(object sender, EventArgs e)
@@ -109,11 +109,11 @@ namespace WindowsFormsAppSelll
             LoadDataIntoGridh();
 
             // DOKTORID sütununu gizle
-            if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
-            {
-                _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
+            //if (_Hastalar_dataGridView.Columns.Contains("HASTAID"))
+            //{
+            //    _Hastalar_dataGridView.Columns["HASTAID"].Visible = false;
 
-            }
+            //}
         }
         private void _Vazgec_button_Click(object sender, EventArgs e)
         {

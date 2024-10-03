@@ -38,6 +38,8 @@
             this.DoktorAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorunBransi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doktorun_kati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PERSONELID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._Doktorlar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,9 @@
             this._Doktorlar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DoktorAdi,
             this.DoktorSoyadi,
-            this.DoktorunBransi});
+            this.DoktorunBransi,
+            this.Doktorun_kati,
+            this.PERSONELID});
             this._Doktorlar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Doktorlar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Doktorlar_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -146,13 +150,27 @@
             this.DoktorSoyadi.Name = "DoktorSoyadi";
             this.DoktorSoyadi.ReadOnly = true;
             // 
-            // DoktorSoyadi
+            // DoktorunBransi
             // 
             this.DoktorunBransi.DataPropertyName = "DoktorunBransi";
             this.DoktorunBransi.HeaderText = "Doktor Bransi";
             this.DoktorunBransi.MinimumWidth = 8;
             this.DoktorunBransi.Name = "DoktorunBransi";
             this.DoktorunBransi.ReadOnly = true;
+            // 
+            // Doktorun_kati
+            // 
+            this.Doktorun_kati.DataPropertyName = "Doktorun_kati";
+            this.Doktorun_kati.HeaderText = "Doktorun katı";
+            this.Doktorun_kati.MinimumWidth = 8;
+            this.Doktorun_kati.Name = "Doktorun_kati";
+            // 
+            // PERSONELID
+            // 
+            this.PERSONELID.DataPropertyName = "PERSONELID";
+            this.PERSONELID.HeaderText = "Personel id";
+            this.PERSONELID.MinimumWidth = 8;
+            this.PERSONELID.Name = "PERSONELID";
             // 
             // Doktorlar
             // 
@@ -186,5 +204,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DoktorAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoktorSoyadi;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoktorunBransi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Doktorun_kati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PERSONELID;
     }
 }

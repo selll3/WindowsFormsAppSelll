@@ -11,7 +11,7 @@ namespace Database.Model
 {
     public static class Personeller
     { public static Hastanedb dp = new Hastanedb();
-        public static string PersoneliGetir(int selectedPersonelId)
+        public static string PersonelMiDoktorMu(int selectedPersonelId)
         {
             
               // DbContext sınıfınızı kullanıyoruz
@@ -25,6 +25,26 @@ namespace Database.Model
                     return gorev; // Görevi döndürüyoruz, personel bulunmazsa null döner
                 
             
+
+        }
+
+        public static List<dynamic> PersoneliGetir()
+        {
+
+
+            var personeligetir = dp.PERSONEL
+                .Select(p => new
+                {
+                    p.PERSONELID,               // Hasta ID
+                    p.PersonelAdi,              // Hasta Adı
+                    p.PersonelSoyadi,           // Hasta Soyadı
+                    p.PersonelGorev
+                    
+                    // Doğum Tarihi (Eğer varsa)
+                })
+                .ToList<dynamic>();          // Dinamik olarak listeye dönüştür
+
+            return personeligetir;
 
         }
         public static bool PersonelEkle(PERSONEL Personel)

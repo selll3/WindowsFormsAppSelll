@@ -21,30 +21,13 @@ namespace WindowsFormsAppSelll
 {
     public partial class RandevuEkle : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        SqlDataAdapter daRE;
-        DataTable dtRE;
+        
         public RandevuEkle()
         {
             InitializeComponent();
-            //LoadDataRE();
+            
         }
-        //private void LoadDataRE()
-        //{
-        //    Hastanedb dbre = new Hastanedb();
-        //    _randevuekle_dataGridView.DataSource = dbre.RANDEVULAR.ToList();
-        //    //dtRE = new DataTable();
-        //    //string readQuery = "SELECT PERSONELID, PersonelAdi,PersonelSoyadi, PersonelGorev from PERSONEL WHERE PERSONELID = 0";
-        //    //daRE = new SqlDataAdapter(readQuery, con);
-        //    //daRE.Fill(dtRE);
-        //    //_randevuekle_dataGridView.DataSource = dtRE;
-
-        //    //// DOKTORID sütununu gizle
-        //    if (_randevuekle_dataGridView.Columns.Contains("RANDEVUID"))
-        //    {
-        //        _randevuekle_dataGridView.Columns["RANDEVUID"].Visible = false;
-        //    }
-        //}
+      
         private void _randevuekle_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -52,31 +35,21 @@ namespace WindowsFormsAppSelll
 
         private void FillComboSeachCode()
         {
-            _doktorBilgisi_comboBox.Items.Clear();
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            con.Open();
-            SqlCommand Komut = new SqlCommand();
-            Komut = con.CreateCommand();
-            Komut.CommandType = CommandType.Text;
-            Komut.CommandText = "Select DOKTORID, DoktorAdi +' ' + DoktorSoyadi as ADSOYAD  from DOKTORLAR";
-            Komut.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(Komut);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
+            
+            
+                var doktorList = Database.Model.Doktorlar.dbd.DOKTORLAR
+                    .Select(d => new
+                    {
+                        DOKTORID = d.DOKTORID,
+                        ADSOYAD = d.DoktorAdi + " " + d.DoktorSoyadi
+                    }).ToList();
 
-
-                _doktorBilgisi_comboBox.DataSource = dt;
+                _doktorBilgisi_comboBox.DataSource = doktorList;
                 _doktorBilgisi_comboBox.ValueMember = "DOKTORID";
                 _doktorBilgisi_comboBox.DisplayMember = "ADSOYAD";
-
-            }
-            con.Close();
-
-
+            
         }
+
 
         private void _vazgec_button_Click(object sender, EventArgs e)
         {
@@ -143,37 +116,25 @@ namespace WindowsFormsAppSelll
 
             }
 
-
-
            
         }
         private void FillComboSearchHasta()
         {
-            _HastaBilgisi_comboBox.Items.Clear();
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            con.Open();
-            SqlCommand Komut = new SqlCommand();
-            Komut = con.CreateCommand();
-            Komut.CommandType = CommandType.Text;
-            Komut.CommandText = "Select HASTAID, HastaAdi +' ' + HastaSoyadi as ADSOYAD  from HASTALAR";
-            Komut.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(Komut);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
+            
+            
+                var hastaList = Database.Model.Hastalar.dbh.HASTALAR
+                    .Select(h => new
+                    {
+                        HASTAID = h.HASTAID,
+                        ADSOYAD = h.HastaAdi + " " + h.HastaSoyadi
+                    }).ToList();
 
-
-                _HastaBilgisi_comboBox.DataSource = dt;
+                _HastaBilgisi_comboBox.DataSource = hastaList;
                 _HastaBilgisi_comboBox.ValueMember = "HASTAID";
                 _HastaBilgisi_comboBox.DisplayMember = "ADSOYAD";
-
-            }
-            con.Close();
-
-
+            
         }
+
         private void RandevuEkle_Load(object sender, EventArgs e)
         {
             FillComboSeachCode();

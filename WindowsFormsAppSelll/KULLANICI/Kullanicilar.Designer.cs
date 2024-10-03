@@ -35,6 +35,8 @@
             this._Yetkilerigor_button = new System.Windows.Forms.Button();
             this._SIL_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.KullaniciAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Parola = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._kullanicilar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +47,9 @@
             this._kullanicilar_dataGridView.AllowUserToDeleteRows = false;
             this._kullanicilar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._kullanicilar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._kullanicilar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.KullaniciAdi,
+            this.Parola});
             this._kullanicilar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._kullanicilar_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._kullanicilar_dataGridView.Name = "_kullanicilar_dataGridView";
@@ -128,6 +133,20 @@
             this.panel1.Size = new System.Drawing.Size(670, 110);
             this.panel1.TabIndex = 6;
             // 
+            // KullaniciAdi
+            // 
+            this.KullaniciAdi.DataPropertyName = "KullaniciAdi";
+            this.KullaniciAdi.HeaderText = "Kullanıcı Adı";
+            this.KullaniciAdi.MinimumWidth = 8;
+            this.KullaniciAdi.Name = "KullaniciAdi";
+            // 
+            // Parola
+            // 
+            this.Parola.DataPropertyName = "Parola";
+            this.Parola.HeaderText = "Parola";
+            this.Parola.MinimumWidth = 8;
+            this.Parola.Name = "Parola";
+            // 
             // Kullanicilar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -155,5 +174,7 @@
         public System.Windows.Forms.Button _Guncelle_button;
         public System.Windows.Forms.Button _SIL_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KullaniciAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Parola;
     }
 }

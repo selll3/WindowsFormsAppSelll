@@ -18,12 +18,25 @@ namespace Database.Model
         /// </summary>
         /// <returns></returns>
         /// 
-        public static List<DOKTORLAR> DoktorlariGetir()
+        public static List<dynamic> DoktorlariGetir()
         {
-            
 
 
-            return dbd.DOKTORLAR.ToList();
+            var randevularigetir = dbd.DOKTORLAR
+                .Select(d => new
+                {
+
+                    d.DOKTORID,
+                    d.DoktorAdi,
+                    d.DoktorSoyadi,
+                    d.DoktorunBransi,
+                    d.Doktorun_kati,
+                    d.PERSONELID 
+                })
+                .ToList<dynamic>();          // Dinamik olarak listeye dönüştür
+
+            return randevularigetir;
+
         }
 
         public static bool DoktorEkle(DOKTORLAR doktor)

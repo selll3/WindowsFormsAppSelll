@@ -16,9 +16,7 @@ namespace WindowsFormsAppSelll
     public partial class PersonelGuncelle : Form
     {
 
-        //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //SqlDataAdapter daPG;
-        //DataTable dtPG;
+       
         int selectedDoctorID;
         private int personelId;
         private string personelGorev;

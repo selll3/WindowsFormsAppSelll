@@ -121,6 +121,7 @@
             this._HastaAdi_textBox.Name = "_HastaAdi_textBox";
             this._HastaAdi_textBox.Size = new System.Drawing.Size(151, 26);
             this._HastaAdi_textBox.TabIndex = 13;
+            this._HastaAdi_textBox.TextChanged += new System.EventHandler(this._HastaAdi_textBox_TextChanged);
             // 
             // HastaGuncelle
             // 

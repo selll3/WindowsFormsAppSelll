@@ -32,6 +32,7 @@
             this._Kaydet_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.FormAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._yetkilerigor_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,8 @@
             this._yetkilerigor_dataGridView.AllowUserToOrderColumns = true;
             this._yetkilerigor_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._yetkilerigor_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._yetkilerigor_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FormAdi});
             this._yetkilerigor_dataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._yetkilerigor_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._yetkilerigor_dataGridView.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -88,6 +91,13 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // FormAdi
+            // 
+            this.FormAdi.DataPropertyName = "FormAdi";
+            this.FormAdi.HeaderText = "Form Adı";
+            this.FormAdi.MinimumWidth = 8;
+            this.FormAdi.Name = "FormAdi";
+            // 
             // YetkileriGor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -114,5 +124,6 @@
         private System.Windows.Forms.Button _Kaydet_button;
         private System.Windows.Forms.Button _Vazgec_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormAdi;
     }
 }

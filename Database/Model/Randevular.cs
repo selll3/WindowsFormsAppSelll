@@ -11,6 +11,26 @@ namespace Database.Model
     public static class Randevular
     {
         public static Hastanedb dbr = new Hastanedb();
+
+        public static List<dynamic> RandevulariGetir()
+        {
+
+
+            var randevularigetir = dbr.RANDEVULAR
+                .Select(r => new
+                {
+                    r.RANDEVUID,               // Hasta ID
+                    r.Randevu_Tarihi,              // Hasta Adı
+                    r.Randevu_Saati,           // Hasta Soyadı
+                    r.DOKTORID,
+                    r.HASTAID,
+                    r.Bulgu// Doğum Tarihi (Eğer varsa)
+                })
+                .ToList<dynamic>();          // Dinamik olarak listeye dönüştür
+
+            return randevularigetir;
+
+        }
         public static bool RandevuEkle(RANDEVULAR randevular)
         {
             try

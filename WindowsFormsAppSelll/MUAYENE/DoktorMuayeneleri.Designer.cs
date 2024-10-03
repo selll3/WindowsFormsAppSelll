@@ -30,6 +30,11 @@
         {
             this._DoktorMuayeneleri_dataGridView = new System.Windows.Forms.DataGridView();
             this._Vazgec_button = new System.Windows.Forms.Button();
+            this.MuayeneTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOKTORID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HASTAID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.islendiBilgisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._DoktorMuayeneleri_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,6 +43,12 @@
             this._DoktorMuayeneleri_dataGridView.AllowUserToAddRows = false;
             this._DoktorMuayeneleri_dataGridView.AllowUserToDeleteRows = false;
             this._DoktorMuayeneleri_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._DoktorMuayeneleri_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MuayeneTarihi,
+            this.DOKTORID,
+            this.HASTAID,
+            this.Aciklama,
+            this.islendiBilgisi});
             this._DoktorMuayeneleri_dataGridView.Location = new System.Drawing.Point(2, 3);
             this._DoktorMuayeneleri_dataGridView.Name = "_DoktorMuayeneleri_dataGridView";
             this._DoktorMuayeneleri_dataGridView.RowHeadersWidth = 62;
@@ -60,6 +71,46 @@
             this._Vazgec_button.UseVisualStyleBackColor = false;
             this._Vazgec_button.Click += new System.EventHandler(this._Vazgec_button_Click);
             // 
+            // MuayeneTarihi
+            // 
+            this.MuayeneTarihi.DataPropertyName = "MuayeneTarihi";
+            this.MuayeneTarihi.HeaderText = "Muayene Tarihi";
+            this.MuayeneTarihi.MinimumWidth = 8;
+            this.MuayeneTarihi.Name = "MuayeneTarihi";
+            this.MuayeneTarihi.Width = 150;
+            // 
+            // DOKTORID
+            // 
+            this.DOKTORID.DataPropertyName = "DOKTORID";
+            this.DOKTORID.HeaderText = "Doktor id";
+            this.DOKTORID.MinimumWidth = 8;
+            this.DOKTORID.Name = "DOKTORID";
+            this.DOKTORID.Width = 150;
+            // 
+            // HASTAID
+            // 
+            this.HASTAID.DataPropertyName = "HASTAID";
+            this.HASTAID.HeaderText = "Hasta id";
+            this.HASTAID.MinimumWidth = 8;
+            this.HASTAID.Name = "HASTAID";
+            this.HASTAID.Width = 150;
+            // 
+            // Aciklama
+            // 
+            this.Aciklama.DataPropertyName = "Aciklama";
+            this.Aciklama.HeaderText = "Açıklama";
+            this.Aciklama.MinimumWidth = 8;
+            this.Aciklama.Name = "Aciklama";
+            this.Aciklama.Width = 150;
+            // 
+            // islendiBilgisi
+            // 
+            this.islendiBilgisi.DataPropertyName = "islendiBilgisi";
+            this.islendiBilgisi.HeaderText = "İşlendi Bilgisi";
+            this.islendiBilgisi.MinimumWidth = 8;
+            this.islendiBilgisi.Name = "islendiBilgisi";
+            this.islendiBilgisi.Width = 150;
+            // 
             // DoktorMuayeneleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -80,5 +131,10 @@
 
         private System.Windows.Forms.DataGridView _DoktorMuayeneleri_dataGridView;
         private System.Windows.Forms.Button _Vazgec_button;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MuayeneTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOKTORID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HASTAID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aciklama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn islendiBilgisi;
     }
 }

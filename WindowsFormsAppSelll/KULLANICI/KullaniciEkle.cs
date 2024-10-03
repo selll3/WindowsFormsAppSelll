@@ -70,7 +70,7 @@ namespace WindowsFormsAppSelll.KULLANICI
                         };
 
                         // Model katmanındaki YetkiEkle yöntemini çağır
-                        Database.Model.Yetkiler.YetkiEkle(yetki);
+                        Database.Model.Yetkiler.YetkiEkleVeyaGuncelle(yetki);
                     }
 
                     MessageBox.Show("KAYIT BAŞARIYLA TAMAMLANDI", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -11,21 +11,24 @@ namespace Database.Model
     public static class Hastalar
     {
         public static Hastanedb dbh = new Hastanedb();
-        public static List<HASTALAR>HastalariGetir()
+        public static List<dynamic> HastalariGetir()
         {
-           return dbh.HASTALAR.ToList();
-                //.Select(r => new
-                //{
-                //    r.HASTAID,  // İstediğin sütunları buraya ekleyebilirsin
-                //    r.HastaAdi,
-                //    r.HastaSoyadi,
-                //    r.HastaYasi
-                   
-                //    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                //}).ToList();
+           
+            
+                var hastalar = dbh.HASTALAR
+                    .Select(h => new
+                    {
+                        h.HASTAID,               // Hasta ID
+                        h.HastaAdi,              // Hasta Adı
+                        h.HastaSoyadi,           // Hasta Soyadı
+                        h.HastaYasi          // Doğum Tarihi (Eğer varsa)
+                    })
+                    .ToList<dynamic>();          // Dinamik olarak listeye dönüştür
 
+                return hastalar;
             
         }
+
 
         public static bool HastaEkle(HASTALAR Hasta)
         {

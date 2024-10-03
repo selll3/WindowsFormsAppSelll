@@ -35,6 +35,10 @@
             this._GUNCELLE_button = new System.Windows.Forms.Button();
             this._Ekle_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PERSONELID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonelAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonelSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonelGorev = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._Personeller_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +74,11 @@
             this._Personeller_dataGridView.AllowUserToDeleteRows = false;
             this._Personeller_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Personeller_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._Personeller_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PERSONELID,
+            this.PersonelAdi,
+            this.PersonelSoyadi,
+            this.PersonelGorev});
             this._Personeller_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Personeller_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Personeller_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +128,34 @@
             this.panel1.Size = new System.Drawing.Size(640, 100);
             this.panel1.TabIndex = 37;
             // 
+            // PERSONELID
+            // 
+            this.PERSONELID.DataPropertyName = "PERSONELID";
+            this.PERSONELID.HeaderText = "Personel id";
+            this.PERSONELID.MinimumWidth = 8;
+            this.PERSONELID.Name = "PERSONELID";
+            // 
+            // PersonelAdi
+            // 
+            this.PersonelAdi.DataPropertyName = "PersonelAdi";
+            this.PersonelAdi.HeaderText = "Personel Adı";
+            this.PersonelAdi.MinimumWidth = 8;
+            this.PersonelAdi.Name = "PersonelAdi";
+            // 
+            // PersonelSoyadi
+            // 
+            this.PersonelSoyadi.DataPropertyName = "PersonelSoyadi";
+            this.PersonelSoyadi.HeaderText = "Personel Soyadı";
+            this.PersonelSoyadi.MinimumWidth = 8;
+            this.PersonelSoyadi.Name = "PersonelSoyadi";
+            // 
+            // PersonelGorev
+            // 
+            this.PersonelGorev.DataPropertyName = "PersonelGorev";
+            this.PersonelGorev.HeaderText = "Personel Görevi";
+            this.PersonelGorev.MinimumWidth = 8;
+            this.PersonelGorev.Name = "PersonelGorev";
+            // 
             // Personeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -147,5 +184,9 @@
         public System.Windows.Forms.Button _GUNCELLE_button;
         public System.Windows.Forms.Button _Ekle_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PERSONELID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelSoyadi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelGorev;
     }
 }

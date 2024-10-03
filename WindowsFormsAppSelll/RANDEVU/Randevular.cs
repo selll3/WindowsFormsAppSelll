@@ -60,27 +60,27 @@ namespace WindowsFormsAppSelll
         }
         public void LoadDataIntoGridr()
         {
-      
-         
-            Hastanedb dbr = new Hastanedb();
-            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR
-                .Select(r => new
-                {
-                    r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.Randevu_Tarihi,
-                    r.Randevu_Saati,
-                    r.DOKTORID,
-                    r.HASTAID,
-                    r.Bulgu
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
 
 
+            //Hastanedb dbr = new Hastanedb();
+            //_Randevular_dataGridView.DataSource = dbr.RANDEVULAR
+            //    .Select(r => new
+            //    {
+            //        r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
+            //        r.Randevu_Tarihi,
+            //        r.Randevu_Saati,
+            //        r.DOKTORID,
+            //        r.HASTAID,
+            //        r.Bulgu
+            //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+            //    }).ToList();
+
+            Database.Model.Randevular.RandevulariGetir();
             // RANDEVUID sütununu gizle
-            if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
-            {
-                _Randevular_dataGridView.Columns["RANDEVUID"].Visible = false;
-            }
+            //if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
+            //{
+            //    _Randevular_dataGridView.Columns["RANDEVUID"].Visible = false;
+            //}
         }
         private void _GUNCELLE_button_Click(object sender, EventArgs e)
         {
@@ -100,30 +100,7 @@ namespace WindowsFormsAppSelll
             {
                 MessageBox.Show("Lütfen güncellenecek bir randevu seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            //if (_Randevular_dataGridView.SelectedRows.Count > 0)
-            //{
-            //    // Seçilen satırdan personel bilgilerini al
-            //    int selectedrandevulId = Convert.ToInt32(_Randevular_dataGridView.SelectedRows[0].Cells["RANDEVUID"].Value);
-            //    string selectedrandevuTarihi = _Randevular_dataGridView.SelectedRows[0].Cells["Randevu_Tarihi"].Value.ToString();
-            //    string selectedrandevuSaati = _Randevular_dataGridView.SelectedRows[0].Cells["Randevu_Saati"].Value.ToString();
-            //    string selectedBulgu = _Randevular_dataGridView.SelectedRows[0].Cells["Bulgu"].Value.ToString();
-
-            //    // PersonelGuncelle formunu aç ve bilgileri gönder
-            //    RandevuGuncelle randevuGuncelleForm = new RandevuGuncelle(selectedrandevulId, selectedrandevuTarihi, selectedrandevuSaati, selectedBulgu);
-            //    randevuGuncelleForm.FormClosed += _Randevular_dataGridView;
-            //    randevuGuncelleForm.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Lütfen güncellenecek bir personel seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //} // burayı nasıl çağırmalıyım
-            ////PersonelGuncelle PersonelGuncelle = new PersonelGuncelle();
-            ////PersonelGuncelle.FormClosed += PersonelGuncelle_FormClosed;
-            ////PersonelGuncelle.Show();
-
-            //RandevuGuncelle randevuGuncelle = new RandevuGuncelle();
-            //randevuGuncelle.Show();
-
+           
 
         }
         private void _Vazgec_button_Click(object sender, EventArgs e)
@@ -142,25 +119,25 @@ namespace WindowsFormsAppSelll
         }
         private void verileriyükle()
         {
-            Hastanedb dbr = new Hastanedb();
-            _Randevular_dataGridView.DataSource = dbr.RANDEVULAR
-                .Select(r => new
-                {
-                    r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.Randevu_Tarihi,
-                    r.Randevu_Saati,
-                    r.DOKTORID,
-                    r.HASTAID,
-                    r.Bulgu
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
+            //Hastanedb dbr = new Hastanedb();
+            //_Randevular_dataGridView.DataSource = dbr.RANDEVULAR
+            //    .Select(r => new
+            //    {
+            //        r.RANDEVUID,  // İstediğin sütunları buraya ekleyebilirsin
+            //        r.Randevu_Tarihi,
+            //        r.Randevu_Saati,
+            //        r.DOKTORID,
+            //        r.HASTAID,
+            //        r.Bulgu
+            //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+            //    }).ToList();
 
-
+            Database.Model.Randevular.RandevulariGetir();
             // RANDEVUID sütununu gizle
-            if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
-            {
-                _Randevular_dataGridView.Columns["RANDEVUID"].Visible = false;
-            }
+            //if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
+            //{
+            //    _Randevular_dataGridView.Columns["RANDEVUID"].Visible = false;
+            //}
 
            
 

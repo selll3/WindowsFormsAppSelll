@@ -19,9 +19,7 @@ namespace WindowsFormsAppSelll
 {
     public partial class RandevuGuncelle : Form
     {
-        //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //SqlDataAdapter daRG;
-        //DataTable dtRG;
+       
         int selectedDoctorID;
         private int randevuId;
         private string Bulgun;
@@ -46,62 +44,40 @@ namespace WindowsFormsAppSelll
             _doktorBilgisi_comboBox.SelectedValue= did.ToString();
             _HastaBilgisi_comboBox.SelectedValue= hid.ToString();
         }
-        
+
 
         private void FillComboSeachCode()
         {
-            _doktorBilgisi_comboBox.Items.Clear();
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            con.Open();
-            SqlCommand Komut = new SqlCommand();
-            Komut = con.CreateCommand();
-            Komut.CommandType = CommandType.Text;
-            Komut.CommandText = "Select DOKTORID, DoktorAdi +' ' + DoktorSoyadi as ADSOYAD  from DOKTORLAR";
-            Komut.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(Komut);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
+          
+            
+                var doktorList = Database.Model.Doktorlar.dbd.DOKTORLAR
+                    .Select(d => new
+                    {
+                        DOKTORID = d.DOKTORID,
+                        ADSOYAD = d.DoktorAdi + " " + d.DoktorSoyadi
+                    }).ToList();
 
-
-                _doktorBilgisi_comboBox.DataSource = dt;
+                _doktorBilgisi_comboBox.DataSource = doktorList;
                 _doktorBilgisi_comboBox.ValueMember = "DOKTORID";
                 _doktorBilgisi_comboBox.DisplayMember = "ADSOYAD";
-
-            }
-            con.Close();
-
-
+            
         }
+
         private void FillComboSearchHasta()
         {
-            _HastaBilgisi_comboBox.Items.Clear();
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            con.Open();
-            SqlCommand Komut = new SqlCommand();
-            Komut = con.CreateCommand();
-            Komut.CommandType = CommandType.Text;
-            Komut.CommandText = "Select HASTAID, HastaAdi +' ' + HastaSoyadi as ADSOYAD  from HASTALAR";
-            Komut.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(Komut);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                //comboBox1.Items.Add(dr["DoktorAdi"].ToString());
+           
+                var hastaList = Database.Model.Hastalar.dbh.HASTALAR
+                    .Select(h => new
+                    {
+                        HASTAID = h.HASTAID,
+                        ADSOYAD = h.HastaAdi + " " + h.HastaSoyadi
+                    }).ToList();
 
-
-                _HastaBilgisi_comboBox.DataSource = dt;
+                _HastaBilgisi_comboBox.DataSource = hastaList;
                 _HastaBilgisi_comboBox.ValueMember = "HASTAID";
                 _HastaBilgisi_comboBox.DisplayMember = "ADSOYAD";
+         }
 
-            }
-            con.Close();
-
-
-        }
         private void _kaydet_button_Click(object sender, EventArgs e)
         {   // Seçilen doktorun ID'sini kontrol et
             if (_doktorBilgisi_comboBox.SelectedValue == null)
@@ -154,10 +130,7 @@ namespace WindowsFormsAppSelll
                
             }
            
-            //// İlk formu güncelle ve göster
-            //Randevular form1 = (Randevular)Application.OpenForms["Randevular"];
-            //form1.LoadDataIntoGridr(); // İlk formun veri yükleme metodunu çağır
-            //this.Close();
+         
             
 
             //// İlk formu güncelle ve göster
@@ -193,7 +166,7 @@ namespace WindowsFormsAppSelll
         {
             FillComboSeachCode();
             FillComboSearchHasta();
-            //_randevuguncelle_dataGridView.RowHeadersVisible = false;
+         
         }
     }
 }

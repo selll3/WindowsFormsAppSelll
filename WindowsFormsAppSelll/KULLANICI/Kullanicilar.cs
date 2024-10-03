@@ -61,18 +61,18 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         public void LoadDatakullanici()
         {
-            Hastanedb dk = new Hastanedb();
+            Database.Model.Kullanicilar.KullanicilariGetir();
        
-           _kullanicilar_dataGridView.DataSource = dk.GIRIS
-                .Select(r => new
-                {
-                    r.KULLANICIID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.KullaniciAdi,
-                    r.Parola
+           //_kullanicilar_dataGridView.DataSource = dk.GIRIS
+           //     .Select(r => new
+           //     {
+           //         r.KULLANICIID,  // İstediğin sütunları buraya ekleyebilirsin
+           //         r.KullaniciAdi,
+           //         r.Parola
                     
                     
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
+           //         // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+           //     }).ToList();
 
             // DOKTORID sütununu gizle
             if (_kullanicilar_dataGridView.Columns.Contains("KULLANICIID"))
@@ -129,36 +129,36 @@ namespace WindowsFormsAppSelll.KULLANICI
                 MessageBox.Show("Lütfen güncellenecek kullanıcıyı seçin.");
             }
         }
-        private void verileriyükle()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                {
-                    control.Visible = false;
-                }
-                else if (control is NumericUpDown)
-                {
-                    control.Visible = false;
-                }
-                else if (control is Label)
-                {
-                    control.Visible = false;
-                }
-                else
-                {
-                    control.Visible = true;
-                }
-            }
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-            string readQuery = "Select KULLANICIID,KullaniciAdi,Parola from GIRIS";
-            SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
-            SqlCommandBuilder cmd = new SqlCommandBuilder();
-            DataTable dth = new DataTable();
-            sdh.Fill(dth);
-            _kullanicilar_dataGridView.DataSource = dth;
+        //private void verileriyükle()
+        //{
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        if (control is TextBox)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else if (control is NumericUpDown)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else if (control is Label)
+        //        {
+        //            control.Visible = false;
+        //        }
+        //        else
+        //        {
+        //            control.Visible = true;
+        //        }
+        //    }
+        //    SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
+        //    string readQuery = "Select KULLANICIID,KullaniciAdi,Parola from GIRIS";
+        //    SqlDataAdapter sdh = new SqlDataAdapter(readQuery, con);
+        //    SqlCommandBuilder cmd = new SqlCommandBuilder();
+        //    DataTable dth = new DataTable();
+        //    sdh.Fill(dth);
+        //    _kullanicilar_dataGridView.DataSource = dth;
 
-        }
+        //}
         private void _SIL_button_Click(object sender, EventArgs e)
         {
 

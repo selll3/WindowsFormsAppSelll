@@ -18,15 +18,12 @@ namespace WindowsFormsAppSelll
     {
 
 
-        //SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False");
-        //SqlDataAdapter dap;
-        //DataTable dtp;
         private int currentUserId;
         private Hastanedb dbContext = new Hastanedb();
         public Personeller(int userId)
         {
             InitializeComponent();
-            //_Personeller_dataGridView.Visible = false;
+       
             LoadDataIntoGridp();
             currentUserId = userId;
             yetkileriolustur();
@@ -65,24 +62,24 @@ namespace WindowsFormsAppSelll
             //dap.Fill(dtp);
             //_Personeller_dataGridView.DataSource = dtp;
 
-            Hastanedb dbr = new Hastanedb();
-            
-            _Personeller_dataGridView.DataSource = dbr.PERSONEL
-                .Select(r => new
-                {
-                    r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
-                    r.PersonelAdi,
-                    r.PersonelSoyadi,
-                    r.PersonelGorev
-                    //r.KULLANICIID
+
+            Database.Model.Personeller.PersoneliGetir();
+            //_Personeller_dataGridView.DataSource = Database.Model.Personeller.dp.PERSONEL
+            //    .Select(r => new
+            //    {
+            //        r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
+            //        r.PersonelAdi,
+            //        r.PersonelSoyadi,
+            //        r.PersonelGorev
+            //        //r.KULLANICIID
                    
-                    // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-                }).ToList();
+            //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+            //    }).ToList();
             // DOKTORID sütununu gizle
-            if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
-            {
-                _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
-            }
+            //if (_Personeller_dataGridView.Columns.Contains("PERSONELID"))
+            //{
+            //    _Personeller_dataGridView.Columns["PERSONELID"].Visible = false;
+            //}
 
         }
 
@@ -120,18 +117,18 @@ namespace WindowsFormsAppSelll
                     control.Visible = true;
                 }
             }
-              Hastanedb dp = new Hastanedb();
-            _Personeller_dataGridView.DataSource = dp.PERSONEL
-               .Select(r => new
-               {
-                   r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
-                   r.PersonelAdi,
-                   r.PersonelSoyadi,
-                   r.PersonelGorev
-                   //r.KULLANICIID
+            Database.Model.Personeller.PersoneliGetir();
+            //_Personeller_dataGridView.DataSource = Database.Model.Personeller.dp.PERSONEL
+            //   .Select(r => new
+            //   {
+            //       r.PERSONELID,  // İstediğin sütunları buraya ekleyebilirsin
+            //       r.PersonelAdi,
+            //       r.PersonelSoyadi,
+            //       r.PersonelGorev
+            //       //r.KULLANICIID
 
-                   // r.Bulgu gibi başka sütunlar da ekleyebilirsin
-               }).ToList();
+            //       // r.Bulgu gibi başka sütunlar da ekleyebilirsin
+            //   }).ToList();
 
 
         }
@@ -167,7 +164,7 @@ namespace WindowsFormsAppSelll
                     if (silindi)
                     {
                         // Eğer personelin görevi "Doktor" ise, doktordan da silinsin
-                        var personelGorev = Database.Model.Personeller.PersoneliGetir(selectedRowId);
+                        var personelGorev = Database.Model.Personeller.PersonelMiDoktorMu(selectedRowId);
                         if (personelGorev != null && personelGorev.Equals("Doktor", StringComparison.OrdinalIgnoreCase))
                         {
                             var doktorSilindi = Database.Model.Doktorlar.DoktorlariSil(selectedRowId);
@@ -216,14 +213,7 @@ namespace WindowsFormsAppSelll
             else
             {
                 MessageBox.Show("Lütfen güncellenecek bir personel seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } // burayı nasıl çağırmalıyım
-            //PersonelGuncelle PersonelGuncelle = new PersonelGuncelle();
-            //PersonelGuncelle.FormClosed += PersonelGuncelle_FormClosed;
-            //PersonelGuncelle.Show();
-
-            //this.Hide();
-
-            
+            } 
 
 
         }
@@ -240,12 +230,8 @@ namespace WindowsFormsAppSelll
             PersonelEkle formP = new PersonelEkle();
             formP.Show();
 
-
-
            
         }
-
-
 
         private void _Personeller_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

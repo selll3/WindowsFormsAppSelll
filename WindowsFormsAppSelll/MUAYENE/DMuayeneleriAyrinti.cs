@@ -65,6 +65,7 @@ namespace WindowsFormsAppSelll.MUAYENE
 
         private void DMuayeneleriAyrinti_Load(object sender, EventArgs e)
         {
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Columns["MUAYENEID"].Visible = false;
             dataGridView1.Columns["MuayeneTarihi"].HeaderText = "Muayene Tarihi";
            dataGridView1.Columns["Aciklama"].HeaderText = "Açıklama";
@@ -84,6 +85,11 @@ namespace WindowsFormsAppSelll.MUAYENE
 
             // Formu kapat
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

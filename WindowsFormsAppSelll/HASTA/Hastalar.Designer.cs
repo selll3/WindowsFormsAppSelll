@@ -35,6 +35,9 @@
             this._GUNCELLE_button = new System.Windows.Forms.Button();
             this._Ekle_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.HastaAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HastaSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HastaYasi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._Hastalar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +73,10 @@
             this._Hastalar_dataGridView.AllowUserToDeleteRows = false;
             this._Hastalar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Hastalar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._Hastalar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.HastaAdi,
+            this.HastaSoyadi,
+            this.HastaYasi});
             this._Hastalar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this._Hastalar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Hastalar_dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -120,6 +127,30 @@
             this.panel1.Size = new System.Drawing.Size(678, 100);
             this.panel1.TabIndex = 38;
             // 
+            // HastaAdi
+            // 
+            this.HastaAdi.DataPropertyName = "HastaAdi";
+            this.HastaAdi.HeaderText = "Hasta Adı";
+            this.HastaAdi.MinimumWidth = 8;
+            this.HastaAdi.Name = "HastaAdi";
+            this.HastaAdi.ReadOnly = true;
+            // 
+            // HastaSoyadi
+            // 
+            this.HastaSoyadi.DataPropertyName = "HastaSoyadi";
+            this.HastaSoyadi.HeaderText = "Hasta Soyadı";
+            this.HastaSoyadi.MinimumWidth = 8;
+            this.HastaSoyadi.Name = "HastaSoyadi";
+            this.HastaSoyadi.ReadOnly = true;
+            // 
+            // HastaYasi
+            // 
+            this.HastaYasi.DataPropertyName = "HastaYasi";
+            this.HastaYasi.HeaderText = "Hasta Yaşı";
+            this.HastaYasi.MinimumWidth = 8;
+            this.HastaYasi.Name = "HastaYasi";
+            this.HastaYasi.ReadOnly = true;
+            // 
             // Hastalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -146,5 +177,8 @@
         public System.Windows.Forms.Button _GUNCELLE_button;
         public System.Windows.Forms.Button _Ekle_button;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HastaAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HastaSoyadi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HastaYasi;
     }
 }

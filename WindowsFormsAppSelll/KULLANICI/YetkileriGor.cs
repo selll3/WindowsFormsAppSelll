@@ -81,51 +81,84 @@ namespace WindowsFormsAppSelll.KULLANICI
         //private YetkileriGor yetkileriGorForm;
         private void _Kaydet_button_Click(object sender, EventArgs e)
         {
-
-            using (Hastanedb dbContext = new Hastanedb())
+            foreach (DataRow row in dt.Rows)
             {
-                foreach (DataRow row in dt.Rows)
+                int formID = Convert.ToInt32(row["FormID"]);
+                bool yetki = Convert.ToBoolean(row["Yetki"]);
+
+                if (formID <= 0)
                 {
-                    int formID = Convert.ToInt32(row["FormID"]);
-                    bool yetki = Convert.ToBoolean(row["Yetki"]);
-
-                    if (formID <= 0)
-                    {
-                        MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    var personelFormYetki = dbContext.PERSONELFORMYETKILERI.SingleOrDefault(pfy => pfy.KULLANICIID == kullaniciID && pfy.FormID == formID);
-
-                    if (personelFormYetki != null)
-                    {
-                        // Eğer kayıt varsa güncelle
-                        personelFormYetki.Yetki = yetki;
-                    }
-                    else
-                    {
-                        // Kayıt yoksa yeni bir kayıt ekle
-                        dbContext.PERSONELFORMYETKILERI.Add(new PERSONELFORMYETKILERI
-                        {
-                            KULLANICIID = kullaniciID,
-                            FormID = formID,
-                            Yetki = yetki
-                        });
-                    }
+                    MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                dbContext.SaveChanges();
-                MessageBox.Show("Kayıt başarıyla tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PERSONELFORMYETKILERI pfy = new PERSONELFORMYETKILERI
+                {
+                    KULLANICIID = kullaniciID,
+                    FormID = formID,
+                    Yetki = yetki
+                };
+
+                bool islemBasarili = Database.Model.Yetkiler.YetkiEkleVeyaGuncelle(pfy);
+
+                if (!islemBasarili)
+                {
+                    MessageBox.Show("Bir hata oluştu. İşlem başarısız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
+            MessageBox.Show("Kayıt başarıyla tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.Close();
+
             Main mainguncel = new Main(kullaniciID);
             mainguncel.yetkileriolustur();
-            
+
+            //using (Hastanedb dbContext = new Hastanedb())
+            //{
+            //    foreach (DataRow row in dt.Rows)
+            //    {
+            //        int formID = Convert.ToInt32(row["FormID"]);
+            //        bool yetki = Convert.ToBoolean(row["Yetki"]);
+
+            //        if (formID <= 0)
+            //        {
+            //            MessageBox.Show("Geçersiz FormID: " + formID, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            return;
+            //        }
+
+            //        var personelFormYetki = dbContext.PERSONELFORMYETKILERI.SingleOrDefault(pfy => pfy.KULLANICIID == kullaniciID && pfy.FormID == formID);
+
+            //        if (personelFormYetki != null)
+            //        {
+            //            // Eğer kayıt varsa güncelle
+            //            personelFormYetki.Yetki = yetki;
+            //        }
+            //        else
+            //        {
+            //            // Kayıt yoksa yeni bir kayıt ekle
+            //            dbContext.PERSONELFORMYETKILERI.Add(new PERSONELFORMYETKILERI
+            //            {
+            //                KULLANICIID = kullaniciID,
+            //                FormID = formID,
+            //                Yetki = yetki
+            //            });
+            //        }
+            //    }
+
+            //    dbContext.SaveChanges();
+            //    MessageBox.Show("Kayıt başarıyla tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+
+            //this.Close();
+            //Main mainguncel = new Main(kullaniciID);
+            //mainguncel.yetkileriolustur();
+
 
 
         }
-       
+
         private void YetkileriGor_Load(object sender, EventArgs e)
         {
             LoadYetkiler();

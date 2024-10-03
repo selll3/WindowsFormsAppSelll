@@ -10,24 +10,29 @@ namespace Database.Model
 
     public static class Muayeneler
     {
-        private static Hastanedb db = new Hastanedb();
+        public static Hastanedb dbm = new Hastanedb();
         public static bool MuayeneEkle(MUAYENE muayene)
         {
             try
             {
-                Hastanedb db = new Hastanedb();
-                db.MUAYENE.Add(muayene);
-                db.SaveChanges();
+               
+                dbm.MUAYENE.Add(muayene);
+                dbm.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
 
             }
 
         }
-
+        public static List<MUAYENE> GetMuayenelerByDoktorID(int doktorID)
+        {
+            return dbm.MUAYENE
+                .Where(m => m.DOKTORID == doktorID && m.MuayeneTarihi >= DateTime.Now)
+                .ToList();
+        }
 
 
 

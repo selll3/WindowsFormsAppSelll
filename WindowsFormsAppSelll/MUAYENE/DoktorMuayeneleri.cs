@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using WindowsFormsAppSelll.ENTITY;
 using Database.Entity;
+//using Database.Entity.MUAYENE;
 using WindowsFormsAppSelll.KULLANICI;
 
 namespace WindowsFormsAppSelll.MUAYENE
@@ -17,6 +18,7 @@ namespace WindowsFormsAppSelll.MUAYENE
     public partial class DoktorMuayeneleri : Form
     {
         //private int doktorid;
+        //public static Hastanedb muayene = new Hastanedb();
         public static int kullaniciId;
         public DoktorMuayeneleri(int Kid)
         {
@@ -31,110 +33,99 @@ namespace WindowsFormsAppSelll.MUAYENE
 
         private void DoktorMuayeneleriniListele()
         {
-            using (var context = new Hastanedb())
-            {
-                var personelID = context.PERSONEL
+            
+            
+                var personelID = Database.Model.Personeller.dp.PERSONEL
                     .Where(p => p.KULLANICIID == kullaniciId)
                     .Select(p => p.PERSONELID)
                     .FirstOrDefault();
 
                 if (personelID > 0)
                 {
-                    var doktorID = context.DOKTORLAR
+                    var doktorID = Database.Model.Doktorlar.dbd.DOKTORLAR
                         .Where(d => d.PERSONELID == personelID)
                         .Select(d => d.DOKTORID)
                         .FirstOrDefault();
 
                     if (doktorID > 0)
                     {
-                        var muayeneler = context.MUAYENE
-                            .Where(m => m.DOKTORID == doktorID && m.MuayeneTarihi >= DateTime.Now)
-                            .Select(m => new
-                            {
-                                m.MUAYENEID,
-                                m.HASTAID,
-                                m.DOKTORID,
-                                m.MuayeneTarihi,
-                                m.Aciklama,
-                                m.islendiBilgisi
-                            })
-                            .ToList();
-
-                        _DoktorMuayeneleri_dataGridView.DataSource = muayeneler; // DataGridView'e verileri bağlıyoruz
+                        var muayeneler = Database.Model.Muayeneler.GetMuayenelerByDoktorID(doktorID);  // Modelden veriyi alıyoruz
+                        _DoktorMuayeneleri_dataGridView.DataSource = muayeneler.Select(m => new
+                        {
+                            m.MUAYENEID,
+                            m.HASTAID,
+                            m.DOKTORID,
+                            m.MuayeneTarihi,
+                            m.Aciklama,
+                            m.islendiBilgisi
+                        }).ToList(); // DataGridView'e bağlıyoruz
                     }
                     else
                     {
                         MessageBox.Show("Giriş yapan kullanıcı doktor değil.");
                     }
                 }
-            }
+            
         }
         private int GetPersonelIDByKullaniciID(int kullaniciID)
         {
-            int personelID = 0;
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+           
             {
-                con.Open();
-                // KULLANICIID'yi kullanarak PERSONEL tablosundan PERSONELID'yi alıyoruz
-                SqlCommand cmd = new SqlCommand("SELECT PERSONELID FROM PERSONEL WHERE KULLANICIID = @kullaniciID", con);
-                cmd.Parameters.AddWithValue("@kullaniciID", kullaniciID);
-
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    personelID = (int)result;
-                }
+                // KullaniciID'ye göre PersonelID'yi alıyoruz
+                return Database.Model.Personeller.dp.PERSONEL
+                    .Where(p => p.KULLANICIID == kullaniciID)
+                    .Select(p => p.PERSONELID)
+                    .FirstOrDefault();
             }
-            return personelID;
         }
         private int GetDoctorIDByPersonelID(int personelID)
         {
-            int doktorID = 0;
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
-            {
-                con.Open();
-                // PERSONEL tablosundan PersonelGorev'e göre doktor olup olmadığını kontrol ediyoruz
-                SqlCommand checkCmd = new SqlCommand("SELECT PersonelGorev FROM PERSONEL WHERE PERSONELID = @personelID", con);
-                checkCmd.Parameters.AddWithValue("@personelID", personelID);
-                string personelGorev = (string)checkCmd.ExecuteScalar();
+            
+            
+                // Personel görevinin doktor olup olmadığını kontrol ediyoruz
+                string personelGorev = Database.Model.Personeller.dp.PERSONEL
+                    .Where(p => p.PERSONELID == personelID)
+                    .Select(p => p.PersonelGorev)
+                    .FirstOrDefault();
 
                 if (personelGorev == "Doktor")
                 {
-                    // Eğer personel bir doktor ise, DOKTORLAR tablosundan DOKTORID'yi alıyoruz
-                    SqlCommand cmd = new SqlCommand("SELECT DOKTORID FROM DOKTORLAR WHERE PersonelID = @personelID", con);
-                    cmd.Parameters.AddWithValue("@personelID", personelID);
-
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
-                    {
-                        doktorID = (int)result;
-                    }
+                    // Eğer personel doktor ise, Doktorlar tablosundan doktorID'yi alıyoruz
+                    return Database.Model.Doktorlar.dbd.DOKTORLAR
+                        .Where(d => d.PERSONELID == personelID)
+                        .Select(d => d.DOKTORID)
+                        .FirstOrDefault();
                 }
-            }
-            return doktorID;
+                return 0; // Doktor değilse 0 döndürüyoruz
+            
         }
         private void LoadUpcomingAppointments(int doktorID)
         {
-            DataTable dtMuayeneler = GetGelecekMuayeneler(doktorID);
-            _DoktorMuayeneleri_dataGridView.DataSource = dtMuayeneler; // Muayeneleri grid üzerinde göster
-        }
-
-        private DataTable GetGelecekMuayeneler(int doktorID)
-        {
-            DataTable muayeneTablosu = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-99R82DT;Initial Catalog=_HASTANE;Integrated Security=True;Encrypt=False"))
+            var muayeneler = GetGelecekMuayeneler(doktorID);
+            _DoktorMuayeneleri_dataGridView.DataSource = muayeneler.Select(m => new
             {
-                con.Open();
-                // Gelecek muayeneleri almak için sorgu
-                SqlCommand cmd = new SqlCommand("SELECT MUAYENEID,HASTAID,DOKTORID,MuayeneTarihi,Aciklama,islendiBilgisi FROM MUAYENE WHERE DOKTORID = @doktorID AND MuayeneTarihi >= GETDATE()", con);
-                cmd.Parameters.AddWithValue("@doktorID", doktorID);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(muayeneTablosu);
-            }
-            return muayeneTablosu;
+                m.MUAYENEID,
+                m.HASTAID,
+                m.DOKTORID,
+                m.MuayeneTarihi,
+                m.Aciklama,
+                m.islendiBilgisi
+            }).ToList(); // Muayeneleri Da
+            //DataTable dtMuayeneler = GetGelecekMuayeneler(doktorID);
+            //_DoktorMuayeneleri_dataGridView.DataSource = dtMuayeneler; // Muayeneleri grid üzerinde göster
         }
-    
+
+        private List<Database.Entity.MUAYENE> GetGelecekMuayeneler(int doktorID)
+        {
+            //using (var context = new Hastanedb())
+            //{
+                // Doktorun gelecekteki muayenelerini listeleme
+                return Database.Model.Muayeneler.dbm.MUAYENE
+                    .Where(m => m.DOKTORID == doktorID && m.MuayeneTarihi >= DateTime.Now)
+                    .ToList();
+            //}
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -154,7 +145,7 @@ namespace WindowsFormsAppSelll.MUAYENE
                 int doktorID = GetDoctorIDByPersonelID(personelID);
 
             // Doktorun gelecekteki muayenelerini yükle
-            GetGelecekMuayeneler(doktorID);
+            //GetGelecekMuayeneler(doktorID);
             LoadUpcomingAppointments(doktorID);
 
 

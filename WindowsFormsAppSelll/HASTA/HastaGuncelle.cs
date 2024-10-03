@@ -107,5 +107,10 @@ namespace WindowsFormsAppSelll
         {
 
         }
+
+        private void _HastaAdi_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

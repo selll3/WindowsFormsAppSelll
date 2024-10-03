@@ -39,6 +39,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this._islendi = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Randevu_Tarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Randevu_Saati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOKTORID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HASTAID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bulgu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +127,12 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Randevu_Tarihi,
+            this.Randevu_Saati,
+            this.DOKTORID,
+            this.HASTAID,
+            this.Bulgu});
             this.dataGridView1.Location = new System.Drawing.Point(0, 255);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -149,6 +160,46 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(146, 26);
             this.dateTimePicker1.TabIndex = 12;
+            // 
+            // Randevu_Tarihi
+            // 
+            this.Randevu_Tarihi.DataPropertyName = "Randevu_Tarihi";
+            this.Randevu_Tarihi.HeaderText = "Randevu Tarihi";
+            this.Randevu_Tarihi.MinimumWidth = 8;
+            this.Randevu_Tarihi.Name = "Randevu_Tarihi";
+            this.Randevu_Tarihi.ReadOnly = true;
+            // 
+            // Randevu_Saati
+            // 
+            this.Randevu_Saati.DataPropertyName = "Randevu_Saati";
+            this.Randevu_Saati.HeaderText = "Randevu Saati";
+            this.Randevu_Saati.MinimumWidth = 8;
+            this.Randevu_Saati.Name = "Randevu_Saati";
+            this.Randevu_Saati.ReadOnly = true;
+            // 
+            // DOKTORID
+            // 
+            this.DOKTORID.DataPropertyName = "DOKTORID";
+            this.DOKTORID.HeaderText = "Doktor id";
+            this.DOKTORID.MinimumWidth = 8;
+            this.DOKTORID.Name = "DOKTORID";
+            this.DOKTORID.ReadOnly = true;
+            // 
+            // HASTAID
+            // 
+            this.HASTAID.DataPropertyName = "HASTAID";
+            this.HASTAID.HeaderText = "Hasta id";
+            this.HASTAID.MinimumWidth = 8;
+            this.HASTAID.Name = "HASTAID";
+            this.HASTAID.ReadOnly = true;
+            // 
+            // Bulgu
+            // 
+            this.Bulgu.DataPropertyName = "Bulgu";
+            this.Bulgu.HeaderText = "Bulgu";
+            this.Bulgu.MinimumWidth = 8;
+            this.Bulgu.Name = "Bulgu";
+            this.Bulgu.ReadOnly = true;
             // 
             // MuayeneEkle
             // 
@@ -189,5 +240,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox _islendi;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Randevu_Tarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Randevu_Saati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOKTORID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HASTAID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bulgu;
     }
 }
