@@ -61,7 +61,7 @@
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._Vazgec_button.Location = new System.Drawing.Point(253, 22);
+            this._Vazgec_button.Location = new System.Drawing.Point(271, 22);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(112, 36);
             this._Vazgec_button.TabIndex = 22;
@@ -90,7 +90,8 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(170, 200);
+            this.numericUpDown1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.numericUpDown1.Location = new System.Drawing.Point(145, 202);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(86, 26);
             this.numericUpDown1.TabIndex = 38;
@@ -107,7 +108,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(12, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 23);
             this.label2.TabIndex = 36;
@@ -116,7 +117,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 23);
             this.label1.TabIndex = 35;
@@ -124,20 +125,23 @@
             // 
             // _DoktorSoyadi_textBox
             // 
-            this._DoktorSoyadi_textBox.Location = new System.Drawing.Point(145, 59);
+            this._DoktorSoyadi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
+            this._DoktorSoyadi_textBox.Location = new System.Drawing.Point(145, 74);
             this._DoktorSoyadi_textBox.Name = "_DoktorSoyadi_textBox";
             this._DoktorSoyadi_textBox.Size = new System.Drawing.Size(155, 26);
             this._DoktorSoyadi_textBox.TabIndex = 34;
             // 
             // _DoktorAdi_textBox
             // 
-            this._DoktorAdi_textBox.Location = new System.Drawing.Point(145, 9);
+            this._DoktorAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
+            this._DoktorAdi_textBox.Location = new System.Drawing.Point(145, 21);
             this._DoktorAdi_textBox.Name = "_DoktorAdi_textBox";
             this._DoktorAdi_textBox.Size = new System.Drawing.Size(157, 26);
             this._DoktorAdi_textBox.TabIndex = 33;
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "BEYİN\t",

@@ -86,6 +86,7 @@
             // 
             // _PersonelAdi_textBox
             // 
+            this._PersonelAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._PersonelAdi_textBox.Location = new System.Drawing.Point(140, 39);
             this._PersonelAdi_textBox.Name = "_PersonelAdi_textBox";
             this._PersonelAdi_textBox.Size = new System.Drawing.Size(205, 26);
@@ -93,6 +94,7 @@
             // 
             // _PersonelSoyadi_textBox
             // 
+            this._PersonelSoyadi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._PersonelSoyadi_textBox.Location = new System.Drawing.Point(140, 94);
             this._PersonelSoyadi_textBox.Name = "_PersonelSoyadi_textBox";
             this._PersonelSoyadi_textBox.Size = new System.Drawing.Size(205, 26);

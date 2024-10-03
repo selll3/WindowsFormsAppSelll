@@ -66,6 +66,7 @@
             // 
             // _HastaAdi_textBox
             // 
+            this._HastaAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._HastaAdi_textBox.Location = new System.Drawing.Point(139, 22);
             this._HastaAdi_textBox.Name = "_HastaAdi_textBox";
             this._HastaAdi_textBox.Size = new System.Drawing.Size(151, 26);
@@ -73,6 +74,7 @@
             // 
             // _HastaSoyadi_textBox
             // 
+            this._HastaSoyadi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._HastaSoyadi_textBox.Location = new System.Drawing.Point(139, 77);
             this._HastaSoyadi_textBox.Name = "_HastaSoyadi_textBox";
             this._HastaSoyadi_textBox.Size = new System.Drawing.Size(151, 26);
@@ -108,6 +110,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.numericUpDown1.Location = new System.Drawing.Point(139, 143);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(79, 26);

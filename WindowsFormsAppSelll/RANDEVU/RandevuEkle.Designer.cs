@@ -72,6 +72,7 @@
             // 
             // _RandevuSaati_dateTimePicker
             // 
+            this._RandevuSaati_dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._RandevuSaati_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this._RandevuSaati_dateTimePicker.Location = new System.Drawing.Point(135, 84);
             this._RandevuSaati_dateTimePicker.Name = "_RandevuSaati_dateTimePicker";
@@ -80,6 +81,8 @@
             // 
             // _RandevuTarihi_dateTimePicker
             // 
+            this._RandevuTarihi_dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
+            this._RandevuTarihi_dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.LightSkyBlue;
             this._RandevuTarihi_dateTimePicker.Location = new System.Drawing.Point(140, 22);
             this._RandevuTarihi_dateTimePicker.Name = "_RandevuTarihi_dateTimePicker";
             this._RandevuTarihi_dateTimePicker.Size = new System.Drawing.Size(200, 26);
@@ -106,6 +109,7 @@
             // 
             // _Bulgu_textBox
             // 
+            this._Bulgu_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(250)))));
             this._Bulgu_textBox.Location = new System.Drawing.Point(135, 258);
             this._Bulgu_textBox.Multiline = true;
             this._Bulgu_textBox.Name = "_Bulgu_textBox";
@@ -114,6 +118,7 @@
             // 
             // _doktorBilgisi_comboBox
             // 
+            this._doktorBilgisi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._doktorBilgisi_comboBox.FormattingEnabled = true;
             this._doktorBilgisi_comboBox.Location = new System.Drawing.Point(135, 135);
             this._doktorBilgisi_comboBox.Name = "_doktorBilgisi_comboBox";
@@ -150,6 +155,7 @@
             // 
             // _HastaBilgisi_comboBox
             // 
+            this._HastaBilgisi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._HastaBilgisi_comboBox.FormattingEnabled = true;
             this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(135, 198);
             this._HastaBilgisi_comboBox.Name = "_HastaBilgisi_comboBox";

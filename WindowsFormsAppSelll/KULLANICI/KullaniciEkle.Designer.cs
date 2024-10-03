@@ -44,7 +44,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkLabel1.LinkColor = System.Drawing.Color.LightSkyBlue;
             this.linkLabel1.Location = new System.Drawing.Point(287, 122);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(124, 27);
@@ -55,6 +55,7 @@
             // 
             // kullaniciAdi_textBox
             // 
+            this.kullaniciAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.kullaniciAdi_textBox.Location = new System.Drawing.Point(118, 24);
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(206, 26);
@@ -63,6 +64,7 @@
             // 
             // _Parola_textBox
             // 
+            this._Parola_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._Parola_textBox.Location = new System.Drawing.Point(118, 83);
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.PasswordChar = '*';

@@ -103,6 +103,7 @@
             // 
             // kullaniciAdi_textBox
             // 
+            this.kullaniciAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.kullaniciAdi_textBox.Location = new System.Drawing.Point(130, 20);
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(206, 26);
@@ -110,6 +111,7 @@
             // 
             // _Parola_textBox
             // 
+            this._Parola_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._Parola_textBox.Location = new System.Drawing.Point(130, 78);
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.PasswordChar = '*';

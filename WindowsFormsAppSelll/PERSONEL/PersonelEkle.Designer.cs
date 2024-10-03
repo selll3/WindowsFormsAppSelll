@@ -100,6 +100,7 @@
             // 
             // _PersonelAdi_textBox
             // 
+            this._PersonelAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._PersonelAdi_textBox.Location = new System.Drawing.Point(161, 22);
             this._PersonelAdi_textBox.Name = "_PersonelAdi_textBox";
             this._PersonelAdi_textBox.Size = new System.Drawing.Size(174, 26);
@@ -107,6 +108,7 @@
             // 
             // _PersonelSoyadi_textBox
             // 
+            this._PersonelSoyadi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._PersonelSoyadi_textBox.Location = new System.Drawing.Point(161, 88);
             this._PersonelSoyadi_textBox.Name = "_PersonelSoyadi_textBox";
             this._PersonelSoyadi_textBox.Size = new System.Drawing.Size(174, 26);
@@ -114,6 +116,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Doktor",
@@ -127,6 +130,7 @@
             // 
             // _kullanici_comboBox
             // 
+            this._kullanici_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._kullanici_comboBox.FormattingEnabled = true;
             this._kullanici_comboBox.Location = new System.Drawing.Point(161, 236);
             this._kullanici_comboBox.Name = "_kullanici_comboBox";
@@ -145,6 +149,7 @@
             // 
             // _doktorunkati_numericUpDown
             // 
+            this._doktorunkati_numericUpDown.BackColor = System.Drawing.Color.LightSkyBlue;
             this._doktorunkati_numericUpDown.Location = new System.Drawing.Point(493, 10);
             this._doktorunkati_numericUpDown.Name = "_doktorunkati_numericUpDown";
             this._doktorunkati_numericUpDown.Size = new System.Drawing.Size(57, 26);
@@ -152,6 +157,7 @@
             // 
             // _doktorunbransi_comboBox
             // 
+            this._doktorunbransi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._doktorunbransi_comboBox.FormattingEnabled = true;
             this._doktorunbransi_comboBox.Items.AddRange(new object[] {
             "KALP",
