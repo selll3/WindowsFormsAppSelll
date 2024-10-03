@@ -61,7 +61,7 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         public void LoadDatakullanici()
         {
-            Database.Model.Kullanicilar.KullanicilariGetir();
+            _kullanicilar_dataGridView.DataSource=Database.Model.Kullanicilar.KullanicilariGetir();
        
            //_kullanicilar_dataGridView.DataSource = dk.GIRIS
            //     .Select(r => new
@@ -83,8 +83,8 @@ namespace WindowsFormsAppSelll.KULLANICI
 
         private void Kullanicilar_Load(object sender, EventArgs e)
         {
-            _kullanicilar_dataGridView.Columns[1].ReadOnly = true;
-            _kullanicilar_dataGridView.Columns[2].ReadOnly = true;
+            //_kullanicilar_dataGridView.Columns[1].ReadOnly = true;
+            //_kullanicilar_dataGridView.Columns[2].ReadOnly = true;
 
             _kullanicilar_dataGridView.RowHeadersVisible = false;
 

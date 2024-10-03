@@ -63,7 +63,7 @@ namespace WindowsFormsAppSelll
             //_Personeller_dataGridView.DataSource = dtp;
 
 
-            Database.Model.Personeller.PersoneliGetir();
+            _Personeller_dataGridView.DataSource = Database.Model.Personeller.PersoneliGetir();
             //_Personeller_dataGridView.DataSource = Database.Model.Personeller.dp.PERSONEL
             //    .Select(r => new
             //    {
@@ -117,7 +117,7 @@ namespace WindowsFormsAppSelll
                     control.Visible = true;
                 }
             }
-            Database.Model.Personeller.PersoneliGetir();
+            _Personeller_dataGridView.DataSource = Database.Model.Personeller.PersoneliGetir();
             //_Personeller_dataGridView.DataSource = Database.Model.Personeller.dp.PERSONEL
             //   .Select(r => new
             //   {
@@ -240,9 +240,9 @@ namespace WindowsFormsAppSelll
         private void Personeller_Load(object sender, EventArgs e)
         {
             _Personeller_dataGridView.RowHeadersVisible = false;
-            _Personeller_dataGridView.Columns[0].ReadOnly = true;
-            _Personeller_dataGridView.Columns[1].ReadOnly = true;
-            _Personeller_dataGridView.Columns[2].ReadOnly = true;
+            //    _Personeller_dataGridView.Columns[0].ReadOnly = true;
+            //    _Personeller_dataGridView.Columns[1].ReadOnly = true;
+            //    _Personeller_dataGridView.Columns[2].ReadOnly = true;
         }
 
         private void _Kayıt_button_Click(object sender, EventArgs e)

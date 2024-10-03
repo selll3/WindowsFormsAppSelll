@@ -75,7 +75,7 @@ namespace WindowsFormsAppSelll
             //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
             //    }).ToList();
 
-            Database.Model.Randevular.RandevulariGetir();
+            _Randevular_dataGridView.DataSource = Database.Model.Randevular.RandevulariGetir();
             // RANDEVUID sütununu gizle
             //if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
             //{
@@ -132,7 +132,7 @@ namespace WindowsFormsAppSelll
             //        // r.Bulgu gibi başka sütunlar da ekleyebilirsin
             //    }).ToList();
 
-            Database.Model.Randevular.RandevulariGetir();
+            _Randevular_dataGridView.DataSource= Database.Model.Randevular.RandevulariGetir();
             // RANDEVUID sütununu gizle
             //if (_Randevular_dataGridView.Columns.Contains("RANDEVUID"))
             //{
