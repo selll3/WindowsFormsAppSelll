@@ -47,7 +47,8 @@
             // _dkayıt_button
             // 
             this._dkayıt_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._dkayıt_button.Location = new System.Drawing.Point(38, 22);
+            this._dkayıt_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._dkayıt_button.Location = new System.Drawing.Point(16, 22);
             this._dkayıt_button.Name = "_dkayıt_button";
             this._dkayıt_button.Size = new System.Drawing.Size(113, 36);
             this._dkayıt_button.TabIndex = 1;
@@ -59,7 +60,8 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Location = new System.Drawing.Point(231, 22);
+            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec_button.Location = new System.Drawing.Point(253, 22);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(112, 36);
             this._Vazgec_button.TabIndex = 22;

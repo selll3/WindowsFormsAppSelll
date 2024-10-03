@@ -28,6 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Doktorlar));
             this._Sil_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
@@ -49,9 +56,10 @@
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Sil_button.Enabled = false;
+            this._Sil_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Sil_button.Location = new System.Drawing.Point(542, 21);
             this._Sil_button.Name = "_Sil_button";
-            this._Sil_button.Size = new System.Drawing.Size(110, 41);
+            this._Sil_button.Size = new System.Drawing.Size(116, 41);
             this._Sil_button.TabIndex = 2;
             this._Sil_button.Text = "SİL";
             this._Sil_button.UseVisualStyleBackColor = false;
@@ -61,9 +69,10 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Vazgec_button.Location = new System.Drawing.Point(177, 21);
             this._Vazgec_button.Name = "_Vazgec_button";
-            this._Vazgec_button.Size = new System.Drawing.Size(110, 41);
+            this._Vazgec_button.Size = new System.Drawing.Size(116, 41);
             this._Vazgec_button.TabIndex = 20;
             this._Vazgec_button.Text = "VAZGEÇ";
             this._Vazgec_button.UseVisualStyleBackColor = false;
@@ -75,6 +84,14 @@
             this._Doktorlar_dataGridView.AllowUserToDeleteRows = false;
             this._Doktorlar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Doktorlar_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._Doktorlar_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._Doktorlar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Doktorlar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DoktorAdi,
@@ -83,6 +100,14 @@
             this.Doktorun_kati,
             this.PERSONELID});
             this._Doktorlar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(163)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._Doktorlar_dataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this._Doktorlar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Doktorlar_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._Doktorlar_dataGridView.Name = "_Doktorlar_dataGridView";
@@ -99,9 +124,10 @@
             this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Ekle_button.Enabled = false;
+            this._Ekle_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Ekle_button.Location = new System.Drawing.Point(3, 21);
             this._Ekle_button.Name = "_Ekle_button";
-            this._Ekle_button.Size = new System.Drawing.Size(110, 41);
+            this._Ekle_button.Size = new System.Drawing.Size(116, 41);
             this._Ekle_button.TabIndex = 39;
             this._Ekle_button.Text = "EKLE";
             this._Ekle_button.UseVisualStyleBackColor = false;
@@ -113,9 +139,10 @@
             this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._GUNCELLE_button.Enabled = false;
+            this._GUNCELLE_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._GUNCELLE_button.Location = new System.Drawing.Point(363, 21);
             this._GUNCELLE_button.Name = "_GUNCELLE_button";
-            this._GUNCELLE_button.Size = new System.Drawing.Size(110, 41);
+            this._GUNCELLE_button.Size = new System.Drawing.Size(116, 41);
             this._GUNCELLE_button.TabIndex = 40;
             this._GUNCELLE_button.Text = "GÜNCELLE";
             this._GUNCELLE_button.UseVisualStyleBackColor = false;
@@ -137,6 +164,12 @@
             // DoktorAdi
             // 
             this.DoktorAdi.DataPropertyName = "DoktorAdi";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(164)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.DoktorAdi.DefaultCellStyle = dataGridViewCellStyle2;
             this.DoktorAdi.HeaderText = "Doktor Adı";
             this.DoktorAdi.MinimumWidth = 8;
             this.DoktorAdi.Name = "DoktorAdi";
@@ -145,6 +178,12 @@
             // DoktorSoyadi
             // 
             this.DoktorSoyadi.DataPropertyName = "DoktorSoyadi";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(164)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.DoktorSoyadi.DefaultCellStyle = dataGridViewCellStyle3;
             this.DoktorSoyadi.HeaderText = "Doktor Soyadı";
             this.DoktorSoyadi.MinimumWidth = 8;
             this.DoktorSoyadi.Name = "DoktorSoyadi";
@@ -153,6 +192,12 @@
             // DoktorunBransi
             // 
             this.DoktorunBransi.DataPropertyName = "DoktorunBransi";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(164)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DoktorunBransi.DefaultCellStyle = dataGridViewCellStyle4;
             this.DoktorunBransi.HeaderText = "Doktor Bransi";
             this.DoktorunBransi.MinimumWidth = 8;
             this.DoktorunBransi.Name = "DoktorunBransi";
@@ -161,6 +206,12 @@
             // Doktorun_kati
             // 
             this.Doktorun_kati.DataPropertyName = "Doktorun_kati";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(164)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.Doktorun_kati.DefaultCellStyle = dataGridViewCellStyle5;
             this.Doktorun_kati.HeaderText = "Doktorun katı";
             this.Doktorun_kati.MinimumWidth = 8;
             this.Doktorun_kati.Name = "Doktorun_kati";
@@ -168,6 +219,12 @@
             // PERSONELID
             // 
             this.PERSONELID.DataPropertyName = "PERSONELID";
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(172)))), ((int)(((byte)(209)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.PERSONELID.DefaultCellStyle = dataGridViewCellStyle6;
             this.PERSONELID.HeaderText = "Personel id";
             this.PERSONELID.MinimumWidth = 8;
             this.PERSONELID.Name = "PERSONELID";

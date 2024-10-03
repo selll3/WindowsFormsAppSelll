@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Muayeneler));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._Ekle_button = new System.Windows.Forms.Button();
-            this.vazgec_button = new System.Windows.Forms.Button();
             this.MuayeneTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOKTORID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HASTAID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.islendiBilgisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._Ekle_button = new System.Windows.Forms.Button();
+            this.vazgec_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +46,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LavenderBlush;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MuayeneTarihi,
@@ -50,6 +61,14 @@
             this.HASTAID,
             this.Aciklama,
             this.islendiBilgisi});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LavenderBlush;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(163)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -60,32 +79,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(558, 585);
             this.dataGridView1.TabIndex = 0;
             // 
-            // _Ekle_button
-            // 
-            this._Ekle_button.Location = new System.Drawing.Point(100, 625);
-            this._Ekle_button.Name = "_Ekle_button";
-            this._Ekle_button.Size = new System.Drawing.Size(136, 45);
-            this._Ekle_button.TabIndex = 1;
-            this._Ekle_button.Text = "EKLE";
-            this._Ekle_button.UseVisualStyleBackColor = true;
-            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
-            // 
-            // vazgec_button
-            // 
-            this.vazgec_button.Location = new System.Drawing.Point(345, 625);
-            this.vazgec_button.Name = "vazgec_button";
-            this.vazgec_button.Size = new System.Drawing.Size(133, 45);
-            this.vazgec_button.TabIndex = 2;
-            this.vazgec_button.Text = "VAZGEÇ";
-            this.vazgec_button.UseVisualStyleBackColor = true;
-            this.vazgec_button.Click += new System.EventHandler(this.vazgec_button_Click);
-            // 
             // MuayeneTarihi
             // 
             this.MuayeneTarihi.DataPropertyName = "MuayeneTarihi";
             this.MuayeneTarihi.HeaderText = "Muayene Tarihi";
             this.MuayeneTarihi.MinimumWidth = 8;
             this.MuayeneTarihi.Name = "MuayeneTarihi";
+            this.MuayeneTarihi.ReadOnly = true;
             // 
             // DOKTORID
             // 
@@ -93,6 +93,7 @@
             this.DOKTORID.HeaderText = "Doktor id";
             this.DOKTORID.MinimumWidth = 8;
             this.DOKTORID.Name = "DOKTORID";
+            this.DOKTORID.ReadOnly = true;
             // 
             // HASTAID
             // 
@@ -100,6 +101,7 @@
             this.HASTAID.HeaderText = "Hasta id";
             this.HASTAID.MinimumWidth = 8;
             this.HASTAID.Name = "HASTAID";
+            this.HASTAID.ReadOnly = true;
             // 
             // Aciklama
             // 
@@ -107,6 +109,7 @@
             this.Aciklama.HeaderText = "Açıklama";
             this.Aciklama.MinimumWidth = 8;
             this.Aciklama.Name = "Aciklama";
+            this.Aciklama.ReadOnly = true;
             // 
             // islendiBilgisi
             // 
@@ -114,11 +117,37 @@
             this.islendiBilgisi.HeaderText = "İşlendi Bilgisi";
             this.islendiBilgisi.MinimumWidth = 8;
             this.islendiBilgisi.Name = "islendiBilgisi";
+            this.islendiBilgisi.ReadOnly = true;
+            // 
+            // _Ekle_button
+            // 
+            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._Ekle_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Ekle_button.Location = new System.Drawing.Point(100, 625);
+            this._Ekle_button.Name = "_Ekle_button";
+            this._Ekle_button.Size = new System.Drawing.Size(136, 45);
+            this._Ekle_button.TabIndex = 1;
+            this._Ekle_button.Text = "EKLE";
+            this._Ekle_button.UseVisualStyleBackColor = false;
+            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
+            // 
+            // vazgec_button
+            // 
+            this.vazgec_button.BackColor = System.Drawing.Color.Khaki;
+            this.vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vazgec_button.Location = new System.Drawing.Point(345, 625);
+            this.vazgec_button.Name = "vazgec_button";
+            this.vazgec_button.Size = new System.Drawing.Size(133, 45);
+            this.vazgec_button.TabIndex = 2;
+            this.vazgec_button.Text = "VAZGEÇ";
+            this.vazgec_button.UseVisualStyleBackColor = false;
+            this.vazgec_button.Click += new System.EventHandler(this.vazgec_button_Click);
             // 
             // Muayeneler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(558, 715);
             this.ControlBox = false;
             this.Controls.Add(this.vazgec_button);

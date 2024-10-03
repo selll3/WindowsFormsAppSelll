@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hastalar));
             this._Sil_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
             this._Hastalar_dataGridView = new System.Windows.Forms.DataGridView();
-            this._GUNCELLE_button = new System.Windows.Forms.Button();
-            this._Ekle_button = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.HastaAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HastaSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HastaYasi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._GUNCELLE_button = new System.Windows.Forms.Button();
+            this._Ekle_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this._Hastalar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +49,7 @@
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Sil_button.Enabled = false;
+            this._Sil_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Sil_button.Location = new System.Drawing.Point(553, 37);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(122, 38);
@@ -59,6 +62,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Vazgec_button.Location = new System.Drawing.Point(192, 37);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(122, 38);
@@ -72,12 +76,28 @@
             this._Hastalar_dataGridView.AllowUserToAddRows = false;
             this._Hastalar_dataGridView.AllowUserToDeleteRows = false;
             this._Hastalar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Modern No. 20", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._Hastalar_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._Hastalar_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._Hastalar_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HastaAdi,
             this.HastaSoyadi,
             this.HastaYasi});
             this._Hastalar_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LavenderBlush;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(163)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._Hastalar_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this._Hastalar_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this._Hastalar_dataGridView.Location = new System.Drawing.Point(0, 0);
             this._Hastalar_dataGridView.Name = "_Hastalar_dataGridView";
@@ -88,44 +108,6 @@
             this._Hastalar_dataGridView.Size = new System.Drawing.Size(678, 578);
             this._Hastalar_dataGridView.TabIndex = 23;
             this._Hastalar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._Hastalar_dataGridView_CellContentClick);
-            // 
-            // _GUNCELLE_button
-            // 
-            this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._GUNCELLE_button.Enabled = false;
-            this._GUNCELLE_button.Location = new System.Drawing.Point(374, 37);
-            this._GUNCELLE_button.Name = "_GUNCELLE_button";
-            this._GUNCELLE_button.Size = new System.Drawing.Size(122, 38);
-            this._GUNCELLE_button.TabIndex = 30;
-            this._GUNCELLE_button.Text = "GÜNCELLE";
-            this._GUNCELLE_button.UseVisualStyleBackColor = false;
-            this._GUNCELLE_button.Click += new System.EventHandler(this._GUNCELLE_button_Click);
-            // 
-            // _Ekle_button
-            // 
-            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Ekle_button.Enabled = false;
-            this._Ekle_button.Location = new System.Drawing.Point(0, 37);
-            this._Ekle_button.Name = "_Ekle_button";
-            this._Ekle_button.Size = new System.Drawing.Size(122, 38);
-            this._Ekle_button.TabIndex = 37;
-            this._Ekle_button.Text = "EKLE";
-            this._Ekle_button.UseVisualStyleBackColor = false;
-            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this._Ekle_button);
-            this.panel1.Controls.Add(this._GUNCELLE_button);
-            this.panel1.Controls.Add(this._Sil_button);
-            this.panel1.Controls.Add(this._Vazgec_button);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 596);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(678, 100);
-            this.panel1.TabIndex = 38;
             // 
             // HastaAdi
             // 
@@ -150,6 +132,46 @@
             this.HastaYasi.MinimumWidth = 8;
             this.HastaYasi.Name = "HastaYasi";
             this.HastaYasi.ReadOnly = true;
+            // 
+            // _GUNCELLE_button
+            // 
+            this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._GUNCELLE_button.Enabled = false;
+            this._GUNCELLE_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._GUNCELLE_button.Location = new System.Drawing.Point(374, 37);
+            this._GUNCELLE_button.Name = "_GUNCELLE_button";
+            this._GUNCELLE_button.Size = new System.Drawing.Size(122, 38);
+            this._GUNCELLE_button.TabIndex = 30;
+            this._GUNCELLE_button.Text = "GÜNCELLE";
+            this._GUNCELLE_button.UseVisualStyleBackColor = false;
+            this._GUNCELLE_button.Click += new System.EventHandler(this._GUNCELLE_button_Click);
+            // 
+            // _Ekle_button
+            // 
+            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Ekle_button.Enabled = false;
+            this._Ekle_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Ekle_button.Location = new System.Drawing.Point(0, 37);
+            this._Ekle_button.Name = "_Ekle_button";
+            this._Ekle_button.Size = new System.Drawing.Size(122, 38);
+            this._Ekle_button.TabIndex = 37;
+            this._Ekle_button.Text = "EKLE";
+            this._Ekle_button.UseVisualStyleBackColor = false;
+            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this._Ekle_button);
+            this.panel1.Controls.Add(this._GUNCELLE_button);
+            this.panel1.Controls.Add(this._Sil_button);
+            this.panel1.Controls.Add(this._Vazgec_button);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 594);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(678, 102);
+            this.panel1.TabIndex = 38;
             // 
             // Hastalar
             // 

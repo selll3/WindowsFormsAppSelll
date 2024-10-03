@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KullaniciGuncelle));
             this._KAYDET_button = new System.Windows.Forms.Button();
             this._Vazgec = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,6 +44,7 @@
             // _KAYDET_button
             // 
             this._KAYDET_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._KAYDET_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._KAYDET_button.Location = new System.Drawing.Point(112, 29);
             this._KAYDET_button.Name = "_KAYDET_button";
             this._KAYDET_button.Size = new System.Drawing.Size(92, 41);
@@ -54,6 +56,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
+            this._Vazgec.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Vazgec.Location = new System.Drawing.Point(299, 29);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(92, 41);
@@ -137,6 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(502, 245);
             this.ControlBox = false;
             this.Controls.Add(this.checkBox1);

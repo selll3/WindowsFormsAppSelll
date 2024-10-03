@@ -42,6 +42,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
+            this.button1.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(342, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 40);
@@ -90,6 +91,7 @@
             // Login_button
             // 
             this.Login_button.BackColor = System.Drawing.Color.PaleGreen;
+            this.Login_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_button.Location = new System.Drawing.Point(12, 212);
             this.Login_button.Name = "Login_button";
             this.Login_button.Size = new System.Drawing.Size(121, 40);

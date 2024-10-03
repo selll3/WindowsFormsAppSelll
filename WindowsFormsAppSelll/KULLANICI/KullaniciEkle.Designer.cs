@@ -92,6 +92,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.PaleGreen;
+            this.button1.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(16, 175);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 37);
@@ -103,7 +104,8 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Khaki;
-            this.button2.Location = new System.Drawing.Point(263, 175);
+            this.button2.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(362, 178);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 34);
             this.button2.TabIndex = 17;

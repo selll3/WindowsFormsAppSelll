@@ -43,9 +43,9 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Font = new System.Drawing.Font("Monospac821 BT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(72, 34);
+            this.label1.Location = new System.Drawing.Point(92, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(389, 55);
             this.label1.TabIndex = 0;
@@ -56,7 +56,8 @@
             // 
             this._DOK_button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this._DOK_button1.Enabled = false;
-            this._DOK_button1.Location = new System.Drawing.Point(125, 102);
+            this._DOK_button1.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._DOK_button1.Location = new System.Drawing.Point(125, 67);
             this._DOK_button1.Name = "_DOK_button1";
             this._DOK_button1.Size = new System.Drawing.Size(134, 38);
             this._DOK_button1.TabIndex = 1;
@@ -68,7 +69,8 @@
             // 
             this._RANDE_button2.BackColor = System.Drawing.Color.LightSkyBlue;
             this._RANDE_button2.Enabled = false;
-            this._RANDE_button2.Location = new System.Drawing.Point(12, 268);
+            this._RANDE_button2.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._RANDE_button2.Location = new System.Drawing.Point(12, 233);
             this._RANDE_button2.Name = "_RANDE_button2";
             this._RANDE_button2.Size = new System.Drawing.Size(134, 38);
             this._RANDE_button2.TabIndex = 2;
@@ -80,7 +82,8 @@
             // 
             this._hastalar_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._hastalar_button.Enabled = false;
-            this._hastalar_button.Location = new System.Drawing.Point(244, 268);
+            this._hastalar_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._hastalar_button.Location = new System.Drawing.Point(246, 233);
             this._hastalar_button.Name = "_hastalar_button";
             this._hastalar_button.Size = new System.Drawing.Size(134, 38);
             this._hastalar_button.TabIndex = 3;
@@ -92,7 +95,8 @@
             // 
             this._PERS_button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this._PERS_button4.Enabled = false;
-            this._PERS_button4.Location = new System.Drawing.Point(12, 384);
+            this._PERS_button4.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._PERS_button4.Location = new System.Drawing.Point(12, 342);
             this._PERS_button4.Name = "_PERS_button4";
             this._PERS_button4.Size = new System.Drawing.Size(134, 38);
             this._PERS_button4.TabIndex = 4;
@@ -104,9 +108,10 @@
             // 
             this._kullanicilarb.BackColor = System.Drawing.Color.LightSkyBlue;
             this._kullanicilarb.Enabled = false;
-            this._kullanicilarb.Location = new System.Drawing.Point(125, 485);
+            this._kullanicilarb.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._kullanicilarb.Location = new System.Drawing.Point(109, 426);
             this._kullanicilarb.Name = "_kullanicilarb";
-            this._kullanicilarb.Size = new System.Drawing.Size(134, 38);
+            this._kullanicilarb.Size = new System.Drawing.Size(162, 38);
             this._kullanicilarb.TabIndex = 22;
             this._kullanicilarb.Text = "KULLANICILAR";
             this._kullanicilarb.UseVisualStyleBackColor = false;
@@ -115,7 +120,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Location = new System.Drawing.Point(12, 584);
+            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 523);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 34);
             this.button1.TabIndex = 23;
@@ -127,7 +133,8 @@
             // 
             this._Muayene_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._Muayene_button.Enabled = false;
-            this._Muayene_button.Location = new System.Drawing.Point(244, 384);
+            this._Muayene_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._Muayene_button.Location = new System.Drawing.Point(246, 342);
             this._Muayene_button.Name = "_Muayene_button";
             this._Muayene_button.Size = new System.Drawing.Size(134, 38);
             this._Muayene_button.TabIndex = 24;
@@ -139,7 +146,8 @@
             // 
             this._DoktorMuayeneleri_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._DoktorMuayeneleri_button.Enabled = false;
-            this._DoktorMuayeneleri_button.Location = new System.Drawing.Point(125, 175);
+            this._DoktorMuayeneleri_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._DoktorMuayeneleri_button.Location = new System.Drawing.Point(125, 128);
             this._DoktorMuayeneleri_button.Name = "_DoktorMuayeneleri_button";
             this._DoktorMuayeneleri_button.Size = new System.Drawing.Size(134, 52);
             this._DoktorMuayeneleri_button.TabIndex = 25;
@@ -152,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(392, 644);
+            this.ClientSize = new System.Drawing.Size(410, 613);
             this.ControlBox = false;
             this.Controls.Add(this._DoktorMuayeneleri_button);
             this.Controls.Add(this._Muayene_button);

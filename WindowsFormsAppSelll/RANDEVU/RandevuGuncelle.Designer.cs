@@ -48,6 +48,7 @@
             // _vazgec_button
             // 
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
+            this._vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._vazgec_button.Location = new System.Drawing.Point(306, 35);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(125, 40);
@@ -59,6 +60,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._kaydet_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._kaydet_button.Location = new System.Drawing.Point(100, 35);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(125, 40);
