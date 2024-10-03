@@ -10,12 +10,20 @@ namespace Database.Model
 {
     public static class Kullanicilar
     {  public static Hastanedb dbk = new Hastanedb();
-        public static List<GIRIS> KullanicilariGetir()
+        public static List<dynamic> KullanicilariGetir()
         {
 
 
+            var kullanicilarigetir = dbk.GIRIS
+                .Select(k => new
+                {  k.KULLANICIID,
+                   k.KullaniciAdi,
+                   k.Parola
+                })
+                .ToList<dynamic>();          // Dinamik olarak listeye dönüştür
 
-            return dbk.GIRIS.ToList();
+            return kullanicilarigetir;
+
         }
         public static bool KullaniciEkle(GIRIS kullanici)
         {
