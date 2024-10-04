@@ -47,7 +47,7 @@
             // _dkayıt_button
             // 
             this._dkayıt_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._dkayıt_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._dkayıt_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._dkayıt_button.Location = new System.Drawing.Point(16, 22);
             this._dkayıt_button.Name = "_dkayıt_button";
             this._dkayıt_button.Size = new System.Drawing.Size(113, 36);
@@ -60,7 +60,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Vazgec_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Vazgec_button.Location = new System.Drawing.Point(271, 22);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(112, 36);

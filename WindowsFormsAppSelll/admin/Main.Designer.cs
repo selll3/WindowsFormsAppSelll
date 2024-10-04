@@ -128,7 +128,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(353, 543);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 34);
