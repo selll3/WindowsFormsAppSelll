@@ -122,7 +122,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec_button.Location = new System.Drawing.Point(571, 422);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(120, 40);

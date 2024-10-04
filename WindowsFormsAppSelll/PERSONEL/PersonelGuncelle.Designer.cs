@@ -42,7 +42,7 @@
             // _vazgec_button
             // 
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._vazgec_button.Location = new System.Drawing.Point(259, 27);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(125, 37);
@@ -54,7 +54,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._kaydet_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._kaydet_button.Location = new System.Drawing.Point(45, 27);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(125, 37);
@@ -78,11 +78,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(32, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 20);
+            this.label1.Size = new System.Drawing.Size(77, 33);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Adı ";
+            this.label1.Text = "Adı :";
             // 
             // _PersonelAdi_textBox
             // 
@@ -104,11 +105,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(32, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(120, 33);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Soyadı";
+            this.label2.Text = "Soyadı :";
             // 
             // PersonelGuncelle
             // 

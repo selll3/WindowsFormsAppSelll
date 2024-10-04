@@ -44,10 +44,10 @@
             // _KAYDET_button
             // 
             this._KAYDET_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._KAYDET_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._KAYDET_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._KAYDET_button.Location = new System.Drawing.Point(112, 29);
             this._KAYDET_button.Name = "_KAYDET_button";
-            this._KAYDET_button.Size = new System.Drawing.Size(92, 41);
+            this._KAYDET_button.Size = new System.Drawing.Size(109, 41);
             this._KAYDET_button.TabIndex = 6;
             this._KAYDET_button.Text = "KAYDET";
             this._KAYDET_button.UseVisualStyleBackColor = false;
@@ -56,10 +56,10 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec.Location = new System.Drawing.Point(299, 29);
             this._Vazgec.Name = "_Vazgec";
-            this._Vazgec.Size = new System.Drawing.Size(92, 41);
+            this._Vazgec.Size = new System.Drawing.Size(104, 41);
             this._Vazgec.TabIndex = 5;
             this._Vazgec.Text = "VAZGEÇ";
             this._Vazgec.UseVisualStyleBackColor = false;
@@ -70,9 +70,9 @@
             this.panel1.Controls.Add(this._KAYDET_button);
             this.panel1.Controls.Add(this._Vazgec);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 149);
+            this.panel1.Location = new System.Drawing.Point(0, 157);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 96);
+            this.panel1.Size = new System.Drawing.Size(520, 96);
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -80,7 +80,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(363, 80);
+            this.checkBox1.Location = new System.Drawing.Point(381, 80);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(139, 24);
             this.checkBox1.TabIndex = 26;
@@ -94,7 +94,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(366, 119);
+            this.linkLabel1.Location = new System.Drawing.Point(394, 127);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(124, 27);
             this.linkLabel1.TabIndex = 23;
@@ -104,7 +104,7 @@
             // kullaniciAdi_textBox
             // 
             this.kullaniciAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
-            this.kullaniciAdi_textBox.Location = new System.Drawing.Point(130, 20);
+            this.kullaniciAdi_textBox.Location = new System.Drawing.Point(167, 23);
             this.kullaniciAdi_textBox.Name = "kullaniciAdi_textBox";
             this.kullaniciAdi_textBox.Size = new System.Drawing.Size(206, 26);
             this.kullaniciAdi_textBox.TabIndex = 22;
@@ -112,7 +112,7 @@
             // _Parola_textBox
             // 
             this._Parola_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
-            this._Parola_textBox.Location = new System.Drawing.Point(130, 78);
+            this._Parola_textBox.Location = new System.Drawing.Point(167, 78);
             this._Parola_textBox.Name = "_Parola_textBox";
             this._Parola_textBox.PasswordChar = '*';
             this._Parola_textBox.Size = new System.Drawing.Size(206, 26);
@@ -122,9 +122,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(3, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 20);
+            this.label2.Size = new System.Drawing.Size(119, 33);
             this.label2.TabIndex = 20;
             this.label2.Text = "Parola :";
             // 
@@ -132,9 +133,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(3, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.Size = new System.Drawing.Size(206, 33);
             this.label1.TabIndex = 19;
             this.label1.Text = "Kullanıcı Adı :";
             // 
@@ -143,7 +145,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(502, 245);
+            this.ClientSize = new System.Drawing.Size(520, 253);
             this.ControlBox = false;
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.linkLabel1);

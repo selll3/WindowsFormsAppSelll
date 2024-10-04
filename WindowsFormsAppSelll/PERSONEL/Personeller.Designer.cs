@@ -50,7 +50,7 @@
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Sil_button.Enabled = false;
-            this._Sil_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Sil_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Sil_button.Location = new System.Drawing.Point(513, 27);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(120, 39);
@@ -63,7 +63,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec_button.Location = new System.Drawing.Point(163, 26);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(120, 40);
@@ -143,10 +143,10 @@
             this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._GUNCELLE_button.Enabled = false;
-            this._GUNCELLE_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._GUNCELLE_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._GUNCELLE_button.Location = new System.Drawing.Point(328, 26);
             this._GUNCELLE_button.Name = "_GUNCELLE_button";
-            this._GUNCELLE_button.Size = new System.Drawing.Size(120, 39);
+            this._GUNCELLE_button.Size = new System.Drawing.Size(128, 39);
             this._GUNCELLE_button.TabIndex = 29;
             this._GUNCELLE_button.Text = "GÜNCELLE";
             this._GUNCELLE_button.UseVisualStyleBackColor = false;
@@ -157,7 +157,7 @@
             this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
             this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Ekle_button.Enabled = false;
-            this._Ekle_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Ekle_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Ekle_button.Location = new System.Drawing.Point(0, 26);
             this._Ekle_button.Name = "_Ekle_button";
             this._Ekle_button.Size = new System.Drawing.Size(120, 40);

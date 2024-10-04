@@ -53,9 +53,10 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(8, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 34);
+            this.label1.Size = new System.Drawing.Size(150, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hasta Bilgisi :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -63,9 +64,10 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(6, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 34);
+            this.label3.Size = new System.Drawing.Size(152, 34);
             this.label3.TabIndex = 2;
             this.label3.Text = "Doktor Bilgisi :";
             // 
@@ -73,7 +75,7 @@
             // 
             this._HastaBilgisi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._HastaBilgisi_comboBox.FormattingEnabled = true;
-            this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(148, 15);
+            this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(148, 16);
             this._HastaBilgisi_comboBox.Name = "_HastaBilgisi_comboBox";
             this._HastaBilgisi_comboBox.Size = new System.Drawing.Size(212, 28);
             this._HastaBilgisi_comboBox.TabIndex = 3;
@@ -92,7 +94,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._kaydet_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._kaydet_button.Location = new System.Drawing.Point(114, 536);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(127, 39);
@@ -104,7 +106,7 @@
             // _Vazgec_button
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this._Vazgec_button.Location = new System.Drawing.Point(297, 536);
             this._Vazgec_button.Name = "_Vazgec_button";
@@ -117,6 +119,7 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(8, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 35);
@@ -214,9 +217,10 @@
             // 
             this._islendi.AutoSize = true;
             this._islendi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(243)))), ((int)(((byte)(147)))));
+            this._islendi.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._islendi.Location = new System.Drawing.Point(436, 17);
             this._islendi.Name = "_islendi";
-            this._islendi.Size = new System.Drawing.Size(99, 24);
+            this._islendi.Size = new System.Drawing.Size(167, 39);
             this._islendi.TabIndex = 11;
             this._islendi.Text = "İŞLENDİ";
             this._islendi.UseVisualStyleBackColor = false;

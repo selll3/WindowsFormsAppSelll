@@ -39,14 +39,14 @@
             this._Sil_button = new System.Windows.Forms.Button();
             this._Vazgec_button = new System.Windows.Forms.Button();
             this._Doktorlar_dataGridView = new System.Windows.Forms.DataGridView();
-            this._Ekle_button = new System.Windows.Forms.Button();
-            this._GUNCELLE_button = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.DoktorAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoktorunBransi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Doktorun_kati = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PERSONELID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._Ekle_button = new System.Windows.Forms.Button();
+            this._GUNCELLE_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this._Doktorlar_dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this._Sil_button.BackColor = System.Drawing.Color.Red;
             this._Sil_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Sil_button.Enabled = false;
-            this._Sil_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Sil_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Sil_button.Location = new System.Drawing.Point(542, 21);
             this._Sil_button.Name = "_Sil_button";
             this._Sil_button.Size = new System.Drawing.Size(116, 41);
@@ -69,7 +69,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec_button.Location = new System.Drawing.Point(177, 21);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(116, 41);
@@ -118,48 +118,6 @@
             this._Doktorlar_dataGridView.TabIndex = 23;
             this._Doktorlar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._Doktorlar_dataGridView_CellContentClick);
             this._Doktorlar_dataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this._Doktorlar_dataGridView_RowValidating);
-            // 
-            // _Ekle_button
-            // 
-            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Ekle_button.Enabled = false;
-            this._Ekle_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._Ekle_button.Location = new System.Drawing.Point(3, 21);
-            this._Ekle_button.Name = "_Ekle_button";
-            this._Ekle_button.Size = new System.Drawing.Size(116, 41);
-            this._Ekle_button.TabIndex = 39;
-            this._Ekle_button.Text = "EKLE";
-            this._Ekle_button.UseVisualStyleBackColor = false;
-            this._Ekle_button.Visible = false;
-            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
-            // 
-            // _GUNCELLE_button
-            // 
-            this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._GUNCELLE_button.Enabled = false;
-            this._GUNCELLE_button.Font = new System.Drawing.Font("Stencil", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._GUNCELLE_button.Location = new System.Drawing.Point(363, 21);
-            this._GUNCELLE_button.Name = "_GUNCELLE_button";
-            this._GUNCELLE_button.Size = new System.Drawing.Size(116, 41);
-            this._GUNCELLE_button.TabIndex = 40;
-            this._GUNCELLE_button.Text = "GÜNCELLE";
-            this._GUNCELLE_button.UseVisualStyleBackColor = false;
-            this._GUNCELLE_button.Click += new System.EventHandler(this._GUNCELLE_button_Click_1);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this._Ekle_button);
-            this.panel1.Controls.Add(this._GUNCELLE_button);
-            this.panel1.Controls.Add(this._Sil_button);
-            this.panel1.Controls.Add(this._Vazgec_button);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 583);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 65);
-            this.panel1.TabIndex = 41;
             // 
             // DoktorAdi
             // 
@@ -228,6 +186,48 @@
             this.PERSONELID.HeaderText = "Personel id";
             this.PERSONELID.MinimumWidth = 8;
             this.PERSONELID.Name = "PERSONELID";
+            // 
+            // _Ekle_button
+            // 
+            this._Ekle_button.BackColor = System.Drawing.Color.PaleGreen;
+            this._Ekle_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._Ekle_button.Enabled = false;
+            this._Ekle_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Ekle_button.Location = new System.Drawing.Point(3, 21);
+            this._Ekle_button.Name = "_Ekle_button";
+            this._Ekle_button.Size = new System.Drawing.Size(116, 41);
+            this._Ekle_button.TabIndex = 39;
+            this._Ekle_button.Text = "EKLE";
+            this._Ekle_button.UseVisualStyleBackColor = false;
+            this._Ekle_button.Visible = false;
+            this._Ekle_button.Click += new System.EventHandler(this._Ekle_button_Click);
+            // 
+            // _GUNCELLE_button
+            // 
+            this._GUNCELLE_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this._GUNCELLE_button.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this._GUNCELLE_button.Enabled = false;
+            this._GUNCELLE_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._GUNCELLE_button.Location = new System.Drawing.Point(363, 21);
+            this._GUNCELLE_button.Name = "_GUNCELLE_button";
+            this._GUNCELLE_button.Size = new System.Drawing.Size(128, 41);
+            this._GUNCELLE_button.TabIndex = 40;
+            this._GUNCELLE_button.Text = "GÜNCELLE";
+            this._GUNCELLE_button.UseVisualStyleBackColor = false;
+            this._GUNCELLE_button.Click += new System.EventHandler(this._GUNCELLE_button_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this._Ekle_button);
+            this.panel1.Controls.Add(this._GUNCELLE_button);
+            this.panel1.Controls.Add(this._Sil_button);
+            this.panel1.Controls.Add(this._Vazgec_button);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 583);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(665, 65);
+            this.panel1.TabIndex = 41;
             // 
             // Doktorlar
             // 

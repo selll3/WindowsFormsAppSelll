@@ -64,7 +64,7 @@
             // 
             this._DOK_button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this._DOK_button1.Enabled = false;
-            this._DOK_button1.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._DOK_button1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._DOK_button1.Location = new System.Drawing.Point(15, 25);
             this._DOK_button1.Name = "_DOK_button1";
             this._DOK_button1.Size = new System.Drawing.Size(204, 38);
@@ -77,7 +77,7 @@
             // 
             this._RANDE_button2.BackColor = System.Drawing.Color.LightSkyBlue;
             this._RANDE_button2.Enabled = false;
-            this._RANDE_button2.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._RANDE_button2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._RANDE_button2.Location = new System.Drawing.Point(276, 23);
             this._RANDE_button2.Name = "_RANDE_button2";
             this._RANDE_button2.Size = new System.Drawing.Size(204, 38);
@@ -90,7 +90,7 @@
             // 
             this._hastalar_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._hastalar_button.Enabled = false;
-            this._hastalar_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._hastalar_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._hastalar_button.Location = new System.Drawing.Point(15, 23);
             this._hastalar_button.Name = "_hastalar_button";
             this._hastalar_button.Size = new System.Drawing.Size(204, 38);
@@ -103,7 +103,7 @@
             // 
             this._PERS_button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this._PERS_button4.Enabled = false;
-            this._PERS_button4.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._PERS_button4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._PERS_button4.Location = new System.Drawing.Point(15, 25);
             this._PERS_button4.Name = "_PERS_button4";
             this._PERS_button4.Size = new System.Drawing.Size(204, 38);
@@ -116,7 +116,7 @@
             // 
             this._kullanicilarb.BackColor = System.Drawing.Color.LightSkyBlue;
             this._kullanicilarb.Enabled = false;
-            this._kullanicilarb.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._kullanicilarb.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._kullanicilarb.Location = new System.Drawing.Point(276, 25);
             this._kullanicilarb.Name = "_kullanicilarb";
             this._kullanicilarb.Size = new System.Drawing.Size(204, 38);
@@ -128,7 +128,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(353, 543);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 34);
@@ -141,7 +141,7 @@
             // 
             this._Muayene_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._Muayene_button.Enabled = false;
-            this._Muayene_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._Muayene_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Muayene_button.Location = new System.Drawing.Point(15, 25);
             this._Muayene_button.Name = "_Muayene_button";
             this._Muayene_button.Size = new System.Drawing.Size(204, 38);
@@ -154,7 +154,7 @@
             // 
             this._DoktorMuayeneleri_button.BackColor = System.Drawing.Color.LightSkyBlue;
             this._DoktorMuayeneleri_button.Enabled = false;
-            this._DoktorMuayeneleri_button.Font = new System.Drawing.Font("Palatino Linotype", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this._DoktorMuayeneleri_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._DoktorMuayeneleri_button.Location = new System.Drawing.Point(276, 27);
             this._DoktorMuayeneleri_button.Name = "_DoktorMuayeneleri_button";
             this._DoktorMuayeneleri_button.Size = new System.Drawing.Size(204, 38);
@@ -167,49 +167,59 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.groupBox1.Controls.Add(this._DOK_button1);
-            this.groupBox1.Location = new System.Drawing.Point(-3, 84);
+            this.groupBox1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(-12, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 69);
+            this.groupBox1.Size = new System.Drawing.Size(499, 69);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doktorlar";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.MouseHover += new System.EventHandler(this.groupBox1_MouseHover);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.groupBox2.Controls.Add(this._Muayene_button);
             this.groupBox2.Controls.Add(this._DoktorMuayeneleri_button);
-            this.groupBox2.Location = new System.Drawing.Point(-3, 194);
+            this.groupBox2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Location = new System.Drawing.Point(-12, 194);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 71);
+            this.groupBox2.Size = new System.Drawing.Size(499, 71);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Muayeneler";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBox2.MouseHover += new System.EventHandler(this.groupBox2_MouseHover);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.groupBox3.Controls.Add(this._hastalar_button);
             this.groupBox3.Controls.Add(this._RANDE_button2);
-            this.groupBox3.Location = new System.Drawing.Point(-3, 303);
+            this.groupBox3.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Location = new System.Drawing.Point(-12, 303);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(490, 67);
+            this.groupBox3.Size = new System.Drawing.Size(499, 67);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Hastalar ve Randevular";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            this.groupBox3.MouseHover += new System.EventHandler(this.groupBox3_MouseHover);
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.groupBox4.Controls.Add(this._PERS_button4);
             this.groupBox4.Controls.Add(this._kullanicilarb);
-            this.groupBox4.Location = new System.Drawing.Point(-3, 414);
+            this.groupBox4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.groupBox4.Location = new System.Drawing.Point(-12, 414);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(490, 76);
+            this.groupBox4.Size = new System.Drawing.Size(499, 76);
             this.groupBox4.TabIndex = 29;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Personel ve Kullanıcılar";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            this.groupBox4.MouseHover += new System.EventHandler(this.groupBox4_MouseHover);
             // 
             // Main
             // 

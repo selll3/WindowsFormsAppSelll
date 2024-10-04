@@ -48,7 +48,7 @@
             // _vazgec_button
             // 
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._vazgec_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._vazgec_button.Location = new System.Drawing.Point(306, 35);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(125, 40);
@@ -60,7 +60,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._kaydet_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._kaydet_button.Location = new System.Drawing.Point(100, 35);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(125, 40);
@@ -82,9 +82,10 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(16, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 26);
+            this.label4.Size = new System.Drawing.Size(158, 26);
             this.label4.TabIndex = 24;
             this.label4.Text = "Hasta Bilgisi :";
             // 
@@ -92,7 +93,7 @@
             // 
             this._HastaBilgisi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._HastaBilgisi_comboBox.FormattingEnabled = true;
-            this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(154, 177);
+            this._HastaBilgisi_comboBox.Location = new System.Drawing.Point(180, 180);
             this._HastaBilgisi_comboBox.Name = "_HastaBilgisi_comboBox";
             this._HastaBilgisi_comboBox.Size = new System.Drawing.Size(239, 28);
             this._HastaBilgisi_comboBox.TabIndex = 23;
@@ -100,6 +101,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(16, 242);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 22);
@@ -109,9 +111,10 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(16, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 26);
+            this.label1.Size = new System.Drawing.Size(158, 26);
             this.label1.TabIndex = 21;
             this.label1.Text = "Doktor Bilgisi :";
             // 
@@ -119,7 +122,7 @@
             // 
             this._doktorBilgisi_comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._doktorBilgisi_comboBox.FormattingEnabled = true;
-            this._doktorBilgisi_comboBox.Location = new System.Drawing.Point(154, 125);
+            this._doktorBilgisi_comboBox.Location = new System.Drawing.Point(180, 126);
             this._doktorBilgisi_comboBox.Name = "_doktorBilgisi_comboBox";
             this._doktorBilgisi_comboBox.Size = new System.Drawing.Size(239, 28);
             this._doktorBilgisi_comboBox.TabIndex = 20;
@@ -127,7 +130,7 @@
             // _Bulgu_textBox
             // 
             this._Bulgu_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(250)))));
-            this._Bulgu_textBox.Location = new System.Drawing.Point(154, 242);
+            this._Bulgu_textBox.Location = new System.Drawing.Point(162, 231);
             this._Bulgu_textBox.Multiline = true;
             this._Bulgu_textBox.Name = "_Bulgu_textBox";
             this._Bulgu_textBox.Size = new System.Drawing.Size(341, 99);
@@ -136,25 +139,27 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(16, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 26);
+            this.label2.Size = new System.Drawing.Size(158, 26);
             this.label2.TabIndex = 18;
             this.label2.Text = "Randevu Saati :";
             // 
             // label
             // 
             this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label.Location = new System.Drawing.Point(16, 20);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(132, 26);
+            this.label.Size = new System.Drawing.Size(158, 26);
             this.label.TabIndex = 17;
             this.label.Text = "Randevu Tarihi :";
             // 
             // _RandevuTarihi_dateTimePicker
             // 
             this._RandevuTarihi_dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
-            this._RandevuTarihi_dateTimePicker.Location = new System.Drawing.Point(154, 20);
+            this._RandevuTarihi_dateTimePicker.Location = new System.Drawing.Point(180, 20);
             this._RandevuTarihi_dateTimePicker.Name = "_RandevuTarihi_dateTimePicker";
             this._RandevuTarihi_dateTimePicker.Size = new System.Drawing.Size(200, 26);
             this._RandevuTarihi_dateTimePicker.TabIndex = 16;
@@ -163,7 +168,7 @@
             // 
             this._RandevuSaati_dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._RandevuSaati_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this._RandevuSaati_dateTimePicker.Location = new System.Drawing.Point(154, 69);
+            this._RandevuSaati_dateTimePicker.Location = new System.Drawing.Point(180, 70);
             this._RandevuSaati_dateTimePicker.Name = "_RandevuSaati_dateTimePicker";
             this._RandevuSaati_dateTimePicker.Size = new System.Drawing.Size(105, 26);
             this._RandevuSaati_dateTimePicker.TabIndex = 15;

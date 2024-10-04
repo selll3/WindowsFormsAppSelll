@@ -103,12 +103,25 @@ namespace WindowsFormsAppSelll
         private void Main_Load(object sender, EventArgs e)
         {
          KullaniciGiris klnc = new KullaniciGiris();
+            HideButtons();
 
             //Doktorlar doktorlar = new Doktorlar();
             //doktorlar._Ekle_button.Enabled = false;
             //doktorlar._GUNCELLE_button.Enabled = false;
             //doktorlar._Sil_button.Enabled = false;
 
+        }
+        private void HideButtons()
+        {
+            _DOK_button1.Visible = false;
+            _PERS_button4.Visible = false;
+            _Muayene_button.Visible = false;
+           _hastalar_button.Visible = false;
+            _RANDE_button2.Visible = false;
+            _kullanicilarb.Visible = false;
+            _DoktorMuayeneleri_button.Visible=false;
+
+            // Diğer butonlar da varsa onları da gizleyebilirsin
         }
 
         public void _DOK_button1_Click(object sender, EventArgs e)
@@ -256,7 +269,50 @@ namespace WindowsFormsAppSelll
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+           
+        }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void groupBox1_MouseHover(object sender, EventArgs e)
+        {
+            HideButtons();
+            _DOK_button1.Visible = true;
+
+        }
+
+        private void groupBox2_MouseHover(object sender, EventArgs e)
+        {
+            HideButtons();
+            _Muayene_button.Visible = true;
+            _DoktorMuayeneleri_button.Visible = true;
+        }
+
+        private void groupBox3_MouseHover(object sender, EventArgs e)
+        {
+            HideButtons();
+            _hastalar_button.Visible = true;
+            _RANDE_button2.Visible = true;
+        }
+
+        private void groupBox4_MouseHover(object sender, EventArgs e)
+        {
+            HideButtons();
+            _PERS_button4.Visible = true;
+            _kullanicilarb.Visible = true;
         }
     }
 }

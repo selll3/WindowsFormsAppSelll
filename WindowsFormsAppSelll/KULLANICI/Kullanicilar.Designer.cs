@@ -84,7 +84,7 @@
             this._kullanicilar_dataGridView.RowHeadersWidth = 62;
             this._kullanicilar_dataGridView.RowTemplate.Height = 28;
             this._kullanicilar_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(674, 393);
+            this._kullanicilar_dataGridView.Size = new System.Drawing.Size(694, 393);
             this._kullanicilar_dataGridView.TabIndex = 0;
             this._kullanicilar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._kullanicilar_dataGridView_CellContentClick);
             this._kullanicilar_dataGridView.SelectionChanged += new System.EventHandler(this._kullanicilar_dataGridView_SelectionChanged);
@@ -107,7 +107,7 @@
             // 
             this._EKLE_button.BackColor = System.Drawing.Color.PaleGreen;
             this._EKLE_button.Enabled = false;
-            this._EKLE_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._EKLE_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._EKLE_button.Location = new System.Drawing.Point(12, 27);
             this._EKLE_button.Name = "_EKLE_button";
             this._EKLE_button.Size = new System.Drawing.Size(87, 40);
@@ -119,7 +119,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Vazgec.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Vazgec.Location = new System.Drawing.Point(127, 27);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(98, 40);
@@ -132,10 +132,10 @@
             // 
             this._Guncelle_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._Guncelle_button.Enabled = false;
-            this._Guncelle_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._Guncelle_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._Guncelle_button.Location = new System.Drawing.Point(378, 27);
             this._Guncelle_button.Name = "_Guncelle_button";
-            this._Guncelle_button.Size = new System.Drawing.Size(109, 40);
+            this._Guncelle_button.Size = new System.Drawing.Size(123, 40);
             this._Guncelle_button.TabIndex = 3;
             this._Guncelle_button.Text = "GÜNCELLE";
             this._Guncelle_button.UseVisualStyleBackColor = false;
@@ -145,8 +145,8 @@
             // 
             this._Yetkilerigor_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._Yetkilerigor_button.Enabled = false;
-            this._Yetkilerigor_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._Yetkilerigor_button.Location = new System.Drawing.Point(507, 27);
+            this._Yetkilerigor_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Yetkilerigor_button.Location = new System.Drawing.Point(527, 27);
             this._Yetkilerigor_button.Name = "_Yetkilerigor_button";
             this._Yetkilerigor_button.Size = new System.Drawing.Size(155, 40);
             this._Yetkilerigor_button.TabIndex = 4;
@@ -158,7 +158,7 @@
             // 
             this._SIL_button.BackColor = System.Drawing.Color.Red;
             this._SIL_button.Enabled = false;
-            this._SIL_button.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._SIL_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this._SIL_button.Location = new System.Drawing.Point(258, 27);
             this._SIL_button.Name = "_SIL_button";
             this._SIL_button.Size = new System.Drawing.Size(95, 40);
@@ -175,9 +175,9 @@
             this.panel1.Controls.Add(this._Guncelle_button);
             this.panel1.Controls.Add(this._Vazgec);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 391);
+            this.panel1.Location = new System.Drawing.Point(0, 385);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(674, 110);
+            this.panel1.Size = new System.Drawing.Size(694, 110);
             this.panel1.TabIndex = 6;
             // 
             // Kullanicilar
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(674, 501);
+            this.ClientSize = new System.Drawing.Size(694, 495);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this._kullanicilar_dataGridView);
