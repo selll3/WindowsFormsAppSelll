@@ -44,7 +44,7 @@
             // _KAYDET_button
             // 
             this._KAYDET_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._KAYDET_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._KAYDET_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._KAYDET_button.Location = new System.Drawing.Point(112, 29);
             this._KAYDET_button.Name = "_KAYDET_button";
             this._KAYDET_button.Size = new System.Drawing.Size(109, 41);
@@ -56,7 +56,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Vazgec.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Vazgec.Location = new System.Drawing.Point(299, 29);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(104, 41);
@@ -125,7 +125,7 @@
             this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(3, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 33);
+            this.label2.Size = new System.Drawing.Size(79, 22);
             this.label2.TabIndex = 20;
             this.label2.Text = "Parola :";
             // 
@@ -136,7 +136,7 @@
             this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(3, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 33);
+            this.label1.Size = new System.Drawing.Size(137, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "Kullanıcı Adı :";
             // 

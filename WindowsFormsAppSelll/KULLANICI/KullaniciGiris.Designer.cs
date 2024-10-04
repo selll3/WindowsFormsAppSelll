@@ -42,7 +42,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this.button1.Location = new System.Drawing.Point(359, 186);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 40);
@@ -58,7 +58,7 @@
             this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(-2, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 33);
+            this.label1.Size = new System.Drawing.Size(137, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "Kullanıcı Adı :";
             // 
@@ -69,7 +69,7 @@
             this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(-2, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 33);
+            this.label2.Size = new System.Drawing.Size(79, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Parola :";
             // 
@@ -95,7 +95,7 @@
             // Login_button
             // 
             this.Login_button.BackColor = System.Drawing.Color.PaleGreen;
-            this.Login_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.Login_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this.Login_button.Location = new System.Drawing.Point(2, 186);
             this.Login_button.Name = "Login_button";
             this.Login_button.Size = new System.Drawing.Size(121, 40);
@@ -108,11 +108,11 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.linkLabel1.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this.linkLabel1.LinkColor = System.Drawing.Color.LightSkyBlue;
             this.linkLabel1.Location = new System.Drawing.Point(172, 164);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(140, 22);
+            this.linkLabel1.Size = new System.Drawing.Size(185, 38);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Giriş işlemleri";

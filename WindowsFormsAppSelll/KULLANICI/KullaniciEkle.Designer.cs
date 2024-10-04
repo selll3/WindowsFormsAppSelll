@@ -78,7 +78,7 @@
             this.label2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(12, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 33);
+            this.label2.Size = new System.Drawing.Size(79, 22);
             this.label2.TabIndex = 10;
             this.label2.Text = "Parola :";
             // 
@@ -89,14 +89,14 @@
             this.label1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 33);
+            this.label1.Size = new System.Drawing.Size(137, 22);
             this.label1.TabIndex = 9;
             this.label1.Text = "Kullanıcı Adı :";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.PaleGreen;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this.button1.Location = new System.Drawing.Point(16, 175);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 37);
@@ -108,7 +108,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Khaki;
-            this.button2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this.button2.Location = new System.Drawing.Point(362, 178);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 34);

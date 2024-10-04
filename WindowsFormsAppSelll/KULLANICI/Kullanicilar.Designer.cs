@@ -52,9 +52,9 @@
             this._kullanicilar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bauhaus 93", 9F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this._kullanicilar_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -64,9 +64,9 @@
             this.Parola});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LavenderBlush;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bauhaus 93", 9F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(163)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._kullanicilar_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
@@ -107,7 +107,7 @@
             // 
             this._EKLE_button.BackColor = System.Drawing.Color.PaleGreen;
             this._EKLE_button.Enabled = false;
-            this._EKLE_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._EKLE_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._EKLE_button.Location = new System.Drawing.Point(12, 27);
             this._EKLE_button.Name = "_EKLE_button";
             this._EKLE_button.Size = new System.Drawing.Size(87, 40);
@@ -119,7 +119,7 @@
             // _Vazgec
             // 
             this._Vazgec.BackColor = System.Drawing.Color.Khaki;
-            this._Vazgec.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Vazgec.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Vazgec.Location = new System.Drawing.Point(127, 27);
             this._Vazgec.Name = "_Vazgec";
             this._Vazgec.Size = new System.Drawing.Size(98, 40);
@@ -132,7 +132,7 @@
             // 
             this._Guncelle_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this._Guncelle_button.Enabled = false;
-            this._Guncelle_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Guncelle_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Guncelle_button.Location = new System.Drawing.Point(378, 27);
             this._Guncelle_button.Name = "_Guncelle_button";
             this._Guncelle_button.Size = new System.Drawing.Size(123, 40);
@@ -145,7 +145,7 @@
             // 
             this._Yetkilerigor_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._Yetkilerigor_button.Enabled = false;
-            this._Yetkilerigor_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Yetkilerigor_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Yetkilerigor_button.Location = new System.Drawing.Point(527, 27);
             this._Yetkilerigor_button.Name = "_Yetkilerigor_button";
             this._Yetkilerigor_button.Size = new System.Drawing.Size(155, 40);
@@ -158,7 +158,7 @@
             // 
             this._SIL_button.BackColor = System.Drawing.Color.Red;
             this._SIL_button.Enabled = false;
-            this._SIL_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._SIL_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._SIL_button.Location = new System.Drawing.Point(258, 27);
             this._SIL_button.Name = "_SIL_button";
             this._SIL_button.Size = new System.Drawing.Size(95, 40);

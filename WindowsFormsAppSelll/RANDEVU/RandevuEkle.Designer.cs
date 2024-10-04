@@ -48,7 +48,7 @@
             // 
             _kaydet_button.AllowDrop = true;
             _kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            _kaydet_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            _kaydet_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             _kaydet_button.Location = new System.Drawing.Point(6, 394);
             _kaydet_button.Name = "_kaydet_button";
             _kaydet_button.Size = new System.Drawing.Size(137, 40);
@@ -61,7 +61,7 @@
             // 
             this._vazgec_button.AllowDrop = true;
             this._vazgec_button.BackColor = System.Drawing.Color.Khaki;
-            this._vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._vazgec_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._vazgec_button.Location = new System.Drawing.Point(339, 394);
             this._vazgec_button.Name = "_vazgec_button";
             this._vazgec_button.Size = new System.Drawing.Size(137, 40);

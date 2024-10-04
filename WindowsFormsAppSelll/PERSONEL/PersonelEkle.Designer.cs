@@ -50,7 +50,7 @@
             // 
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this._Vazgec_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._Vazgec_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._Vazgec_button.Location = new System.Drawing.Point(527, 308);
             this._Vazgec_button.Name = "_Vazgec_button";
             this._Vazgec_button.Size = new System.Drawing.Size(128, 42);
@@ -62,7 +62,7 @@
             // _kaydet_button
             // 
             this._kaydet_button.BackColor = System.Drawing.Color.PaleGreen;
-            this._kaydet_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this._kaydet_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
             this._kaydet_button.Location = new System.Drawing.Point(14, 308);
             this._kaydet_button.Name = "_kaydet_button";
             this._kaydet_button.Size = new System.Drawing.Size(131, 42);
@@ -147,7 +147,7 @@
             this.label4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(10, 239);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 33);
+            this.label4.Size = new System.Drawing.Size(102, 22);
             this.label4.TabIndex = 32;
             this.label4.Text = "Kullanıcı :";
             // 
