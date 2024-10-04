@@ -68,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(239)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this._kaydet_button);
             this.panel1.Controls.Add(this._vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;

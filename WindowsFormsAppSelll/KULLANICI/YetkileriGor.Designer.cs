@@ -46,6 +46,7 @@
             this._yetkilerigor_dataGridView.AllowUserToDeleteRows = false;
             this._yetkilerigor_dataGridView.AllowUserToOrderColumns = true;
             this._yetkilerigor_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._yetkilerigor_dataGridView.BackgroundColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));

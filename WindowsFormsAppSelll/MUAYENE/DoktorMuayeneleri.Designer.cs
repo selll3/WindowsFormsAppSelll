@@ -46,6 +46,7 @@
             // 
             this._DoktorMuayeneleri_dataGridView.AllowUserToAddRows = false;
             this._DoktorMuayeneleri_dataGridView.AllowUserToDeleteRows = false;
+            this._DoktorMuayeneleri_dataGridView.BackgroundColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Bauhaus 93", 9F);

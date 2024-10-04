@@ -77,6 +77,7 @@
             this._Personeller_dataGridView.AllowUserToAddRows = false;
             this._Personeller_dataGridView.AllowUserToDeleteRows = false;
             this._Personeller_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._Personeller_dataGridView.BackgroundColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Bauhaus 93", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,6 +169,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(239)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this._Ekle_button);
             this.panel1.Controls.Add(this._GUNCELLE_button);
             this.panel1.Controls.Add(this._Sil_button);

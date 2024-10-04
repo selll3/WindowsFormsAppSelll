@@ -85,6 +85,7 @@
             this._Doktorlar_dataGridView.AllowUserToDeleteRows = false;
             this._Doktorlar_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._Doktorlar_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this._Doktorlar_dataGridView.BackgroundColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Bauhaus 93", 9F);
@@ -123,7 +124,7 @@
             this._Doktorlar_dataGridView.RowHeadersWidth = 62;
             this._Doktorlar_dataGridView.RowTemplate.Height = 28;
             this._Doktorlar_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._Doktorlar_dataGridView.Size = new System.Drawing.Size(665, 568);
+            this._Doktorlar_dataGridView.Size = new System.Drawing.Size(662, 568);
             this._Doktorlar_dataGridView.TabIndex = 23;
             this._Doktorlar_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._Doktorlar_dataGridView_CellContentClick);
             this._Doktorlar_dataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this._Doktorlar_dataGridView_RowValidating);
@@ -228,14 +229,15 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(239)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this._Ekle_button);
             this.panel1.Controls.Add(this._GUNCELLE_button);
             this.panel1.Controls.Add(this._Sil_button);
             this.panel1.Controls.Add(this._Vazgec_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 583);
+            this.panel1.Location = new System.Drawing.Point(0, 569);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 65);
+            this.panel1.Size = new System.Drawing.Size(662, 65);
             this.panel1.TabIndex = 41;
             // 
             // Doktorlar
@@ -244,7 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(665, 648);
+            this.ClientSize = new System.Drawing.Size(662, 634);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this._Doktorlar_dataGridView);

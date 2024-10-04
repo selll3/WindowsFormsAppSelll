@@ -80,6 +80,7 @@
             this._Randevular_dataGridView.AllowUserToAddRows = false;
             this._Randevular_dataGridView.AllowUserToDeleteRows = false;
             this._Randevular_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._Randevular_dataGridView.BackgroundColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Bauhaus 93", 9F);
@@ -195,6 +196,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(239)))), ((int)(((byte)(252)))));
             this.panel1.Controls.Add(this._Ekle_button);
             this.panel1.Controls.Add(this._GUNCELLE_button);
             this.panel1.Controls.Add(this._Sil_button);
