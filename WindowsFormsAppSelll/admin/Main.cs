@@ -305,7 +305,7 @@ namespace WindowsFormsAppSelll
         {
             HideButtons();
             _Muayene_button.Visible = true;
-            _DoktorMuayeneleri_button.Visible = true;
+            //_DoktorMuayeneleri_button.Visible = true;
         }
 
         private void groupBox3_MouseHover(object sender, EventArgs e)

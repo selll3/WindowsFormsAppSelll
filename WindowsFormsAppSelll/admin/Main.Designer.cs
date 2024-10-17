@@ -37,7 +37,6 @@
             this._kullanicilarb = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this._Muayene_button = new System.Windows.Forms.Button();
-            this._DoktorMuayeneleri_button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -159,20 +158,6 @@
             this._Muayene_button.UseVisualStyleBackColor = false;
             this._Muayene_button.Click += new System.EventHandler(this._Muayene_button_Click);
             // 
-            // _DoktorMuayeneleri_button
-            // 
-            this._DoktorMuayeneleri_button.BackColor = System.Drawing.Color.LightSkyBlue;
-            this._DoktorMuayeneleri_button.Enabled = false;
-            this._DoktorMuayeneleri_button.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
-            this._DoktorMuayeneleri_button.Location = new System.Drawing.Point(184, 17);
-            this._DoktorMuayeneleri_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this._DoktorMuayeneleri_button.Name = "_DoktorMuayeneleri_button";
-            this._DoktorMuayeneleri_button.Size = new System.Drawing.Size(136, 25);
-            this._DoktorMuayeneleri_button.TabIndex = 25;
-            this._DoktorMuayeneleri_button.Text = "DOKTOR MUAYENE";
-            this._DoktorMuayeneleri_button.UseVisualStyleBackColor = false;
-            this._DoktorMuayeneleri_button.Click += new System.EventHandler(this._DoktorMuayeneleri_button_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
@@ -193,7 +178,6 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this.groupBox2.Controls.Add(this._Muayene_button);
-            this.groupBox2.Controls.Add(this._DoktorMuayeneleri_button);
             this.groupBox2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(-8, 126);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -293,7 +277,6 @@
         public System.Windows.Forms.Button _kullanicilarb;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button _Muayene_button;
-        public System.Windows.Forms.Button _DoktorMuayeneleri_button;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

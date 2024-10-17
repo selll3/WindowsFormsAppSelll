@@ -182,7 +182,8 @@ namespace WindowsFormsAppSelll
         private void _Ekle_button_Click(object sender, EventArgs e)
         {
 
-
+            HastaEkle he = new HastaEkle();
+            he.Show();
 
 
         }
