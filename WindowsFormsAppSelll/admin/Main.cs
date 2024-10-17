@@ -74,7 +74,7 @@ namespace WindowsFormsAppSelll
                         break;
                     case 18: _Muayene_button.Enabled= true;
                         break;
-                    case 1002: _DoktorMuayeneleri_button.Enabled = true;
+                    case 1002: button2.Enabled = true;
                         break;
                         
                 }
@@ -125,7 +125,7 @@ namespace WindowsFormsAppSelll
             _hastalar_button.Visible = false;
             _RANDE_button2.Visible = false;
             _kullanicilarb.Visible = false;
-            _DoktorMuayeneleri_button.Visible = false;
+           button2.Visible = false;
 
             // Diğer butonlar da varsa onları da gizleyebilirsin
         }
@@ -264,8 +264,8 @@ namespace WindowsFormsAppSelll
 
         private void _DoktorMuayeneleri_button_Click(object sender, EventArgs e)
         {
-            DoktorMuayeneleri dm = new DoktorMuayeneleri(currentUserId);
-            dm.Show();
+            //DoktorMuayeneleri dm = new DoktorMuayeneleri(currentUserId);
+            //dm.Show();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -297,6 +297,7 @@ namespace WindowsFormsAppSelll
         {
             HideButtons();
             _DOK_button1.Visible = true;
+            button2.Visible = true;
 
         }
 
@@ -319,6 +320,15 @@ namespace WindowsFormsAppSelll
             HideButtons();
             _PERS_button4.Visible = true;
             _kullanicilarb.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DoktorMuayeneleri dm = new DoktorMuayeneleri(currentUserId);
+            dm.Show();
+            
+
+           
         }
     }
 }

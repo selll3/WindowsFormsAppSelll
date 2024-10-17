@@ -46,30 +46,33 @@
             // 
             this._hastaAdi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._hastaAdi_textBox.Enabled = false;
-            this._hastaAdi_textBox.Font = new System.Drawing.Font("PanRoman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this._hastaAdi_textBox.Location = new System.Drawing.Point(3, 12);
+            this._hastaAdi_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this._hastaAdi_textBox.Location = new System.Drawing.Point(2, 8);
+            this._hastaAdi_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._hastaAdi_textBox.Name = "_hastaAdi_textBox";
-            this._hastaAdi_textBox.Size = new System.Drawing.Size(231, 28);
+            this._hastaAdi_textBox.Size = new System.Drawing.Size(155, 23);
             this._hastaAdi_textBox.TabIndex = 0;
             // 
             // _hastaSoyadi_textBox
             // 
             this._hastaSoyadi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._hastaSoyadi_textBox.Enabled = false;
-            this._hastaSoyadi_textBox.Font = new System.Drawing.Font("PanRoman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this._hastaSoyadi_textBox.Location = new System.Drawing.Point(3, 70);
+            this._hastaSoyadi_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this._hastaSoyadi_textBox.Location = new System.Drawing.Point(2, 46);
+            this._hastaSoyadi_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._hastaSoyadi_textBox.Name = "_hastaSoyadi_textBox";
-            this._hastaSoyadi_textBox.Size = new System.Drawing.Size(231, 28);
+            this._hastaSoyadi_textBox.Size = new System.Drawing.Size(155, 23);
             this._hastaSoyadi_textBox.TabIndex = 1;
             // 
             // _hastaYasi_textBox
             // 
             this._hastaYasi_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(175)))), ((int)(((byte)(203)))));
             this._hastaYasi_textBox.Enabled = false;
-            this._hastaYasi_textBox.Font = new System.Drawing.Font("PanRoman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this._hastaYasi_textBox.Location = new System.Drawing.Point(3, 123);
+            this._hastaYasi_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this._hastaYasi_textBox.Location = new System.Drawing.Point(2, 80);
+            this._hastaYasi_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._hastaYasi_textBox.Name = "_hastaYasi_textBox";
-            this._hastaYasi_textBox.Size = new System.Drawing.Size(231, 28);
+            this._hastaYasi_textBox.Size = new System.Drawing.Size(155, 23);
             this._hastaYasi_textBox.TabIndex = 2;
             // 
             // _Vazgec_button
@@ -77,9 +80,10 @@
             this._Vazgec_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this._Vazgec_button.Cursor = System.Windows.Forms.Cursors.Arrow;
             this._Vazgec_button.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 9F);
-            this._Vazgec_button.Location = new System.Drawing.Point(327, 380);
+            this._Vazgec_button.Location = new System.Drawing.Point(218, 247);
+            this._Vazgec_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._Vazgec_button.Name = "_Vazgec_button";
-            this._Vazgec_button.Size = new System.Drawing.Size(120, 40);
+            this._Vazgec_button.Size = new System.Drawing.Size(80, 26);
             this._Vazgec_button.TabIndex = 21;
             this._Vazgec_button.Text = "VAZGEÇ";
             this._Vazgec_button.UseVisualStyleBackColor = false;
@@ -111,13 +115,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 155);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 107);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(444, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(296, 125);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -150,16 +155,17 @@
             // 
             // DMuayeneleriAyrinti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(454, 427);
+            this.ClientSize = new System.Drawing.Size(303, 278);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this._Vazgec_button);
             this.Controls.Add(this._hastaYasi_textBox);
             this.Controls.Add(this._hastaSoyadi_textBox);
             this.Controls.Add(this._hastaAdi_textBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DMuayeneleriAyrinti";
             this.Text = "DMuayeneleriAyrinti";
             this.Load += new System.EventHandler(this.DMuayeneleriAyrinti_Load);
