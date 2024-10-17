@@ -43,14 +43,14 @@ namespace WindowsFormsAppSelll.KULLANICI
             {
                 switch (permission.FormID)
                 {
-                    case 13:  
+                    case 14:  
                         _EKLE_button.Enabled = true;
                         break;
-                    case 16: 
+                    case 13: 
                         _Guncelle_button.Enabled = true;
                         _SIL_button.Enabled = true;
                         break;
-                    case 17: _Yetkilerigor_button.Enabled = true; 
+                    case 16: _Yetkilerigor_button.Enabled = true; 
                         break;
 
 

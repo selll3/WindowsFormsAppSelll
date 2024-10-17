@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,19 +14,23 @@ using WindowsFormsAppSelll.KULLANICI;
 using WindowsFormsAppSelll.MUAYENE;
 
 namespace WindowsFormsAppSelll
-{
+{  
     public partial class Main : Form
     {
         private int currentUserId;
+        
         
         private Hastanedb dbContext = new Hastanedb();
 
         //private int currentUserId;
         //private Hastanedb dbContext = new Hastanedb();
+       
+
         public Main(int userId)
+
         {
             InitializeComponent();
-           
+             
             currentUserId = userId;  // Login formundan gelen kullanıcı ID'si
             yetkileriolustur();
            
@@ -36,9 +41,10 @@ namespace WindowsFormsAppSelll
             //_kullanicilarb.Enabled = false;
             //currentUserId = userId;  // Login formundan gelen kullanıcı ID'si
             //LoadUserPermissions();
-
+            
 
         }
+       
         public void yetkileriolustur()
         {
             
@@ -68,7 +74,7 @@ namespace WindowsFormsAppSelll
                         break;
                     case 18: _Muayene_button.Enabled= true;
                         break;
-                    case 20: _DoktorMuayeneleri_button.Enabled = true;
+                    case 1002: _DoktorMuayeneleri_button.Enabled = true;
                         break;
                         
                 }
@@ -102,7 +108,7 @@ namespace WindowsFormsAppSelll
         //}
         private void Main_Load(object sender, EventArgs e)
         {
-         KullaniciGiris klnc = new KullaniciGiris();
+            KullaniciGiris klnc = new KullaniciGiris();
             HideButtons();
 
             //Doktorlar doktorlar = new Doktorlar();
@@ -116,10 +122,10 @@ namespace WindowsFormsAppSelll
             _DOK_button1.Visible = false;
             _PERS_button4.Visible = false;
             _Muayene_button.Visible = false;
-           _hastalar_button.Visible = false;
+            _hastalar_button.Visible = false;
             _RANDE_button2.Visible = false;
             _kullanicilarb.Visible = false;
-            _DoktorMuayeneleri_button.Visible=false;
+            _DoktorMuayeneleri_button.Visible = false;
 
             // Diğer butonlar da varsa onları da gizleyebilirsin
         }

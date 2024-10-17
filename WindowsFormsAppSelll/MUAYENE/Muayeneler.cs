@@ -39,7 +39,7 @@ namespace WindowsFormsAppSelll.MUAYENE
             {
                 switch (permission.FormID)
                 {
-                    case 19:
+                    case 17:
                         _Ekle_button.Enabled = true;
                         break;
                     

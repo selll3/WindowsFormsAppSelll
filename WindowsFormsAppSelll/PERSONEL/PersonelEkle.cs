@@ -53,27 +53,28 @@ namespace WindowsFormsAppSelll
                 }
 
                 // Yeni personel ekleme
-                PERSONEL yP = new PERSONEL();
+                PERSONEL yP = new PERSONEL
+                {
+                    PersonelAdi = _PersonelAdi_textBox.Text,
+                    PersonelSoyadi = _PersonelSoyadi_textBox.Text,
+                    PersonelGorev = comboBox1.SelectedItem.ToString(),
+                    KULLANICIID = kullaniciId
+                };
 
-                yP.PersonelAdi = _PersonelAdi_textBox.Text;
-                yP.PersonelSoyadi = _PersonelSoyadi_textBox.Text;
-                yP.PersonelGorev = comboBox1.SelectedItem.ToString();
-                yP.KULLANICIID = kullaniciId;
-                
-              
-                //context.PERSONEL.Add(yP);
-               /* context.SaveChanges();*/ // Veritabanına ekleme işlemi yapılır
+                // Önce PERSONEL kaydını ekle
+                context.PERSONEL.Add(yP);
+                context.SaveChanges(); // SaveChanges çağrısı yaparak veritabanına ekleyin
+
+                // PERSONELID değerini aldıktan sonra doktor ekleme
+                int personelID = yP.PERSONELID;
 
                 // Eğer personel doktor ise doktorlar tablosuna da ekle
                 if (comboBox1.SelectedItem.ToString() == "Doktor")
                 {
-                    AddDoctor(yP.PERSONELID, _PersonelAdi_textBox.Text, _PersonelSoyadi_textBox.Text);
+                    AddDoctor(personelID, _PersonelAdi_textBox.Text, _PersonelSoyadi_textBox.Text);
                 }
-               var yeniPersonel = Database.Model.Personeller.PersonelEkle(yP);
-                if (yeniPersonel)
-                {
-                 MessageBox.Show("Personel başarıyla eklendi.");
-                }
+
+                MessageBox.Show("Personel başarıyla eklendi.");
 
                 // İlk formu güncelle ve göster
                 var form1 = Application.OpenForms.OfType<Personeller>().FirstOrDefault();
@@ -85,29 +86,114 @@ namespace WindowsFormsAppSelll
                 this.Close();
             }
         }
-          
+        //bool isAnyEmpty = false;
+        //foreach (Control control in this.Controls)
+        //{
+        //    if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
+        //    {
+        //        isAnyEmpty = true;
+        //        break;
+        //    }
+        //}
+
+        //if (isAnyEmpty)
+        //{
+        //    MessageBox.Show("Doldurmalısın!!", "BİLGİLENDİRME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    return;
+        //}
+
+        //using (var context = new Hastanedb()) // Entity Framework DbContext sınıfı
+        //{
+        //    // Aynı kullanıcı zaten atanmış mı kontrol etmek için sorgu
+        //    var kullaniciId = (int)_kullanici_comboBox.SelectedValue;
+        //    bool kullaniciZatenAtanmis = context.PERSONEL.Any(p => p.KULLANICIID == kullaniciId);
+
+        //    if (kullaniciZatenAtanmis)
+        //    {
+        //        MessageBox.Show("Bu kullanıcı zaten bir personele atanmış!");
+        //        return;
+        //    }
+
+        //    // Yeni personel ekleme
+        //    PERSONEL yP = new PERSONEL();
+
+        //    yP.PersonelAdi = _PersonelAdi_textBox.Text;
+        //    yP.PersonelSoyadi = _PersonelSoyadi_textBox.Text;
+        //    yP.PersonelGorev = comboBox1.SelectedItem.ToString();
+        //    yP.KULLANICIID = kullaniciId;
+
+
+        //    //context.PERSONEL.Add(yP);
+        //   /* context.SaveChanges();*/ // Veritabanına ekleme işlemi yapılır
+
+        //    // Eğer personel doktor ise doktorlar tablosuna da ekle
+        //    if (comboBox1.SelectedItem.ToString() == "Doktor")
+        //    {
+        //        AddDoctor(yP.PERSONELID, _PersonelAdi_textBox.Text, _PersonelSoyadi_textBox.Text);
+        //    }
+        //   var yeniPersonel = Database.Model.Personeller.PersonelEkle(yP);
+        //    if (yeniPersonel)
+        //    {
+        //     MessageBox.Show("Personel başarıyla eklendi.");
+        //    }
+
+        //    // İlk formu güncelle ve göster
+        //    var form1 = Application.OpenForms.OfType<Personeller>().FirstOrDefault();
+        //    if (form1 != null)
+        //    {
+        //        form1.LoadDataIntoGridp();
+        //    }
+
+        //    this.Close();
+        //}
+    
 
 
 
-        
-        private void AddDoctor(int personelID, string doktorAdi, string doktorSoyadi)
+
+
+private void AddDoctor(int personelID, string doktorAdi, string doktorSoyadi)
         {
             using (var context = new Hastanedb())
             {
+                // Geçerli bir PERSONELID kontrolü
+                if (personelID <= 0)
+                {
+                    MessageBox.Show("Geçerli bir PERSONELID değeri yok.");
+                    return;
+                }
+
                 var yeniDoktor = new DOKTORLAR
                 {
                     DoktorAdi = doktorAdi,
                     DoktorSoyadi = doktorSoyadi,
                     DoktorunBransi = _doktorunbransi_comboBox.SelectedItem.ToString(), // Branş ID yerine ismi kullanıyoruz
                     Doktorun_kati = (int)_doktorunkati_numericUpDown.Value,
-                    PERSONELID = personelID
+                    PERSONELID = personelID // Yeni eklenen personelin ID'si
                 };
 
+                // Doktoru DOKTORLAR tablosuna ekleyin
                 context.DOKTORLAR.Add(yeniDoktor);
                 context.SaveChanges();
 
                 MessageBox.Show("Doktor başarıyla eklendi.");
             }
+            //using (var context = new Hastanedb())
+            //{
+            //    var yeniDoktor = new DOKTORLAR
+            //    {
+            //        DoktorAdi = doktorAdi,
+            //        DoktorSoyadi = doktorSoyadi,
+            //        DoktorunBransi = _doktorunbransi_comboBox.SelectedItem.ToString(), // Branş ID yerine ismi kullanıyoruz
+            //        Doktorun_kati = (int)_doktorunkati_numericUpDown.Value,
+            //        PERSONELID = personelID
+            //    };
+
+            //    context.DOKTORLAR.Add(yeniDoktor);
+            //    context.SaveChanges();
+
+            //    MessageBox.Show("Doktor başarıyla eklendi.");
+            //}
         }
 
         private void FillComboSeachCode()
